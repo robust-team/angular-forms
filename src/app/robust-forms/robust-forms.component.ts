@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, EmailControl } from './form-control/';
 
 @Component({
-  selector: 'robust-form',
+  selector: 'robust-forms',
   templateUrl: './robust-form.component.html',
 })
-export class RobustFormComponent implements OnInit {
+export class RobustFormsComponent implements OnInit {
 
   public controls: Array<FormControl> = [
     { name: '' },

@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RobustFormComponent } from './robust-form/robust-form.component';
+import { RobustFormsComponent } from './robust-forms.component';
 
 @NgModule({
   imports: [
     CommonModule
   ],
   declarations: [
-    RobustFormComponent
+    RobustFormsComponent
   ],
   exports: [
-    RobustFormComponent,
+    RobustFormsComponent,
   ]
 })
 export class RobustFormsModule { }
