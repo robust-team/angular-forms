@@ -9,7 +9,7 @@
     </div>
   </ng-template>
 
-  <ng-template [ngIf]="!control.type || control.type === 'email'">
+  <ng-template [ngIf]="control.type === 'email'">
     <div class="form-group">
       <label for="control-email" *ngIf="control.description">{{ control.description }}</label>
       <input class="form-control" type="email" id="control-email">
