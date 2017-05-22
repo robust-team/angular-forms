@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
+import { RobustFormsModule } from './robust-forms/robust-forms.module';
+
 import { AppComponent } from './app.component';
 
 @NgModule({
@@ -11,6 +13,7 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
+    RobustFormsModule,
     FormsModule,
     HttpModule
   ],

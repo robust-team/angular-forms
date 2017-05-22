@@ -1,6 +1,6 @@
 {
-  "name": "robust-forms",
-  "version": "0.0.0",
+  "name": "angular2-robust-forms",
+  "version": "0.1.0",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
@@ -38,7 +38,6 @@
     "karma-jasmine": "~1.1.0",
     "karma-jasmine-html-reporter": "^0.2.2",
     "karma-coverage-istanbul-reporter": "^0.2.0",
-    "protractor": "~5.1.0",
     "ts-node": "~2.0.0",
     "tslint": "~4.5.0",
     "typescript": "~2.2.0"
