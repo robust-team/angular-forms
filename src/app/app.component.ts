@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { EmailControl } from './robust-forms/form-control';
 
 @Component({
   selector: 'app-root',
@@ -7,6 +8,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   public form: Array<any> = [
-    {name: 'app works!'},
+    new EmailControl('email'),
   ];
 }
