@@ -5,12 +5,16 @@ export class DataTable extends Question {
 
   public constructor(
     description: string,
-    questionType: string,
     fieldType: string,
     validations: Validation[],
+    private _questionType: string,
     private _questions: Question[]
   ) {
-    super(description, questionType, fieldType, validations);
+    super(description, fieldType, validations);
+  }
+
+  public get questionType(): string {
+    return this._questionType;
   }
 
   public get questions(): Question[] {
