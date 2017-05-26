@@ -2,7 +2,7 @@
 
 <ng-container *ngFor="let control of controls">
 
-  <ng-template [ngIf]="!control.type || control.getType() === 'text'">
+  <ng-template [ngIf]="!control.getType() || control.getType() === 'text'">
     <div class="form-group">
       <label for="control-text" *ngIf="control.description">{{ control.description }}</label>
       <input class="form-control" type="text" id="control-text">

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, EmailControl } from './form-control/';
+import { FormControl } from './form-control';
 
 @Component({
   selector: 'robust-forms',

@@ -1,4 +1,14 @@
-import { FormControl } from './form-control'
+import { FormControl } from '.';
 
-export interface EmailControl extends FormControl {
+export class EmailControl implements FormControl {
+
+    public constructor(
+        private name: string
+    ) {
+
+    }
+
+    public getType(): string {
+        return 'email-control';
+    }
 }
