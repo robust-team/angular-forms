@@ -1,19 +1,30 @@
 <p>robust-form works!</p>
 
-<ng-container *ngFor="let control of controls">
+<ng-container *ngFor="let group of groups">
 
-  <ng-template [ngIf]="!control.getType() || control.getType() === 'text'">
-    <div class="form-group">
-      <label for="control-text" *ngIf="control.description">{{ control.description }}</label>
-      <input class="form-control" type="text" id="control-text">
-    </div>
-  </ng-template>
+  <fieldset>
 
-  <ng-template [ngIf]="control.type === 'email'">
-    <div class="form-group">
-      <label for="control-email" *ngIf="control.description">{{ control.description }}</label>
-      <input class="form-control" type="email" id="control-email">
-    </div>
-  </ng-template>
+    <legend *ngIf="'Ungrouped' !== group.description">{{ group.description }}</legend>
+
+    <ng-container *ngFor="let question of questions">
+    <!--
+    <ng-template [ngIf]="!control.getType() || control.getType() === 'text'">
+      <div class="form-group">
+        <label for="control-text" *ngIf="control.description">{{ control.description }}</label>
+        <input class="form-control" type="text" id="control-text">
+      </div>
+    </ng-template>
+
+    <ng-template [ngIf]="control.type === 'email'">
+      <div class="form-group">
+        <label for="control-email" *ngIf="control.description">{{ control.description }}</label>
+        <input class="form-control" type="email" id="control-email">
+      </div>
+    </ng-template>
+    -->
+    </ng-container>
+
+  </fieldset>
+
 
 </ng-container>

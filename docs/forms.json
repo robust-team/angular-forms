@@ -1,9 +1,11 @@
 {
-    "groups": [{
-        "Group Name": {
+    "groups": [
+        {
+            "description": "Group Name",
             "questions": []
         },
-        "Ungrouped": {
+        {
+            "description": "Ungrouped",
             "questions": [{
                 "Entity Group": {
                     "customType": "aCustomType",
@@ -42,5 +44,5 @@
                 }
             }]
         }
-    }]
+    ]
 }
