@@ -55,7 +55,7 @@
           </div>
         </ng-template>
 
-        <ng-template [ngSwitchCase]="fieldType.TEXT">
+        <ng-template [ngSwitchCase]="fieldType.TEXT" ngSwitchDefault>
           <div class="form-group">
             <label [for]="question.code">{{ question.description }}</label>
             <input type="text" [id]="question.code" class="form-control" [name]="question.code"
