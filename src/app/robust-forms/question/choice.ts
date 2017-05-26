@@ -5,13 +5,12 @@ export abstract class Choice extends Question {
 
   public constructor(
     description: string,
-    questionType: string,
     fieldType: string,
     validations: Validation[],
     private _options: string[],
     private _defaultOption: string
   ) {
-    super(description, questionType, fieldType, validations);
+    super(description, fieldType, validations);
   }
 
   public get options(): string[] {
