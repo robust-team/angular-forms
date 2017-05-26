@@ -1,30 +1,69 @@
 <p>robust-form works!</p>
 
 <ng-container *ngFor="let group of groups">
-
   <fieldset>
-
     <legend *ngIf="'Ungrouped' !== group.description">{{ group.description }}</legend>
 
-    <ng-container *ngFor="let question of questions">
-    <!--
-    <ng-template [ngIf]="!control.getType() || control.getType() === 'text'">
-      <div class="form-group">
-        <label for="control-text" *ngIf="control.description">{{ control.description }}</label>
-        <input class="form-control" type="text" id="control-text">
-      </div>
-    </ng-template>
+    <ng-container *ngFor="let question of group.questions">
 
-    <ng-template [ngIf]="control.type === 'email'">
-      <div class="form-group">
-        <label for="control-email" *ngIf="control.description">{{ control.description }}</label>
-        <input class="form-control" type="email" id="control-email">
-      </div>
-    </ng-template>
-    -->
+      <ng-container [ngSwitch]="question.fieldType">
+
+        <ng-template [ngSwitchCase]="fieldType.CHECK">
+          <div class="form-group">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" [name]="question.code" />
+                {{ question.description }}
+              </label>
+            </div>
+          </div>
+        </ng-template>
+
+        <ng-template [ngSwitchCase]="fieldType.DATA_TABLE">
+          <div class="form-group">
+            <label>DataTable</label>
+            <p>...</p>
+          </div>
+        </ng-template>
+
+        <ng-template [ngSwitchCase]="fieldType.RADIO">
+          <div class="form-group">
+            <label>{{ question.description }}</label>
+            <div class="radio" *ngFor="let option of question.options">
+              <label>
+                <input type="radio" [name]="question.code" [value]="option"
+                       [checked]="option === question.defaultOption ? 'checked' : ''">
+                {{ option }}
+              </label>
+            </div>
+          </div>
+        </ng-template>
+
+        <ng-template [ngSwitchCase]="fieldType.SELECT">
+          <div class="form-group">
+            <label [for]="question.code">{{ question.description }}</label>
+            <select [id]="question.code" class="form-control" [name]="question.code">
+              <option disabled [selected]="!question.defaultOption ? 'selected' : ''">
+                {{ question.placeholder ? question.placeholder : '' }}
+              </option>
+              <option *ngFor="let option of question.options" [value]="option"
+                      [selected]="option === question.defaultOption ? 'selected' : ''">
+                {{ option }}
+              </option>
+            </select>
+          </div>
+        </ng-template>
+
+        <ng-template [ngSwitchCase]="fieldType.TEXT">
+          <div class="form-group">
+            <label [for]="question.code">{{ question.description }}</label>
+            <input type="text" [id]="question.code" class="form-control" [name]="question.code"
+                   [placeholder]="question.placeholder ? question.placeholder : ''">
+          </div>
+        </ng-template>
+      </ng-container>
+
     </ng-container>
-
   </fieldset>
-
 
 </ng-container>
