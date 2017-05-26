@@ -12,7 +12,8 @@
           <div class="form-group">
             <div class="checkbox">
               <label>
-                <input type="checkbox" [name]="question.code" />
+                <input type="checkbox" [name]="question.code"
+                       [checked]="question.defaultOption ? 'checked' : ''" />
                 {{ question.description }}
               </label>
             </div>

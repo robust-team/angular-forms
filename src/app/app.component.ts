@@ -56,6 +56,7 @@ export class AppComponent {
                 "code": "P-000",
                 "description": "Question Check",
                 "fieldType": 0,
+                "defaultOption": true
             },
             {
                 "code": "P-001",
