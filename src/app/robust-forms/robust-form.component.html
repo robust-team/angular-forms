@@ -12,8 +12,7 @@
           <div class="form-group">
             <div class="checkbox">
               <label>
-                <input type="checkbox" [name]="question.code"
-                       [checked]="question.defaultOption ? 'checked' : ''" />
+                <input type="checkbox" [name]="question.code" [checked]="question.defaultOption ? 'checked' : ''" />
                 {{ question.description }}
               </label>
             </div>
@@ -21,10 +20,7 @@
         </ng-template>
 
         <ng-template [ngSwitchCase]="fieldType.DATA_TABLE">
-          <div class="form-group">
-            <label>DataTable</label>
-            <p>...</p>
-          </div>
+          <data-table [question]="question"></data-table>
         </ng-template>
 
         <ng-template [ngSwitchCase]="fieldType.RADIO">

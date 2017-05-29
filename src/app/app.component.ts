@@ -62,6 +62,33 @@ export class AppComponent {
                 "code": "P-001",
                 "description": "Question DataTable",
                 "fieldType": 1,
+                "customType": "consumo-agua",
+                "questions": [
+                    {
+                        "code": "P-102",
+                        "description": "Question Text 11",
+                        "fieldType": 4,
+                        "placeholder": "Example 11"
+                    },
+                    {
+                        "code": "P-102",
+                        "description": "Question Text 12",
+                        "fieldType": 4,
+                        "placeholder": "Example 12"
+                    },
+                    {
+                        "code": "P-103",
+                        "description": "Question Text 13",
+                        "fieldType": 4,
+                        "placeholder": "Example 13"
+                    },
+                    {
+                        "code": "P-104",
+                        "description": "Question Text 14",
+                        "fieldType": 4,
+                        "placeholder": "Example 14"
+                    }
+                ]
             },
             {
                 "code": "P-002",
