@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { RobustFormsComponent } from './robust-forms.component';
+import { DataTableComponent } from './data-table/data-table.component';
 
 describe('RobustFormsComponent', () => {
   let component: RobustFormsComponent;
@@ -8,7 +9,7 @@ describe('RobustFormsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ RobustFormsComponent ]
+      declarations: [ RobustFormsComponent, DataTableComponent ]
     })
     .compileComponents();
   }));

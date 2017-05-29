@@ -7,10 +7,10 @@ export class Text extends Question {
     description: string,
     fieldType: string,
     validations: Validation[],
-    private _mask: string,
-    private _placeholder: string
+    private _mask: string = '',
+    private _placeholder: string = ''
   ) {
-    super(description, fieldType, validations);
+    super(description, fieldType, validations || []);
   }
 
   public get mask(): string {
@@ -21,11 +21,11 @@ export class Text extends Question {
     return this._placeholder;
   }
 
-  public fromJson(question : Text) : Question {
+  public static fromJson(question : Text) : Question {0
     return new Text(
       question.description,
       question.fieldType,
-      question.validations,
+      question.validations ,
       question.mask,
       question.placeholder
     );

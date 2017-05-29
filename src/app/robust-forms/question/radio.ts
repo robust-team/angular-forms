@@ -2,7 +2,7 @@ import { Choice } from './choice';
 
 export class Radio extends Choice {
 
-    public fromJson(question : Radio) : Radio {
+    public static fromJson(question : Radio) : Radio {
         return new Radio(
             question.description,
             question.fieldType,

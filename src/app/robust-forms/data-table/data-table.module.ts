@@ -6,6 +6,6 @@ import { DataTableComponent } from './data-table.component';
 @NgModule({
   imports: [CommonModule],
   declarations: [DataTableComponent],
-  exports: [DataTableComponent]
+  exports: [DataTableComponent],
 })
 export class DataTableModule { }
