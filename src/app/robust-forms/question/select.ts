@@ -17,4 +17,15 @@ export class Select extends Choice {
   public get placeholder(): string {
     return this._placeholder;
   }
+
+  public fromJson(question: Select): Select {
+    return new Select(
+      question.description,
+      question.fieldType,
+      question.validations,
+      question.options,
+      question.defaultOption,
+      question.placeholder
+    );
+  }
 }

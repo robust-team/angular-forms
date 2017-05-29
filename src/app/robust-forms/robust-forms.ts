@@ -1,17 +1,23 @@
-import { Group } from './group/group';
+import {
+    Group,
+    GroupBuilder,
+    Question,
+    QuestionFactory
+} from '.';
 
 export class RobustForms {
 
-    public static fromJson(json : Object): Array<Group> {
-        let groups = [];
+    public static fromJson(jsonGroups : Array<Group>): Array<Group> {
 
-        for (let jsonGroups in json) {
-            groups.push(new Group(
-                jsonGroups['description'],
-                jsonGroups['questions']
-            ));
-        }
+        return jsonGroups.map((group: Group) => {
 
-        return groups;
+            let groupBuilder = new GroupBuilder(group.description);
+
+            for (let question of group.questions) {
+                groupBuilder.addQuestion(new QuestionFactory(question).create());
+            }
+
+            return groupBuilder.build();
+        });
     }
 }

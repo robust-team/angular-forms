@@ -1,17 +1,17 @@
-import { Question } from './../question/question';
+import { Question } from './..';
 
 export class Group {
 
   public constructor(
     private _description: string,
-    private _questions: Question[]
+    private _questions: Array<Question>
   ) { }
 
   public get description(): string {
     return this._description;
   }
 
-  public get questions(): Question[] {
+  public get questions(): Array<Question> {
     return this._questions;
   }
 }
