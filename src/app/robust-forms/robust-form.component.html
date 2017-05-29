@@ -21,10 +21,7 @@
         </ng-template>
 
         <ng-template [ngSwitchCase]="fieldType.DATA_TABLE">
-          <div class="form-group">
-            <label>DataTable</label>
-            <p>...</p>
-          </div>
+          <data-table [question]="question"></data-table>
         </ng-template>
 
         <ng-template [ngSwitchCase]="fieldType.RADIO">

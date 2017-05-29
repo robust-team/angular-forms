@@ -1,0 +1,47 @@
+<fieldset class="datatable">
+  <legend>{{ question.description }}</legend>
+
+  <div class="row">
+    <ng-container class="row" *ngFor="let column of question.questions">
+      <ng-container [ngSwitch]="column.fieldType">
+
+        <ng-template [ngSwitchCase]="fieldType.CHECK" ngSwitchDefault>
+          <div class="form-group col-md-3">
+            <label [for]="column.code">{{ column.description }}</label>
+            <input type="text" [id]="column.code" class="form-control" [name]="column.code"
+                   [placeholder]="column.placeholder ? column.placeholder : ''">
+          </div>
+        </ng-template>
+
+        <ng-template [ngSwitchCase]="fieldType.RADIO" ngSwitchDefault>
+          <div class="form-group col-md-3">
+            <label [for]="column.code">{{ column.description }}</label>
+            <input type="text" [id]="column.code" class="form-control" [name]="column.code"
+                   [placeholder]="column.placeholder ? column.placeholder : ''">
+          </div>
+        </ng-template>
+
+        <ng-template [ngSwitchCase]="fieldType.SELECT" ngSwitchDefault>
+          <div class="form-group col-md-3">
+            <label [for]="column.code">{{ column.description }}</label>
+            <input type="text" [id]="column.code" class="form-control" [name]="column.code"
+                   [placeholder]="column.placeholder ? column.placeholder : ''">
+          </div>
+        </ng-template>
+
+        <ng-template [ngSwitchCase]="fieldType.TEXT" ngSwitchDefault>
+          <div class="form-group col-md-3">
+            <label [for]="column.code">{{ column.description }}</label>
+            <input type="text" [id]="column.code" class="form-control" [name]="column.code"
+                   [placeholder]="column.placeholder ? column.placeholder : ''">
+          </div>
+        </ng-template>
+
+      </ng-container>
+    </ng-container>
+  </div>
+
+  <button class="btn btn-default btn-add-row">
+    Adicionar
+  </button>
+</fieldset>
