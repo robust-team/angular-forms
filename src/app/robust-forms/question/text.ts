@@ -20,4 +20,14 @@ export class Text extends Question {
   public get placeholder(): string {
     return this._placeholder;
   }
+
+  public fromJson(question : Text) : Question {
+    return new Text(
+      question.description,
+      question.fieldType,
+      question.validations,
+      question.mask,
+      question.placeholder
+    );
+  }
 }

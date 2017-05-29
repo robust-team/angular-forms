@@ -15,4 +15,13 @@ export class Check extends Question {
   public get defaultOption(): boolean {
     return this._defaultOption;
   }
+
+  public fromJson(question : Check) : Check {
+    return new Check(
+      question.description,
+      question.fieldType,
+      question.validations,
+      quiestion.defaultOption
+    );
+  }
 }

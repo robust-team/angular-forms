@@ -20,4 +20,14 @@ export class DataTable extends Question {
   public get questions(): Question[] {
     return this._questions;
   }
+
+  public fromJson(question : DataTable) : DataTable {
+    return new DataTable(
+      question.description,
+      question.fieldType,
+      question.validations,
+      question.questionType,
+      question.questions
+    );
+  }
 }

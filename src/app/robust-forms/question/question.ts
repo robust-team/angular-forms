@@ -19,4 +19,6 @@ export abstract class Question {
   public get validations(): Validation[] {
     return this.validations;
   }
+
+  public abstract fromJson(question : Question) : Question;
 }

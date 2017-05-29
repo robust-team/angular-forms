@@ -7,25 +7,38 @@
 
         <ng-template [ngSwitchCase]="fieldType.CHECK" ngSwitchDefault>
           <div class="form-group col-md-3">
-            <label [for]="column.code">{{ column.description }}</label>
-            <input type="text" [id]="column.code" class="form-control" [name]="column.code"
-                   [placeholder]="column.placeholder ? column.placeholder : ''">
+            <label>
+              <input type="checkbox" [name]="column.code" [checked]="column.defaultOption ? 'checked' : ''" />
+              {{ column.description }}
+            </label>
           </div>
         </ng-template>
 
         <ng-template [ngSwitchCase]="fieldType.RADIO" ngSwitchDefault>
           <div class="form-group col-md-3">
-            <label [for]="column.code">{{ column.description }}</label>
-            <input type="text" [id]="column.code" class="form-control" [name]="column.code"
-                   [placeholder]="column.placeholder ? column.placeholder : ''">
+            <label>{{ column.description }}</label>
+            <div class="radio" *ngFor="let option of column.options">
+              <label>
+                <input type="radio" [name]="column.code" [value]="option"
+                       [checked]="option === column.defaultOption ? 'checked' : ''">
+                {{ option }}
+              </label>
+            </div>
           </div>
         </ng-template>
 
         <ng-template [ngSwitchCase]="fieldType.SELECT" ngSwitchDefault>
           <div class="form-group col-md-3">
             <label [for]="column.code">{{ column.description }}</label>
-            <input type="text" [id]="column.code" class="form-control" [name]="column.code"
-                   [placeholder]="column.placeholder ? column.placeholder : ''">
+            <select [id]="column.code" class="form-control" [name]="column.code">
+              <option disabled [selected]="!column.defaultOption ? 'selected' : ''">
+                {{ column.placeholder ? column.placeholder : '' }}
+              </option>
+              <option *ngFor="let option of column.options" [value]="option"
+                      [selected]="option === column.defaultOption ? 'selected' : ''">
+                {{ option }}
+              </option>
+            </select>
           </div>
         </ng-template>
 
