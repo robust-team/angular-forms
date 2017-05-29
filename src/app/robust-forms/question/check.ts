@@ -16,7 +16,7 @@ export class Check extends Question {
     return this._defaultOption;
   }
 
-  public fromJson(question : Check) : Check {
+  public static fromJson(question : Check) : Check {
     return new Check(
       question.description,
       question.fieldType,

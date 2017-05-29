@@ -21,7 +21,7 @@ export class DataTable extends Question {
     return this._questions;
   }
 
-  public fromJson(question : DataTable) : DataTable {
+  public static fromJson(question : DataTable) : DataTable {
     return new DataTable(
       question.description,
       question.fieldType,

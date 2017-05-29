@@ -18,7 +18,7 @@ export class Select extends Choice {
     return this._placeholder;
   }
 
-  public fromJson(question: Select): Select {
+  public static fromJson(question: Select): Select {
     return new Select(
       question.description,
       question.fieldType,
