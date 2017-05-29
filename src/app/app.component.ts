@@ -8,11 +8,44 @@ import { Component } from '@angular/core';
 export class AppComponent {
   public customForm: Array<any> = [
     {
-        "description": "Group Name",
+        "description": "Ungrouped",
+        "groupType": 0,
         "questions": []
     },
     {
-        "description": "Ungrouped",
+        "description": "Consumo de Água",
+        "groupType": 1,
+        "customType": "consumo-agua",
+        "questions": [
+            {
+                "code": "P-201",
+                "description": "Origem",
+                "fieldType": 4,
+                "placeholder": "Example 11"
+            },
+            {
+                "code": "P-202",
+                "description": "Consumo Médio",
+                "fieldType": 4,
+                "placeholder": "Example 12"
+            },
+            {
+                "code": "P-203",
+                "description": "Uso",
+                "fieldType": 4,
+                "placeholder": "Example 13"
+            },
+            {
+                "code": "P-204",
+                "description": "Vazão",
+                "fieldType": 4,
+                "placeholder": "Example 14"
+            }
+        ]
+    },
+    {
+        "description": "Serviços",
+        "groupType": 0,
         "questions": [
             {
                 "description": "Entity Group",
@@ -65,7 +98,7 @@ export class AppComponent {
                 "customType": "consumo-agua",
                 "questions": [
                     {
-                        "code": "P-102",
+                        "code": "P-101",
                         "description": "Question Text 11",
                         "fieldType": 4,
                         "placeholder": "Example 11"

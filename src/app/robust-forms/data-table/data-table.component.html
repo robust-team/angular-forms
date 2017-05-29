@@ -1,26 +1,26 @@
-<fieldset class="datatable">
-  <legend>{{ question.description }}</legend>
+<fieldset>
+  <legend>{{ group.description }}</legend>
 
   <div class="row">
-    <ng-container class="row" *ngFor="let column of question.questions">
-      <ng-container [ngSwitch]="column.fieldType">
+    <ng-container class="row" *ngFor="let question of group.questions">
+      <ng-container [ngSwitch]="question.fieldType">
 
         <ng-template [ngSwitchCase]="fieldType.CHECK" ngSwitchDefault>
           <div class="form-group col-md-3">
             <label>
-              <input type="checkbox" [name]="column.code" [checked]="column.defaultOption ? 'checked' : ''" />
-              {{ column.description }}
+              <input type="checkbox" [name]="question.code" [checked]="question.defaultOption ? 'checked' : ''" />
+              {{ question.description }}
             </label>
           </div>
         </ng-template>
 
         <ng-template [ngSwitchCase]="fieldType.RADIO" ngSwitchDefault>
           <div class="form-group col-md-3">
-            <label>{{ column.description }}</label>
-            <div class="radio" *ngFor="let option of column.options">
+            <label>{{ question.description }}</label>
+            <div class="radio" *ngFor="let option of question.options">
               <label>
-                <input type="radio" [name]="column.code" [value]="option"
-                       [checked]="option === column.defaultOption ? 'checked' : ''">
+                <input type="radio" [name]="question.code" [value]="option"
+                       [checked]="option === question.defaultOption ? 'checked' : ''">
                 {{ option }}
               </label>
             </div>
@@ -29,13 +29,13 @@
 
         <ng-template [ngSwitchCase]="fieldType.SELECT" ngSwitchDefault>
           <div class="form-group col-md-3">
-            <label [for]="column.code">{{ column.description }}</label>
-            <select [id]="column.code" class="form-control" [name]="column.code">
-              <option disabled [selected]="!column.defaultOption ? 'selected' : ''">
-                {{ column.placeholder ? column.placeholder : '' }}
+            <label [for]="question.code">{{ question.description }}</label>
+            <select [id]="question.code" class="form-control" [name]="question.code">
+              <option disabled [selected]="!question.defaultOption ? 'selected' : ''">
+                {{ question.placeholder ? question.placeholder : '' }}
               </option>
-              <option *ngFor="let option of column.options" [value]="option"
-                      [selected]="option === column.defaultOption ? 'selected' : ''">
+              <option *ngFor="let option of question.options" [value]="option"
+                      [selected]="option === question.defaultOption ? 'selected' : ''">
                 {{ option }}
               </option>
             </select>
@@ -44,9 +44,9 @@
 
         <ng-template [ngSwitchCase]="fieldType.TEXT" ngSwitchDefault>
           <div class="form-group col-md-3">
-            <label [for]="column.code">{{ column.description }}</label>
-            <input type="text" [id]="column.code" class="form-control" [name]="column.code"
-                   [placeholder]="column.placeholder ? column.placeholder : ''">
+            <label [for]="question.code">{{ question.description }}</label>
+            <input type="text" [id]="question.code" class="form-control" [name]="question.code"
+                   [placeholder]="question.placeholder ? question.placeholder : ''">
           </div>
         </ng-template>
 
@@ -57,4 +57,10 @@
   <button class="btn btn-default btn-add-row">
     Adicionar
   </button>
+
+  <table class="table-responsive table-bordered table-striped">
+    <tr>
+      <th *ngFor="let question of group.questions">{{ question.description }}</th>
+    </tr>
+  </table>
 </fieldset>

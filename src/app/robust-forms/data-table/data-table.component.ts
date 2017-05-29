@@ -2,6 +2,8 @@ import { Component, Input } from '@angular/core';
 
 import { Question } from '../question';
 import { FieldType } from '../question/field-type.enum';
+import { Group } from './../group/group';
+import { DataTable } from '../group/data-table';
 
 @Component({
   selector: 'data-table',
@@ -11,5 +13,5 @@ import { FieldType } from '../question/field-type.enum';
 export class DataTableComponent {
   fieldType = FieldType;
 
-  @Input() question: Question;
+  @Input() group: DataTable;
 }
