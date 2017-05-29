@@ -107,7 +107,7 @@ export class AppComponent {
             {
                 "code": "P-004",
                 "description": "Question Text 1",
-                "fieldType": 4,
+                "fieldType": 4
             },
             {
                 "code": "P-005",
