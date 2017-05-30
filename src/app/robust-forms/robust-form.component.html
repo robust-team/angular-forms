@@ -5,12 +5,12 @@
 </button>
 
 <form [formGroup]="formGroup">
-  <ng-container *ngFor="let group of groups">
+  <ng-container *ngFor="let group of groups; let indexGroup = index">
 
     <ng-container [ngSwitch]="group.groupType">
       
       <ng-container *ngSwitchCase="GroupType.FIELDSET">
-        <fieldset [formGroup]="formGroup.get('servicos')">
+        <fieldset [formGroup]="formGroup.controls[indexGroup]">
           <legend *ngIf="'Ungrouped' !== group.description">{{ group.description }}</legend>
 
           <ng-container *ngFor="let question of group.questions">
@@ -75,10 +75,10 @@
       </ng-container>
 
       <ng-container *ngSwitchCase="GroupType.DATA_TABLE">
-        <data-table [group]="group" [formGroup]="formGroup" formArrayDescription="consumo-agua"></data-table>
+        <data-table [group]="group" [formGroup]="formGroup" [formArrayDescription]="indexGroup"></data-table>
       </ng-container>
 
-    </ng-container>
+    </ng-container> <!--/[ngSwitch]-->
 
-  </ng-container>
+  </ng-container> <!--groups-->
 </form>

@@ -23,7 +23,7 @@ export class DataTableComponent {
 
   ngOnInit() {
     this.loadNewFormGroup();
-    this.formArray = <FormArray> this.formGroup.get(this.formArrayDescription);
+    this.formArray = <FormArray> this.formGroup.controls[this.formArrayDescription];
   }
 
   loadNewFormGroup() {

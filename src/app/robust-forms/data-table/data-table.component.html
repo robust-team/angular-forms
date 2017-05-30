@@ -60,10 +60,10 @@
           </button>
         </td>
       </tr>
-      <tr *ngFor="let row of formArray.value; let index = index">
+      <tr *ngFor="let row of formArray?.value; let indexRow = index">
         <td *ngFor="let key of Object.keys(row)">{{ row[key] }}</td>
         <td class="text-center">
-          <button class="btn btn-default btn-remove-row" (click)="removeRow(index)">
+          <button class="btn btn-default btn-remove-row" (click)="removeRow(indexRow)">
             Remover
           </button>
         </td>

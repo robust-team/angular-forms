@@ -1,9 +1,11 @@
-import { FormGroup, FormControl, FormArray } from '@angular/forms';
+import { FormGroup, FormControl, FormArray, AbstractControl } from '@angular/forms';
 import { Component, EventEmitter, Output, Input } from '@angular/core';
 
 import { Group } from './group/group';
 import { FieldType } from './question/field-type.enum';
 import { GroupType } from './group/group-type.enum';
+import { DataTable } from './group/data-table';
+import { Question } from './question/question';
 
 @Component({
   selector: 'robust-forms',
@@ -18,32 +20,31 @@ export class RobustFormsComponent {
   @Input() groups: Group[];
   @Output() getValues: EventEmitter<Object> = new EventEmitter();
 
-  public constructor() {
-    this.formGroup = new FormGroup({
-      'consumo-agua': new FormArray([
-        new FormGroup({
-          'P-201': new FormControl('123'),
-          'P-202': new FormControl('456'),
-          'P-203': new FormControl('789'),
-          'P-204': new FormControl('321')
-        })
-      ]),
-      'servicos': new FormGroup({
-        'P-002': new FormControl('098'),
-        'P-003': new FormControl('765'),
-        'P-004': new FormControl('543'),
-        'P-005': new FormControl('000')
-      })
-    });
+  ngOnInit() {
+    this.formGroup = new FormGroup({});
+
+    for (let index in this.groups) {
+      let group: Group = this.groups[index];
+      let abstractControl: AbstractControl = group.hasOwnProperty('customType')
+        ? this.buildFormArray()
+        : this.buildFormGroup(group.questions);
+
+      this.formGroup.addControl(index, abstractControl);
+    }
   }
 
-  ngOnInit() {
-    (<FormArray> this.formGroup.get('consumo-agua')).push(new FormGroup({
-      'P-201': new FormControl('xxx'),
-      'P-202': new FormControl('yyy'),
-      'P-203': new FormControl('zzz'),
-      'P-204': new FormControl('aaa')
-    }));
+  buildFormArray(): FormArray {
+    return new FormArray([]);
+  }
+
+  buildFormGroup(questions: Question[]): FormGroup {
+    let formGroup: FormGroup = new FormGroup({});
+
+    for (let question of questions) {
+      formGroup.addControl(question.code, new FormControl());
+    }
+
+    return formGroup;
   }
 
   emitValues() {
