@@ -21,7 +21,8 @@
                 <div class="form-group">
                   <div class="checkbox">
                     <label>
-                      <input type="checkbox" [name]="question.code" [checked]="question.defaultOption ? 'checked' : ''"
+                      <input type="checkbox" [name]="question.code"
+                             [checked]="question.defaultOption ? 'checked' : ''"
                              [formControlName]="question.code">
                       {{ question.description }}
                     </label>
@@ -48,7 +49,7 @@
                   <label [for]="question.code">{{ question.description }}</label>
                   <select [id]="question.code" class="form-control" [name]="question.code"
                           [formControlName]="question.code">
-                    <option disabled [selected]="!question.defaultOption ? 'selected' : ''">
+                    <option disabled [selected]="!question.defaultOption ? 'selected' : ''" [value]="null">
                       {{ question.placeholder ? question.placeholder : '' }}
                     </option>
                     <option *ngFor="let option of question.options" [value]="option"

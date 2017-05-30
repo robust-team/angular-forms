@@ -15,26 +15,28 @@ export class AppComponent {
             {
                 "code": "P-201",
                 "description": "Origem",
-                "fieldType": 4,
-                "placeholder": "Example 11"
+                "fieldType": 3,
+                "options": ["Rede Pública", "Água Subterrânea", "Água Superficial"],
+                "placeholder": "Selecione"
             },
             {
                 "code": "P-202",
-                "description": "Consumo Médio",
+                "description": "Consumo Médio (m³/dia)",
                 "fieldType": 4,
-                "placeholder": "Example 12"
+                "placeholder": null
             },
             {
                 "code": "P-203",
                 "description": "Uso",
-                "fieldType": 4,
-                "placeholder": "Example 13"
+                "fieldType": 3,
+                "options": ["Doméstico", "Industrial", "Doméstico e Industrial"],
+                "placeholder": "Selecione"
             },
             {
                 "code": "P-204",
-                "description": "Vazão",
+                "description": "Vazão (m³/dia)",
                 "fieldType": 4,
-                "placeholder": "Example 14"
+                "placeholder": null
             }
         ]
     },

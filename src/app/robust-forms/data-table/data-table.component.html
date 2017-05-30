@@ -8,15 +8,20 @@
   <div class="table-responsive">
     <table class="table table-bordered table-striped">
       <tr>
-        <th class="text-center" *ngFor="let question of group.questions">{{ question.description }}</th>
-        <th class="text-center">Ação</th>
+        <th class="text-center" *ngFor="let question of group.questions">
+          {{ question.description }}
+        </th>
+        <th class="text-center">
+          Ação
+        </th>
       </tr>
       <tr [formGroup]="newFormGroup">
         <td *ngFor="let question of group.questions">
           <ng-container [ngSwitch]="question.fieldType">
 
             <ng-template [ngSwitchCase]="FieldType.CHECK">
-              <input type="checkbox" [name]="question.code" [checked]="question.defaultOption ? 'checked' : ''"
+              <input type="checkbox" [name]="question.code"
+                     [checked]="question.defaultOption ? 'checked' : ''"
                      [formControlName]="question.code">
               {{ question.description }}
             </ng-template>
@@ -33,7 +38,7 @@
             <ng-template [ngSwitchCase]="FieldType.SELECT">
               <select [id]="question.code" class="form-control" [name]="question.code"
                       [formControlName]="question.code">
-                <option disabled [selected]="!question.defaultOption ? 'selected' : ''">
+                <option disabled [selected]="!question.defaultOption ? 'selected' : ''" [value]="null">
                   {{ question.placeholder ? question.placeholder : '' }}
                 </option>
                 <option *ngFor="let option of question.options" [value]="option"
