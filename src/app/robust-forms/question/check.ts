@@ -4,12 +4,13 @@ import { Validation } from '../validation/validation';
 export class Check extends Question {
 
   public constructor(
+    code: string,
     description: string,
     fieldType: string,
     validations: Validation[],
     private _defaultOption: boolean
   ) {
-    super(description, fieldType, validations);
+    super(code, description, fieldType, validations);
   }
 
   public get defaultOption(): boolean {
@@ -18,6 +19,7 @@ export class Check extends Question {
 
   public static fromJson(question : Check) : Check {
     return new Check(
+      question.code,
       question.description,
       question.fieldType,
       question.validations,

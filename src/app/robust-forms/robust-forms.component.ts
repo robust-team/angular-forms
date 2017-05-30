@@ -38,8 +38,7 @@ export class RobustFormsComponent {
   }
 
   ngOnInit() {
-    let consumoAgua: FormArray = <FormArray> this.formGroup.get('consumo-agua');
-    consumoAgua.push(new FormGroup({
+    (<FormArray> this.formGroup.get('consumo-agua')).push(new FormGroup({
       'P-201': new FormControl('xxx'),
       'P-202': new FormControl('yyy'),
       'P-203': new FormControl('zzz'),

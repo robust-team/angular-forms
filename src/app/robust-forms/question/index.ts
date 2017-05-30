@@ -1,6 +1,5 @@
 export * from './check';
 export * from './choice';
-export * from './data-table';
 export * from './field-type.enum';
 export * from './question';
 export * from './question-factory';

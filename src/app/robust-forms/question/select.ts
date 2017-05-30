@@ -4,6 +4,7 @@ import { Validation } from '../validation/validation';
 export class Select extends Choice {
 
   public constructor(
+    code: string,
     description: string,
     fieldType: string,
     validations: Validation[],
@@ -11,7 +12,7 @@ export class Select extends Choice {
     defaultOption: string,
     private _placeholder: string
   ) {
-    super(description, fieldType, validations, options, defaultOption);
+    super(code, description, fieldType, validations, options, defaultOption);
   }
 
   public get placeholder(): string {
@@ -20,6 +21,7 @@ export class Select extends Choice {
 
   public static fromJson(question: Select): Select {
     return new Select(
+      question.code,
       question.description,
       question.fieldType,
       question.validations,

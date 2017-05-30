@@ -4,13 +4,14 @@ import { Validation } from '../validation/validation';
 export abstract class Choice extends Question {
 
   public constructor(
+    code: string,
     description: string,
     fieldType: string,
     validations: Validation[],
     private _options: string[],
     private _defaultOption: string
   ) {
-    super(description, fieldType, validations);
+    super(code, description, fieldType, validations);
   }
 
   public get options(): string[] {

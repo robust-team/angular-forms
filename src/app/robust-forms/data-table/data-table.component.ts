@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { FormGroup, FormArray, FormControl } from '@angular/forms';
+import { FormGroup, FormArray, FormControl, AbstractControl } from '@angular/forms';
 
 import { Question } from '../question';
 import { FieldType } from '../question/field-type.enum';
@@ -17,24 +17,23 @@ export class DataTableComponent {
   newFormGroup: FormGroup;
   Object = Object;
 
+  @Input() formArrayDescription: string;
   @Input() formGroup: FormGroup;
   @Input() group: DataTable;
 
-  public constructor() {
-    this.loadNewFormGroup();
-  }
-
   ngOnInit() {
-    this.formArray = <FormArray> this.formGroup.get('consumo-agua');
+    this.loadNewFormGroup();
+    this.formArray = <FormArray> this.formGroup.get(this.formArrayDescription);
   }
 
   loadNewFormGroup() {
-    this.newFormGroup = new FormGroup({
-      'P-201': new FormControl(),
-      'P-202': new FormControl(),
-      'P-203': new FormControl(),
-      'P-204': new FormControl()
-    });
+    let controls: {[key: string]: AbstractControl} = { };
+
+    for (let question of this.group.questions) {
+      controls[question.code] = new FormControl();
+    }
+
+    this.newFormGroup = new FormGroup(controls);
   }
 
   addRow() {
