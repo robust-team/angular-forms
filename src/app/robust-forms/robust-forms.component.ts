@@ -17,7 +17,7 @@ export class RobustFormsComponent {
   formGroup: FormGroup;
   GroupType = GroupType;
 
-  @Input() groups: Group[];
+  @Input() groups: Group[] = [];
   @Output() getValues: EventEmitter<Object> = new EventEmitter();
 
   ngOnInit() {

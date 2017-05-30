@@ -8,6 +8,7 @@ export class GroupBuilder {
     private questions : Array<Question> = [];
 
     public constructor(
+        private code: string,
         private description: string
     ) { }
 
@@ -16,6 +17,6 @@ export class GroupBuilder {
     }
 
     public build() : Group {
-        return new Group(this.description, this.questions);
+        return new Group(this.code, this.description, this.questions);
     }
 }
