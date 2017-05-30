@@ -5,12 +5,13 @@ import { Validation } from '../validation/validation';
 export class DataTable extends Group {
 
   public constructor(
+    code: string,
     description: string,
     questions: Array<Question>,
     private _customType: string,
     private _validations: Validation[]
   ) {
-    super(description, questions);
+    super(code, description, questions);
   }
 
   public get customType(): string {

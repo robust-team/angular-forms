@@ -9,7 +9,7 @@ import { Question } from './question/question';
 
 @Component({
   selector: 'robust-forms',
-  templateUrl: './robust-form.component.html'
+  templateUrl: './robust-forms.component.html'
 })
 export class RobustFormsComponent {
 
@@ -23,13 +23,12 @@ export class RobustFormsComponent {
   ngOnInit() {
     this.formGroup = new FormGroup({});
 
-    for (let index in this.groups) {
-      let group: Group = this.groups[index];
+    for (let group of this.groups) {
       let abstractControl: AbstractControl = group.hasOwnProperty('customType')
         ? this.buildFormArray()
         : this.buildFormGroup(group.questions);
 
-      this.formGroup.addControl(index, abstractControl);
+      this.formGroup.addControl(group.code, abstractControl);
     }
   }
 

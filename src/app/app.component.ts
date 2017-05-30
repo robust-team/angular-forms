@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   public customForm: Array<any> = [
     {
+        "code": "G-01",
         "description": "Consumo de Água",
         "groupType": 1,
         "customType": "consumo-agua",
@@ -41,6 +42,7 @@ export class AppComponent {
         ]
     },
     {
+        "code": "G-02",
         "description": "Serviços",
         "groupType": 0,
         "questions": [

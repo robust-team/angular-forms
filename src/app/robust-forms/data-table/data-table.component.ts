@@ -17,13 +17,12 @@ export class DataTableComponent {
   newFormGroup: FormGroup;
   Object = Object;
 
-  @Input() formArrayDescription: string;
   @Input() formGroup: FormGroup;
   @Input() group: DataTable;
 
   ngOnInit() {
     this.loadNewFormGroup();
-    this.formArray = <FormArray> this.formGroup.controls[this.formArrayDescription];
+    this.formArray = <FormArray> this.formGroup.get(this.group.code);
   }
 
   loadNewFormGroup() {
