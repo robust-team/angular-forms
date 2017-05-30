@@ -8,11 +8,6 @@ import { Component } from '@angular/core';
 export class AppComponent {
   public customForm: Array<any> = [
     {
-        "description": "Ungrouped",
-        "groupType": 0,
-        "questions": []
-    },
-    {
         "description": "Consumo de Água",
         "groupType": 1,
         "customType": "consumo-agua",
@@ -48,82 +43,6 @@ export class AppComponent {
         "groupType": 0,
         "questions": [
             {
-                "description": "Entity Group",
-                "customType": "aCustomType",
-                "fieldType": "datatable",
-                "questions": [
-                    {
-                        "A question description": {
-                            "fieldType": "select",
-                            "options": ["Option 1", "Option 2"],
-                            "defaultOption": "Option 1"
-                        },
-                        "Another question description": {
-                            "fieldType": "text",
-                            "placeholder": "A example of value",
-                            "mask": "##",
-                            "validators": [
-                                { "minLength": 1, "message": "You should have at least 1 character" },
-                                { "required": true, "message": "This field should not be empty" }
-                            ]
-                        }
-                    }
-                ]
-            },
-            {
-                "description": "A select question description",
-                "fieldType": "select",
-                "options": ["Option 1", "Option 2"]
-            },
-            {
-                "description": "A free text description",
-                "fieldType": "text",
-                "exemplo": "A example of value",
-                "mascara": "##.##.##",
-                "validators": [
-                    { "minLength": 1, "message": "You should have at least 1 character" },
-                    { "required": true, "message": "This field should not be empty" }
-                ]
-            },
-            {
-                "code": "P-000",
-                "description": "Question Check",
-                "fieldType": 0,
-                "defaultOption": true
-            },
-            {
-                "code": "P-001",
-                "description": "Question DataTable",
-                "fieldType": 1,
-                "customType": "consumo-agua",
-                "questions": [
-                    {
-                        "code": "P-101",
-                        "description": "Question Text 11",
-                        "fieldType": 4,
-                        "placeholder": "Example 11"
-                    },
-                    {
-                        "code": "P-102",
-                        "description": "Question Text 12",
-                        "fieldType": 4,
-                        "placeholder": "Example 12"
-                    },
-                    {
-                        "code": "P-103",
-                        "description": "Question Text 13",
-                        "fieldType": 4,
-                        "placeholder": "Example 13"
-                    },
-                    {
-                        "code": "P-104",
-                        "description": "Question Text 14",
-                        "fieldType": 4,
-                        "placeholder": "Example 14"
-                    }
-                ]
-            },
-            {
                 "code": "P-002",
                 "description": "Question Radio",
                 "fieldType": 2,
@@ -151,4 +70,8 @@ export class AppComponent {
         ]
     }
   ];
+
+  printValues(values: Object) {
+      console.log(values);
+  }
 }

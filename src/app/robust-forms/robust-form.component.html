@@ -1,51 +1,53 @@
 <p>robust-form works!</p>
 
-<form [formGroup]="form">
+<button class="btn btn-primary" (click)="emitValues()">
+  getValues
+</button>
+
+<form [formGroup]="formGroup">
   <ng-container *ngFor="let group of groups">
 
     <ng-container [ngSwitch]="group.groupType">
       
-      <ng-container *ngSwitchCase="groupType.FIELDSET">
-        <fieldset [formGroup]="">
+      <ng-container *ngSwitchCase="GroupType.FIELDSET">
+        <fieldset [formGroup]="formGroup.get('servicos')">
           <legend *ngIf="'Ungrouped' !== group.description">{{ group.description }}</legend>
 
           <ng-container *ngFor="let question of group.questions">
 
             <ng-container [ngSwitch]="question.fieldType">
 
-              <ng-template [ngSwitchCase]="fieldType.CHECK">
+              <ng-template [ngSwitchCase]="FieldType.CHECK">
                 <div class="form-group">
                   <div class="checkbox">
                     <label>
                       <input type="checkbox" [name]="question.code" [checked]="question.defaultOption ? 'checked' : ''"
-                             [formControlName]="question.code" />
+                             [formControlName]="question.code">
                       {{ question.description }}
                     </label>
                   </div>
                 </div>
               </ng-template>
 
-              <!--<ng-template [ngSwitchCase]="fieldType.DATA_TABLE">
-                <data-table [question]="question"></data-table>
-              </ng-template>-->
-
-              <ng-template [ngSwitchCase]="fieldType.RADIO">
+              <ng-template [ngSwitchCase]="FieldType.RADIO">
                 <div class="form-group">
                   <label>{{ question.description }}</label>
                   <div class="radio" *ngFor="let option of question.options">
                     <label>
                       <input type="radio" [name]="question.code" [value]="option"
-                             [checked]="option === question.defaultOption ? 'checked' : ''">
+                             [checked]="option === question.defaultOption ? 'checked' : ''"
+                             [formControlName]="question.code">
                       {{ option }}
                     </label>
                   </div>
                 </div>
               </ng-template>
 
-              <ng-template [ngSwitchCase]="fieldType.SELECT">
+              <ng-template [ngSwitchCase]="FieldType.SELECT">
                 <div class="form-group">
                   <label [for]="question.code">{{ question.description }}</label>
-                  <select [id]="question.code" class="form-control" [name]="question.code">
+                  <select [id]="question.code" class="form-control" [name]="question.code"
+                          [formControlName]="question.code">
                     <option disabled [selected]="!question.defaultOption ? 'selected' : ''">
                       {{ question.placeholder ? question.placeholder : '' }}
                     </option>
@@ -57,11 +59,12 @@
                 </div>
               </ng-template>
 
-              <ng-template [ngSwitchCase]="fieldType.TEXT" ngSwitchDefault>
+              <ng-template [ngSwitchCase]="FieldType.TEXT" ngSwitchDefault>
                 <div class="form-group">
                   <label [for]="question.code">{{ question.description }}</label>
                   <input type="text" [id]="question.code" class="form-control" [name]="question.code"
-                         [placeholder]="question.placeholder ? question.placeholder : ''">
+                         [placeholder]="question.placeholder ? question.placeholder : ''"
+                         [formControlName]="question.code">
                 </div>
               </ng-template>
             </ng-container>
@@ -70,8 +73,8 @@
         </fieldset>
       </ng-container>
 
-      <ng-container *ngSwitchCase="groupType.DATA_TABLE">
-        <data-table [group]="group"></data-table>
+      <ng-container *ngSwitchCase="GroupType.DATA_TABLE">
+        <data-table [group]="group" [formGroup]="formGroup" ></data-table>
       </ng-container>
 
     </ng-container>

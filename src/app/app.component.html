@@ -3,5 +3,5 @@
 </h1>
 
 <div class="container">
-  <robust-forms [groups]="customForm"></robust-forms>
+  <robust-forms [groups]="customForm" (getValues)="printValues($event)"></robust-forms>
 </div>

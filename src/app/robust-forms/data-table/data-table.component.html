@@ -1,66 +1,66 @@
-<fieldset>
+<fieldset [formGroup]="formGroup">
   <legend>{{ group.description }}</legend>
 
-  <div class="row">
-    <ng-container class="row" *ngFor="let question of group.questions">
-      <ng-container [ngSwitch]="question.fieldType">
-
-        <ng-template [ngSwitchCase]="fieldType.CHECK" ngSwitchDefault>
-          <div class="form-group col-md-3">
-            <label>
-              <input type="checkbox" [name]="question.code" [checked]="question.defaultOption ? 'checked' : ''" />
-              {{ question.description }}
-            </label>
-          </div>
-        </ng-template>
-
-        <ng-template [ngSwitchCase]="fieldType.RADIO" ngSwitchDefault>
-          <div class="form-group col-md-3">
-            <label>{{ question.description }}</label>
-            <div class="radio" *ngFor="let option of question.options">
-              <label>
-                <input type="radio" [name]="question.code" [value]="option"
-                       [checked]="option === question.defaultOption ? 'checked' : ''">
-                {{ option }}
-              </label>
-            </div>
-          </div>
-        </ng-template>
-
-        <ng-template [ngSwitchCase]="fieldType.SELECT" ngSwitchDefault>
-          <div class="form-group col-md-3">
-            <label [for]="question.code">{{ question.description }}</label>
-            <select [id]="question.code" class="form-control" [name]="question.code">
-              <option disabled [selected]="!question.defaultOption ? 'selected' : ''">
-                {{ question.placeholder ? question.placeholder : '' }}
-              </option>
-              <option *ngFor="let option of question.options" [value]="option"
-                      [selected]="option === question.defaultOption ? 'selected' : ''">
-                {{ option }}
-              </option>
-            </select>
-          </div>
-        </ng-template>
-
-        <ng-template [ngSwitchCase]="fieldType.TEXT" ngSwitchDefault>
-          <div class="form-group col-md-3">
-            <label [for]="question.code">{{ question.description }}</label>
-            <input type="text" [id]="question.code" class="form-control" [name]="question.code"
-                   [placeholder]="question.placeholder ? question.placeholder : ''">
-          </div>
-        </ng-template>
-
-      </ng-container>
-    </ng-container>
-  </div>
-
-  <button class="btn btn-default btn-add-row">
-    Adicionar
+  <button class="btn btn-primary" (click)="printNewValues()">
+    printNewValues
   </button>
 
-  <table class="table-responsive table-bordered table-striped">
-    <tr>
-      <th *ngFor="let question of group.questions">{{ question.description }}</th>
-    </tr>
-  </table>
+  <div class="table-responsive">
+    <table class="table table-bordered table-striped">
+      <tr>
+        <th class="text-center" *ngFor="let question of group.questions">{{ question.description }}</th>
+        <th class="text-center">Ação</th>
+      </tr>
+      <tr [formGroup]="newFormGroup">
+        <td *ngFor="let question of group.questions">
+          <ng-container [ngSwitch]="question.fieldType">
+
+            <ng-template [ngSwitchCase]="FieldType.CHECK">
+              <input type="checkbox" [name]="question.code" [checked]="question.defaultOption ? 'checked' : ''"
+                     [formControlName]="question.code">
+              {{ question.description }}
+            </ng-template>
+
+            <ng-template [ngSwitchCase]="FieldType.RADIO">
+              <div class="radio" *ngFor="let option of question.options">
+                <input type="radio" [name]="question.code" [value]="option"
+                       [checked]="option === question.defaultOption ? 'checked' : ''"
+                       [formControlName]="question.code">
+                {{ option }}
+              </div>
+            </ng-template>
+
+            <ng-template [ngSwitchCase]="FieldType.SELECT">
+              <select [id]="question.code" class="form-control" [name]="question.code"
+                      [formControlName]="question.code">
+                <option disabled [selected]="!question.defaultOption ? 'selected' : ''">
+                  {{ question.placeholder ? question.placeholder : '' }}
+                </option>
+                <option *ngFor="let option of question.options" [value]="option"
+                        [selected]="option === question.defaultOption ? 'selected' : ''">
+                  {{ option }}
+                </option>
+              </select>
+            </ng-template>
+
+            <ng-template [ngSwitchCase]="FieldType.TEXT" ngSwitchDefault>
+              <input type="text" [id]="question.code" class="form-control" [name]="question.code"
+                     [placeholder]="question.placeholder ? question.placeholder : ''"
+                     [formControlName]="question.code">
+            </ng-template>
+
+          </ng-container> <!--/[ngSwitch]-->
+        </td>
+        <td class="text-center">
+          <button class="btn btn-default" (click)="addRow()">Adicionar</button>
+        </td>
+      </tr>
+      <tr *ngFor="let row of formArray.value; let index = index">
+        <td *ngFor="let key of Object.keys(row)">{{ row[key] }}</td>
+        <td class="text-center">
+          <button class="btn btn-default" (click)="removeRow(index)">Remover</button>
+        </td>
+      </tr>
+    </table>
+  </div> <!--/.table-responsive-->
 </fieldset>
