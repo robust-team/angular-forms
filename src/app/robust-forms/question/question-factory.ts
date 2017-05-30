@@ -1,12 +1,18 @@
 import {
     Question,
-    Text
+    Text,
+    Check,
+    Radio,
+    Select,
 } from '.';
 
 export class QuestionFactory {
 
     private _types = {
-        'text': Text
+        'text': Text,
+        'check': Check,
+        'radio': Radio,
+        'select': Select,
     };
 
     public constructor (
