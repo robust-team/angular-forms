@@ -22,7 +22,7 @@ describe('RobustForms', () => {
         }];
         expect(RobustForms.fromJson(jsonGroups))
             .toEqual(new Group('A simple group with a question', [
-                new Text('A simple question', 'text', [], '', '')
+                new Text('P-01', 'A simple question', 'text', [], '', '')
             ]));
     });
 
