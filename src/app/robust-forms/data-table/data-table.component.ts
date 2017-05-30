@@ -27,13 +27,11 @@ export class DataTableComponent {
   }
 
   loadNewFormGroup() {
-    let controls: {[key: string]: AbstractControl} = { };
+    this.newFormGroup = new FormGroup({});
 
     for (let question of this.group.questions) {
-      controls[question.code] = new FormControl();
+      this.newFormGroup.addControl(question.code, new FormControl());
     }
-
-    this.newFormGroup = new FormGroup(controls);
   }
 
   addRow() {
