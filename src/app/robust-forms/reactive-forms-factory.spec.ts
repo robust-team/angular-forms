@@ -11,8 +11,7 @@ describe('RobustForms :: ReactiveFormsFactory', () => {
       new Group('group-02', 'Group 02', 'datatable', [])
     ];
     
-    expect(ReactiveFormsFactory.createFormGroupFromGroups(groups))
-      .toEqual(jasmine.any(FormGroup))
+    expect(ReactiveFormsFactory.createFormGroupFromGroups(groups)).toEqual(jasmine.any(FormGroup));
   });
 
   it('should create a FormGroup from Questions', () => {
@@ -21,7 +20,6 @@ describe('RobustForms :: ReactiveFormsFactory', () => {
       new Text('question-02', 'Question 02', 'text', [])
     ];
 
-    expect(ReactiveFormsFactory.createFormGroupFromQuestions(questions))
-      .toEqual(jasmine.any(FormGroup));
+    expect(ReactiveFormsFactory.createFormGroupFromQuestions(questions)).toEqual(jasmine.any(FormGroup));
   });
 });
