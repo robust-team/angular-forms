@@ -28,8 +28,8 @@ export class TextArea extends Question {
       question.description,
       question.fieldType,
       question.validations,
-      question.answer,
-      question.placeholder
+      question.placeholder,
+      question.answer
     );
   }
 }
