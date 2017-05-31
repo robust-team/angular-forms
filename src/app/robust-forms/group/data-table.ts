@@ -10,7 +10,8 @@ export class DataTable extends Group {
     groupType: string,
     questions: Array<Question>,
     private _customType: string,
-    private _validations: Validation[]
+    private _validations: Validation[],
+    private _answers: Question[][]
   ) {
     super(code, description, groupType, questions);
   }
@@ -21,5 +22,9 @@ export class DataTable extends Group {
 
   public get validations(): Validation[] {
     return this._validations;
+  }
+
+  public get answers(): Question[][] {
+    return this._answers;
   }
 }

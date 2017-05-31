@@ -8,7 +8,8 @@ export class Check extends Question {
     description: string,
     fieldType: string,
     validations: Validation[],
-    private _defaultOption: boolean
+    private _defaultOption: boolean,
+    private _answer: boolean = null
   ) {
     super(code, description, fieldType, validations);
   }
@@ -17,13 +18,18 @@ export class Check extends Question {
     return this._defaultOption;
   }
 
+  public get answer(): boolean {
+    return this._answer;
+  }
+
   public static fromJson(question : Check) : Check {
     return new Check(
       question.code,
       question.description,
       question.fieldType,
       question.validations,
-      question.defaultOption
+      question.defaultOption,
+      question.answer
     );
   }
 }

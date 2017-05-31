@@ -39,6 +39,72 @@ export class AppComponent {
                 "fieldType": "text",
                 "placeholder": null
             }
+        ],
+        "answers": [
+            [
+                {
+                    "code": "P-201",
+                    "description": "Origem",
+                    "fieldType": "select",
+                    "options": ["Rede Pública", "Água Subterrânea", "Água Superficial"],
+                    "placeholder": "Selecione",
+                    "answer": "Água Subterrânea"
+                },
+                {
+                    "code": "P-202",
+                    "description": "Consumo Médio (m³/dia)",
+                    "fieldType": "text",
+                    "placeholder": null,
+                    "answer": "123"
+                },
+                {
+                    "code": "P-203",
+                    "description": "Uso",
+                    "fieldType": "select",
+                    "options": ["Doméstico", "Industrial", "Doméstico e Industrial"],
+                    "placeholder": "Selecione",
+                    "answer": "Doméstico"
+                },
+                {
+                    "code": "P-204",
+                    "description": "Vazão (m³/dia)",
+                    "fieldType": "text",
+                    "placeholder": null,
+                    "answer": "456"
+                }
+            ],
+            [
+                {
+                    "code": "P-201",
+                    "description": "Origem",
+                    "fieldType": "select",
+                    "options": ["Rede Pública", "Água Subterrânea", "Água Superficial"],
+                    "placeholder": "Selecione",
+                    "answer": "Rede Pública"
+                },
+                {
+                    "code": "P-202",
+                    "description": "Consumo Médio (m³/dia)",
+                    "fieldType": "text",
+                    "placeholder": null,
+                    "answer": "987"
+                },
+                {
+                    "code": "P-203",
+                    "description": "Uso",
+                    "fieldType": "select",
+                    "options": ["Doméstico", "Industrial", "Doméstico e Industrial"],
+                    "placeholder": "Selecione",
+                    "answer": "Doméstico e Industrial"
+                },
+                {
+                    "code": "P-204",
+                    "description": "Vazão (m³/dia)",
+                    "fieldType": "text",
+                    "placeholder": null,
+                    "answer": "321"
+                }
+            ]
         ]
     },
     {
@@ -50,38 +116,44 @@ export class AppComponent {
                 "code": "P-001",
                 "description": "Question Check",
                 "fieldType": "check",
-                "defaultOption": true
+                "defaultOption": false,
+                "answer": true
             },
             {
                 "code": "P-002",
                 "description": "Question Radio",
                 "fieldType": "radio",
                 "options": ["Option 1", "Option 2"],
-                "defaultOption": "Option 2"
+                "defaultOption": "Option 1",
+                "answer": "Option 2"
             },
             {
                 "code": "P-003",
                 "description": "Question Select",
                 "fieldType": "select",
                 "options": ["Option 1", "Option 2"],
-                "placeholder": "Select"
+                "placeholder": "Select",
+                "answer": "Option 2"
             },
             {
                 "code": "P-004",
                 "description": "Question Text 1",
-                "fieldType": "text"
+                "fieldType": "text",
+                "answer": "Answer for Question Text 1"
             },
             {
                 "code": "P-005",
                 "description": "Question Text 2",
                 "fieldType": "text",
-                "placeholder": "Example"
+                "placeholder": "Example",
+                "answer": "Answer for Question Text 2"
             },
             {
                 "code": "P-006",
                 "description": "Question TextArea",
                 "fieldType": "textarea",
-                "placeholder": "Example"
+                "placeholder": "Example",
+                "answer": "Answer for Question TextArea"
             }
         ]
     }

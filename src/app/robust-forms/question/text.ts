@@ -8,8 +8,9 @@ export class Text extends Question {
     description: string,
     fieldType: string,
     validations: Validation[],
-    private _mask: string = '',
-    private _placeholder: string = ''
+    private _mask: string = null,
+    private _placeholder: string = null,
+    private _answer: string = null
   ) {
     super(code, description, fieldType, validations || []);
   }
@@ -22,14 +23,19 @@ export class Text extends Question {
     return this._placeholder;
   }
 
+  public get answer(): string {
+    return this._answer;
+  }
+
   public static fromJson(question : Text) : Question {
     return new Text(
       question.code,
       question.description,
       question.fieldType,
-      question.validations ,
+      question.validations,
       question.mask,
-      question.placeholder
+      question.placeholder,
+      question.answer
     );
   }
 }

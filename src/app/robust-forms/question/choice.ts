@@ -9,7 +9,8 @@ export abstract class Choice extends Question {
     fieldType: string,
     validations: Validation[],
     private _options: string[],
-    private _defaultOption: string
+    private _defaultOption: string,
+    private _answer: string = null
   ) {
     super(code, description, fieldType, validations);
   }
@@ -20,5 +21,9 @@ export abstract class Choice extends Question {
 
   public get defaultOption(): string {
     return this._defaultOption;
+  }
+
+  public get answer(): string {
+    return this._answer;
   }
 }

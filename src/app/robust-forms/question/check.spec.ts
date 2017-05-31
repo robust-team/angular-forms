@@ -3,7 +3,7 @@ import { Check } from '.';
 describe('RobustForms :: Question :: Check', () => {
 
     it('should be instantiable', () => {
-        expect(new Check('P-01', 'A simple question', 'check', [], false)).toBeTruthy();
+        expect(new Check('P-01', 'A simple question', 'check', [], false, true)).toBeTruthy();
     });
 
 })

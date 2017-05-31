@@ -10,9 +10,10 @@ export class Select extends Choice {
     validations: Validation[],
     options: string[],
     defaultOption: string,
-    private _placeholder: string
+    answer: string = null,
+    private _placeholder: string = null
   ) {
-    super(code, description, fieldType, validations, options, defaultOption);
+    super(code, description, fieldType, validations, options, defaultOption, answer);
   }
 
   public get placeholder(): string {
@@ -27,6 +28,7 @@ export class Select extends Choice {
       question.validations,
       question.options,
       question.defaultOption,
+      question.answer,
       question.placeholder
     );
   }

@@ -9,7 +9,8 @@ export class Radio extends Choice {
             question.fieldType,
             question.validations,
             question.options,
-            question.defaultOption
+            question.defaultOption,
+            question.answer
         );
     }
 }

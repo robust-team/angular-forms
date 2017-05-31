@@ -8,7 +8,8 @@ export class TextArea extends Question {
     description: string,
     fieldType: string,
     validations: Validation[],
-    private _placeholder: string = ''
+    private _placeholder: string = null,
+    private _answer: string = null
   ) {
     super(code, description, fieldType, validations || []);
   }
@@ -17,12 +18,17 @@ export class TextArea extends Question {
     return this._placeholder;
   }
 
+  public get answer(): string {
+    return this._answer;
+  }
+
   public static fromJson(question : TextArea) : Question {
     return new TextArea(
       question.code,
       question.description,
       question.fieldType,
-      question.validations ,
+      question.validations,
+      question.answer,
       question.placeholder
     );
   }
