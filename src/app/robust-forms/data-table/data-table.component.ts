@@ -1,3 +1,4 @@
+import { ReactiveFormsFactory } from './../reactive-forms-factory';
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormArray, FormControl, AbstractControl } from '@angular/forms';
 
@@ -25,11 +26,7 @@ export class DataTableComponent {
   }
 
   loadNewFormGroup() {
-    this.newFormGroup = new FormGroup({});
-
-    for (let question of this.group.questions) {
-      this.newFormGroup.addControl(question.code, new FormControl());
-    }
+    this.newFormGroup = ReactiveFormsFactory.createFormGroupFromQuestions(this.group.questions);
   }
 
   addRow() {
