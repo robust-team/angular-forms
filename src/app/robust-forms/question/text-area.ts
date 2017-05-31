@@ -1,34 +1,28 @@
 import { Question } from './question';
 import { Validation } from './../validation/validation';
 
-export class Text extends Question {
+export class TextArea extends Question {
 
   public constructor(
     code: string,
     description: string,
     fieldType: string,
     validations: Validation[],
-    private _mask: string = '',
     private _placeholder: string = ''
   ) {
     super(code, description, fieldType, validations || []);
-  }
-
-  public get mask(): string {
-    return this._mask;
   }
 
   public get placeholder(): string {
     return this._placeholder;
   }
 
-  public static fromJson(question : Text) : Question {
-    return new Text(
+  public static fromJson(question : TextArea) : Question {
+    return new TextArea(
       question.code,
       question.description,
       question.fieldType,
       question.validations ,
-      question.mask,
       question.placeholder
     );
   }

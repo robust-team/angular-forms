@@ -1,6 +1,7 @@
 import {
     Question,
     Text,
+    TextArea,
     Check,
     Radio,
     Select,
@@ -10,7 +11,7 @@ export class QuestionFactory {
 
     private _types = {
         'text': Text,
-        'textarea': Text,
+        'textarea': TextArea,
         'check': Check,
         'radio': Radio,
         'select': Select,
