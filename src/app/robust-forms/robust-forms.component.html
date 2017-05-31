@@ -8,8 +8,8 @@
   <ng-container *ngFor="let group of groups">
 
     <ng-container [ngSwitch]="group.groupType">
-      
-      <ng-container *ngSwitchCase="GroupType.FIELDSET">
+
+      <ng-container *ngSwitchCase="'fieldset'">
         <fieldset [formGroup]="formGroup.get(group.code)">
           <legend *ngIf="'Ungrouped' !== group.description">{{ group.description }}</legend>
 
@@ -17,7 +17,7 @@
 
             <ng-container [ngSwitch]="question.fieldType">
 
-              <ng-template [ngSwitchCase]="FieldType.CHECK">
+              <ng-template ngSwitchCase="check">
                 <div class="form-group">
                   <div class="checkbox">
                     <label>
@@ -28,9 +28,9 @@
                     </label>
                   </div>
                 </div>
-              </ng-template>
+              </ng-template> <!--/check-->
 
-              <ng-template [ngSwitchCase]="FieldType.RADIO">
+              <ng-template ngSwitchCase="radio">
                 <div class="form-group">
                   <label>{{ question.description }}</label>
                   <div class="radio" *ngFor="let option of question.options">
@@ -42,9 +42,9 @@
                     </label>
                   </div>
                 </div>
-              </ng-template>
+              </ng-template> <!--/radio-->
 
-              <ng-template [ngSwitchCase]="FieldType.SELECT">
+              <ng-template ngSwitchCase="select">
                 <div class="form-group">
                   <label [for]="question.code">{{ question.description }}</label>
                   <select [id]="question.code" class="form-control" [name]="question.code"
@@ -58,27 +58,37 @@
                     </option>
                   </select>
                 </div>
-              </ng-template>
+              </ng-template> <!--/select-->
 
-              <ng-template [ngSwitchCase]="FieldType.TEXT" ngSwitchDefault>
+              <ng-template ngSwitchCase="textarea">
+                <div class="form-group">
+                  <label [for]="question.code">{{ question.description }}</label>
+                  <textarea [id]="question.code" class="form-control" [name]="question.code" rows="5"
+                            [placeholder]="question.placeholder ? question.placeholder : ''"
+                            [formControlName]="question.code">
+                  </textarea>
+                </div>
+              </ng-template> <!--/textarea-->
+
+              <ng-template ngSwitchCase="text" ngSwitchDefault>
                 <div class="form-group">
                   <label [for]="question.code">{{ question.description }}</label>
                   <input type="text" [id]="question.code" class="form-control" [name]="question.code"
                          [placeholder]="question.placeholder ? question.placeholder : ''"
                          [formControlName]="question.code">
                 </div>
-              </ng-template>
-            </ng-container>
+              </ng-template> <!--/text-->
+            </ng-container> <!--/ngSwitch-fieldType-->
 
-          </ng-container>
+          </ng-container> <!--/ngFor-question-->
         </fieldset>
-      </ng-container>
+      </ng-container> <!--/ngSwitchCase-fieldset-->
 
-      <ng-container *ngSwitchCase="GroupType.DATA_TABLE">
+      <ng-container *ngSwitchCase="'datatable'">
         <data-table [group]="group" [formGroup]="formGroup"></data-table>
       </ng-container>
 
-    </ng-container> <!--/[ngSwitch]-->
+    </ng-container> <!--/ngSwitch-groupType-->
 
   </ng-container> <!--groups-->
 </form>

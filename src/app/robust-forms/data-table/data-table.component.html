@@ -17,23 +17,23 @@
         <td *ngFor="let question of group.questions">
           <ng-container [ngSwitch]="question.fieldType">
 
-            <ng-template [ngSwitchCase]="FieldType.CHECK">
+            <ng-template ngSwitchCase="check">
               <input type="checkbox" [name]="question.code"
                      [checked]="question.defaultOption ? 'checked' : ''"
                      [formControlName]="question.code">
               {{ question.description }}
-            </ng-template>
+            </ng-template> <!--/check-->
 
-            <ng-template [ngSwitchCase]="FieldType.RADIO">
+            <ng-template ngSwitchCase="radio">
               <div class="radio" *ngFor="let option of question.options">
                 <input type="radio" [name]="question.code" [value]="option"
                        [checked]="option === question.defaultOption ? 'checked' : ''"
                        [formControlName]="question.code">
                 {{ option }}
               </div>
-            </ng-template>
+            </ng-template> <!--/radio-->
 
-            <ng-template [ngSwitchCase]="FieldType.SELECT">
+            <ng-template ngSwitchCase="select">
               <select [id]="question.code" class="form-control" [name]="question.code"
                       [formControlName]="question.code">
                 <option disabled [selected]="!question.defaultOption ? 'selected' : ''" [value]="null">
@@ -44,15 +44,22 @@
                   {{ option }}
                 </option>
               </select>
-            </ng-template>
+            </ng-template> <!--/select-->
 
-            <ng-template [ngSwitchCase]="FieldType.TEXT" ngSwitchDefault>
+            <ng-template ngSwitchCase="textarea">
+              <textarea [id]="question.code" class="form-control" [name]="question.code" rows="5"
+                        [placeholder]="question.placeholder ? question.placeholder : ''"
+                        [formControlName]="question.code">
+              </textarea>
+            </ng-template> <!--/text-->
+
+            <ng-template ngSwitchCase="text" ngSwitchDefault>
               <input type="text" [id]="question.code" class="form-control" [name]="question.code"
                      [placeholder]="question.placeholder ? question.placeholder : ''"
                      [formControlName]="question.code">
-            </ng-template>
+            </ng-template> <!--/text-->
 
-          </ng-container> <!--/[ngSwitch]-->
+          </ng-container> <!--/ngSwitch-fieldType-->
         </td>
         <td class="text-center">
           <button class="btn btn-default btn-add-row" (click)="addRow()">

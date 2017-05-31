@@ -2,10 +2,9 @@ import { FormGroup, FormControl, FormArray, AbstractControl } from '@angular/for
 import { Component, EventEmitter, Output, Input } from '@angular/core';
 
 import { Group } from './group/group';
-import { FieldType } from './question/field-type.enum';
-import { GroupType } from './group/group-type.enum';
 import { DataTable } from './group/data-table';
 import { Question } from './question/question';
+import { RobustForms } from '.';
 
 @Component({
   selector: 'robust-forms',
@@ -13,18 +12,17 @@ import { Question } from './question/question';
 })
 export class RobustFormsComponent {
 
-  FieldType = FieldType;
   formGroup: FormGroup;
-  GroupType = GroupType;
 
   @Input() groups: Group[] = [];
   @Output() getValues: EventEmitter<Object> = new EventEmitter();
-
+ 
   ngOnInit() {
+    this.groups = RobustForms.fromJson(this.groups);
     this.formGroup = new FormGroup({});
 
     for (let group of this.groups) {
-      let abstractControl: AbstractControl = group.hasOwnProperty('customType')
+      let abstractControl: AbstractControl = 'datatable' === group.groupType
         ? this.buildFormArray()
         : this.buildFormGroup(group.questions);
 

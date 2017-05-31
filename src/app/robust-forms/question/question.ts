@@ -14,11 +14,11 @@ export abstract class Question {
   }
 
   public get description(): string {
-    return this.description;
+    return this._description;
   }
 
   public get fieldType(): string {
-    return this.fieldType;
+    return this._fieldType;
   }
 
   public get validations(): Validation[] {

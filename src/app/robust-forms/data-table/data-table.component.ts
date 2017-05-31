@@ -2,7 +2,6 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormArray, FormControl, AbstractControl } from '@angular/forms';
 
 import { Question } from '../question';
-import { FieldType } from '../question/field-type.enum';
 import { Group } from './../group/group';
 import { DataTable } from '../group/data-table';
 
@@ -12,7 +11,7 @@ import { DataTable } from '../group/data-table';
   styleUrls: ['./data-table.component.css']
 })
 export class DataTableComponent {
-  FieldType = FieldType;
+
   formArray: FormArray;
   newFormGroup: FormGroup;
   Object = Object;

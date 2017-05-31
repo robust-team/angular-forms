@@ -10,16 +10,18 @@ describe('RobustForms :: RobustForms', () => {
         const jsonGroups:Array<any> = [{
             code: 'group-01',
             description: 'A simple group',
+            groupType: 'group-type',
             questions: []
         }];
         expect(RobustForms.fromJson(jsonGroups))
-            .toEqual([new Group('group-01', 'A simple group', [])]);
+            .toEqual([new Group('group-01', 'A simple group', 'group-type', [])]);
     });
 
     it('should create a group with a question', () => {
         const jsonGroups:Array<any> = [{
             code: 'group-01',
             description: 'A simple group with a question',
+            groupType: 'group-type',
             questions: [{
                 code: 'question-01',
                 description: 'A simple question',
@@ -28,7 +30,7 @@ describe('RobustForms :: RobustForms', () => {
             }]
         }];
         expect(RobustForms.fromJson(jsonGroups)).toEqual([
-            new Group('group-01', 'A simple group with a question', [
+            new Group('group-01', 'A simple group with a question', 'group-type', [
                 new Text('question-01', 'A simple question', 'text', [])
             ])
         ]);

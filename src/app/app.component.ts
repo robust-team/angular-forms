@@ -10,33 +10,33 @@ export class AppComponent {
     {
         "code": "G-01",
         "description": "Consumo de Água",
-        "groupType": 1,
+        "groupType": "datatable",
         "customType": "consumo-agua",
         "questions": [
             {
                 "code": "P-201",
                 "description": "Origem",
-                "fieldType": 2,
+                "fieldType": "select",
                 "options": ["Rede Pública", "Água Subterrânea", "Água Superficial"],
                 "placeholder": "Selecione"
             },
             {
                 "code": "P-202",
                 "description": "Consumo Médio (m³/dia)",
-                "fieldType": 3,
+                "fieldType": "text",
                 "placeholder": null
             },
             {
                 "code": "P-203",
                 "description": "Uso",
-                "fieldType": 2,
+                "fieldType": "select",
                 "options": ["Doméstico", "Industrial", "Doméstico e Industrial"],
                 "placeholder": "Selecione"
             },
             {
                 "code": "P-204",
                 "description": "Vazão (m³/dia)",
-                "fieldType": 3,
+                "fieldType": "text",
                 "placeholder": null
             }
         ]
@@ -44,31 +44,43 @@ export class AppComponent {
     {
         "code": "G-02",
         "description": "Serviços",
-        "groupType": 0,
+        "groupType": "fieldset",
         "questions": [
+            {
+                "code": "P-001",
+                "description": "Question Check",
+                "fieldType": "check",
+                "defaultOption": true
+            },
             {
                 "code": "P-002",
                 "description": "Question Radio",
-                "fieldType": 1,
+                "fieldType": "radio",
                 "options": ["Option 1", "Option 2"],
                 "defaultOption": "Option 2"
             },
             {
                 "code": "P-003",
                 "description": "Question Select",
-                "fieldType": 2,
+                "fieldType": "select",
                 "options": ["Option 1", "Option 2"],
                 "placeholder": "Select"
             },
             {
                 "code": "P-004",
                 "description": "Question Text 1",
-                "fieldType": 3
+                "fieldType": "text"
             },
             {
                 "code": "P-005",
                 "description": "Question Text 2",
-                "fieldType": 3,
+                "fieldType": "text",
+                "placeholder": "Example"
+            },
+            {
+                "code": "P-006",
+                "description": "Question TextArea",
+                "fieldType": "textarea",
                 "placeholder": "Example"
             }
         ]

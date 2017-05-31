@@ -10,6 +10,7 @@ export class QuestionFactory {
 
     private _types = {
         'text': Text,
+        'textarea': Text,
         'check': Check,
         'radio': Radio,
         'select': Select,

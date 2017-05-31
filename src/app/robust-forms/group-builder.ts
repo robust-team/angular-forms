@@ -9,7 +9,8 @@ export class GroupBuilder {
 
     public constructor(
         private code: string,
-        private description: string
+        private description: string,
+        private groupType: string
     ) { }
 
     public addQuestion(question : Question) : void {
@@ -17,6 +18,6 @@ export class GroupBuilder {
     }
 
     public build() : Group {
-        return new Group(this.code, this.description, this.questions);
+        return new Group(this.code, this.description, this.groupType, this.questions);
     }
 }
