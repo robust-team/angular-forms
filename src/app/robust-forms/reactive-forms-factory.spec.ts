@@ -1,4 +1,4 @@
-import { FormGroup } from '@angular/forms';
+import { FormArray, FormGroup } from '@angular/forms';
 
 import { ReactiveFormsFactory } from '.';
 import { DataTable, Group, Question, Text } from '.';
@@ -29,5 +29,18 @@ describe('RobustForms :: ReactiveFormsFactory', () => {
     ];
 
     expect(ReactiveFormsFactory.createFormGroupFromQuestions(questions)).toEqual(jasmine.any(FormGroup));
+  });
+
+  it('should create a FormArray', () => {
+    expect(ReactiveFormsFactory.createFormArray()).toEqual(jasmine.any(FormArray));
+  });
+
+  it('should create a FormArray with answers', () => {
+    const answers: Question[] = [
+      new Text('question-01', 'Question 01', 'text', [], null, '', 'Answer 01'),
+      new Text('question-02', 'Question 02', 'text', [], null, '', 'Answer 02')
+    ];
+
+    expect(ReactiveFormsFactory.createFormArray()).toEqual(jasmine.any(FormArray));
   });
 });

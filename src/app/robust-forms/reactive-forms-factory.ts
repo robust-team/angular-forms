@@ -32,14 +32,16 @@ export class ReactiveFormsFactory {
   public static createFormArray(answers: Question[][] = null): FormArray {
     let formArray: FormArray = new FormArray([]);
 
-    for (let answer of answers) {
-      let group: FormGroup = new FormGroup({});
-
-      for (let column of answer) {
-        group.addControl(column.code, new FormControl(column['answer']));
+    if (answers) {
+      for (let answer of answers) {
+        let group: FormGroup = new FormGroup({});
+  
+        for (let column of answer) {
+          group.addControl(column.code, new FormControl(column['answer']));
+        }
+  
+        formArray.push(group);
       }
-
-      formArray.push(group);
     }
 
     return formArray;
