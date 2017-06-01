@@ -132,7 +132,7 @@ export class AppComponent {
                 "description": "Question Select",
                 "fieldType": "select",
                 "options": ["Option 1", "Option 2"],
-                "placeholder": "Select",
+                "placeholder": "Selecione",
                 "answer": "Option 2"
             },
             {

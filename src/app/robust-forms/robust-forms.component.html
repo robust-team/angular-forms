@@ -21,9 +21,7 @@
                 <div class="form-group">
                   <div class="checkbox">
                     <label>
-                      <input type="checkbox" [name]="question.code"
-                             [checked]="question.defaultOption ? 'checked' : ''"
-                             [formControlName]="question.code">
+                      <input type="checkbox" [name]="question.code" [formControlName]="question.code">
                       {{ question.description }}
                     </label>
                   </div>
@@ -35,9 +33,7 @@
                   <label>{{ question.description }}</label>
                   <div class="radio" *ngFor="let option of question.options">
                     <label>
-                      <input type="radio" [name]="question.code" [value]="option"
-                             [checked]="option === question.defaultOption ? 'checked' : ''"
-                             [formControlName]="question.code">
+                      <input type="radio" [name]="question.code" [value]="option" [formControlName]="question.code">
                       {{ option }}
                     </label>
                   </div>
@@ -49,11 +45,10 @@
                   <label [for]="question.code">{{ question.description }}</label>
                   <select [id]="question.code" class="form-control" [name]="question.code"
                           [formControlName]="question.code">
-                    <option disabled [selected]="!question.defaultOption ? 'selected' : ''" [value]="null">
+                    <option disabled [value]="null">
                       {{ question.placeholder ? question.placeholder : '' }}
                     </option>
-                    <option *ngFor="let option of question.options" [value]="option"
-                            [selected]="option === question.defaultOption ? 'selected' : ''">
+                    <option *ngFor="let option of question.options" [value]="option">
                       {{ option }}
                     </option>
                   </select>

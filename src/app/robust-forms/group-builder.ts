@@ -5,12 +5,12 @@ import {
 
 export class GroupBuilder {
 
-    private questions : Array<Question> = [];
+    protected questions : Array<Question> = [];
 
     public constructor(
-        private code: string,
-        private description: string,
-        private groupType: string
+        protected code: string,
+        protected description: string,
+        protected groupType: string
     ) { }
 
     public addQuestion(question : Question) : void {
