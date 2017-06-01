@@ -26,12 +26,13 @@ describe('RobustForms :: RobustForms', () => {
                 code: 'question-01',
                 description: 'A simple question',
                 fieldType: 'text',
+                answer: 'My answer',
                 validations: []
             }]
         }];
         expect(RobustForms.fromJson(jsonGroups)).toEqual([
             new Group('group-01', 'A simple group with a question', 'group-type', [
-                new Text('question-01', 'A simple question', 'text', [])
+                new Text('question-01', 'A simple question', 'text', 'My answer', [])
             ])
         ]);
     });
