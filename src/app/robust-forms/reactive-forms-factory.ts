@@ -1,6 +1,6 @@
 import { FormGroup, FormArray, FormControl } from '@angular/forms';
 
-import { Group } from './group';
+import { DataTable, Group } from './group';
 import { Question } from './question';
 
 export class ReactiveFormsFactory {
@@ -11,7 +11,7 @@ export class ReactiveFormsFactory {
     for (let group of groups) {
       let control: FormGroup|FormArray = 'datatable' !== group.groupType
         ? ReactiveFormsFactory.createFormGroupFromQuestions(group.questions)
-        : ReactiveFormsFactory.createFormArray(group['answers']);
+        : ReactiveFormsFactory.createFormArray((<DataTable> group).answers);
 
       formGroup.addControl(group.code, control);
     }
@@ -31,6 +31,16 @@ export class ReactiveFormsFactory {
 
   public static createFormArray(answers: Question[][] = null): FormArray {
     let formArray: FormArray = new FormArray([]);
+
+    for (let answer of answers) {
+      let group: FormGroup = new FormGroup({});
+
+      for (let column of answer) {
+        group.addControl(column.code, new FormControl(column['answer']));
+      }
+
+      formArray.push(group);
+    }
 
     return formArray;
   }
