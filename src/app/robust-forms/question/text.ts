@@ -1,18 +1,18 @@
 import { Question } from './question';
-import { Validation } from './../validation/validation';
+import { Validation } from './../validation';
 
-export class Text extends Question {
+export class Text extends Question<string> {
 
   public constructor(
     code: string,
     description: string,
     fieldType: string,
-    validations: Validation[],
+    answer: string = null,
+    validations: Validation[] = null,
     private _mask: string = null,
     private _placeholder: string = null,
-    private _answer: string = null
   ) {
-    super(code, description, fieldType, validations || []);
+    super(code, description, fieldType, answer, validations);
   }
 
   public get mask(): string {
@@ -23,19 +23,15 @@ export class Text extends Question {
     return this._placeholder;
   }
 
-  public get answer(): string {
-    return this._answer;
-  }
-
-  public static fromJson(question : Text) : Question {
+  public static fromJson(question : Text) : Question<string> {
     return new Text(
       question.code,
       question.description,
       question.fieldType,
+      question.answer,
       question.validations,
       question.mask,
-      question.placeholder,
-      question.answer
+      question.placeholder
     );
   }
 }

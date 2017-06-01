@@ -1,12 +1,13 @@
-import { Validation } from '../validation/validation';
+import { Validation } from '../validation';
 
-export abstract class Question {
+export abstract class Question<Answer> {
 
   public constructor(
     private _code: string,
     private _description: string,
     private _fieldType: string,
-    private _validations: Validation[]
+    private _answer: Answer = null,
+    private _validations: Validation[] = null
   ) { }
 
   public get code(): string {
@@ -19,6 +20,10 @@ export abstract class Question {
 
   public get fieldType(): string {
     return this._fieldType;
+  }
+
+  public get answer(): Answer {
+    return this._answer;
   }
 
   public get validations(): Validation[] {

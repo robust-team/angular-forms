@@ -6,7 +6,7 @@ export class Group {
     private _code: string,
     private _description: string,
     private _groupType: string,
-    private _questions: Array<Question>
+    private _questions: Question<any>[]
   ) { }
 
   public get code(): string {
@@ -21,7 +21,7 @@ export class Group {
     return this._groupType;
   }
 
-  public get questions(): Array<Question> {
+  public get questions(): Question<any>[] {
     return this._questions;
   }
 }

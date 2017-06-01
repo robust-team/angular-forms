@@ -8,7 +8,7 @@ export class DataTableBuilder extends GroupBuilder {
     groupType: string,
     private customType: string,
     private validations: Validation[] = null,
-    private answers: Question[][] = null
+    private answers: Question<any>[][] = null
   ) {
     super(code, description, groupType);
   }

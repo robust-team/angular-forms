@@ -5,7 +5,7 @@ import {
 
 export class GroupBuilder {
 
-    protected questions : Array<Question> = [];
+    protected questions : Question<any>[] = [];
 
     public constructor(
         protected code: string,
@@ -13,7 +13,7 @@ export class GroupBuilder {
         protected groupType: string
     ) { }
 
-    public addQuestion(question : Question) : void {
+    public addQuestion(question : Question<any>) : void {
         this.questions.push(question);
     }
 

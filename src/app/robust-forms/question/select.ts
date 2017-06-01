@@ -7,13 +7,13 @@ export class Select extends Choice {
     code: string,
     description: string,
     fieldType: string,
-    validations: Validation[],
-    options: string[],
-    defaultOption: string,
     answer: string = null,
+    validations: Validation[] = null,
+    options: string[] = null,
+    defaultOption: string = null,
     private _placeholder: string = null
   ) {
-    super(code, description, fieldType, validations, options, defaultOption, answer);
+    super(code, description, fieldType, answer, validations, options, defaultOption);
   }
 
   public get placeholder(): string {
@@ -25,10 +25,10 @@ export class Select extends Choice {
       question.code,
       question.description,
       question.fieldType,
+      question.answer,
       question.validations,
       question.options,
       question.defaultOption,
-      question.answer,
       question.placeholder
     );
   }

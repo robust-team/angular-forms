@@ -1,25 +1,21 @@
 import { Question } from './question';
 import { Validation } from '../validation/validation';
 
-export class Check extends Question {
+export class Check extends Question<boolean> {
 
   public constructor(
     code: string,
     description: string,
     fieldType: string,
-    validations: Validation[],
-    private _defaultOption: boolean,
-    private _answer: boolean = null
+    answer: boolean = null,
+    validations: Validation[] = null,
+    private _defaultOption: boolean = null
   ) {
-    super(code, description, fieldType, validations);
+    super(code, description, fieldType, answer, validations);
   }
 
   public get defaultOption(): boolean {
     return this._defaultOption;
-  }
-
-  public get answer(): boolean {
-    return this._answer;
   }
 
   public static fromJson(question : Check) : Check {
@@ -27,9 +23,9 @@ export class Check extends Question {
       question.code,
       question.description,
       question.fieldType,
+      question.answer,
       question.validations,
-      question.defaultOption,
-      question.answer
+      question.defaultOption
     );
   }
 }

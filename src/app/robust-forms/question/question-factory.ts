@@ -18,10 +18,10 @@ export class QuestionFactory {
     };
 
     public constructor (
-        private _question : Question
+        private _question : Question<any>
     ) { }
 
-    public create() : Question {
+    public create() : Question<any> {
         return this._types[this._question.fieldType].fromJson(this._question);
     }
 }
