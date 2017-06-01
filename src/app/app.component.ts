@@ -129,8 +129,9 @@ export class AppComponent {
                 "description": "Question Check",
                 "fieldType": "check",
                 "defaultOption": false,
-                "answer": true,
-                "validations": []
+                "validations": [
+                    { "validationType": "required", "message": "Este campo é obrigatório" }
+                ]
             },
             {
                 "code": "P-002",
@@ -138,8 +139,9 @@ export class AppComponent {
                 "fieldType": "radio",
                 "options": ["Option 1", "Option 2"],
                 "defaultOption": "Option 1",
-                "answer": "Option 2",
-                "validations": []
+                "validations": [
+                    { "validationType": "required", "message": "Este campo é obrigatório" }
+                ]
             },
             {
                 "code": "P-003",
@@ -147,33 +149,34 @@ export class AppComponent {
                 "fieldType": "select",
                 "options": ["Option 1", "Option 2"],
                 "placeholder": "Selecione",
-                "answer": "Option 2",
-                "validations": []
+                "validations": [
+                    { "validationType": "required", "message": "Este campo é obrigatório" }
+                ]
             },
             {
                 "code": "P-004",
                 "description": "Question Text 1",
                 "fieldType": "text",
                 "validations": [
-                    { "validationType": "required", "message": "Este campo é obrigatório" }
+                    { "validationType": "required", "message": "Este campo é obrigatório" },
+                    { "validationType": "minlength", "message": "Este campo tem o tamanho mínimo de 3 caracteres", "value": 3 },
+                    { "validationType": "maxlength", "message": "Este campo tem o tamanho máximo de 6 caracteres", "value": 6 }
                 ]
             },
             {
                 "code": "P-005",
                 "description": "Question Text 2",
                 "fieldType": "text",
-                "placeholder": "Example",
-                "validations": [
-                    { "validationType": "required", "message": "Este campo é obrigatório" }
-                ]
+                "placeholder": "Example"
             },
             {
                 "code": "P-006",
                 "description": "Question TextArea",
                 "fieldType": "textarea",
                 "placeholder": "Example",
-                "answer": "Answer for Question TextArea",
-                "validations": []
+                "validations": [
+                    { "validationType": "required", "message": "Este campo é obrigatório" }
+                ]
             }
         ]
     }

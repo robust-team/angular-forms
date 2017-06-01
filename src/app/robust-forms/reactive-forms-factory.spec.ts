@@ -46,8 +46,8 @@ describe('RobustForms :: ReactiveFormsFactory', () => {
   it('should create Validators', () => {
     const validations: Validation[] = [
       new Required('required', 'Message'),
-      new MaxLength('max-length', 'Message', 30),
-      new MinLength('min-length', 'Message', 6)
+      new MaxLength('maxlength', 'Message', 30),
+      new MinLength('minlength', 'Message', 6)
     ];
 
     expect(ReactiveFormsFactory.createValidators(validations) instanceof Array).toBeTruthy();

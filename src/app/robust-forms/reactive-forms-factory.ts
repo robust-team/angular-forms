@@ -55,10 +55,10 @@ export class ReactiveFormsFactory {
         case 'required':
           validators.push(Validators.required);
           break;
-        case 'max-length':
+        case 'maxlength':
           validators.push(Validators.maxLength((<MaxLength> validation).value));
           break;
-        case 'min-length':
+        case 'minlength':
           validators.push(Validators.minLength((<MinLength> validation).value));
       }
     }

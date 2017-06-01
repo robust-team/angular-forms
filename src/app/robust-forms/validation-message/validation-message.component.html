@@ -1,0 +1,6 @@
+<ul class="validation-message-box" *ngIf="submitted || formControl.touched">
+  <li *ngFor="let validation of validations" [hidden]="!formControl.hasError(validation.validationType)">
+    {{ validation.message }}
+  </li>
+</ul>
+<button (click)="test()">Test</button>

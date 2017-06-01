@@ -4,7 +4,9 @@
   getValues
 </button>
 
-<form [formGroup]="formGroup">
+{{ robustForm.submitted }}
+
+<form [formGroup]="formGroup" #robustForm="ngForm">
   <ng-container *ngFor="let group of groups">
 
     <ng-container [ngSwitch]="group.groupType">
@@ -24,8 +26,8 @@
                       <input type="checkbox" [name]="question.code" [formControlName]="question.code">
                       {{ question.description }}
                     </label>
-                  </div>
-                </div>
+                  </div> <!--/.checkbox-->
+                </div> <!--/.form-group-->
               </ng-template> <!--/check-->
 
               <ng-template ngSwitchCase="radio">
@@ -36,8 +38,13 @@
                       <input type="radio" [name]="question.code" [value]="option" [formControlName]="question.code">
                       {{ option }}
                     </label>
-                  </div>
-                </div>
+                  </div> <!--/.radio-->
+                  <validation-message [validations]="question.validations"
+                                      [formGroup]="formGroup.get(group.code)"
+                                      [descriptionControl]="question.code"
+                                      [submitted]="robustForm.submitted">
+                  </validation-message>
+                </div> <!--/.form-group-->
               </ng-template> <!--/radio-->
 
               <ng-template ngSwitchCase="select">
@@ -52,7 +59,12 @@
                       {{ option }}
                     </option>
                   </select>
-                </div>
+                  <validation-message [validations]="question.validations"
+                                      [formGroup]="formGroup.get(group.code)"
+                                      [descriptionControl]="question.code"
+                                      [submitted]="robustForm.submitted">
+                  </validation-message>
+                </div> <!--/.form-group-->
               </ng-template> <!--/select-->
 
               <ng-template ngSwitchCase="textarea">
@@ -62,7 +74,12 @@
                             [placeholder]="question.placeholder ? question.placeholder : ''"
                             [formControlName]="question.code">
                   </textarea>
-                </div>
+                  <validation-message [validations]="question.validations"
+                                      [formGroup]="formGroup.get(group.code)"
+                                      [descriptionControl]="question.code"
+                                      [submitted]="robustForm.submitted">
+                  </validation-message>
+                </div> <!--/.form-group-->
               </ng-template> <!--/textarea-->
 
               <ng-template ngSwitchCase="text" ngSwitchDefault>
@@ -71,7 +88,12 @@
                   <input type="text" [id]="question.code" class="form-control" [name]="question.code"
                          [placeholder]="question.placeholder ? question.placeholder : ''"
                          [formControlName]="question.code">
-                </div>
+                  <validation-message [validations]="question.validations"
+                                      [formGroup]="formGroup.get(group.code)"
+                                      [descriptionControl]="question.code"
+                                      [submitted]="robustForm.submitted">
+                  </validation-message>
+                </div> <!--/.form-group-->
               </ng-template> <!--/text-->
             </ng-container> <!--/ngSwitch-fieldType-->
 

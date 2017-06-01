@@ -1,0 +1,13 @@
+.validation-message-box {
+  margin: 0 0 7px;
+  padding: 5px 0 0;
+}
+
+.validation-message-box li {
+  border-left: 3px solid #a00;
+  color: #a00;
+  font-size: .9em;
+  list-style: none;
+  margin-bottom: 3px;
+  padding: 1px 0 1px 5px;
+}
