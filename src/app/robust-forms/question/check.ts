@@ -7,18 +7,18 @@ export class Check extends Question<boolean> {
     code: string,
     description: string,
     fieldType: string,
-    answer: boolean = null,
-    validations: Validation[] = null,
+    answer: boolean = false,
+    validations: Validation[] = [],
     private _defaultOption: boolean = null
   ) {
-    super(code, description, fieldType, answer, validations);
+    super(code, description, fieldType, answer || false, validations || []);
   }
 
   public get defaultOption(): boolean {
     return this._defaultOption;
   }
 
-  public static fromJson(question : Check) : Check {
+  public static fromJson(question : Check): Check {
     return new Check(
       question.code,
       question.description,

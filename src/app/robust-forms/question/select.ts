@@ -1,5 +1,5 @@
-import { Choice } from './choice';
-import { Validation } from '../validation/validation';
+import { Choice } from '.';
+import { Validation } from '../validation';
 
 export class Select extends Choice {
 
@@ -8,8 +8,8 @@ export class Select extends Choice {
     description: string,
     fieldType: string,
     answer: string = null,
-    validations: Validation[] = null,
-    options: string[] = null,
+    validations: Validation[] = [],
+    options: string[] = [],
     defaultOption: string = null,
     private _placeholder: string = null
   ) {

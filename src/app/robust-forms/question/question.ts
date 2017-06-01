@@ -7,7 +7,7 @@ export abstract class Question<Answer> {
     private _description: string,
     private _fieldType: string,
     private _answer: Answer = null,
-    private _validations: Validation[] = null
+    private _validations: Validation[] = []
   ) { }
 
   public get code(): string {
@@ -27,6 +27,6 @@ export abstract class Question<Answer> {
   }
 
   public get validations(): Validation[] {
-    return this.validations;
+    return this._validations;
   }
 }

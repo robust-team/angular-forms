@@ -8,11 +8,11 @@ export class Text extends Question<string> {
     description: string,
     fieldType: string,
     answer: string = null,
-    validations: Validation[] = null,
+    validations: Validation[] = [],
     private _mask: string = null,
     private _placeholder: string = null,
   ) {
-    super(code, description, fieldType, answer, validations);
+    super(code, description, fieldType, answer, validations || []);
   }
 
   public get mask(): string {
@@ -23,7 +23,7 @@ export class Text extends Question<string> {
     return this._placeholder;
   }
 
-  public static fromJson(question : Text) : Question<string> {
+  public static fromJson(question: Text): Text {
     return new Text(
       question.code,
       question.description,

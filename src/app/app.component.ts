@@ -17,6 +17,9 @@ export class AppComponent {
                 "code": "P-201",
                 "description": "Origem",
                 "fieldType": "select",
+                "validations": [
+                    { "validationType": "required", "message": "Este campo é obrigatório" }
+                ],
                 "options": ["Rede Pública", "Água Subterrânea", "Água Superficial"],
                 "placeholder": "Selecione"
             },
@@ -24,12 +27,18 @@ export class AppComponent {
                 "code": "P-202",
                 "description": "Consumo Médio (m³/dia)",
                 "fieldType": "text",
+                "validations": [
+                    { "validationType": "required", "message": "Este campo é obrigatório" }
+                ],
                 "placeholder": null
             },
             {
                 "code": "P-203",
                 "description": "Uso",
                 "fieldType": "select",
+                "validations": [
+                    { "validationType": "required", "message": "Este campo é obrigatório" }
+                ],
                 "options": ["Doméstico", "Industrial", "Doméstico e Industrial"],
                 "placeholder": "Selecione"
             },
@@ -37,6 +46,9 @@ export class AppComponent {
                 "code": "P-204",
                 "description": "Vazão (m³/dia)",
                 "fieldType": "text",
+                "validations": [
+                    { "validationType": "required", "message": "Este campo é obrigatório" }
+                ],
                 "placeholder": null
             }
         ],
@@ -117,7 +129,8 @@ export class AppComponent {
                 "description": "Question Check",
                 "fieldType": "check",
                 "defaultOption": false,
-                "answer": true
+                "answer": true,
+                "validations": []
             },
             {
                 "code": "P-002",
@@ -125,7 +138,8 @@ export class AppComponent {
                 "fieldType": "radio",
                 "options": ["Option 1", "Option 2"],
                 "defaultOption": "Option 1",
-                "answer": "Option 2"
+                "answer": "Option 2",
+                "validations": []
             },
             {
                 "code": "P-003",
@@ -133,27 +147,33 @@ export class AppComponent {
                 "fieldType": "select",
                 "options": ["Option 1", "Option 2"],
                 "placeholder": "Selecione",
-                "answer": "Option 2"
+                "answer": "Option 2",
+                "validations": []
             },
             {
                 "code": "P-004",
                 "description": "Question Text 1",
                 "fieldType": "text",
-                "answer": "Answer for Question Text 1"
+                "validations": [
+                    { "validationType": "required", "message": "Este campo é obrigatório" }
+                ]
             },
             {
                 "code": "P-005",
                 "description": "Question Text 2",
                 "fieldType": "text",
                 "placeholder": "Example",
-                "answer": "Answer for Question Text 2"
+                "validations": [
+                    { "validationType": "required", "message": "Este campo é obrigatório" }
+                ]
             },
             {
                 "code": "P-006",
                 "description": "Question TextArea",
                 "fieldType": "textarea",
                 "placeholder": "Example",
-                "answer": "Answer for Question TextArea"
+                "answer": "Answer for Question TextArea",
+                "validations": []
             }
         ]
     }

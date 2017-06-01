@@ -1,8 +1,7 @@
 import { FormGroup } from '@angular/forms';
 import { Component, EventEmitter, Output, Input } from '@angular/core';
 
-import { Group } from './group/group';
-import { RobustForms, ReactiveFormsFactory } from '.';
+import { Group, RobustForms, ReactiveFormsFactory } from '.';
 
 @Component({
   selector: 'robust-forms',
@@ -21,6 +20,7 @@ export class RobustFormsComponent {
   }
 
   emitValues() {
+    console.log(this.formGroup);
     this.getValues.emit(this.formGroup.value);
   }
 }

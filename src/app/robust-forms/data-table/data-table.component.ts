@@ -39,6 +39,7 @@ export class DataTableComponent {
   }
 
   printNewValues() {
+    console.log(this.newFormGroup);
     console.log(this.newFormGroup.value);
   }
 }

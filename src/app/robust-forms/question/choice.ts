@@ -8,11 +8,11 @@ export abstract class Choice extends Question<string> {
     description: string,
     fieldType: string,
     answer: string = null,
-    validations: Validation[] = null,
-    private _options: string[] = null,
+    validations: Validation[] = [],
+    private _options: string[] = [],
     private _defaultOption: string = null
   ) {
-    super(code, description, fieldType, answer, validations);
+    super(code, description, fieldType, answer, validations || []);
   }
 
   public get options(): string[] {
