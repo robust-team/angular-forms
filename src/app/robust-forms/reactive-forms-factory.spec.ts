@@ -1,7 +1,6 @@
-import { FormArray, FormGroup } from '@angular/forms';
+import { FormArray, FormGroup, ValidatorFn } from '@angular/forms';
 
-import { ReactiveFormsFactory } from '.';
-import { DataTable, Group, Question, Text } from '.';
+import { DataTable, Group, Question, ReactiveFormsFactory, Text, Validation, Required, MaxLength, MinLength } from '.';
 
 describe('RobustForms :: ReactiveFormsFactory', () => {
   it('should create a FormGroup from Groups', () => {
@@ -23,9 +22,9 @@ describe('RobustForms :: ReactiveFormsFactory', () => {
   });
 
   it('should create a FormGroup from Questions', () => {
-    const questions: Question[] = [
-      new Text('question-01', 'Question 01', 'text', []),
-      new Text('question-02', 'Question 02', 'text', [])
+    const questions: Question<any>[] = [
+      new Text('question-01', 'Question 01', 'text', 'Answer'),
+      new Text('question-02', 'Question 02', 'text', 'Answer')
     ];
 
     expect(ReactiveFormsFactory.createFormGroupFromQuestions(questions)).toEqual(jasmine.any(FormGroup));
@@ -36,11 +35,21 @@ describe('RobustForms :: ReactiveFormsFactory', () => {
   });
 
   it('should create a FormArray with answers', () => {
-    const answers: Question[] = [
-      new Text('question-01', 'Question 01', 'text', [], null, '', 'Answer 01'),
-      new Text('question-02', 'Question 02', 'text', [], null, '', 'Answer 02')
+    const answers: Question<any>[] = [
+      new Text('question-01', 'Question 01', 'text', 'Answer', [], '', ''),
+      new Text('question-02', 'Question 02', 'text', 'Answer', [], '', '')
     ];
 
     expect(ReactiveFormsFactory.createFormArray()).toEqual(jasmine.any(FormArray));
+  });
+
+  it('should create Validators', () => {
+    const validations: Validation[] = [
+      new Required('required', 'Message'),
+      new MaxLength('max-length', 'Message', 30),
+      new MinLength('min-length', 'Message', 6)
+    ];
+
+    expect(ReactiveFormsFactory.createValidators(validations) instanceof Array).toBeTruthy();
   });
 });
