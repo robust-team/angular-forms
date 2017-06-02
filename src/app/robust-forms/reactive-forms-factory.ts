@@ -1,6 +1,6 @@
 import { FormGroup, FormArray, FormControl, ValidatorFn, Validators } from '@angular/forms';
 
-import { DataTable, Group, Question, Validation, MinLength, MaxLength } from '.';
+import { DataTable, Group, Question, Validation, MinLength, MaxLength, Pattern } from '.';
 
 export class ReactiveFormsFactory {
 
@@ -35,11 +35,11 @@ export class ReactiveFormsFactory {
     if (answers) {
       for (let answer of answers) {
         let group: FormGroup = new FormGroup({});
-  
+
         for (let column of answer) {
           group.addControl(column.code, new FormControl(column.answer));
         }
-  
+
         formArray.push(group);
       }
     }
@@ -60,9 +60,12 @@ export class ReactiveFormsFactory {
           break;
         case 'minlength':
           validators.push(Validators.minLength((<MinLength> validation).value));
+          break;
+        case 'pattern':
+          validators.push(Validators.pattern((<Pattern> validation).regex));
       }
     }
 
     return validators;
-  } 
+  }
 }
