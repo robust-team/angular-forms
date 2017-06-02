@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output, Input, ViewChild } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Input, ViewChild } from '@angular/core';
 import { FormGroup, FormGroupDirective } from '@angular/forms';
 
 import { Group, RobustForms, ReactiveFormsFactory } from '.';
@@ -7,7 +7,7 @@ import { Group, RobustForms, ReactiveFormsFactory } from '.';
   selector: 'robust-forms',
   templateUrl: './robust-forms.component.html'
 })
-export class RobustFormsComponent {
+export class RobustFormsComponent implements OnInit {
 
   formGroup: FormGroup;
 
@@ -21,8 +21,7 @@ export class RobustFormsComponent {
   }
 
   emitValues() {
-    console.log(this.formGroup);
-    this.robustForm.onSubmit(null);
-    this.getValues.emit(this.formGroup.value);
+    this.robustForm.onSubmit(this.formGroup.value);
+    this.getValues.emit({ valid: this.formGroup.valid, value: this.formGroup.value });
   }
 }
