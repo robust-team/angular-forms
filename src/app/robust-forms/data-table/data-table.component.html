@@ -13,37 +13,42 @@
         </th>
         <th class="text-center">Ação</th>
       </tr>
-      <tr [formGroup]="newFormGroup">
+      <tr [formGroup]="newFormGroup" #dataTableForm="ngForm">
         <td *ngFor="let question of group.questions">
           <ng-container [ngSwitch]="question.fieldType">
 
             <ng-template ngSwitchCase="check">
-              <input type="checkbox" [name]="question.code"
-                     [checked]="question.defaultOption ? 'checked' : ''"
-                     [formControlName]="question.code">
+              <input type="checkbox" [name]="question.code" [formControlName]="question.code">
               {{ question.description }}
             </ng-template> <!--/check-->
 
             <ng-template ngSwitchCase="radio">
               <div class="radio" *ngFor="let option of question.options">
-                <input type="radio" [name]="question.code" [value]="option"
-                       [checked]="option === question.defaultOption ? 'checked' : ''"
-                       [formControlName]="question.code">
+                <input type="radio" [name]="question.code" [value]="option" [formControlName]="question.code">
                 {{ option }}
-              </div>
+              </div> <!--/.radio-->
+              <validation-message [validations]="question.validations"
+                                  [formGroup]="newFormGroup"
+                                  [descriptionControl]="question.code"
+                                  [submitted]="dataTableForm.submitted">
+              </validation-message>
             </ng-template> <!--/radio-->
 
             <ng-template ngSwitchCase="select">
               <select [id]="question.code" class="form-control" [name]="question.code"
                       [formControlName]="question.code">
-                <option disabled [selected]="!question.defaultOption ? 'selected' : ''" [value]="null">
+                <option disabled [value]="null">
                   {{ question.placeholder ? question.placeholder : '' }}
                 </option>
-                <option *ngFor="let option of question.options" [value]="option"
-                        [selected]="option === question.defaultOption ? 'selected' : ''">
+                <option *ngFor="let option of question.options" [value]="option">
                   {{ option }}
                 </option>
               </select>
+              <validation-message [validations]="question.validations"
+                                  [formGroup]="newFormGroup"
+                                  [descriptionControl]="question.code"
+                                  [submitted]="dataTableForm.submitted">
+              </validation-message>
             </ng-template> <!--/select-->
 
             <ng-template ngSwitchCase="textarea">
@@ -51,18 +56,28 @@
                         [placeholder]="question.placeholder ? question.placeholder : ''"
                         [formControlName]="question.code">
               </textarea>
-            </ng-template> <!--/text-->
+              <validation-message [validations]="question.validations"
+                                  [formGroup]="newFormGroup"
+                                  [descriptionControl]="question.code"
+                                  [submitted]="dataTableForm.submitted">
+              </validation-message>
+            </ng-template> <!--/textarea-->
 
             <ng-template ngSwitchCase="text" ngSwitchDefault>
               <input type="text" [id]="question.code" class="form-control" [name]="question.code"
                      [placeholder]="question.placeholder ? question.placeholder : ''"
                      [formControlName]="question.code">
+              <validation-message [validations]="question.validations"
+                                  [formGroup]="newFormGroup"
+                                  [descriptionControl]="question.code"
+                                  [submitted]="dataTableForm.submitted">
+              </validation-message>
             </ng-template> <!--/text-->
 
           </ng-container> <!--/ngSwitch-fieldType-->
         </td>
         <td class="text-center">
-          <button class="btn btn-default btn-add-row" (click)="addRow()">
+          <button class="btn btn-default btn-add-row" (click)="addRow();">
             Adicionar
           </button>
         </td>
