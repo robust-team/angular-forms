@@ -6,90 +6,94 @@
   </button>
 
   <div class="table-responsive">
-    <table class="table table-bordered table-striped">
-      <tr>
-        <th class="text-center" *ngFor="let question of group.questions">
-          {{ question.description }}
-        </th>
-        <th class="text-center">Ação</th>
-      </tr>
-      <tr [formGroup]="newFormGroup" #dataTableForm="ngForm">
-        <td *ngFor="let question of group.questions">
-          <ng-container [ngSwitch]="question.fieldType">
+    <table class="table table-bordered table-striped table-hover">
+      <thead>
+        <tr>
+          <th class="text-center" *ngFor="let question of group.questions">
+            {{ question.description }}
+          </th>
+          <th class="text-center">Ação</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr [formGroup]="newFormGroup" #dataTableForm="ngForm">
+          <td *ngFor="let question of group.questions">
+            <ng-container [ngSwitch]="question.fieldType">
 
-            <ng-template ngSwitchCase="check">
-              <input type="checkbox" [name]="question.code" [formControlName]="question.code">
-              {{ question.description }}
-            </ng-template> <!--/check-->
+              <ng-template ngSwitchCase="check">
+                <input type="checkbox" [name]="question.code" [formControlName]="question.code">
+                {{ question.description }}
+              </ng-template> <!--/check-->
 
-            <ng-template ngSwitchCase="radio">
-              <div class="radio" *ngFor="let option of question.options">
-                <input type="radio" [name]="question.code" [value]="option" [formControlName]="question.code">
-                {{ option }}
-              </div> <!--/.radio-->
-              <validation-message [validations]="question.validations"
-                                  [formGroup]="newFormGroup"
-                                  [descriptionControl]="question.code"
-                                  [submitted]="dataTableForm.submitted">
-              </validation-message>
-            </ng-template> <!--/radio-->
-
-            <ng-template ngSwitchCase="select">
-              <select [id]="question.code" class="form-control" [name]="question.code"
-                      [formControlName]="question.code">
-                <option disabled [value]="null">
-                  {{ question.placeholder ? question.placeholder : '' }}
-                </option>
-                <option *ngFor="let option of question.options" [value]="option">
+              <ng-template ngSwitchCase="radio">
+                <div class="radio" *ngFor="let option of question.options">
+                  <input type="radio" [name]="question.code" [value]="option" [formControlName]="question.code">
                   {{ option }}
-                </option>
-              </select>
-              <validation-message [validations]="question.validations"
-                                  [formGroup]="newFormGroup"
-                                  [descriptionControl]="question.code"
-                                  [submitted]="dataTableForm.submitted">
-              </validation-message>
-            </ng-template> <!--/select-->
+                </div> <!--/.radio-->
+                <validation-message [validations]="question.validations"
+                                    [formGroup]="newFormGroup"
+                                    [descriptionControl]="question.code"
+                                    [submitted]="dataTableForm.submitted">
+                </validation-message>
+              </ng-template> <!--/radio-->
 
-            <ng-template ngSwitchCase="textarea">
-              <textarea [id]="question.code" class="form-control" [name]="question.code" rows="5"
-                        [placeholder]="question.placeholder ? question.placeholder : ''"
+              <ng-template ngSwitchCase="select">
+                <select [id]="question.code" class="form-control" [name]="question.code"
                         [formControlName]="question.code">
-              </textarea>
-              <validation-message [validations]="question.validations"
-                                  [formGroup]="newFormGroup"
-                                  [descriptionControl]="question.code"
-                                  [submitted]="dataTableForm.submitted">
-              </validation-message>
-            </ng-template> <!--/textarea-->
+                  <option disabled [value]="null">
+                    {{ question.placeholder ? question.placeholder : '' }}
+                  </option>
+                  <option *ngFor="let option of question.options" [value]="option">
+                    {{ option }}
+                  </option>
+                </select>
+                <validation-message [validations]="question.validations"
+                                    [formGroup]="newFormGroup"
+                                    [descriptionControl]="question.code"
+                                    [submitted]="dataTableForm.submitted">
+                </validation-message>
+              </ng-template> <!--/select-->
 
-            <ng-template ngSwitchCase="text" ngSwitchDefault>
-              <input type="text" [id]="question.code" class="form-control" [name]="question.code"
-                     [placeholder]="question.placeholder ? question.placeholder : ''"
-                     [formControlName]="question.code">
-              <validation-message [validations]="question.validations"
-                                  [formGroup]="newFormGroup"
-                                  [descriptionControl]="question.code"
-                                  [submitted]="dataTableForm.submitted">
-              </validation-message>
-            </ng-template> <!--/text-->
+              <ng-template ngSwitchCase="textarea">
+                <textarea [id]="question.code" class="form-control" [name]="question.code" rows="5"
+                          [placeholder]="question.placeholder ? question.placeholder : ''"
+                          [formControlName]="question.code">
+                </textarea>
+                <validation-message [validations]="question.validations"
+                                    [formGroup]="newFormGroup"
+                                    [descriptionControl]="question.code"
+                                    [submitted]="dataTableForm.submitted">
+                </validation-message>
+              </ng-template> <!--/textarea-->
 
-          </ng-container> <!--/ngSwitch-fieldType-->
-        </td>
-        <td class="text-center">
-          <button class="btn btn-default btn-add-row" (click)="addRow();">
-            Adicionar
-          </button>
-        </td>
-      </tr>
-      <tr *ngFor="let row of formArray?.value; let indexRow = index">
-        <td *ngFor="let key of Object.keys(row)">{{ row[key] }}</td>
-        <td class="text-center">
-          <button class="btn btn-default btn-remove-row" (click)="removeRow(indexRow)">
-            Remover
-          </button>
-        </td>
-      </tr>
+              <ng-template ngSwitchCase="text" ngSwitchDefault>
+                <input type="text" [id]="question.code" class="form-control" [name]="question.code"
+                      [placeholder]="question.placeholder ? question.placeholder : ''"
+                      [formControlName]="question.code">
+                <validation-message [validations]="question.validations"
+                                    [formGroup]="newFormGroup"
+                                    [descriptionControl]="question.code"
+                                    [submitted]="dataTableForm.submitted">
+                </validation-message>
+              </ng-template> <!--/text-->
+
+            </ng-container> <!--/ngSwitch-fieldType-->
+          </td>
+          <td class="text-center">
+            <button class="btn btn-default btn-add-row" (click)="addRow();">
+              Adicionar
+            </button>
+          </td>
+        </tr>
+        <tr *ngFor="let row of formArray?.value; let indexRow = index">
+          <td *ngFor="let key of Object.keys(row)">{{ row[key] }}</td>
+          <td class="text-center">
+            <button class="btn btn-default btn-remove-row" (click)="removeRow(indexRow)">
+              Remover
+            </button>
+          </td>
+        </tr>
+      </tbody>
     </table>
   </div> <!--/.table-responsive-->
 </fieldset>
