@@ -1,4 +1,4 @@
-import { Component, Input, Output, ViewChild, EventEmitter, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { FormGroup, FormArray, FormControl, AbstractControl, FormGroupDirective } from '@angular/forms';
 
 import { Question } from '../question';
@@ -16,10 +16,10 @@ export class DataTableComponent implements OnInit {
   formArray: FormArray;
   newFormGroup: FormGroup;
   Object = Object;
+  submitted: boolean = false;
 
   @Input() formGroup: FormGroup;
   @Input() group: DataTable;
-  @ViewChild('dataTableForm') dataTableForm: FormGroupDirective;
 
   ngOnInit() {
     this.formArray = <FormArray> this.formGroup.get(this.group.code);
@@ -27,13 +27,13 @@ export class DataTableComponent implements OnInit {
   }
 
   addRow() {
-    this.dataTableForm.onSubmit(this.newFormGroup.value);
+    this.submitted = true;
 
     if (!this.newFormGroup.valid) {
       return;
     }
 
-    this.formArray.push(Object.create(this.newFormGroup));
+    this.formArray.push(Object.assign(new FormGroup({}), this.newFormGroup));
     this.resetForms();
   }
 
@@ -43,7 +43,7 @@ export class DataTableComponent implements OnInit {
 
   resetForms() {
     this.newFormGroup.reset();
-    this.dataTableForm.resetForm();
+    this.submitted = false;
   }
 
   printNewValues() {

@@ -4,9 +4,9 @@
   getValues
 </button>
 
-{{ robustForm.submitted }}
+{{ submitted }}
 
-<form [formGroup]="formGroup" #robustForm="ngForm">
+<form [formGroup]="formGroup">
   <ng-container *ngFor="let group of groups">
 
     <ng-container [ngSwitch]="group.groupType">
@@ -40,9 +40,8 @@
                     </label>
                   </div> <!--/.radio-->
                   <validation-message [validations]="question.validations"
-                                      [formGroup]="formGroup.get(group.code)"
-                                      [descriptionControl]="question.code"
-                                      [submitted]="robustForm.submitted">
+                                      [control]="formGroup.get(group.code).get(question.code)"
+                                      [submitted]="submitted">
                   </validation-message>
                 </div> <!--/.form-group-->
               </ng-template> <!--/radio-->
@@ -60,9 +59,8 @@
                     </option>
                   </select>
                   <validation-message [validations]="question.validations"
-                                      [formGroup]="formGroup.get(group.code)"
-                                      [descriptionControl]="question.code"
-                                      [submitted]="robustForm.submitted">
+                                      [control]="formGroup.get(group.code).get(question.code)"
+                                      [submitted]="submitted">
                   </validation-message>
                 </div> <!--/.form-group-->
               </ng-template> <!--/select-->
@@ -75,9 +73,8 @@
                             [formControlName]="question.code">
                   </textarea>
                   <validation-message [validations]="question.validations"
-                                      [formGroup]="formGroup.get(group.code)"
-                                      [descriptionControl]="question.code"
-                                      [submitted]="robustForm.submitted">
+                                      [control]="formGroup.get(group.code).get(question.code)"
+                                      [submitted]="submitted">
                   </validation-message>
                 </div> <!--/.form-group-->
               </ng-template> <!--/textarea-->
@@ -89,9 +86,8 @@
                          [placeholder]="question.placeholder ? question.placeholder : ''"
                          [formControlName]="question.code">
                   <validation-message [validations]="question.validations"
-                                      [formGroup]="formGroup.get(group.code)"
-                                      [descriptionControl]="question.code"
-                                      [submitted]="robustForm.submitted">
+                                      [control]="formGroup.get(group.code).get(question.code)"
+                                      [submitted]="submitted">
                   </validation-message>
                 </div> <!--/.form-group-->
               </ng-template> <!--/text-->
