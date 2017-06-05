@@ -33,7 +33,7 @@ export class DataTableComponent implements OnInit {
       return;
     }
 
-    this.formArray.push(Object.create(this.newFormGroup));
+    this.formArray.push(Object.assign(new FormGroup({}), this.newFormGroup));
     this.resetForms();
   }
 
