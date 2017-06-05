@@ -40,8 +40,7 @@
                     </label>
                   </div> <!--/.radio-->
                   <validation-message [validations]="question.validations"
-                                      [formGroup]="formGroup.get(group.code)"
-                                      [descriptionControl]="question.code"
+                                      [control]="formGroup.get(group.code).get(question.code)"
                                       [submitted]="robustForm.submitted">
                   </validation-message>
                 </div> <!--/.form-group-->
@@ -60,8 +59,7 @@
                     </option>
                   </select>
                   <validation-message [validations]="question.validations"
-                                      [formGroup]="formGroup.get(group.code)"
-                                      [descriptionControl]="question.code"
+                                      [control]="formGroup.get(group.code).get(question.code)"
                                       [submitted]="robustForm.submitted">
                   </validation-message>
                 </div> <!--/.form-group-->
@@ -75,8 +73,7 @@
                             [formControlName]="question.code">
                   </textarea>
                   <validation-message [validations]="question.validations"
-                                      [formGroup]="formGroup.get(group.code)"
-                                      [descriptionControl]="question.code"
+                                      [control]="formGroup.get(group.code).get(question.code)"
                                       [submitted]="robustForm.submitted">
                   </validation-message>
                 </div> <!--/.form-group-->
@@ -89,8 +86,7 @@
                          [placeholder]="question.placeholder ? question.placeholder : ''"
                          [formControlName]="question.code">
                   <validation-message [validations]="question.validations"
-                                      [formGroup]="formGroup.get(group.code)"
-                                      [descriptionControl]="question.code"
+                                      [control]="formGroup.get(group.code).get(question.code)"
                                       [submitted]="robustForm.submitted">
                   </validation-message>
                 </div> <!--/.form-group-->

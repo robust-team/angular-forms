@@ -31,8 +31,7 @@
                   {{ option }}
                 </div> <!--/.radio-->
                 <validation-message [validations]="question.validations"
-                                    [formGroup]="newFormGroup"
-                                    [descriptionControl]="question.code"
+                                    [control]="newFormGroup.get(question.code)"
                                     [submitted]="dataTableForm.submitted">
                 </validation-message>
               </ng-template> <!--/radio-->
@@ -48,8 +47,7 @@
                   </option>
                 </select>
                 <validation-message [validations]="question.validations"
-                                    [formGroup]="newFormGroup"
-                                    [descriptionControl]="question.code"
+                                    [control]="newFormGroup.get(question.code)"
                                     [submitted]="dataTableForm.submitted">
                 </validation-message>
               </ng-template> <!--/select-->
@@ -60,19 +58,17 @@
                           [formControlName]="question.code">
                 </textarea>
                 <validation-message [validations]="question.validations"
-                                    [formGroup]="newFormGroup"
-                                    [descriptionControl]="question.code"
+                                    [control]="newFormGroup.get(question.code)"
                                     [submitted]="dataTableForm.submitted">
                 </validation-message>
               </ng-template> <!--/textarea-->
 
               <ng-template ngSwitchCase="text" ngSwitchDefault>
                 <input type="text" [id]="question.code" class="form-control" [name]="question.code"
-                      [placeholder]="question.placeholder ? question.placeholder : ''"
-                      [formControlName]="question.code">
+                       [placeholder]="question.placeholder ? question.placeholder : ''"
+                       [formControlName]="question.code">
                 <validation-message [validations]="question.validations"
-                                    [formGroup]="newFormGroup"
-                                    [descriptionControl]="question.code"
+                                    [control]="newFormGroup.get(question.code)"
                                     [submitted]="dataTableForm.submitted">
                 </validation-message>
               </ng-template> <!--/text-->

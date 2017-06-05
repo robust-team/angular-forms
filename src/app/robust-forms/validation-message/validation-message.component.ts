@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 
 import { Validation } from '..';
@@ -8,20 +8,13 @@ import { Validation } from '..';
   templateUrl: './validation-message.component.html',
   styleUrls: ['./validation-message.component.css']
 })
-export class ValidationMessageComponent implements OnChanges {
+export class ValidationMessageComponent {
 
-  formControl: FormControl;
-
-  @Input() descriptionControl: string;
-  @Input() formGroup: FormGroup;
+  @Input() control: FormControl;
   @Input() submitted: boolean = false;
   @Input() validations: Validation[] = [];
 
-  ngOnChanges(changes: SimpleChanges) {
-    this.formControl = <FormControl> this.formGroup.get(this.descriptionControl);
-  }
-
   test() {
-    console.log(this.formGroup);
+    console.log(this.control);
   }
 }
