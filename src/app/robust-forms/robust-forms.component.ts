@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output, Input, ViewChild } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 import { FormGroup, FormGroupDirective } from '@angular/forms';
 
 import { Group, RobustForms, ReactiveFormsFactory } from '.';
@@ -10,10 +10,10 @@ import { Group, RobustForms, ReactiveFormsFactory } from '.';
 export class RobustFormsComponent implements OnInit {
 
   formGroup: FormGroup;
+  submitted: boolean = false;
 
   @Input() groups: Group[] = [];
   @Output() getValues: EventEmitter<Object> = new EventEmitter();
-  @ViewChild('robustForm') robustForm: FormGroupDirective;
 
   ngOnInit() {
     this.groups = RobustForms.fromJson(this.groups);
@@ -21,7 +21,7 @@ export class RobustFormsComponent implements OnInit {
   }
 
   emitValues() {
-    this.robustForm.onSubmit(this.formGroup.value);
+    this.submitted = true;
     this.getValues.emit({ valid: this.formGroup.valid, value: this.formGroup.value });
   }
 }

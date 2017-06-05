@@ -4,9 +4,9 @@
   getValues
 </button>
 
-{{ robustForm.submitted }}
+{{ submitted }}
 
-<form [formGroup]="formGroup" #robustForm="ngForm">
+<form [formGroup]="formGroup">
   <ng-container *ngFor="let group of groups">
 
     <ng-container [ngSwitch]="group.groupType">
@@ -41,7 +41,7 @@
                   </div> <!--/.radio-->
                   <validation-message [validations]="question.validations"
                                       [control]="formGroup.get(group.code).get(question.code)"
-                                      [submitted]="robustForm.submitted">
+                                      [submitted]="submitted">
                   </validation-message>
                 </div> <!--/.form-group-->
               </ng-template> <!--/radio-->
@@ -60,7 +60,7 @@
                   </select>
                   <validation-message [validations]="question.validations"
                                       [control]="formGroup.get(group.code).get(question.code)"
-                                      [submitted]="robustForm.submitted">
+                                      [submitted]="submitted">
                   </validation-message>
                 </div> <!--/.form-group-->
               </ng-template> <!--/select-->
@@ -74,7 +74,7 @@
                   </textarea>
                   <validation-message [validations]="question.validations"
                                       [control]="formGroup.get(group.code).get(question.code)"
-                                      [submitted]="robustForm.submitted">
+                                      [submitted]="submitted">
                   </validation-message>
                 </div> <!--/.form-group-->
               </ng-template> <!--/textarea-->
@@ -87,7 +87,7 @@
                          [formControlName]="question.code">
                   <validation-message [validations]="question.validations"
                                       [control]="formGroup.get(group.code).get(question.code)"
-                                      [submitted]="robustForm.submitted">
+                                      [submitted]="submitted">
                   </validation-message>
                 </div> <!--/.form-group-->
               </ng-template> <!--/text-->

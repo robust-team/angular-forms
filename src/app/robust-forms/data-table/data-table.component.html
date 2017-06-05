@@ -16,7 +16,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr [formGroup]="newFormGroup" #dataTableForm="ngForm">
+        <tr [formGroup]="newFormGroup">
           <td *ngFor="let question of group.questions">
             <ng-container [ngSwitch]="question.fieldType">
 
@@ -32,7 +32,7 @@
                 </div> <!--/.radio-->
                 <validation-message [validations]="question.validations"
                                     [control]="newFormGroup.get(question.code)"
-                                    [submitted]="dataTableForm.submitted">
+                                    [submitted]="submitted">
                 </validation-message>
               </ng-template> <!--/radio-->
 
@@ -48,7 +48,7 @@
                 </select>
                 <validation-message [validations]="question.validations"
                                     [control]="newFormGroup.get(question.code)"
-                                    [submitted]="dataTableForm.submitted">
+                                    [submitted]="submitted">
                 </validation-message>
               </ng-template> <!--/select-->
 
@@ -59,7 +59,7 @@
                 </textarea>
                 <validation-message [validations]="question.validations"
                                     [control]="newFormGroup.get(question.code)"
-                                    [submitted]="dataTableForm.submitted">
+                                    [submitted]="submitted">
                 </validation-message>
               </ng-template> <!--/textarea-->
 
@@ -69,7 +69,7 @@
                        [formControlName]="question.code">
                 <validation-message [validations]="question.validations"
                                     [control]="newFormGroup.get(question.code)"
-                                    [submitted]="dataTableForm.submitted">
+                                    [submitted]="submitted">
                 </validation-message>
               </ng-template> <!--/text-->
 
