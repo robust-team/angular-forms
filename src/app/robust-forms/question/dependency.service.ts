@@ -8,7 +8,6 @@ export class DependencyService {
 
   public hideQuestion(question: Question<any>, formGroup: FormGroup): boolean {
     if (!question.dependencies) {
-      this.setStatusFormControl(<FormControl> formGroup.get(question.code), false);
 
       return false;
     }
