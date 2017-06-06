@@ -10,7 +10,7 @@ import { Validation } from '..';
 })
 export class ValidationMessageComponent {
 
-  @Input() control: FormControl;
+  @Input() control: FormControl = new FormControl();
   @Input() submitted: boolean = false;
   @Input() validations: Validation[] = [];
 

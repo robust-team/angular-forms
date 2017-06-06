@@ -172,6 +172,9 @@ export class AppComponent {
           'validations': [
             { 'validationType': 'required', 'message': 'Este campo é obrigatório' },
             { 'validationType': 'pattern', 'message': 'Este campo deve ter o formato 00000-000', 'regex': '^\\d{5}-\\d{3}$' }
+          ],
+          'dependencies': [
+            { 'code': 'P-003', 'criteria': 'equals', 'expectedAnswer': 'Option 1' }
           ]
         },
         {
@@ -181,6 +184,10 @@ export class AppComponent {
           'placeholder': 'Example',
           'validations': [
             { 'validationType': 'required', 'message': 'Este campo é obrigatório' }
+          ],
+          'dependencies': [
+            { 'code': 'P-003', 'criteria': 'equals', 'expectedAnswer': 'Option 1' },
+            { 'code': 'P-004', 'criteria': 'greater', 'expectedAnswer': '10' }
           ]
         }
       ]

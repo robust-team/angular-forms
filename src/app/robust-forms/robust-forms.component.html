@@ -20,7 +20,7 @@
             <ng-container [ngSwitch]="question.fieldType">
 
               <ng-template ngSwitchCase="check">
-                <div class="form-group">
+                <div class="form-group" [hidden]="dependencyService.hideQuestion(question, formGroup.get(group.code))">
                   <div class="checkbox">
                     <label>
                       <input type="checkbox" [name]="question.code" [formControlName]="question.code">
@@ -31,7 +31,7 @@
               </ng-template> <!--/check-->
 
               <ng-template ngSwitchCase="radio">
-                <div class="form-group">
+                <div class="form-group" [hidden]="dependencyService.hideQuestion(question, formGroup.get(group.code))">
                   <label>{{ question.description }}</label>
                   <div class="radio" *ngFor="let option of question.options">
                     <label>
@@ -47,7 +47,7 @@
               </ng-template> <!--/radio-->
 
               <ng-template ngSwitchCase="select">
-                <div class="form-group">
+                <div class="form-group" [hidden]="dependencyService.hideQuestion(question, formGroup.get(group.code))">
                   <label [for]="question.code">{{ question.description }}</label>
                   <select [id]="question.code" class="form-control" [name]="question.code"
                           [formControlName]="question.code">
@@ -66,7 +66,7 @@
               </ng-template> <!--/select-->
 
               <ng-template ngSwitchCase="textarea">
-                <div class="form-group">
+                <div class="form-group" [hidden]="dependencyService.hideQuestion(question, formGroup.get(group.code))">
                   <label [for]="question.code">{{ question.description }}</label>
                   <textarea [id]="question.code" class="form-control" [name]="question.code" rows="5"
                             [placeholder]="question.placeholder ? question.placeholder : ''"
@@ -80,7 +80,7 @@
               </ng-template> <!--/textarea-->
 
               <ng-template ngSwitchCase="text" ngSwitchDefault>
-                <div class="form-group">
+                <div class="form-group" [hidden]="dependencyService.hideQuestion(question, formGroup.get(group.code))">
                   <label [for]="question.code">{{ question.description }}</label>
                   <input type="text" [id]="question.code" class="form-control" [name]="question.code"
                          [placeholder]="question.placeholder ? question.placeholder : ''"

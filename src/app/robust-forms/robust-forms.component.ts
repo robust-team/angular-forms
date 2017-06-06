@@ -1,11 +1,12 @@
 import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 import { FormGroup, FormGroupDirective } from '@angular/forms';
 
-import { Group, RobustForms, ReactiveFormsFactory } from '.';
+import { Group, RobustForms, ReactiveFormsFactory, DependencyService } from '.';
 
 @Component({
   selector: 'robust-forms',
-  templateUrl: './robust-forms.component.html'
+  templateUrl: './robust-forms.component.html',
+  providers: [DependencyService]
 })
 export class RobustFormsComponent implements OnInit {
 
@@ -14,6 +15,8 @@ export class RobustFormsComponent implements OnInit {
 
   @Input() groups: Group[] = [];
   @Output() getValues: EventEmitter<Object> = new EventEmitter();
+
+  public constructor(protected dependencyService: DependencyService) { }
 
   ngOnInit() {
     this.groups = RobustForms.fromJson(this.groups);
