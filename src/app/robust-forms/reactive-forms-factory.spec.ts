@@ -23,8 +23,8 @@ describe('RobustForms :: ReactiveFormsFactory', () => {
 
   it('should create a FormGroup from Questions', () => {
     const questions: Question<any>[] = [
-      new Text('question-01', 'Question 01', 'text', 'Answer'),
-      new Text('question-02', 'Question 02', 'text', 'Answer')
+      new Text('question-01', 'Question 01', [], 'text', 'Answer'),
+      new Text('question-02', 'Question 02', [], 'text', 'Answer')
     ];
 
     expect(ReactiveFormsFactory.createFormGroupFromQuestions(questions)).toEqual(jasmine.any(FormGroup));
@@ -36,8 +36,8 @@ describe('RobustForms :: ReactiveFormsFactory', () => {
 
   it('should create a FormArray with answers', () => {
     const answers: Question<any>[] = [
-      new Text('question-01', 'Question 01', 'text', 'Answer', [], '', ''),
-      new Text('question-02', 'Question 02', 'text', 'Answer', [], '', '')
+      new Text('question-01', 'Question 01', [], 'text', 'Answer', [], '', ''),
+      new Text('question-02', 'Question 02', [], 'text', 'Answer', [], '', '')
     ];
 
     expect(ReactiveFormsFactory.createFormArray()).toEqual(jasmine.any(FormArray));
