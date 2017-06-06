@@ -1,3 +1,4 @@
+import { Dependency } from './dependency';
 import { Question } from './question';
 import { Validation } from './../validation';
 
@@ -6,13 +7,14 @@ export class Text extends Question<string> {
   public constructor(
     code: string,
     description: string,
+    dependencies: Dependency[],
     fieldType: string,
     answer: string = null,
     validations: Validation[] = [],
     private _mask: string = null,
     private _placeholder: string = null,
   ) {
-    super(code, description, fieldType, answer, validations || []);
+    super(code, description, dependencies, fieldType, answer, validations || []);
   }
 
   public get mask(): string {
@@ -27,6 +29,7 @@ export class Text extends Question<string> {
     return new Text(
       question.code,
       question.description,
+      question.dependencies,
       question.fieldType,
       question.answer,
       question.validations,

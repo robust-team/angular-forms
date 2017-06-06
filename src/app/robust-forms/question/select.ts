@@ -1,3 +1,4 @@
+import { Dependency } from './dependency';
 import { Choice } from '.';
 import { Validation } from '../validation';
 
@@ -6,6 +7,7 @@ export class Select extends Choice {
   public constructor(
     code: string,
     description: string,
+    dependencies: Dependency[],
     fieldType: string,
     answer: string = null,
     validations: Validation[] = [],
@@ -13,7 +15,7 @@ export class Select extends Choice {
     defaultOption: string = null,
     private _placeholder: string = null
   ) {
-    super(code, description, fieldType, answer, validations, options, defaultOption);
+    super(code, description, dependencies, fieldType, answer, validations, options, defaultOption);
   }
 
   public get placeholder(): string {
@@ -24,6 +26,7 @@ export class Select extends Choice {
     return new Select(
       question.code,
       question.description,
+      question.dependencies,
       question.fieldType,
       question.answer,
       question.validations,

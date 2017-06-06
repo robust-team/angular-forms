@@ -1,3 +1,4 @@
+import { Dependency } from './dependency';
 import { Validation } from '../validation';
 
 export abstract class Question<Answer> {
@@ -5,6 +6,7 @@ export abstract class Question<Answer> {
   public constructor(
     private _code: string,
     private _description: string,
+    private _dependencies: Dependency[],
     private _fieldType: string,
     private _answer: Answer = null,
     private _validations: Validation[] = []
@@ -16,6 +18,10 @@ export abstract class Question<Answer> {
 
   public get description(): string {
     return this._description;
+  }
+
+  public get dependencies(): Dependency[] {
+    return this._dependencies;
   }
 
   public get fieldType(): string {
