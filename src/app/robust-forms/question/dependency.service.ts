@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormGroup, FormControl } from '@angular/forms';
 
 import { Question, Dependency } from '..';
 
@@ -8,6 +8,8 @@ export class DependencyService {
 
   public hideQuestion(question: Question<any>, formGroup: FormGroup): boolean {
     if (!question.dependencies) {
+      this.setStatusFormControl(<FormControl> formGroup.get(question.code), false);
+
       return false;
     }
 
@@ -16,9 +18,13 @@ export class DependencyService {
       const result: boolean = this.executeOperation(answerDependency, dependency);
 
       if (!result) {
+        this.setStatusFormControl(<FormControl> formGroup.get(question.code), true);
+
         return true;
       }
     }
+
+    this.setStatusFormControl(<FormControl> formGroup.get(question.code), false);
 
     return false;
   }
@@ -32,5 +38,17 @@ export class DependencyService {
     };
 
     return operations[dependency.criteria];
+  }
+
+  private setStatusFormControl(formControl: FormControl, hidden: boolean) {
+    if (hidden && formControl.enabled) {
+      formControl.disable();
+
+      return;
+    }
+
+    if (!hidden && formControl.disabled) {
+      formControl.enable();
+    }
   }
 }
