@@ -40,9 +40,9 @@ export class DependencyService {
   }
 
   private setStatusFormControl(formControl: FormControl, hidden: boolean) {
-    if (hidden && formControl.enabled) {
+    if (hidden) {
       formControl.disable();
-    } else if (!hidden && formControl.disabled) {
+    } else {
       formControl.enable();
     }
   }
