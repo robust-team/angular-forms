@@ -29,9 +29,11 @@ export class AppComponent {
           'description': 'Consumo Médio (m³/dia)',
           'fieldType': 'text',
           'validations': [
-            { 'validationType': 'required', 'message': 'Este campo é obrigatório' }
+            { 'validationType': 'required', 'message': 'Este campo é obrigatório' },
+            { 'validationType': 'pattern', 'message': 'Este campo deve ter o formato XX0.00', 'regex': '^\\d+\.\\d{2}$' }
           ],
-          'placeholder': null
+          'placeholder': null,
+          'mask': 'decimal(10,2)'
         },
         {
           'code': 'P-203',
@@ -48,9 +50,11 @@ export class AppComponent {
           'description': 'Vazão (m³/dia)',
           'fieldType': 'text',
           'validations': [
-            { 'validationType': 'required', 'message': 'Este campo é obrigatório' }
+            { 'validationType': 'required', 'message': 'Este campo é obrigatório' },
+            { 'validationType': 'pattern', 'message': 'Este campo deve ter o formato XX0.00', 'regex': '^\\d+\.\\d{2}$' }
           ],
-          'placeholder': null
+          'placeholder': null,
+          'mask': '00000000.00?reverse=true'
         }
       ],
       'answers': [
@@ -173,9 +177,7 @@ export class AppComponent {
             { 'validationType': 'required', 'message': 'Este campo é obrigatório' },
             { 'validationType': 'pattern', 'message': 'Este campo deve ter o formato 00000-000', 'regex': '^\\d{5}-\\d{3}$' }
           ],
-          'dependencies': [
-            { 'code': 'P-003', 'criteria': 'equals', 'expectedAnswer': 'Option 1' }
-          ]
+          'mask': '00000-000'
         },
         {
           'code': 'P-006',
