@@ -1,4 +1,4 @@
-<p>RobustForms</p>
+<h1>RobustForms</h1>
 
 <button class="btn btn-primary" (click)="emitValues()">
   getValues
@@ -84,7 +84,7 @@
                   <label [for]="question.code">{{ question.description }}</label>
                   <input type="text" [id]="question.code" class="form-control" [name]="question.code"
                          [placeholder]="question.placeholder ? question.placeholder : ''"
-                         [formControlName]="question.code">
+                         [formControlName]="question.code" [mask]="question.mask">
                   <validation-message [validations]="question.validations"
                                       [control]="formGroup.get(group.code).get(question.code)"
                                       [submitted]="submitted">
