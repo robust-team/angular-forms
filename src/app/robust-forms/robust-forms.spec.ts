@@ -1,8 +1,6 @@
-import {
-    RobustForms,
-    Group,
-    Text,
-} from './';
+import { RobustForms } from '.';
+import { Group } from './group';
+import { Text } from './question';
 
 describe('RobustForms :: RobustForms', () => {
 

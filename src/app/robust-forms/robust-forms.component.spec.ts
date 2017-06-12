@@ -2,9 +2,9 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { NgMaskModule } from '@fagnerlima/ng-mask';
-import { RobustFormsComponent } from './robust-forms.component';
-import { DataTableComponent } from './data-table/data-table.component';
-import { ValidationMessageModule } from './validation-message/validation-message.module';
+import { RobustFormsComponent } from '.';
+import { DataTableComponent } from './data-table';
+import { ValidationMessageModule } from './validation-message';
 
 describe('RobustFormsComponent', () => {
   let component: RobustFormsComponent;

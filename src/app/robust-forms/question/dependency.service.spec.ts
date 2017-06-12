@@ -1,7 +1,6 @@
-/* tslint:disable:no-unused-variable */
-
 import { TestBed, async, inject } from '@angular/core/testing';
-import { DependencyService } from './dependency.service';
+
+import { DependencyService } from '.';
 
 describe('Service: Dependency', () => {
   beforeEach(() => {

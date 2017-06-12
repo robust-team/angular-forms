@@ -1,4 +1,4 @@
-import { Dependency } from './dependency';
+import { Dependency } from '.';
 import { Validation } from '../validation';
 
 export abstract class Question<Answer> {

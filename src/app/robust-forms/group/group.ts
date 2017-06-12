@@ -1,4 +1,4 @@
-import { Question } from './..';
+import { Question } from '../question';
 
 export class Group {
 

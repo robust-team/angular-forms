@@ -2,9 +2,8 @@ import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { FormGroup, FormArray, FormControl, AbstractControl, FormGroupDirective } from '@angular/forms';
 
 import { Question } from '../question';
-import { Group } from './../group/group';
-import { DataTable } from '../group/data-table';
-import { ReactiveFormsFactory } from './../reactive-forms-factory';
+import { Group, DataTable } from '../group';
+import { ReactiveFormsFactory } from '..';
 
 @Component({
   selector: 'data-table',

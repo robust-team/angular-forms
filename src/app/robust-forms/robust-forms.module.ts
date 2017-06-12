@@ -3,9 +3,9 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { NgMaskModule } from '@fagnerlima/ng-mask';
-import { RobustFormsComponent } from './robust-forms.component';
-import { DataTableModule } from './data-table/data-table.module';
-import { ValidationMessageModule } from './validation-message/validation-message.module';
+import { RobustFormsComponent } from '.';
+import { DataTableModule } from './data-table';
+import { ValidationMessageModule } from './validation-message';
 
 @NgModule({
   imports: [

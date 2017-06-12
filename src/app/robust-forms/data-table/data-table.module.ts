@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { NgMaskModule } from '@fagnerlima/ng-mask';
-import { DataTableComponent } from './data-table.component';
-import { ValidationMessageModule } from '../validation-message/validation-message.module';
+import { DataTableComponent } from '.';
+import { ValidationMessageModule } from '../validation-message';
 
 @NgModule({
   imports: [

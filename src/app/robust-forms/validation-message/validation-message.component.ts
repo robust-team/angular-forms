@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { FormControl, AbstractControl } from '@angular/forms';
 
-import { Validation } from '..';
+import { Validation } from '../validation';
 
 @Component({
   selector: 'validation-message',

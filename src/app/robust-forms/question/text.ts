@@ -1,6 +1,5 @@
-import { Dependency } from './dependency';
-import { Question } from './question';
-import { Validation } from './../validation';
+import { Dependency, Question } from '.';
+import { Validation } from '../validation';
 
 export class Text extends Question<string> {
 

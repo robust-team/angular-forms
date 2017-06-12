@@ -1,5 +1,4 @@
-import { Dependency } from './dependency';
-import { Choice } from '.';
+import { Choice, Dependency } from '.';
 import { Validation } from '../validation';
 
 export class Select extends Choice {
