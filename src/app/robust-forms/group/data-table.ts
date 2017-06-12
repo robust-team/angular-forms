@@ -7,13 +7,13 @@ export class DataTable extends Group {
   public constructor(
     code: string,
     description: string,
-    groupType: string,
+    type: string,
     questions: Question<any>[],
     private _customType: string,
     private _validations: Validation[],
     private _answers: Question<any>[][]
   ) {
-    super(code, description, groupType, questions);
+    super(code, description, type, questions);
   }
 
   public get customType(): string {

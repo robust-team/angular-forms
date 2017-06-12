@@ -9,7 +9,7 @@
 <form [formGroup]="formGroup">
   <ng-container *ngFor="let group of groups">
 
-    <ng-container [ngSwitch]="group.groupType">
+    <ng-container [ngSwitch]="group.type">
 
       <ng-container *ngSwitchCase="'fieldset'">
         <fieldset [formGroup]="formGroup.get(group.code)">
@@ -17,7 +17,7 @@
 
           <ng-container *ngFor="let question of group.questions">
 
-            <ng-container [ngSwitch]="question.fieldType">
+            <ng-container [ngSwitch]="question.type">
 
               <ng-template ngSwitchCase="check">
                 <div class="form-group" [hidden]="dependencyService.hideQuestion(question, formGroup.get(group.code))">
@@ -91,7 +91,7 @@
                   </validation-message>
                 </div> <!--/.form-group-->
               </ng-template> <!--/text-->
-            </ng-container> <!--/ngSwitch-fieldType-->
+            </ng-container> <!--/ngSwitch-questionType-->
 
           </ng-container> <!--/ngFor-question-->
         </fieldset>

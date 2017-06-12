@@ -18,7 +18,7 @@
       <tbody>
         <tr [formGroup]="newFormGroup">
           <td *ngFor="let question of group.questions">
-            <ng-container [ngSwitch]="question.fieldType">
+            <ng-container [ngSwitch]="question.type">
 
               <ng-template ngSwitchCase="check">
                 <input type="checkbox" [name]="question.code" [formControlName]="question.code" />
@@ -73,7 +73,7 @@
                 </validation-message>
               </ng-template> <!--/text-->
 
-            </ng-container> <!--/ngSwitch-fieldType-->
+            </ng-container> <!--/ngSwitch-questionType-->
           </td>
           <td class="text-center">
             <button class="btn btn-default btn-add-row" (click)="addRow();">

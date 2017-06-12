@@ -10,7 +10,7 @@ export class ReactiveFormsFactory {
     for (const group of groups) {
       let control: FormGroup|FormArray;
 
-      if ('datatable' !== group.groupType) {
+      if ('datatable' !== group.type) {
         control = ReactiveFormsFactory.createFormGroupFromQuestions(group.questions);
       } else {
         const dataTable: DataTable = <DataTable> group;
@@ -61,7 +61,7 @@ export class ReactiveFormsFactory {
     const validators: ValidatorFn[] = [];
 
     for (const validation of validations) {
-      switch (validation.validationType) {
+      switch (validation.type) {
         case 'required':
           validators.push(Validators.required);
           break;

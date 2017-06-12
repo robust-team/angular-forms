@@ -7,7 +7,7 @@ export class Radio extends Choice {
       question.code,
       question.description,
       question.dependencies,
-      question.fieldType,
+      question.type,
       question.answer,
       question.validations,
       question.options,

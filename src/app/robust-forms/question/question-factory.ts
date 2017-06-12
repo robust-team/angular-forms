@@ -15,6 +15,6 @@ export class QuestionFactory {
   ) { }
 
   public create(): Question<any> {
-    return this._types[this._question.fieldType].fromJson(this._question);
+    return this._types[this._question.type].fromJson(this._question);
   }
 }

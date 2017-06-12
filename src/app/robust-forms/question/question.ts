@@ -7,7 +7,7 @@ export abstract class Question<Answer> {
     private _code: string,
     private _description: string,
     private _dependencies: Dependency[],
-    private _fieldType: string,
+    private _type: string,
     private _answer: Answer = null,
     private _validations: Validation[] = []
   ) { }
@@ -24,8 +24,8 @@ export abstract class Question<Answer> {
     return this._dependencies;
   }
 
-  public get fieldType(): string {
-    return this._fieldType;
+  public get type(): string {
+    return this._type;
   }
 
   public get answer(): Answer {

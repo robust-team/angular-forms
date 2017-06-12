@@ -3,11 +3,11 @@ import { Validation } from '.';
 export class Pattern extends Validation {
 
   public constructor(
-    validationType: string,
+    type: string,
     message: string,
     private _regex: string
   ) {
-    super(validationType, message);
+    super(type, message);
   }
 
   public get regex(): string {
@@ -15,6 +15,6 @@ export class Pattern extends Validation {
   }
 
   public static fromJson(validation: Pattern): Pattern {
-    return new Pattern(validation.validationType, validation.message, validation.regex);
+    return new Pattern(validation.type, validation.message, validation.regex);
   }
 }

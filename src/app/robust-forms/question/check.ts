@@ -8,12 +8,12 @@ export class Check extends Question<boolean> {
     code: string,
     description: string,
     dependencies: Dependency[],
-    fieldType: string,
+    type: string,
     answer: boolean = false,
     validations: Validation[] = [],
     private _defaultOption: boolean = null
   ) {
-    super(code, description, dependencies, fieldType, answer || false, validations || []);
+    super(code, description, dependencies, type, answer || false, validations || []);
   }
 
   public get defaultOption(): boolean {
@@ -25,7 +25,7 @@ export class Check extends Question<boolean> {
       question.code,
       question.description,
       question.dependencies,
-      question.fieldType,
+      question.type,
       question.answer,
       question.validations,
       question.defaultOption
