@@ -92,4 +92,8 @@
       </tbody>
     </table>
   </div> <!--/.table-responsive-->
+  <validation-message [validations]="group.validations"
+                      [control]="formArray"
+                      [submitted]="formGroupSubmitted">
+  </validation-message>
 </fieldset>

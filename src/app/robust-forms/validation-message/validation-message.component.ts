@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormControl, AbstractControl } from '@angular/forms';
 
 import { Validation } from '..';
 
@@ -10,11 +10,7 @@ import { Validation } from '..';
 })
 export class ValidationMessageComponent {
 
-  @Input() control: FormControl = new FormControl();
+  @Input() control: AbstractControl = new FormControl();
   @Input() submitted: boolean = false;
   @Input() validations: Validation[] = [];
-
-  test() {
-    console.log(this.control);
-  }
 }
