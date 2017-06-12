@@ -8,13 +8,13 @@ export class Text extends Question<string> {
     code: string,
     description: string,
     dependencies: Dependency[],
-    fieldType: string,
+    type: string,
     answer: string = null,
     validations: Validation[] = [],
     private _mask: string = null,
     private _placeholder: string = null,
   ) {
-    super(code, description, dependencies, fieldType, answer, validations || []);
+    super(code, description, dependencies, type, answer, validations || []);
   }
 
   public get mask(): string {
@@ -30,7 +30,7 @@ export class Text extends Question<string> {
       question.code,
       question.description,
       question.dependencies,
-      question.fieldType,
+      question.type,
       question.answer,
       question.validations,
       question.mask,

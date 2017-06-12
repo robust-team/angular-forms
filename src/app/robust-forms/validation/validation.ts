@@ -1,12 +1,12 @@
 export abstract class Validation {
 
   public constructor(
-    private _validationType: string,
+    private _type: string,
     private _message: string
   ) { }
 
-  public get validationType(): string {
-    return this._validationType;
+  public get type(): string {
+    return this._type;
   }
 
   public get message(): string {

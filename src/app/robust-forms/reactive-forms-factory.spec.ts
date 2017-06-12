@@ -14,8 +14,8 @@ describe('RobustForms :: ReactiveFormsFactory', () => {
 
   it('should create a FormGroup from DataTables', () => {
     const groups: Group[] = [
-      new DataTable('group-01', 'Group 01', 'datatable', [], 'consumo-agua', [], []),
-      new DataTable('group-02', 'Group 02', 'datatable', [], 'efluente', [], [])
+      new DataTable('group-01', 'Group 01', 'datatable', [], [], []),
+      new DataTable('group-02', 'Group 02', 'datatable', [], [], [])
     ];
 
     expect(ReactiveFormsFactory.createFormGroupFromGroups(groups)).toEqual(jasmine.any(FormGroup));

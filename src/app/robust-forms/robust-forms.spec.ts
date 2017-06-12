@@ -10,7 +10,7 @@ describe('RobustForms :: RobustForms', () => {
         const jsonGroups:Array<any> = [{
             code: 'group-01',
             description: 'A simple group',
-            groupType: 'group-type',
+            type: 'group-type',
             questions: []
         }];
         expect(RobustForms.fromJson(jsonGroups))
@@ -21,12 +21,12 @@ describe('RobustForms :: RobustForms', () => {
         const jsonGroups:Array<any> = [{
             code: 'group-01',
             description: 'A simple group with a question',
-            groupType: 'group-type',
+            type: 'group-type',
             questions: [{
                 code: 'question-01',
                 description: 'A simple question',
                 dependencies: [],
-                fieldType: 'text',
+                type: 'text',
                 answer: 'My answer',
                 validations: []
             }]

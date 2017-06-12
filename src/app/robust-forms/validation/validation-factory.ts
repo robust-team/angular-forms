@@ -9,6 +9,6 @@ export class ValidationFactory {
   };
 
   public static create(validation: Validation): Validation {
-    return ValidationFactory.types[validation.validationType].fromJson(validation);
+    return ValidationFactory.types[validation.type].fromJson(validation);
   }
 }

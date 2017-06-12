@@ -12,13 +12,12 @@ export class RobustForms {
   public static fromJson(jsonGroups: Array<Group>): Array<Group> {
 
     return jsonGroups.map((group: Group) => {
-      let groupBuilder = 'datatable' !== group.groupType
-        ? new GroupBuilder(group.code, group.description, group.groupType)
+      let groupBuilder = 'datatable' !== group.type
+        ? new GroupBuilder(group.code, group.description, group.type)
         : new DataTableBuilder(
           group.code,
           group.description,
-          group.groupType,
-          (<DataTable> group).customType,
+          group.type,
           (<DataTable> group).validations,
           (<DataTable> group).answers
         );

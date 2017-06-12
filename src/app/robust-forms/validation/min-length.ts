@@ -3,11 +3,11 @@ import { Validation } from '.';
 export class MinLength extends Validation {
 
   public constructor(
-    validationType: string,
+    type: string,
     message: string,
     private _value: number
   ) {
-    super(validationType, message);
+    super(type, message);
   }
 
   public get value(): number {
@@ -15,6 +15,6 @@ export class MinLength extends Validation {
   }
 
   public static fromJson(validation: MinLength): MinLength {
-    return new MinLength(validation.validationType, validation.message, validation.value);
+    return new MinLength(validation.type, validation.message, validation.value);
   }
 }
