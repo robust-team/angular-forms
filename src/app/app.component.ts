@@ -13,6 +13,11 @@ export class AppComponent {
       'description': 'Consumo de Água',
       'groupType': 'datatable',
       'customType': 'consumo-agua',
+      'validations': [
+        { 'validationType': 'required', 'message': 'Você deve inserir pelo menos 2 registros nesta tabela.', 'value': 2 },
+        { 'validationType': 'minlength', 'message': 'Você deve inserir pelo menos 2 registros nesta tabela.', 'value': 2 },
+        { 'validationType': 'maxlength', 'message': 'Você deve inserir pelo menos 3 registros nesta tabela.', 'value': 3 }
+      ],
       'questions': [
         {
           'code': 'P-201',
@@ -56,7 +61,7 @@ export class AppComponent {
           'placeholder': null,
           'mask': '00000000.00?reverse=true'
         }
-      ],
+      ]/*,
       'answers': [
         [
           {
@@ -122,7 +127,7 @@ export class AppComponent {
             'answer': '321'
           }
         ]
-      ]
+      ]*/
     },
     {
       'code': 'G-02',

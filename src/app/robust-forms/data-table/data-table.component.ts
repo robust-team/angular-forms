@@ -20,6 +20,7 @@ export class DataTableComponent implements OnInit {
 
   @Input() formGroup: FormGroup;
   @Input() group: DataTable;
+  @Input() formGroupSubmitted: boolean = false;
 
   ngOnInit() {
     this.formArray = <FormArray> this.formGroup.get(this.group.code);

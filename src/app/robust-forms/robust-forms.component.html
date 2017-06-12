@@ -98,7 +98,7 @@
       </ng-container> <!--/ngSwitchCase-fieldset-->
 
       <ng-container *ngSwitchCase="'datatable'">
-        <data-table [group]="group" [formGroup]="formGroup"></data-table>
+        <data-table [group]="group" [formGroup]="formGroup" [formGroupSubmitted]="submitted"></data-table>
       </ng-container>
 
     </ng-container> <!--/ngSwitch-groupType-->

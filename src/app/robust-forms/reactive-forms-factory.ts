@@ -5,12 +5,18 @@ import { DataTable, Group, Question, Validation, MinLength, MaxLength, Pattern }
 export class ReactiveFormsFactory {
 
   public static createFormGroupFromGroups(groups: Group[]): FormGroup {
-    let formGroup: FormGroup = new FormGroup({});
+    const formGroup: FormGroup = new FormGroup({});
 
-    for (let group of groups) {
-      let control: FormGroup|FormArray = 'datatable' !== group.groupType
-        ? ReactiveFormsFactory.createFormGroupFromQuestions(group.questions)
-        : ReactiveFormsFactory.createFormArray((<DataTable> group).answers);
+    for (const group of groups) {
+      let control: FormGroup|FormArray;
+
+      if ('datatable' !== group.groupType) {
+        control = ReactiveFormsFactory.createFormGroupFromQuestions(group.questions);
+      } else {
+        const dataTable: DataTable = <DataTable> group;
+        control = ReactiveFormsFactory.createFormArray(dataTable.answers);
+        control.setValidators(ReactiveFormsFactory.createValidators(dataTable.validations));
+      }
 
       formGroup.addControl(group.code, control);
     }
@@ -19,10 +25,10 @@ export class ReactiveFormsFactory {
   }
 
   public static createFormGroupFromQuestions(questions: Question<any>[]): FormGroup {
-    let formGroup: FormGroup = new FormGroup({});
+    const formGroup: FormGroup = new FormGroup({});
 
-    for (let question of questions) {
-      let validators: ValidatorFn[] = ReactiveFormsFactory.createValidators(question.validations);
+    for (const question of questions) {
+      const validators: ValidatorFn[] = ReactiveFormsFactory.createValidators(question.validations);
       formGroup.addControl(question.code, new FormControl(question.answer, validators));
     }
 
@@ -30,13 +36,13 @@ export class ReactiveFormsFactory {
   }
 
   public static createFormArray(answers: Question<any>[][] = null): FormArray {
-    let formArray: FormArray = new FormArray([]);
+    const formArray: FormArray = new FormArray([]);
 
     if (answers) {
-      for (let answer of answers) {
-        let group: FormGroup = new FormGroup({});
+      for (const answer of answers) {
+        const group: FormGroup = new FormGroup({});
 
-        for (let column of answer) {
+        for (const column of answer) {
           group.addControl(column.code, new FormControl(column.answer));
         }
 
@@ -48,9 +54,9 @@ export class ReactiveFormsFactory {
   }
 
   public static createValidators(validations: Validation[]): ValidatorFn[] {
-    let validators: ValidatorFn[] = [];
+    const validators: ValidatorFn[] = [];
 
-    for (let validation of validations) {
+    for (const validation of validations) {
       switch (validation.validationType) {
         case 'required':
           validators.push(Validators.required);
