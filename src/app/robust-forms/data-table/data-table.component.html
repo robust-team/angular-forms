@@ -21,13 +21,13 @@
             <ng-container [ngSwitch]="question.fieldType">
 
               <ng-template ngSwitchCase="check">
-                <input type="checkbox" [name]="question.code" [formControlName]="question.code">
+                <input type="checkbox" [name]="question.code" [formControlName]="question.code" />
                 {{ question.description }}
               </ng-template> <!--/check-->
 
               <ng-template ngSwitchCase="radio">
                 <div class="radio" *ngFor="let option of question.options">
-                  <input type="radio" [name]="question.code" [value]="option" [formControlName]="question.code">
+                  <input type="radio" [name]="question.code" [value]="option" [formControlName]="question.code" />
                   {{ option }}
                 </div> <!--/.radio-->
                 <validation-message [validations]="question.validations"
@@ -66,7 +66,7 @@
               <ng-template ngSwitchCase="text" ngSwitchDefault>
                 <input type="text" [id]="question.code" class="form-control" [name]="question.code"
                        [placeholder]="question.placeholder ? question.placeholder : ''"
-                       [formControlName]="question.code" [mask]="question.mask">
+                       [formControlName]="question.code" [mask]="question.mask" />
                 <validation-message [validations]="question.validations"
                                     [control]="newFormGroup.get(question.code)"
                                     [submitted]="submitted">

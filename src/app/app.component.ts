@@ -151,7 +151,8 @@ export class AppComponent {
           'defaultOption': 'Option 1',
           'validations': [
             { 'validationType': 'required', 'message': 'Este campo é obrigatório' }
-          ]
+          ]//,
+          //'answer': 'Option 2'
         },
         {
           'code': 'P-003',

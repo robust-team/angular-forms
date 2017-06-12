@@ -23,7 +23,7 @@
                 <div class="form-group" [hidden]="dependencyService.hideQuestion(question, formGroup.get(group.code))">
                   <div class="checkbox">
                     <label>
-                      <input type="checkbox" [name]="question.code" [formControlName]="question.code">
+                      <input type="checkbox" [name]="question.code" [formControlName]="question.code" />
                       {{ question.description }}
                     </label>
                   </div> <!--/.checkbox-->
@@ -35,7 +35,7 @@
                   <label>{{ question.description }}</label>
                   <div class="radio" *ngFor="let option of question.options">
                     <label>
-                      <input type="radio" [name]="question.code" [value]="option" [formControlName]="question.code">
+                      <input type="radio" [name]="question.code" [value]="option" [formControlName]="question.code" />
                       {{ option }}
                     </label>
                   </div> <!--/.radio-->
@@ -84,7 +84,7 @@
                   <label [for]="question.code">{{ question.description }}</label>
                   <input type="text" [id]="question.code" class="form-control" [name]="question.code"
                          [placeholder]="question.placeholder ? question.placeholder : ''"
-                         [formControlName]="question.code" [mask]="question.mask">
+                         [formControlName]="question.code" [mask]="question.mask" />
                   <validation-message [validations]="question.validations"
                                       [control]="formGroup.get(group.code).get(question.code)"
                                       [submitted]="submitted">
