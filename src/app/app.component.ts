@@ -12,7 +12,6 @@ export class AppComponent {
       'code': 'G-01',
       'description': 'Consumo de Água',
       'type': 'datatable',
-      'customType': 'consumo-agua',
       'validations': [
         { 'type': 'required', 'message': 'Você deve inserir pelo menos 2 registros nesta tabela.', 'value': 2 },
         { 'type': 'minlength', 'message': 'Você deve inserir pelo menos 2 registros nesta tabela.', 'value': 2 },

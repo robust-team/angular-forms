@@ -6,7 +6,6 @@ export class DataTableBuilder extends GroupBuilder {
     code: string,
     description: string,
     type: string,
-    private customType: string,
     private validations: Validation[] = null,
     private answers: Question<any>[][] = null
   ) {
@@ -19,7 +18,6 @@ export class DataTableBuilder extends GroupBuilder {
       this.description,
       this.type,
       this.questions,
-      this.customType,
       this.validations,
       this.answers
     );

@@ -18,7 +18,6 @@ export class RobustForms {
           group.code,
           group.description,
           group.type,
-          (<DataTable> group).customType,
           (<DataTable> group).validations,
           (<DataTable> group).answers
         );
