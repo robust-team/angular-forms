@@ -29,7 +29,11 @@ export class ReactiveFormsFactory {
 
     for (const question of questions) {
       const validators: ValidatorFn[] = ReactiveFormsFactory.createValidators(question.validations);
-      formGroup.addControl(question.code, new FormControl(question.answer, validators));
+      const formState: any = !question.answer && question['defaultOption']
+        ? question['defaultOption']
+        : question.answer;
+
+      formGroup.addControl(question.code, new FormControl(formState, validators));
     }
 
     return formGroup;
