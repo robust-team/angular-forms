@@ -4,7 +4,7 @@ import { Question, QuestionFactory } from './question';
 
 export class RobustForms {
 
-  public static fromJson(jsonGroups: Array<Group>): Array<Group> {
+  public static fromJson(jsonGroups: Group[]): Group[] {
 
     return jsonGroups.map((group: Group) => {
       const groupBuilder = 'datatable' !== group.type

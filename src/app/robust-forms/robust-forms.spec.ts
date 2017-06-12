@@ -5,7 +5,7 @@ import { Text } from './question';
 describe('RobustForms :: RobustForms', () => {
 
   it('should create a group', () => {
-    const jsonGroups: Array<any> = [{
+    const jsonGroups: any[] = [{
       code: 'group-01',
       description: 'A simple group',
       type: 'group-type',
@@ -16,7 +16,7 @@ describe('RobustForms :: RobustForms', () => {
   });
 
   it('should create a group with a question', () => {
-    const jsonGroups: Array<any> = [{
+    const jsonGroups: any[] = [{
       code: 'group-01',
       description: 'A simple group with a question',
       type: 'group-type',
