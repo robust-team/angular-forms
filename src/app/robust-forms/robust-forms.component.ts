@@ -3,7 +3,7 @@ import { FormGroup, FormGroupDirective } from '@angular/forms';
 
 import { RobustForms, ReactiveFormsFactory } from '.';
 import { Group } from './group';
-import { DependencyService } from './question';
+import { Question, DependencyService } from './question';
 
 @Component({
   selector: 'robust-forms',
@@ -16,17 +16,21 @@ export class RobustFormsComponent implements OnInit {
   submitted: boolean = false;
 
   @Input() groups: Group[] = [];
-  @Output() getValues: EventEmitter<Object> = new EventEmitter();
 
-  public constructor(protected dependencyService: DependencyService) { }
+  constructor(private dependencyService: DependencyService) { }
 
   ngOnInit() {
     this.groups = RobustForms.fromJson(this.groups);
     this.formGroup = ReactiveFormsFactory.createFormGroupFromGroups(this.groups);
   }
 
-  emitValues() {
+  hideQuestion(question: Question<any>, formGroup: FormGroup) {
+    return this.dependencyService.hideQuestion(question, formGroup);
+  }
+
+  getForm(): { valid: boolean, value: any } {
     this.submitted = true;
-    this.getValues.emit({ valid: this.formGroup.valid, value: this.formGroup.value });
+
+    return { valid: this.formGroup.valid, value: this.formGroup.value };
   }
 }

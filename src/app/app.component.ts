@@ -201,7 +201,7 @@ export class AppComponent {
     }
   ];
 
-  printValues(values: Object) {
-    console.log(values);
+  print(value: any) {
+    console.log(value);
   }
 }

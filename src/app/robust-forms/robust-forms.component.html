@@ -1,11 +1,5 @@
 <h1>RobustForms</h1>
 
-<button class="btn btn-primary" (click)="emitValues()">
-  getValues
-</button>
-
-{{ submitted }}
-
 <form [formGroup]="formGroup">
   <ng-container *ngFor="let group of groups">
 
@@ -20,7 +14,7 @@
             <ng-container [ngSwitch]="question.type">
 
               <ng-template ngSwitchCase="check">
-                <div class="form-group" [hidden]="dependencyService.hideQuestion(question, formGroup.get(group.code))">
+                <div class="form-group" [hidden]="hideQuestion(question, formGroup.get(group.code))">
                   <div class="checkbox">
                     <label>
                       <input type="checkbox" [name]="question.code" [formControlName]="question.code" />
@@ -31,7 +25,7 @@
               </ng-template> <!--/check-->
 
               <ng-template ngSwitchCase="radio">
-                <div class="form-group" [hidden]="dependencyService.hideQuestion(question, formGroup.get(group.code))">
+                <div class="form-group" [hidden]="hideQuestion(question, formGroup.get(group.code))">
                   <label>{{ question.description }}</label>
                   <div class="radio" *ngFor="let option of question.options">
                     <label>
@@ -47,7 +41,7 @@
               </ng-template> <!--/radio-->
 
               <ng-template ngSwitchCase="select">
-                <div class="form-group" [hidden]="dependencyService.hideQuestion(question, formGroup.get(group.code))">
+                <div class="form-group" [hidden]="hideQuestion(question, formGroup.get(group.code))">
                   <label [for]="question.code">{{ question.description }}</label>
                   <select [id]="question.code" class="form-control" [name]="question.code"
                           [formControlName]="question.code">
@@ -66,7 +60,7 @@
               </ng-template> <!--/select-->
 
               <ng-template ngSwitchCase="textarea">
-                <div class="form-group" [hidden]="dependencyService.hideQuestion(question, formGroup.get(group.code))">
+                <div class="form-group" [hidden]="hideQuestion(question, formGroup.get(group.code))">
                   <label [for]="question.code">{{ question.description }}</label>
                   <textarea [id]="question.code" class="form-control" [name]="question.code" rows="5"
                             [placeholder]="question.placeholder ? question.placeholder : ''"
@@ -80,7 +74,7 @@
               </ng-template> <!--/textarea-->
 
               <ng-template ngSwitchCase="text" ngSwitchDefault>
-                <div class="form-group" [hidden]="dependencyService.hideQuestion(question, formGroup.get(group.code))">
+                <div class="form-group" [hidden]="hideQuestion(question, formGroup.get(group.code))">
                   <label [for]="question.code">{{ question.description }}</label>
                   <input type="text" [id]="question.code" class="form-control" [name]="question.code"
                          [placeholder]="question.placeholder ? question.placeholder : ''"

@@ -1,3 +1,5 @@
 <div class="container">
-  <robust-forms [groups]="customForm" (getValues)="printValues($event)"></robust-forms>
+  <robust-forms #robustForms [groups]="customForm"></robust-forms>
+
+  <button class="btn btn-primary" (click)="print(robustForms.getForm())">Print Form</button>
 </div>
