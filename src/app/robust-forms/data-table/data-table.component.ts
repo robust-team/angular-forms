@@ -14,7 +14,6 @@ export class DataTableComponent implements OnInit {
 
   formArray: FormArray;
   newFormGroup: FormGroup;
-  Object = Object;
   submitted: boolean = false;
 
   @Input() formGroup: FormGroup;
@@ -24,6 +23,10 @@ export class DataTableComponent implements OnInit {
   ngOnInit() {
     this.formArray = <FormArray> this.formGroup.get(this.group.code);
     this.newFormGroup = ReactiveFormsFactory.createFormGroupFromQuestions(this.group.questions);
+  }
+
+  getKeysFromObject(object: Object): string[] {
+    return Object.keys(object);
   }
 
   addRow() {
