@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-  public customForm: Array<any> = [
+  public customForm: any[] = [
     {
       'code': 'G-01',
       'description': 'Consumo de Água',

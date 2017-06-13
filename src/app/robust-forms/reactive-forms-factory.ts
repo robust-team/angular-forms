@@ -1,6 +1,8 @@
 import { FormGroup, FormArray, FormControl, ValidatorFn, Validators } from '@angular/forms';
 
-import { DataTable, Group, Question, Validation, MinLength, MaxLength, Pattern } from '.';
+import { DataTable, Group } from './group';
+import { Question } from './question';
+import { Validation, MinLength, MaxLength, Pattern } from './validation';
 
 export class ReactiveFormsFactory {
 
@@ -14,6 +16,7 @@ export class ReactiveFormsFactory {
         control = ReactiveFormsFactory.createFormGroupFromQuestions(group.questions);
       } else {
         const dataTable: DataTable = <DataTable> group;
+
         control = ReactiveFormsFactory.createFormArray(dataTable.answers);
         control.setValidators(ReactiveFormsFactory.createValidators(dataTable.validations));
       }

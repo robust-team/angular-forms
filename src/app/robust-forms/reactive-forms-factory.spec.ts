@@ -1,6 +1,9 @@
 import { FormArray, FormGroup, ValidatorFn } from '@angular/forms';
 
-import { DataTable, Group, Question, ReactiveFormsFactory, Text, Validation, Required, MaxLength, MinLength } from '.';
+import { ReactiveFormsFactory } from '.';
+import { DataTable, Group } from './group';
+import { Question, Text } from './question';
+import { Validation, MinLength, MaxLength, Pattern, Required } from './validation';
 
 describe('RobustForms :: ReactiveFormsFactory', () => {
   it('should create a FormGroup from Groups', () => {
@@ -8,7 +11,7 @@ describe('RobustForms :: ReactiveFormsFactory', () => {
       new Group('group-01', 'Group 01', 'fieldset', []),
       new Group('group-02', 'Group 02', 'fieldset', [])
     ];
-    
+
     expect(ReactiveFormsFactory.createFormGroupFromGroups(groups)).toEqual(jasmine.any(FormGroup));
   });
 

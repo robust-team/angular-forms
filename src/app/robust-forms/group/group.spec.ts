@@ -1,9 +1,7 @@
-import { Group } from './group';
+import { Group } from '.';
 
 describe('RobustForms :: Group :: Group', () => {
-
-    it('should be instantiable', () => {
-        expect(new Group('G-01', 'A simple group', 'group-type', [])).toBeTruthy();
-    });
-
-})
+  it('should be instantiable', () => {
+    expect(new Group('G-01', 'A simple group', 'group-type', [])).toBeTruthy();
+  });
+});

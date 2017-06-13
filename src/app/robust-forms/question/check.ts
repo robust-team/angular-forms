@@ -1,6 +1,5 @@
-import { Dependency } from './dependency';
-import { Question } from './question';
-import { Validation } from '../validation/validation';
+import { Dependency, Question } from '.';
+import { Validation } from '../validation';
 
 export class Check extends Question<boolean> {
 

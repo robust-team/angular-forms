@@ -1,4 +1,7 @@
-import { DataTable, Group, GroupBuilder, Question, Validation } from '.';
+import { GroupBuilder } from '.';
+import { DataTable, Group } from './group';
+import { Question } from './question';
+import { Validation } from './validation';
 
 export class DataTableBuilder extends GroupBuilder {
 
