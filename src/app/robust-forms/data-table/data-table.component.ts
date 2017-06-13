@@ -48,9 +48,4 @@ export class DataTableComponent implements OnInit {
     this.newFormGroup.reset();
     this.submitted = false;
   }
-
-  printNewValues() {
-    console.log(this.newFormGroup);
-    console.log(this.newFormGroup.value);
-  }
 }
