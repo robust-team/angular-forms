@@ -1,10 +1,11 @@
-import { MinLength, MaxLength, Required, Validation } from '.';
+import { MinLength, MaxLength, Pattern, Required, Validation } from '.';
 
 export class ValidationFactory {
 
   private static readonly types = {
-    'max-length': MaxLength,
-    'min-length': MinLength,
+    'maxlength': MaxLength,
+    'minlength': MinLength,
+    'pattern': Pattern,
     'required': Required
   };
 

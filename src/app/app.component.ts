@@ -194,7 +194,7 @@ export class AppComponent {
           ],
           'dependencies': [
             { 'code': 'P-003', 'criteria': 'equals', 'expectedAnswer': 'Option 1' },
-            { 'code': 'P-004', 'criteria': 'greater', 'expectedAnswer': '10' }
+            { 'code': 'P-004', 'criteria': 'greaterthan', 'expectedAnswer': '10' }
           ]
         }
       ]
