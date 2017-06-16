@@ -33,7 +33,7 @@ export class MyModule { }
 
 The **myForm** attribute represents the JSON coming from API. For example:
 
-```json
+```typescript
 {
   [
     {
