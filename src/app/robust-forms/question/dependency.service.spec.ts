@@ -2,7 +2,7 @@ import { TestBed, async, inject } from '@angular/core/testing';
 
 import { DependencyService } from '.';
 
-describe('Service: Dependency', () => {
+describe('RobustForms :: Question :: DependencyService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [DependencyService]
