@@ -6,5 +6,4 @@ export * from './radio';
 export * from './select';
 export * from './text';
 export * from './text-area';
-export * from './question-factory';
 export * from './dependency.service';

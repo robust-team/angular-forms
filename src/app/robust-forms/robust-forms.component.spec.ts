@@ -6,7 +6,7 @@ import { RobustFormsComponent } from '.';
 import { DataTableComponent } from './data-table';
 import { ValidationMessageModule } from './validation-message';
 
-describe('RobustFormsComponent', () => {
+describe('RobustForms :: RobustFormsComponent', () => {
   let component: RobustFormsComponent;
   let fixture: ComponentFixture<RobustFormsComponent>;
 

@@ -1,5 +1,5 @@
-import { Group } from './group';
-import { Question } from './question';
+import { Group } from '../group';
+import { Question } from '../question';
 
 export class GroupBuilder {
 

@@ -1,6 +1,7 @@
-import { DataTableBuilder, GroupBuilder } from '.';
+import { DataTableBuilder, GroupBuilder } from './builder';
 import { DataTable, Group } from './group';
-import { Question, QuestionFactory } from './question';
+import { Question } from './question';
+import { QuestionFactory } from './factory';
 
 export class RobustForms {
 

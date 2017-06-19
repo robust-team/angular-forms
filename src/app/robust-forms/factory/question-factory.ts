@@ -1,4 +1,4 @@
-import { Question, Text, TextArea, Check, Radio, Select } from '.';
+import { Question, Text, TextArea, Check, Radio, Select } from '../question';
 
 export class QuestionFactory {
 

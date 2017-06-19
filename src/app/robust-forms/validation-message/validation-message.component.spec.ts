@@ -4,7 +4,7 @@ import { DebugElement } from '@angular/core';
 
 import { ValidationMessageComponent } from './validation-message.component';
 
-describe('ValidationMessageComponent', () => {
+describe('RobustForms :: ValidationMessage :: ValidationMessageComponent', () => {
   let component: ValidationMessageComponent;
   let fixture: ComponentFixture<ValidationMessageComponent>;
 
