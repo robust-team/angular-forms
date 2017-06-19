@@ -1,9 +1,10 @@
 import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 import { FormGroup, FormGroupDirective } from '@angular/forms';
 
-import { RobustForms, ReactiveFormsFactory } from '.';
+import { RobustForms } from '.';
 import { Group } from './group';
 import { Question, DependencyService } from './question';
+import { ReactiveFormsFactory } from './factory';
 
 @Component({
   selector: 'robust-forms',

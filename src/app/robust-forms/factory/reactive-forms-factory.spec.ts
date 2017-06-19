@@ -1,9 +1,9 @@
 import { FormArray, FormGroup, ValidatorFn } from '@angular/forms';
 
 import { ReactiveFormsFactory } from '.';
-import { DataTable, Group } from './group';
-import { Question, Text } from './question';
-import { Validation, MinLength, MaxLength, Pattern, Required } from './validation';
+import { DataTable, Group } from '../group';
+import { Question, Text } from '../question';
+import { Validation, MinLength, MaxLength, Pattern, Required } from '../validation';
 
 describe('RobustForms :: ReactiveFormsFactory', () => {
   it('should create a FormGroup from Groups', () => {

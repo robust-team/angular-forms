@@ -1,8 +1,8 @@
 import { FormGroup, FormArray, FormControl, ValidatorFn, Validators } from '@angular/forms';
 
-import { DataTable, Group } from './group';
-import { Question } from './question';
-import { Validation, MinLength, MaxLength, Pattern } from './validation';
+import { DataTable, Group } from '../group';
+import { Question } from '../question';
+import { Validation, MinLength, MaxLength, Pattern } from '../validation';
 
 export class ReactiveFormsFactory {
 

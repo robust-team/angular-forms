@@ -1,4 +1,4 @@
-import { MinLength, MaxLength, Pattern, Required, Validation } from '.';
+import { MinLength, MaxLength, Pattern, Required, Validation } from '../validation';
 
 export class ValidationFactory {
 

@@ -3,7 +3,7 @@ import { FormGroup, FormArray, FormControl, AbstractControl, FormGroupDirective 
 
 import { Question } from '../question';
 import { Group, DataTable } from '../group';
-import { ReactiveFormsFactory } from '..';
+import { ReactiveFormsFactory } from '../factory';
 
 @Component({
   selector: 'data-table',
