@@ -17,14 +17,24 @@
             <ng-container [ngSwitch]="question.type">
 
               <ng-template ngSwitchCase="check">
-                <input type="checkbox" [name]="question.code" [formControlName]="question.code" />
-                {{ question.description }}
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" [name]="question.code" [formControlName]="question.code" />
+                    {{ question.description }}
+                  </label>
+                  <validation-message [validations]="question.validations"
+                                      [control]="newFormGroup.get(question.code)"
+                                      [submitted]="submitted">
+                  </validation-message>
+                </div> <!--/.checkbox-->
               </ng-template> <!--/check-->
 
               <ng-template ngSwitchCase="radio">
                 <div class="radio" *ngFor="let option of question.options">
-                  <input type="radio" [name]="question.code" [value]="option" [formControlName]="question.code" />
-                  {{ option }}
+                  <label>
+                    <input type="radio" [name]="question.code" [value]="option" [formControlName]="question.code" />
+                    {{ option }}
+                  </label>
                 </div> <!--/.radio-->
                 <validation-message [validations]="question.validations"
                                     [control]="newFormGroup.get(question.code)"

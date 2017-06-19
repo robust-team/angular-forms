@@ -2,7 +2,7 @@ import { FormGroup, FormArray, FormControl, ValidatorFn, Validators } from '@ang
 
 import { DataTable, Group } from '../group';
 import { Question } from '../question';
-import { Validation, MinLength, MaxLength, Pattern } from '../validation';
+import { Validation, MinLength, MaxLength, Pattern, Required } from '../validation';
 
 export class ReactiveFormsFactory {
 
@@ -66,7 +66,7 @@ export class ReactiveFormsFactory {
     for (const validation of validations) {
       switch (validation.type) {
         case 'required':
-          validators.push(Validators.required);
+          validators.push(!(<Required> validation).requiredTrue ? Validators.required : Validators.requiredTrue);
           break;
         case 'maxlength':
           validators.push(Validators.maxLength((<MaxLength> validation).value));

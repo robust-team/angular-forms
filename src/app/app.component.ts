@@ -139,7 +139,7 @@ export class AppComponent {
           'type': 'check',
           'defaultOption': false,
           'validations': [
-            { 'type': 'required', 'message': 'Este campo é obrigatório' }
+            { 'type': 'required', 'message': 'Este campo é obrigatório', 'requiredTrue': true }
           ]
         },
         {
