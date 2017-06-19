@@ -13,7 +13,7 @@ export class AppComponent {
       'description': 'Consumo de Água',
       'type': 'datatable',
       'validations': [
-        { 'type': 'required', 'message': 'Você deve inserir pelo menos 2 registros nesta tabela.', 'value': 2 },
+        { 'type': 'required', 'message': 'Você deve inserir pelo menos 2 registros nesta tabela.' },
         { 'type': 'minlength', 'message': 'Você deve inserir pelo menos 2 registros nesta tabela.', 'value': 2 },
         { 'type': 'maxlength', 'message': 'Você deve inserir pelo menos 3 registros nesta tabela.', 'value': 3 }
       ],
