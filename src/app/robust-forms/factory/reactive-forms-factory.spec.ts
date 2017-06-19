@@ -5,7 +5,7 @@ import { DataTable, Group } from '../group';
 import { Question, Text } from '../question';
 import { Validation, MinLength, MaxLength, Pattern, Required } from '../validation';
 
-describe('RobustForms :: ReactiveFormsFactory', () => {
+describe('RobustForms :: Factory :: ReactiveFormsFactory', () => {
   it('should create a FormGroup from Groups', () => {
     const groups: Group[] = [
       new Group('group-01', 'Group 01', 'fieldset', []),
