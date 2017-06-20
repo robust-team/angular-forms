@@ -20,6 +20,10 @@
                       <input type="checkbox" [name]="question.code" [formControlName]="question.code" />
                       {{ question.description }}
                     </label>
+                    <validation-message [validations]="question.validations"
+                                        [control]="formGroup.get(group.code).get(question.code)"
+                                        [submitted]="submitted">
+                    </validation-message>
                   </div> <!--/.checkbox-->
                 </div> <!--/.form-group-->
               </ng-template> <!--/check-->

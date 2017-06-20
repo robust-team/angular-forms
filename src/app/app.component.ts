@@ -15,7 +15,7 @@ export class AppComponent {
       'validations': [
         { 'type': 'required', 'message': 'Você deve inserir pelo menos 2 registros nesta tabela.' },
         { 'type': 'minlength', 'message': 'Você deve inserir pelo menos 2 registros nesta tabela.', 'value': 2 },
-        { 'type': 'maxlength', 'message': 'Você deve inserir pelo menos 3 registros nesta tabela.', 'value': 3 }
+        { 'type': 'maxlength', 'message': 'Você pode inserir até 3 registros nesta tabela.', 'value': 3 }
       ],
       'questions': [
         {
@@ -139,7 +139,7 @@ export class AppComponent {
           'type': 'check',
           'defaultOption': false,
           'validations': [
-            { 'type': 'required', 'message': 'Este campo é obrigatório' }
+            { 'type': 'required', 'message': 'Este campo é obrigatório', 'requiredTrue': true }
           ]
         },
         {
@@ -169,8 +169,11 @@ export class AppComponent {
           'type': 'text',
           'validations': [
             { 'type': 'required', 'message': 'Este campo é obrigatório' },
-            { 'type': 'minlength', 'message': 'Este campo tem o tamanho mínimo de 3 caracteres', 'value': 3 },
-            { 'type': 'maxlength', 'message': 'Este campo tem o tamanho máximo de 6 caracteres', 'value': 6 }
+            // { 'type': 'minlength', 'message': 'Este campo tem o tamanho mínimo de 3 caracteres', 'value': 3 },
+            // { 'type': 'maxlength', 'message': 'Este campo tem o tamanho máximo de 6 caracteres', 'value': 6 }
+            { 'type': 'min', 'message': 'Este campo deve ter o valor mínimo de 10', 'value': 10 },
+            { 'type': 'max', 'message': 'Este campo deve ter o valor máximo de 100', 'value': 100 }
+            // { 'type': 'email', 'message': 'Formato de e-mail inválido' }
           ]
         },
         {
