@@ -169,8 +169,11 @@ export class AppComponent {
           'type': 'text',
           'validations': [
             { 'type': 'required', 'message': 'Este campo é obrigatório' },
-            { 'type': 'minlength', 'message': 'Este campo tem o tamanho mínimo de 3 caracteres', 'value': 3 },
-            { 'type': 'maxlength', 'message': 'Este campo tem o tamanho máximo de 6 caracteres', 'value': 6 }
+            // { 'type': 'minlength', 'message': 'Este campo tem o tamanho mínimo de 3 caracteres', 'value': 3 },
+            // { 'type': 'maxlength', 'message': 'Este campo tem o tamanho máximo de 6 caracteres', 'value': 6 }
+            { 'type': 'minimo', 'message': 'Este campo deve ter o valor mínimo de 10', 'value': 10 },
+            { 'type': 'max', 'message': 'Este campo deve ter o valor máximo de 100', 'value': 100 }
+            // { 'type': 'email', 'message': 'Formato de e-mail inválido' }
           ]
         },
         {

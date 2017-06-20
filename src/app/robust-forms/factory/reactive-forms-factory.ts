@@ -3,6 +3,11 @@ import { FormGroup, FormArray, FormControl, ValidatorFn, Validators } from '@ang
 import { DataTable, Group } from '../group';
 import { Question } from '../question';
 import { Validation, MinLength, MaxLength, Pattern, Required, Min, Max } from '../validation';
+import {
+  ValidatorFactoryHandler, RequiredValidator, EmailValidator, MaxValidator, MinValidator,
+  MaxLengthValidator, MinLengthValidator, PatternValidator
+} from '../chain-of-responsibility/validator-factory';
+import { ValidationTypeNotFoundError } from '../chain-of-responsibility/validator-factory/error';
 
 export class ReactiveFormsFactory {
 
@@ -64,27 +69,21 @@ export class ReactiveFormsFactory {
     const validators: ValidatorFn[] = [];
 
     for (const validation of validations) {
-      switch (validation.type) {
-        case 'required':
-          validators.push(!(<Required> validation).requiredTrue ? Validators.required : Validators.requiredTrue);
-          break;
-        case 'maxlength':
-          validators.push(Validators.maxLength((<MaxLength> validation).value));
-          break;
-        case 'minlength':
-          validators.push(Validators.minLength((<MinLength> validation).value));
-          break;
-        case 'max':
-          validators.push(Validators.max((<Max> validation).value));
-          break;
-        case 'min':
-          validators.push(Validators.min((<Min> validation).value));
-          break;
-        case 'email':
-          validators.push(Validators.email);
-          break;
-        case 'pattern':
-          validators.push(Validators.pattern((<Pattern> validation).regex));
+      const validatorFactoryHandler: ValidatorFactoryHandler = new RequiredValidator();
+      validatorFactoryHandler.append(new EmailValidator());
+      validatorFactoryHandler.append(new MaxValidator());
+      validatorFactoryHandler.append(new MinValidator());
+      validatorFactoryHandler.append(new MaxLengthValidator());
+      validatorFactoryHandler.append(new MinLengthValidator());
+      validatorFactoryHandler.append(new PatternValidator());
+
+      try {
+        const validatorFn: ValidatorFn = validatorFactoryHandler.handle(validation);
+        validators.push(validatorFn);
+      } catch (error) {
+        if (error instanceof ValidationTypeNotFoundError) {
+          console.error(`[RobustForms] ${error.name}: ${error.message}`);
+        }
       }
     }
 
