@@ -15,7 +15,7 @@ export class AppComponent {
       'validations': [
         { 'type': 'required', 'message': 'Você deve inserir pelo menos 2 registros nesta tabela.' },
         { 'type': 'minlength', 'message': 'Você deve inserir pelo menos 2 registros nesta tabela.', 'value': 2 },
-        { 'type': 'maxlength', 'message': 'Você deve inserir pelo menos 3 registros nesta tabela.', 'value': 3 }
+        { 'type': 'maxlength', 'message': 'Você pode inserir até 3 registros nesta tabela.', 'value': 3 }
       ],
       'questions': [
         {
