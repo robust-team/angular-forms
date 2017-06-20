@@ -21,49 +21,49 @@ describe('RobustForms :: ChainOfResponsibility :: ValidatorFactory', () => {
   it('should create a Email Validator', () => {
     const validation: Validation = new Email('email', 'Message');
 
-    expect(this.validatorFactoryHandler.handle(validation)).toBeTruthy();
+    expect('function' === typeof this.validatorFactoryHandler.handle(validation)).toBeTruthy();
   });
 
   it('should create a Max Validator', () => {
     const validation: Validation = new Max('max', 'Message', 10);
 
-    expect(this.validatorFactoryHandler.handle(validation)).toBeTruthy();
+    expect('function' === typeof this.validatorFactoryHandler.handle(validation)).toBeTruthy();
   });
 
   it('should create a Min Validator', () => {
     const validation: Validation = new Min('min', 'Message', 6);
 
-    expect(this.validatorFactoryHandler.handle(validation)).toBeTruthy();
+    expect('function' === typeof this.validatorFactoryHandler.handle(validation)).toBeTruthy();
   });
 
   it('should create a MaxLength Validator', () => {
     const validation: Validation = new MaxLength('maxlength', 'Message', 6);
 
-    expect(this.validatorFactoryHandler.handle(validation)).toBeTruthy();
+    expect('function' === typeof this.validatorFactoryHandler.handle(validation)).toBeTruthy();
   });
 
   it('should create a MinLength Validator', () => {
     const validation: Validation = new MinLength('minlength', 'Message', 6);
 
-    expect(this.validatorFactoryHandler.handle(validation)).toBeTruthy();
+    expect('function' === typeof this.validatorFactoryHandler.handle(validation)).toBeTruthy();
   });
 
   it('should create a Pattern Validator', () => {
     const validation: Validation = new Pattern('pattern', 'Message', '^\\d{3}$');
 
-    expect(this.validatorFactoryHandler.handle(validation)).toBeTruthy();
+    expect('function' === typeof this.validatorFactoryHandler.handle(validation)).toBeTruthy();
   });
 
   it('should create a Required Validator', () => {
     const validation: Validation = new Required('required', 'Message');
 
-    expect(this.validatorFactoryHandler.handle(validation)).toBeTruthy();
+    expect('function' === typeof this.validatorFactoryHandler.handle(validation)).toBeTruthy();
   });
 
   it('should create a Required True Validator', () => {
     const validation: Validation = new Required('required', 'Message', true);
 
-    expect(this.validatorFactoryHandler.handle(validation)).toBeTruthy();
+    expect('function' === typeof this.validatorFactoryHandler.handle(validation)).toBeTruthy();
   });
 
   it('should throw a ValidationTypeNotFoundError', () => {
