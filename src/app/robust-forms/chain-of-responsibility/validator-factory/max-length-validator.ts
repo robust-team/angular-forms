@@ -8,7 +8,7 @@ export class MaxLengthValidator extends ValidatorFactoryHandler {
 
   public handle(validation: Validation): ValidatorFn {
     if ('maxlength' === validation.type) {
-      return new ValidatorFactory(validation).createMaxLengthValidator();
+      return (new ValidatorFactory(validation)).createMaxLengthValidator();
     }
 
     return super.handle(validation);
