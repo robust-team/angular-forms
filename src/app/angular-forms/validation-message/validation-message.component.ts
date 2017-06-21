@@ -4,7 +4,7 @@ import { FormControl, AbstractControl } from '@angular/forms';
 import { Validation } from '../validation';
 
 @Component({
-  selector: 'validation-message',
+  selector: 'rb-validation-message',
   templateUrl: './validation-message.component.html',
   styleUrls: ['./validation-message.component.css']
 })

@@ -20,10 +20,10 @@
                       <input type="checkbox" [name]="question.code" [formControlName]="question.code" />
                       {{ question.description }}
                     </label>
-                    <validation-message [validations]="question.validations"
-                                        [control]="formGroup.get(group.code).get(question.code)"
-                                        [submitted]="submitted">
-                    </validation-message>
+                    <rb-validation-message [validations]="question.validations"
+                                           [control]="formGroup.get(group.code).get(question.code)"
+                                           [submitted]="submitted">
+                    </rb-validation-message>
                   </div> <!--/.checkbox-->
                 </div> <!--/.form-group-->
               </ng-template> <!--/check-->
@@ -37,10 +37,10 @@
                       {{ option }}
                     </label>
                   </div> <!--/.radio-->
-                  <validation-message [validations]="question.validations"
-                                      [control]="formGroup.get(group.code).get(question.code)"
-                                      [submitted]="submitted">
-                  </validation-message>
+                  <rb-validation-message [validations]="question.validations"
+                                         [control]="formGroup.get(group.code).get(question.code)"
+                                         [submitted]="submitted">
+                  </rb-validation-message>
                 </div> <!--/.form-group-->
               </ng-template> <!--/radio-->
 
@@ -56,10 +56,10 @@
                       {{ option }}
                     </option>
                   </select>
-                  <validation-message [validations]="question.validations"
-                                      [control]="formGroup.get(group.code).get(question.code)"
-                                      [submitted]="submitted">
-                  </validation-message>
+                  <rb-validation-message [validations]="question.validations"
+                                         [control]="formGroup.get(group.code).get(question.code)"
+                                         [submitted]="submitted">
+                  </rb-validation-message>
                 </div> <!--/.form-group-->
               </ng-template> <!--/select-->
 
@@ -70,10 +70,10 @@
                             [placeholder]="question.placeholder ? question.placeholder : ''"
                             [formControlName]="question.code">
                   </textarea>
-                  <validation-message [validations]="question.validations"
-                                      [control]="formGroup.get(group.code).get(question.code)"
-                                      [submitted]="submitted">
-                  </validation-message>
+                  <rb-validation-message [validations]="question.validations"
+                                         [control]="formGroup.get(group.code).get(question.code)"
+                                         [submitted]="submitted">
+                  </rb-validation-message>
                 </div> <!--/.form-group-->
               </ng-template> <!--/textarea-->
 
@@ -83,10 +83,10 @@
                   <input type="text" [id]="question.code" class="form-control" [name]="question.code"
                          [placeholder]="question.placeholder ? question.placeholder : ''"
                          [formControlName]="question.code" [mask]="question.mask" />
-                  <validation-message [validations]="question.validations"
-                                      [control]="formGroup.get(group.code).get(question.code)"
-                                      [submitted]="submitted">
-                  </validation-message>
+                  <rb-validation-message [validations]="question.validations"
+                                         [control]="formGroup.get(group.code).get(question.code)"
+                                         [submitted]="submitted">
+                  </rb-validation-message>
                 </div> <!--/.form-group-->
               </ng-template> <!--/text-->
             </ng-container> <!--/ngSwitch-questionType-->
@@ -96,7 +96,7 @@
       </ng-container> <!--/ngSwitchCase-fieldset-->
 
       <ng-container *ngSwitchCase="'datatable'">
-        <data-table [group]="group" [formGroup]="formGroup" [formGroupSubmitted]="submitted"></data-table>
+        <rb-data-table [group]="group" [formGroup]="formGroup" [formGroupSubmitted]="submitted"></rb-data-table>
       </ng-container>
 
     </ng-container> <!--/ngSwitch-groupType-->
