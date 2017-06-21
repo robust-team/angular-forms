@@ -7,7 +7,7 @@ import { Question, DependencyService } from './question';
 import { ReactiveFormsFactory } from './factory';
 
 @Component({
-  selector: 'angular-forms',
+  selector: 'rb-angular-forms',
   templateUrl: './angular-forms.component.html',
   providers: [DependencyService]
 })

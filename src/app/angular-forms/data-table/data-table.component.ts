@@ -6,7 +6,7 @@ import { Group, DataTable } from '../group';
 import { ReactiveFormsFactory } from '../factory';
 
 @Component({
-  selector: 'data-table',
+  selector: 'rb-data-table',
   templateUrl: './data-table.component.html',
   styleUrls: ['./data-table.component.css']
 })
