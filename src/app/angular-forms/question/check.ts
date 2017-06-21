@@ -3,6 +3,18 @@ import { Validation } from '../validation';
 
 export class Check extends Question<boolean> {
 
+  public static fromJson(question : Check): Check {
+    return new Check(
+      question.code,
+      question.description,
+      question.dependencies,
+      question.type,
+      question.answer,
+      question.validations,
+      question.defaultOption
+    );
+  }
+
   public constructor(
     code: string,
     description: string,
@@ -17,17 +29,5 @@ export class Check extends Question<boolean> {
 
   public get defaultOption(): boolean {
     return this._defaultOption;
-  }
-
-  public static fromJson(question : Check): Check {
-    return new Check(
-      question.code,
-      question.description,
-      question.dependencies,
-      question.type,
-      question.answer,
-      question.validations,
-      question.defaultOption
-    );
   }
 }

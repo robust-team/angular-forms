@@ -7,7 +7,7 @@ export abstract class ValidatorFactoryHandler {
 
   private nextHandler: ValidatorFactoryHandler;
 
-  public append(handler: ValidatorFactoryHandler) {
+  public append(handler: ValidatorFactoryHandler): void {
     if (this.nextHandler) {
       this.nextHandler.append(handler);
     } else {

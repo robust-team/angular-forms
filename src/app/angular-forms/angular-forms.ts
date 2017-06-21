@@ -7,7 +7,9 @@ export class AngularForms {
 
   public static fromJson(jsonGroups: Group[]): Group[] {
 
-    return jsonGroups.map((group: Group) => {
+    const groups: Group[] = [];
+
+    for (let group of jsonGroups) {
       const groupBuilder: GroupBuilder = 'datatable' !== group.type
         ? new GroupBuilder(group.code, group.description, group.type)
         : new DataTableBuilder(
@@ -22,7 +24,9 @@ export class AngularForms {
         groupBuilder.addQuestion(new QuestionFactory(question).create());
       }
 
-      return groupBuilder.build();
-    });
+      groups.push(groupBuilder.build());
+    }
+
+    return groups;
   }
 }

@@ -20,7 +20,7 @@ export class DataTableComponent implements OnInit {
   @Input() group: DataTable;
   @Input() formGroupSubmitted: boolean = false;
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.formArray = <FormArray> this.formGroup.get(this.group.code);
     this.newFormGroup = ReactiveFormsFactory.createFormGroupFromQuestions(this.group.questions);
   }
@@ -29,7 +29,7 @@ export class DataTableComponent implements OnInit {
     return Object.keys(object);
   }
 
-  addRow() {
+  addRow(): void {
     this.submitted = true;
 
     if (!this.newFormGroup.valid) {
@@ -40,11 +40,11 @@ export class DataTableComponent implements OnInit {
     this.resetForms();
   }
 
-  removeRow(index: number) {
+  removeRow(index: number): void {
     this.formArray.removeAt(index);
   }
 
-  resetForms() {
+  resetForms(): void {
     this.newFormGroup.reset();
     this.submitted = false;
   }
