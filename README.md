@@ -1,4 +1,4 @@
-# RobustForms
+# AngularForms
 
 ## Requirements
 
@@ -6,31 +6,31 @@
 
 ## Usage
 
-1. Install RobustForms using npm:
+1. Install AngularForms using npm:
 
 ```
-npm i @robusto/robust-forms
+npm i @robust-team/angular-forms
 ```
 
-2. Import the RobustFormsModule into Module class.
+2. Import the AngularFormsModule into Module class.
 
 ```typescript
-import { RobustFormsModule } from '@robusto/robust-forms';
+import { AngularFormsModule } from '@robust-team/angular-forms';
 
 @NgModule({
   imports: [
     //...
-    RobustFormsModule
+    AngularFormsModule
   ],
   // ...
 })
 export class MyModule { }
 ```
 
-3. Insert the RobustFormsComponent into template.
+3. Insert the AngularFormsComponent into template.
 
 ```html
-<robust-forms [groups]="myForm"></robust-forms>
+<angular-forms [groups]="myForm"></angular-forms>
 ```
 
 The **myForm** attribute represents the JSON coming from API. For example:
@@ -128,8 +128,8 @@ The **myForm** attribute represents the JSON coming from API. For example:
 4. Get form values by adding a local variable to the component and calling the **getForm()** method. For example:
 
 ```html
-<robust-forms #robustForms [groups]="myForm"></robust-forms>
-<button (click)="print(robustForms.getForm())">Print Form</button>
+<angular-forms #angularForms [groups]="myForm"></angular-forms>
+<button (click)="print(angularForms.getForm())">Print Form</button>
 ```
 
 ```typescript
