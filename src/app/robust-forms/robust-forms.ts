@@ -8,7 +8,7 @@ export class RobustForms {
   public static fromJson(jsonGroups: Group[]): Group[] {
 
     return jsonGroups.map((group: Group) => {
-      const groupBuilder = 'datatable' !== group.type
+      const groupBuilder: GroupBuilder = 'datatable' !== group.type
         ? new GroupBuilder(group.code, group.description, group.type)
         : new DataTableBuilder(
           group.code,
