@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { RobustFormsModule } from './robust-forms/robust-forms.module';
+import { AngularFormsModule } from './angular-forms/angular-forms.module';
 
 @NgModule({
   declarations: [
@@ -12,7 +12,7 @@ import { RobustFormsModule } from './robust-forms/robust-forms.module';
   ],
   imports: [
     BrowserModule,
-    RobustFormsModule,
+    AngularFormsModule,
     FormsModule,
     HttpModule
   ],
