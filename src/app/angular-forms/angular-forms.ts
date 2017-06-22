@@ -9,7 +9,7 @@ export class AngularForms {
 
     const groups: Group[] = [];
 
-    for (let group of jsonGroups) {
+    for (const group of jsonGroups) {
       const groupBuilder: GroupBuilder = 'datatable' !== group.type
         ? new GroupBuilder(group.code, group.description, group.type)
         : new DataTableBuilder(
