@@ -2,6 +2,10 @@ import { Validation } from '.';
 
 export class Required extends Validation {
 
+  public static fromJson(validation: Required): Required {
+    return new Required(validation.type, validation.message, validation.requiredTrue);
+  }
+
   public constructor(
     type: string,
     message: string,
@@ -12,9 +16,5 @@ export class Required extends Validation {
 
   public get requiredTrue(): boolean {
     return this._requiredTrue;
-  }
-
-  public static fromJson(validation: Required): Required {
-    return new Required(validation.type, validation.message, validation.requiredTrue);
   }
 }

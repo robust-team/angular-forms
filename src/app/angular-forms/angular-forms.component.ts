@@ -20,12 +20,12 @@ export class AngularFormsComponent implements OnInit {
 
   constructor(private dependencyService: DependencyService) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.groups = AngularForms.fromJson(this.groups);
     this.formGroup = ReactiveFormsFactory.createFormGroupFromGroups(this.groups);
   }
 
-  hideQuestion(question: Question<any>, formGroup: FormGroup) {
+  hideQuestion(question: Question<any>, formGroup: FormGroup): boolean {
     return this.dependencyService.hideQuestion(question, formGroup);
   }
 

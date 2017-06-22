@@ -38,7 +38,7 @@ export class DependencyService {
     return operations[dependency.criteria];
   }
 
-  private setStatusFormControl(formControl: FormControl, hidden: boolean) {
+  private setStatusFormControl(formControl: FormControl, hidden: boolean): void {
     if (hidden) {
       formControl.disable();
     } else {

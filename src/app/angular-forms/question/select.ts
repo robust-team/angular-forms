@@ -3,6 +3,20 @@ import { Validation } from '../validation';
 
 export class Select extends Choice {
 
+  public static fromJson(question: Select): Select {
+    return new Select(
+      question.code,
+      question.description,
+      question.dependencies,
+      question.type,
+      question.answer,
+      question.validations,
+      question.options,
+      question.defaultOption,
+      question.placeholder
+    );
+  }
+
   public constructor(
     code: string,
     description: string,
@@ -19,19 +33,5 @@ export class Select extends Choice {
 
   public get placeholder(): string {
     return this._placeholder;
-  }
-
-  public static fromJson(question: Select): Select {
-    return new Select(
-      question.code,
-      question.description,
-      question.dependencies,
-      question.type,
-      question.answer,
-      question.validations,
-      question.options,
-      question.defaultOption,
-      question.placeholder
-    );
   }
 }

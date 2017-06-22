@@ -2,7 +2,7 @@ import { Question, Text, TextArea, Check, Radio, Select } from '../question';
 
 export class QuestionFactory {
 
-  private _types = {
+  private _types: any = {
     'text': Text,
     'textarea': TextArea,
     'check': Check,

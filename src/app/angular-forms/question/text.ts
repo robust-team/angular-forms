@@ -3,6 +3,19 @@ import { Validation } from '../validation';
 
 export class Text extends Question<string> {
 
+  public static fromJson(question: Text): Text {
+    return new Text(
+      question.code,
+      question.description,
+      question.dependencies,
+      question.type,
+      question.answer,
+      question.validations,
+      question.mask,
+      question.placeholder
+    );
+  }
+
   public constructor(
     code: string,
     description: string,
@@ -22,18 +35,5 @@ export class Text extends Question<string> {
 
   public get placeholder(): string {
     return this._placeholder;
-  }
-
-  public static fromJson(question: Text): Text {
-    return new Text(
-      question.code,
-      question.description,
-      question.dependencies,
-      question.type,
-      question.answer,
-      question.validations,
-      question.mask,
-      question.placeholder
-    );
   }
 }
