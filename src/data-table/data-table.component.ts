@@ -115,20 +115,18 @@ import { ReactiveFormsFactory } from '../factory';
     </rb-validation-message>
   </fieldset>
   `,
-  styles: [
-    `
-      fieldset.datatable {
-        border: 1px solid #ccc;
-        margin-bottom: 15px;
-        padding: 0 15px 15px;
-      }
+  styles: [`
+    fieldset.datatable {
+      border: 1px solid #ccc;
+      margin-bottom: 15px;
+      padding: 0 15px 15px;
+    }
 
-      fieldset.datatable legend {
-        border: 1px solid #ccc;
-        padding: 5px 10px;
-      }
-    `
-  ]
+    fieldset.datatable legend {
+      border: 1px solid #ccc;
+      padding: 5px 10px;
+    }
+  `]
 })
 export class DataTableComponent implements OnInit {
 

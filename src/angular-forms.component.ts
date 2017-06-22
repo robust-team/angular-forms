@@ -8,7 +8,6 @@ import { ReactiveFormsFactory } from './factory';
 
 @Component({
   selector: 'rb-angular-forms',
-  // templateUrl: './angular-forms.component.html',
   template: `
     <form [formGroup]="formGroup">
       <ng-container *ngFor="let group of groups">
