@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'rb-demo-app',
   template: `
-    <rb-angular-forms #angularForms [groups]="customForm" [readOnly]="true"></rb-angular-forms>
+    <rb-angular-forms #angularForms [groups]="customForm" [readOnly]="false"></rb-angular-forms>
     <button (click)="print(angularForms.getForm())">Print Form</button>
   `
 })
@@ -62,7 +62,7 @@ export class DemoComponent {
           'placeholder': null,
           'mask': '00000000.00?reverse=true'
         }
-      ]/*,
+      ],
       'answers': [
         [
           {
@@ -128,7 +128,7 @@ export class DemoComponent {
             'answer': '321'
           }
         ]
-      ]*/
+      ]
     },
     {
       'code': 'G-02',

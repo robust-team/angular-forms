@@ -19,11 +19,11 @@ import { ReactiveFormsFactory } from '../factory';
               <th class="text-center" *ngFor="let question of group.questions">
                 {{ question.description }}
               </th>
-              <th class="text-center">Ação</th>
+              <th class="text-center" *ngIf="!readOnly">Ação</th>
             </tr>
           </thead>
           <tbody>
-            <tr [formGroup]="newFormGroup">
+            <tr [formGroup]="newFormGroup" *ngIf="!readOnly">
               <td *ngFor="let question of group.questions">
                 <ng-container [ngSwitch]="question.type">
 
@@ -100,7 +100,7 @@ import { ReactiveFormsFactory } from '../factory';
             </tr>
             <tr *ngFor="let row of formArray?.value; let indexRow = index">
               <td *ngFor="let key of getKeysFromObject(row)">{{ row[key] }}</td>
-              <td class="text-center">
+              <td class="text-center" *ngIf="!readOnly">
                 <button class="btn btn-default btn-remove-row" (click)="removeRow(indexRow)">
                   Remover
                 </button>
@@ -137,6 +137,7 @@ export class DataTableComponent implements OnInit {
   @Input() formGroup: FormGroup;
   @Input() group: DataTable;
   @Input() formGroupSubmitted: boolean = false;
+  @Input() readOnly: boolean = false;
 
   ngOnInit(): void {
     this.formArray = <FormArray>this.formGroup.get(this.group.code);

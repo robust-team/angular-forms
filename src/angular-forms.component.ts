@@ -149,7 +149,7 @@ import { ReactiveFormsFactory } from './factory';
           </ng-container> <!--/ngSwitchCase-fieldset-->
 
           <ng-container *ngSwitchCase="'datatable'">
-            <rb-data-table [group]="group" [formGroup]="formGroup" [formGroupSubmitted]="submitted"></rb-data-table>
+            <rb-data-table [group]="group" [formGroup]="formGroup" [formGroupSubmitted]="submitted" [readOnly]="readOnly"></rb-data-table>
           </ng-container>
 
         </ng-container> <!--/ngSwitch-groupType-->
