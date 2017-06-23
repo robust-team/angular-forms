@@ -31,8 +31,8 @@ import { ReactiveFormsFactory } from './factory';
                             {{ question.description }}
                           </label>
                           <rb-validation-message [validations]="question.validations"
-                                                  [control]="formGroup.get(group.code).get(question.code)"
-                                                  [submitted]="submitted">
+                                                 [control]="formGroup.get(group.code).get(question.code)"
+                                                 [submitted]="submitted">
                           </rb-validation-message>
                         </div> <!--/.checkbox-->
                       </div> <!--/.form-group-->
@@ -40,13 +40,7 @@ import { ReactiveFormsFactory } from './factory';
 
                     <ng-container *ngIf="readOnly">
                       <div class="form-group">
-                        <label>
-                          <input type="checkbox" disabled="disabled" [checked]="question.answer" style="cursor: default" />
-                          {{ question.description }}
-                        </label>
-                      </div> <!--/.form-group-->
-                      <div class="form-group">
-                        <label class="checkbox" [ngClass]="{ 'checked': question.answer }">{{ question.description }}:</label>
+                        <label class="checkbox" [ngClass]="{ 'checked': question.answer }">{{ question.description }}</label>
                       </div> <!--/.form-group-->
                     </ng-container> <!--/readOnly-->
                   </ng-template> <!--/check-->
@@ -62,8 +56,8 @@ import { ReactiveFormsFactory } from './factory';
                           </label>
                         </div> <!--/.radio-->
                         <rb-validation-message [validations]="question.validations"
-                                                [control]="formGroup.get(group.code).get(question.code)"
-                                                [submitted]="submitted">
+                                               [control]="formGroup.get(group.code).get(question.code)"
+                                               [submitted]="submitted">
                         </rb-validation-message>
                       </div> <!--/.form-group-->
                     </ng-container> <!--/!readOnly-->
@@ -90,8 +84,8 @@ import { ReactiveFormsFactory } from './factory';
                           </option>
                         </select>
                         <rb-validation-message [validations]="question.validations"
-                                                [control]="formGroup.get(group.code).get(question.code)"
-                                                [submitted]="submitted">
+                                               [control]="formGroup.get(group.code).get(question.code)"
+                                               [submitted]="submitted">
                         </rb-validation-message>
                       </div> <!--/.form-group-->
                     </ng-container> <!--/!readOnly-->
@@ -113,8 +107,8 @@ import { ReactiveFormsFactory } from './factory';
                                   [formControlName]="question.code">
                         </textarea>
                         <rb-validation-message [validations]="question.validations"
-                                                [control]="formGroup.get(group.code).get(question.code)"
-                                                [submitted]="submitted">
+                                               [control]="formGroup.get(group.code).get(question.code)"
+                                               [submitted]="submitted">
                         </rb-validation-message>
                       </div> <!--/.form-group-->
                     </ng-container> <!--/!readOnly-->
@@ -135,8 +129,8 @@ import { ReactiveFormsFactory } from './factory';
                                 placeholder="{{ question.placeholder ? question.placeholder : '' }}"
                                 [formControlName]="question.code" [mask]="question.mask" />
                         <rb-validation-message [validations]="question.validations"
-                                                [control]="formGroup.get(group.code).get(question.code)"
-                                                [submitted]="submitted">
+                                               [control]="formGroup.get(group.code).get(question.code)"
+                                               [submitted]="submitted">
                         </rb-validation-message>
                       </div> <!--/.form-group-->
                     </ng-container> <!--/!readOnly-->
