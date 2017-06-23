@@ -1,5 +1,7 @@
 # AngularForms
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/253b251df47e47998d27404a6746978b)](https://www.codacy.com/app/dudemelo/angular-forms?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=robust-team/angular-forms&amp;utm_campaign=Badge_Grade)
+
 ## Requirements
 
 [...]
