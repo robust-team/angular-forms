@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'rb-demo-app',
   template: `
-    <rb-angular-forms #angularForms [groups]="customForm"></rb-angular-forms>
+    <rb-angular-forms #angularForms [groups]="customForm" [readOnly]="true"></rb-angular-forms>
     <button (click)="print(angularForms.getForm())">Print Form</button>
   `
 })
@@ -142,7 +142,8 @@ export class DemoComponent {
           'defaultOption': false,
           'validations': [
             { 'type': 'required', 'message': 'Este campo é obrigatório', 'requiredTrue': true }
-          ]
+          ],
+          'answer': true
         },
         {
           'code': 'P-002',
@@ -152,8 +153,8 @@ export class DemoComponent {
           'defaultOption': 'Option 1',
           'validations': [
             { 'type': 'required', 'message': 'Este campo é obrigatório' }
-          ]//,
-          //'answer': 'Option 2'
+          ],
+          'answer': 'Option 2'
         },
         {
           'code': 'P-003',
@@ -163,7 +164,8 @@ export class DemoComponent {
           'placeholder': 'Selecione',
           'validations': [
             { 'type': 'required', 'message': 'Este campo é obrigatório' }
-          ]
+          ],
+          'answer': 'Option 1'
         },
         {
           'code': 'P-004',
@@ -176,7 +178,8 @@ export class DemoComponent {
             { 'type': 'min', 'message': 'Este campo deve ter o valor mínimo de 10', 'value': 10 },
             { 'type': 'max', 'message': 'Este campo deve ter o valor máximo de 100', 'value': 100 }
             // { 'type': 'email', 'message': 'Formato de e-mail inválido' }
-          ]
+          ],
+          'answer': 'My answer 1'
         },
         {
           'code': 'P-005',
@@ -187,7 +190,8 @@ export class DemoComponent {
             { 'type': 'required', 'message': 'Este campo é obrigatório' },
             { 'type': 'pattern', 'message': 'Este campo deve ter o formato 00000-000', 'regex': '^\\d{5}-\\d{3}$' }
           ],
-          'mask': '00000-000'
+          'mask': '00000-000',
+          'answer': 'My answer 2'
         },
         {
           'code': 'P-006',
@@ -200,7 +204,8 @@ export class DemoComponent {
           'dependencies': [
             { 'code': 'P-003', 'criteria': 'equals', 'expectedAnswer': 'Option 1' },
             { 'code': 'P-004', 'criteria': 'greaterthan', 'expectedAnswer': '10' }
-          ]
+          ],
+          'answer': 'My answer 3'
         }
       ]
     }
