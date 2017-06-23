@@ -1,6 +1,6 @@
 # AngularForms
 
-[![Build Status](https://travis-ci.org/robust-team/angular-forms.svg?branch=master)](https://travis-ci.org/robust-team/angular-forms) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/253b251df47e47998d27404a6746978b)](https://www.codacy.com/app/dudemelo/angular-forms?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=robust-team/angular-forms&amp;utm_campaign=Badge_Grade)
+[![Build Status](https://travis-ci.org/robust-team/angular-forms.svg?branch=master)](https://travis-ci.org/robust-team/angular-forms) [![codecov](https://codecov.io/gh/robust-team/angular-forms/branch/master/graph/badge.svg)](https://codecov.io/gh/robust-team/angular-forms) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/253b251df47e47998d27404a6746978b)](https://www.codacy.com/app/dudemelo/angular-forms?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=robust-team/angular-forms&amp;utm_campaign=Badge_Grade)
 
 ## Requirements
 
