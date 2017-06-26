@@ -69,13 +69,13 @@ export class ReactiveFormsFactory {
     const validators: ValidatorFn[] = [];
 
     for (const validation of validations) {
-      const validatorFactoryHandler: ValidatorFactoryHandler = new RequiredValidator();
-      validatorFactoryHandler.append(new EmailValidator());
-      validatorFactoryHandler.append(new MaxValidator());
-      validatorFactoryHandler.append(new MinValidator());
-      validatorFactoryHandler.append(new MaxLengthValidator());
-      validatorFactoryHandler.append(new MinLengthValidator());
-      validatorFactoryHandler.append(new PatternValidator());
+      const validatorFactoryHandler: ValidatorFactoryHandler = (new RequiredValidator())
+        .append(new EmailValidator())
+        .append(new MaxValidator())
+        .append(new MinValidator())
+        .append(new MaxLengthValidator())
+        .append(new MinLengthValidator())
+        .append(new PatternValidator());
 
       try {
         const validatorFn: ValidatorFn = validatorFactoryHandler.handle(validation);
