@@ -353,7 +353,7 @@ The **Group** represents a grouping of questions, which can be of two types: **F
 
 #### Masks
 
-**Mask** is an attribute of Text Question that uses the patterns of the [NgMask](https://fagnerlima.github.io/ng-mask/) library.
+**Mask** is an attribute of **Text Question** that uses the patterns of the [NgMask](https://fagnerlima.github.io/ng-mask/) library.
 
 ```json
 {
@@ -388,7 +388,7 @@ Read more in [https://fagnerlima.github.io/ng-mask/](https://fagnerlima.github.i
 
 ## Validations
 
-**Validations** can be used in **Question** and **DataTable**, which can be of many types:
+**Validations** can be used in **Question** and **DataTable**, which can be of seven types:
 
 - **email**;
 - **max**;
@@ -483,4 +483,25 @@ Obligatory field validation. The **requiredTrue** field is used for checkbox val
 
 ## Dependencies
 
-[...]
+**Dependencies** are Questions that determine if a Question should be shown or no. The criterias can be of four types:
+
+- **equals**;
+- **lessthan**;
+- **greaterthan**;
+- **notequals**.
+
+```json
+{
+  "code": "Q-0106",
+  "description": "Question TextArea 0106",
+  "type": "textarea",
+  "placeholder": "Question TextArea 0106",
+  "validations": [
+    { "type": "required", "message": "Required field." }
+  ],
+  "dependencies": [
+    { "code": "Q-0103", "criteria": "equals", "expectedAnswer": "Option 1" }
+    { "code": "Q-0104", "criteria": "greaterthan", "expectedAnswer": "10" }
+  ]
+}
+```
