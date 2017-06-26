@@ -488,8 +488,14 @@
 <a href="http://npmjs.org/package/@robust-team/angular-forms"><img src="https://img.shields.io/npm/dm/@robust-team/angular-forms.svg" alt="NPM Download" class="img-responsive"></a>
 <a href="http://issuestats.com/github/robust-team/angular-forms"><img src="http://issuestats.com/github/robust-team/angular-forms/badge/pr?style=flat" alt="Issue Stats" class="img-responsive"></a>
 <a href="http://issuestats.com/github/robust-team/angular-forms"><img src="http://issuestats.com/github/robust-team/angular-forms/badge/issue?style=flat" alt="Issue Stats" class="img-responsive"></a></p>
+<p>A Simple Form Generator for Angular.</p>
 <h2 id="requirements">Requirements</h2>
-<p>[...]</p>
+<ul>
+<li><strong>@angular/common</strong>: 4.0.0 or higher,</li>
+<li><strong>@angular/core</strong>: 4.0.0 or higher,</li>
+<li><strong>@angular/forms</strong>: 4.0.0 or higher,</li>
+<li><strong>@fagnerlima/ng-mask</strong>: 2.2.1 or higher.</li>
+</ul>
 <h2 id="usage">Usage</h2>
 <ol>
 <li>Install AngularForms using npm:</li>
@@ -509,97 +515,123 @@
 export class MyModule { }</code></pre><ol>
 <li>Insert the AngularFormsComponent into template.</li>
 </ol>
-<pre class="line-numbers"><code class="language-html">&lt;angular-forms [groups]=&quot;myForm&quot;&gt;&lt;/angular-forms&gt;</code></pre><p>The <strong>myForm</strong> attribute represents the JSON coming from API. For example:</p>
-<pre class="line-numbers"><code class="language-typescript">{
-  [
-    {
-      &quot;code&quot;: &quot;G-01&quot;,
-      &quot;description&quot;: &quot;Group 01&quot;,
-      &quot;type&quot;: &quot;datatable&quot;,
-      &quot;questions&quot;: [
-        {
-          &quot;code&quot;: &quot;Q-101&quot;,
-          &quot;description&quot;: &quot;Question 101&quot;,
-          &quot;type&quot;: &quot;select&quot;,
-          &quot;options&quot;: [
-            &quot;Option 1&quot;,
-            &quot;Option 2&quot;
-          ],
-          &quot;placeholder&quot;: &quot;Select&quot;,
-          &quot;validations&quot;: [
-            { &quot;type&quot;: &quot;required&quot;, &quot;message&quot;: &quot;Required field&quot; }
-          ]
-        },
-        {
-          &quot;code&quot;: &quot;Q-102&quot;,
-          &quot;description&quot;: &quot;Question 102&quot;,
-          &quot;type&quot;: &quot;text&quot;,
-          &quot;validations&quot;: [
-            { &quot;type&quot;: &quot;required&quot;, &quot;message&quot;: &quot;Required field&quot; }
-          ]
-        }
-      ],
-      &quot;validations&quot;: [
-        { &quot;type&quot;: &quot;required&quot;, &quot;message&quot;: &quot;Required field&quot; }
-      ]
-    },
-    {
-      &quot;code&quot;: &quot;G-02&quot;,
-      &quot;description&quot;: &quot;Group 02&quot;,
-      &quot;type&quot;: &quot;fieldset&quot;,
-      &quot;questions&quot;: [
-        {
-          &quot;code&quot;: &quot;Q-201&quot;,
-          &quot;description&quot;: &quot;Question 201&quot;,
-          &quot;type&quot;: &quot;check&quot;,
-          &quot;validations&quot;: [
-            { &quot;type&quot;: &quot;required&quot;, &quot;message&quot;: &quot;Required field&quot; }
-          ]
-        },
-        {
-          &quot;code&quot;: &quot;Q-202&quot;,
-          &quot;description&quot;: &quot;Question 202&quot;,
-          &quot;type&quot;: &quot;radio&quot;,
-          &quot;options&quot;: [
-            &quot;Option 1&quot;,
-            &quot;Option 2&quot;
-          ],
-          &quot;defaultOption&quot;: &quot;Option 1&quot;,
-          &quot;validations&quot;: [
-            { &quot;type&quot;: &quot;required&quot;, &quot;message&quot;: &quot;Required field&quot; }
-          ]
-        },
-        {
-          &quot;code&quot;: &quot;Q-203&quot;,
-          &quot;description&quot;: &quot;Question 203&quot;,
-          &quot;type&quot;: &quot;text&quot;,
-          &quot;placeholder&quot;: &quot;00000-000&quot;,
-          &quot;validations&quot;: [
-            { &quot;type&quot;: &quot;required&quot;, &quot;message&quot;: &quot;Required field&quot; },
-            { &quot;type&quot;: &quot;pattern&quot;, &quot;message&quot;: &quot;Format: 00000-000&quot;, &quot;regex&quot;: &quot;^\\d{5}-\\d{3}$&quot; }
-          ],
-          &quot;mask&quot;: &quot;00000-000&quot;,
-          &quot;dependencies&quot;: [
-            { &quot;code&quot;: &quot;Q-202&quot;, &quot;criteria&quot;: &quot;equals&quot;, &quot;expectedAnswer&quot;: &quot;Option 2&quot; }
-          ]
-        },
-        {
-          &quot;code&quot;: &quot;Q-204&quot;,
-          &quot;description&quot;: &quot;Question 204&quot;,
-          &quot;type&quot;: &quot;text&quot;,
-          &quot;validations&quot;: [
-            { &quot;type&quot;: &quot;required&quot;, &quot;message&quot;: &quot;Required field&quot; },
-            { &quot;type&quot;: &quot;minlength&quot;, &quot;message&quot;: &quot;Minimum size: 3&quot;, &quot;value&quot;: 3 },
-            { &quot;type&quot;: &quot;maxlength&quot;, &quot;message&quot;: &quot;Maximum size: 6&quot;, &quot;value&quot;: 6 }
-          ]
-        }
-      ]
-    }
-  ]
-}</code></pre><ol>
+<pre class="line-numbers"><code class="language-html">&lt;rb-angular-forms [groups]=&quot;customForm&quot;&gt;&lt;/rb-angular-forms&gt;</code></pre><p>The <strong>customForm</strong> attribute represents the JSON coming from API. For example:</p>
+<pre class="line-numbers"><code class="language-json">[
+  {
+    &quot;code&quot;: &quot;G-01&quot;,
+    &quot;description&quot;: &quot;Fieldset Group&quot;,
+    &quot;type&quot;: &quot;fieldset&quot;,
+    &quot;questions&quot;: [
+      {
+        &quot;code&quot;: &quot;Q-0101&quot;,
+        &quot;description&quot;: &quot;Check Question 0101&quot;,
+        &quot;type&quot;: &quot;check&quot;,
+        &quot;defaultOption&quot;: false,
+        &quot;validations&quot;: [
+          { &quot;type&quot;: &quot;required&quot;, &quot;message&quot;: &quot;Required field.&quot;, &quot;requiredTrue&quot;: true }
+        ]
+      },
+      {
+        &quot;code&quot;: &quot;Q-0102&quot;,
+        &quot;description&quot;: &quot;Radio Question 0102&quot;,
+        &quot;type&quot;: &quot;radio&quot;,
+        &quot;options&quot;: [&quot;Option 1&quot;, &quot;Option 2&quot;],
+        &quot;defaultOption&quot;: &quot;Option 1&quot;,
+        &quot;validations&quot;: [
+          { &quot;type&quot;: &quot;required&quot;, &quot;message&quot;: &quot;Required field.&quot; }
+        ]
+      },
+      {
+        &quot;code&quot;: &quot;Q-0103&quot;,
+        &quot;description&quot;: &quot;Select Question 0103&quot;,
+        &quot;type&quot;: &quot;select&quot;,
+        &quot;options&quot;: [&quot;Option 1&quot;, &quot;Option 2&quot;],
+        &quot;placeholder&quot;: &quot;Select&quot;,
+        &quot;validations&quot;: [
+          { &quot;type&quot;: &quot;required&quot;, &quot;message&quot;: &quot;Required field.&quot; }
+        ]
+      },
+      {
+        &quot;code&quot;: &quot;Q-0104&quot;,
+        &quot;description&quot;: &quot;Text Question 0104&quot;,
+        &quot;type&quot;: &quot;text&quot;,
+        &quot;placeholder&quot;: &quot;Text Question 0104&quot;,
+        &quot;validations&quot;: [
+          { &quot;type&quot;: &quot;required&quot;, &quot;message&quot;: &quot;Required field.&quot; },
+          { &quot;type&quot;: &quot;minlength&quot;, &quot;message&quot;: &quot;Min Length: 3&quot;, &quot;value&quot;: 3 },
+          { &quot;type&quot;: &quot;maxlength&quot;, &quot;message&quot;: &quot;Max Length: 6&quot;, &quot;value&quot;: 10 }
+        ]
+      },
+      {
+        &quot;code&quot;: &quot;Q-0105&quot;,
+        &quot;description&quot;: &quot;Text Question 0105&quot;,
+        &quot;type&quot;: &quot;text&quot;,
+        &quot;placeholder&quot;: &quot;Text Question 0105&quot;,
+        &quot;validations&quot;: [
+          { &quot;type&quot;: &quot;required&quot;, &quot;message&quot;: &quot;Required field.&quot; },
+          { &quot;type&quot;: &quot;pattern&quot;, &quot;message&quot;: &quot;Format: 00000-000&quot;, &quot;regex&quot;: &quot;^\\d{5}-\\d{3}$&quot; }
+        ],
+        &quot;mask&quot;: &quot;00000-000&quot;
+      },
+      {
+        &quot;code&quot;: &quot;Q-0106&quot;,
+        &quot;description&quot;: &quot;TextArea Question 0106&quot;,
+        &quot;type&quot;: &quot;textarea&quot;,
+        &quot;placeholder&quot;: &quot;TextArea Question 0106&quot;,
+        &quot;validations&quot;: [
+          { &quot;type&quot;: &quot;required&quot;, &quot;message&quot;: &quot;Required field.&quot; }
+        ],
+        &quot;dependencies&quot;: [
+          { &quot;code&quot;: &quot;Q-0103&quot;, &quot;criteria&quot;: &quot;equals&quot;, &quot;expectedAnswer&quot;: &quot;Option 1&quot; }
+        ]
+      }
+    ]
+  },
+  {
+    &quot;code&quot;: &quot;G-02&quot;,
+    &quot;description&quot;: &quot;DataTable Group&quot;,
+    &quot;type&quot;: &quot;datatable&quot;,
+    &quot;validations&quot;: [
+      { &quot;type&quot;: &quot;required&quot;, &quot;message&quot;: &quot;Min number of registers: 1.&quot; },
+      { &quot;type&quot;: &quot;minlength&quot;, &quot;message&quot;: &quot;Min number of registers: 1.&quot;, &quot;value&quot;: 1 },
+      { &quot;type&quot;: &quot;maxlength&quot;, &quot;message&quot;: &quot;Max number of registers: 3.&quot;, &quot;value&quot;: 3 }
+    ],
+    &quot;questions&quot;: [
+      {
+        &quot;code&quot;: &quot;Q-0201&quot;,
+        &quot;description&quot;: &quot;Select Question 0201&quot;,
+        &quot;type&quot;: &quot;select&quot;,
+        &quot;validations&quot;: [
+          { &quot;type&quot;: &quot;required&quot;, &quot;message&quot;: &quot;Required field.&quot; }
+        ],
+        &quot;options&quot;: [&quot;Option 1&quot;, &quot;Option 2&quot;, &quot;Option 3&quot;],
+        &quot;placeholder&quot;: &quot;Select&quot;
+      },
+      {
+        &quot;code&quot;: &quot;Q-0202&quot;,
+        &quot;description&quot;: &quot;Text Question 0202&quot;,
+        &quot;type&quot;: &quot;text&quot;,
+        &quot;validations&quot;: [
+          { &quot;type&quot;: &quot;required&quot;, &quot;message&quot;: &quot;Required field.&quot; }
+        ],
+        &quot;placeholder&quot;: &quot;Text Question 0202&quot;,
+        &quot;mask&quot;: &quot;decimal(10,2)&quot;
+      },
+      {
+        &quot;code&quot;: &quot;Q-0203&quot;,
+        &quot;description&quot;: &quot;Text Question 0203&quot;,
+        &quot;type&quot;: &quot;text&quot;,
+        &quot;validations&quot;: [
+          { &quot;type&quot;: &quot;required&quot;, &quot;message&quot;: &quot;Required field.&quot; }
+        ],
+        &quot;placeholder&quot;: &quot;Text Question 0203&quot;
+      }
+    ]
+  }
+]</code></pre><ol>
 <li>Get form values by adding a local variable to the component and calling the <strong>getForm()</strong> method. For example:</li>
 </ol>
-<pre class="line-numbers"><code class="language-html">&lt;angular-forms #angularForms [groups]=&quot;myForm&quot;&gt;&lt;/angular-forms&gt;
+<pre class="line-numbers"><code class="language-html">&lt;rb-angular-forms #angularForms [groups]=&quot;customForm&quot;&gt;&lt;/rb-angular-forms&gt;
 &lt;button (click)=&quot;print(angularForms.getForm())&quot;&gt;Print Form&lt;/button&gt;</code></pre><pre class="line-numbers"><code class="language-typescript">export class MyComponent {
 
   print(value: any) {
@@ -627,21 +659,203 @@ export class MyModule { }</code></pre><ol>
       &quot;Q-204&quot;: null
     }
   }
-}</code></pre><h2 id="groups">Groups</h2>
-<p>[...]</p>
+}</code></pre><ol>
+<li>If you want only to show the answers from JSON, use the <strong>readOnly</strong> input with <strong>true</strong> value (your default value is <strong>false</strong>).</li>
+</ol>
+<pre class="line-numbers"><code class="language-html">&lt;rb-angular-forms #angularForms [groups]=&quot;customForm&quot; [readOnly]=&quot;true&quot;&gt;&lt;/rb-angular-forms&gt;</code></pre><h2 id="groups">Groups</h2>
+<p>The <strong>Group</strong> represents a grouping of questions, which can be of two types: <strong>Fieldset</strong> and <strong>DataTable</strong>.</p>
 <h3 id="fieldset">Fieldset</h3>
-<p>[...]</p>
-<h3 id="datatable">DataTable</h3>
-<p>[...]</p>
-<h2 id="questions">Questions</h2>
-<p>[...]</p>
-<h3 id="validations">Validations</h3>
-<p>[...]</p>
-<h3 id="masks">Masks</h3>
-<p>[...]</p>
-<h3 id="dependencies">Dependencies</h3>
-<p>[...]</p>
-
+<p><strong>Fieldset</strong> is a grouping of questions that represents a simple fieldset of HTML.</p>
+<pre class="line-numbers"><code class="language-json">{
+  &quot;code&quot;: &quot;G-01&quot;,
+  &quot;description&quot;: &quot;Fieldset Group&quot;,
+  &quot;type&quot;: &quot;fieldset&quot;,
+  &quot;questions&quot;: [
+    {
+      &quot;code&quot;: &quot;Q-0101&quot;,
+      &quot;description&quot;: &quot;Check Question 0101&quot;,
+      &quot;type&quot;: &quot;check&quot;,
+      &quot;validations&quot;: []
+    },
+    {
+      &quot;code&quot;: &quot;Q-0102&quot;,
+      &quot;description&quot;: &quot;Select Question 0102&quot;,
+      &quot;type&quot;: &quot;select&quot;,
+      &quot;options&quot;: [&quot;Option 1&quot;, &quot;Option 2&quot;],
+      &quot;validations&quot;: []
+    }
+  ]
+}</code></pre><h3 id="datatable">DataTable</h3>
+<p><strong>DataTable</strong> is a grouping of questions that represents a data table, where you add many answers.</p>
+<pre class="line-numbers"><code class="language-json">{
+  &quot;code&quot;: &quot;G-01&quot;,
+  &quot;description&quot;: &quot;DataTable Group&quot;,
+  &quot;type&quot;: &quot;datatable&quot;,
+  &quot;questions&quot;: [
+    {
+      &quot;code&quot;: &quot;Q-0101&quot;,
+      &quot;description&quot;: &quot;Check Question 0101&quot;,
+      &quot;type&quot;: &quot;check&quot;,
+      &quot;validations&quot;: []
+    },
+    {
+      &quot;code&quot;: &quot;Q-0102&quot;,
+      &quot;description&quot;: &quot;Select Question 0102&quot;,
+      &quot;type&quot;: &quot;select&quot;,
+      &quot;options&quot;: [&quot;Option 1&quot;, &quot;Option 2&quot;],
+      &quot;validations&quot;: []
+    }
+  ],
+  &quot;validations&quot;: [],
+  &quot;answers&quot;: []
+}</code></pre><h2 id="questions">Questions</h2>
+<p><strong>Question</strong> represents a simple question, which can be of five types:</p>
+<ul>
+<li><strong>check</strong>;</li>
+<li><strong>radio</strong>;</li>
+<li><strong>select</strong>;</li>
+<li><strong>text</strong>;</li>
+<li><strong>textarea</strong>.</li>
+</ul>
+<h3 id="check">Check</h3>
+<p><strong>Check</strong> represents a <em>checkbox</em> input from HTML.</p>
+<pre class="line-numbers"><code class="language-json">{
+  &quot;code&quot;: &quot;G-01&quot;,
+  &quot;description&quot;: &quot;Check Question&quot;,
+  &quot;dependencies&quot;: [],
+  &quot;type&quot;: &quot;check&quot;,
+  &quot;answer&quot;: null,
+  &quot;validations&quot;: [],
+  &quot;defaultOption&quot;: false
+}</code></pre><h3 id="radio">Radio</h3>
+<p><strong>Radio</strong> represents a <em>radio</em> input from HTML.</p>
+<pre class="line-numbers"><code class="language-json">{
+  &quot;code&quot;: &quot;G-01&quot;,
+  &quot;description&quot;: &quot;Radio Question&quot;,
+  &quot;dependencies&quot;: [],
+  &quot;type&quot;: &quot;radio&quot;,
+  &quot;answer&quot;: null,
+  &quot;validations&quot;: [],
+  &quot;options&quot;: [&quot;Option 1&quot;, &quot;Option 2&quot;],
+  &quot;defaultOption&quot;: null
+}</code></pre><h3 id="select">Select</h3>
+<p><strong>Select</strong> represents a <em>select</em> input from HTML.</p>
+<pre class="line-numbers"><code class="language-json">{
+  &quot;code&quot;: &quot;G-01&quot;,
+  &quot;description&quot;: &quot;Select Question&quot;,
+  &quot;dependencies&quot;: [],
+  &quot;type&quot;: &quot;select&quot;,
+  &quot;answer&quot;: null,
+  &quot;validations&quot;: [],
+  &quot;options&quot;: [&quot;Option 1&quot;, &quot;Option 2&quot;],
+  &quot;defaultOption&quot;: null,
+  &quot;placeholder&quot;: &quot;Select an option&quot;
+}</code></pre><h3 id="text">Text</h3>
+<p><strong>Text</strong> represents a <em>text</em> input from HTML.</p>
+<pre class="line-numbers"><code class="language-json">{
+  &quot;code&quot;: &quot;Q-01&quot;,
+  &quot;description&quot;: &quot;Text Question&quot;,
+  &quot;dependencies&quot;: [],
+  &quot;type&quot;: &quot;text&quot;,
+  &quot;answer&quot;: null,
+  &quot;validations&quot;: [],
+  &quot;mask&quot;: null,
+  &quot;placeholder: null
+}</code></pre><h4 id="masks">Masks</h4>
+<p><strong>Mask</strong> is an attribute of <strong>Text Question</strong> that uses the patterns of the <a href="https://fagnerlima.github.io/ng-mask/">NgMask</a> library.</p>
+<pre class="line-numbers"><code class="language-json">{
+  &quot;code&quot;: &quot;Q-01&quot;,
+  &quot;description&quot;: &quot;Text Question&quot;,
+  &quot;dependencies&quot;: [],
+  &quot;type&quot;: &quot;text&quot;,
+  &quot;answer&quot;: null,
+  &quot;validations&quot;: [],
+  &quot;mask&quot;: &quot;integer(6)&quot;,
+  &quot;placeholder: null
+}</code></pre><p>Read more in <a href="https://fagnerlima.github.io/ng-mask/">https://fagnerlima.github.io/ng-mask/</a>.</p>
+<h3 id="textarea">TextArea</h3>
+<p><strong>TextArea</strong> represents a <em>text</em> input from HTML.</p>
+<pre class="line-numbers"><code class="language-json">{
+  &quot;code&quot;: &quot;Q-01&quot;,
+  &quot;description&quot;: &quot;Text Question&quot;,
+  &quot;dependencies&quot;: [],
+  &quot;type&quot;: &quot;textarea&quot;,
+  &quot;answer&quot;: null,
+  &quot;validations&quot;: [],
+  &quot;placeholder: null
+}</code></pre><h2 id="validations">Validations</h2>
+<p><strong>Validations</strong> can be used in <strong>Question</strong> and <strong>DataTable</strong>, which can be of seven types:</p>
+<ul>
+<li><strong>email</strong>;</li>
+<li><strong>max</strong>;</li>
+<li><strong>min</strong>;</li>
+<li><strong>maxlength</strong>;</li>
+<li><strong>minlength</strong>;</li>
+<li><strong>pattern</strong>;</li>
+<li><strong>required</strong>.</li>
+</ul>
+<h3 id="email">Email</h3>
+<p>E-mail validation.</p>
+<pre class="line-numbers"><code class="language-json">{
+  &quot;type&quot;: &quot;email&quot;,
+  &quot;message&quot;: &quot;Email field.&quot;
+}</code></pre><h3 id="max">Max</h3>
+<p>Max value validation for numbers.</p>
+<pre class="line-numbers"><code class="language-json">{
+  &quot;type&quot;: &quot;max&quot;,
+  &quot;message&quot;: &quot;Max value: 100.&quot;,
+  &quot;value&quot;: 100
+}</code></pre><h3 id="min">Min</h3>
+<p>Min value validation for numbers.</p>
+<pre class="line-numbers"><code class="language-json">{
+  &quot;type&quot;: &quot;min&quot;,
+  &quot;message&quot;: &quot;Min value: 10.&quot;,
+  &quot;value&quot;: 10
+}</code></pre><h3 id="maxlength">MaxLength</h3>
+<p>Max length validation.</p>
+<pre class="line-numbers"><code class="language-json">{
+  &quot;type&quot;: &quot;maxlength&quot;,
+  &quot;message&quot;: &quot;Max length: 12.&quot;,
+  &quot;value&quot;: 12
+}</code></pre><h3 id="minlength">MinLength</h3>
+<p>Min length validation.</p>
+<pre class="line-numbers"><code class="language-json">{
+  &quot;type&quot;: &quot;minlength&quot;,
+  &quot;message&quot;: &quot;Min length: 6.&quot;,
+  &quot;value&quot;: 6
+}</code></pre><h3 id="pattern">Pattern</h3>
+<p>Regular expression validation.</p>
+<pre class="line-numbers"><code class="language-json">{
+  &quot;type&quot;: &quot;pattern&quot;,
+  &quot;message&quot;: &quot;Pattern: 00000-000.&quot;,
+  &quot;regex&quot;: &quot;^\\d{5}-\\d{3}$&quot;
+}</code></pre><h3 id="required">Required</h3>
+<p>Obligatory field validation. The <strong>requiredTrue</strong> field is used for checkbox validation.</p>
+<pre class="line-numbers"><code class="language-json">{
+  &quot;type&quot;: &quot;required&quot;,
+  &quot;message&quot;: &quot;Required field.&quot;,
+  &quot;requiredTrue&quot;: false
+}</code></pre><h2 id="dependencies">Dependencies</h2>
+<p><strong>Dependencies</strong> are Questions that determine if a Question should be shown or no. The criterias can be of four types:</p>
+<ul>
+<li><strong>equals</strong>;</li>
+<li><strong>lessthan</strong>;</li>
+<li><strong>greaterthan</strong>;</li>
+<li><strong>notequals</strong>.</li>
+</ul>
+<pre class="line-numbers"><code class="language-json">{
+  &quot;code&quot;: &quot;Q-0106&quot;,
+  &quot;description&quot;: &quot;Question TextArea 0106&quot;,
+  &quot;type&quot;: &quot;textarea&quot;,
+  &quot;placeholder&quot;: &quot;Question TextArea 0106&quot;,
+  &quot;validations&quot;: [
+    { &quot;type&quot;: &quot;required&quot;, &quot;message&quot;: &quot;Required field.&quot; }
+  ],
+  &quot;dependencies&quot;: [
+    { &quot;code&quot;: &quot;Q-0103&quot;, &quot;criteria&quot;: &quot;equals&quot;, &quot;expectedAnswer&quot;: &quot;Option 1&quot; }
+    { &quot;code&quot;: &quot;Q-0104&quot;, &quot;criteria&quot;: &quot;greaterthan&quot;, &quot;expectedAnswer&quot;: &quot;10&quot; }
+  ]
+}</code></pre>
 
 
 
