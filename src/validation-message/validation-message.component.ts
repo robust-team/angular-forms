@@ -7,10 +7,10 @@ import { Validation } from '../validation';
   selector: 'rb-validation-message',
   template: `
     <ul class="validation-message-box" *ngIf="submitted || control.touched">
-    <li *ngFor="let validation of validations" [hidden]="!control.hasError(validation.type)">
-      {{ validation.message }}
-    </li>
-  </ul>
+      <li *ngFor="let validation of validations" [hidden]="!control.hasError(validation.type)">
+        {{ validation.message }}
+      </li>
+    </ul>
   `,
   styles: [`
     .validation-message-box {
