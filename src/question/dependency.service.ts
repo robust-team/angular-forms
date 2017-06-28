@@ -12,7 +12,7 @@ export class DependencyService {
     }
 
     for (const dependency of question.dependencies) {
-      const answerDependency: string = formGroup.get(dependency.name).value;
+      const answerDependency: string = formGroup.get(dependency.code).value;
       const result: boolean = this.executeOperation(answerDependency, dependency);
 
       if (!result) {
