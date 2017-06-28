@@ -8,7 +8,7 @@
           <th class="text-center" *ngFor="let question of group.questions[0]">
             {{ question.description }}
           </th>
-          <th class="text-center" *ngIf="!readOnly">Ação</th>
+          <th class="text-center" *ngIf="!readOnly">Action</th>
         </tr>
       </thead>
       <tbody>
@@ -82,26 +82,28 @@
             </ng-container> <!--/ngSwitch-questionType-->
           </td>
           <td class="text-center">
-            <button class="btn btn-default btn-add-row" (click)="addRow()">
-              Adicionar
+            <button class="btn btn-default btn-add-data" (click)="addData()">
+              <i class="rb-ico rb-ico-add" aria-hidden="true"></i>
+              Add
             </button>
           </td>
         </tr>
-        <tr class="data" *ngFor="let row of formArray?.value; let indexRow = index">
-          <td *ngFor="let key of getKeysFromObject(row)">
+        <tr class="data" *ngFor="let data of formArray?.value; let indexData = index">
+          <td *ngFor="let key of getKeysFromObject(data)" class="{{ 'check' === getQuestionByName(key).type ? 'text-center' : '' }}">
             <ng-container [ngSwitch]="getQuestionByName(key).type">
               <ng-template ngSwitchCase="check">
-                <span class="checkbox" [ngClass]="{ 'checked': row[key] }"></span>
+                <i class="rb-ico rb-ico-square rb-ico-{{ data[key] ? 'checked' : 'unchecked' }}" aria-hidden="true"></i>
               </ng-template>
 
               <ng-template ngSwitchDefault>
-                {{ row[key] }}
+                {{ data[key] }}
               </ng-template>
             </ng-container>
           </td>
           <td class="text-center" *ngIf="!readOnly">
-            <button class="btn btn-default btn-remove-row" (click)="removeRow(indexRow)">
-              Remover
+            <button class="btn btn-default btn-remove-data" (click)="removeData(indexData)">
+              <i class="rb-ico rb-ico-remove" aria-hidden="true"></i>
+              Remove
             </button>
           </td>
         </tr>

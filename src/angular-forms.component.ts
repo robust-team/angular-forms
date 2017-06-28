@@ -9,7 +9,7 @@ import { ReactiveFormsFactory } from './factory';
 @Component({
   selector: 'rb-angular-forms',
   templateUrl: require('file-loader!./angular-forms.component.html'),
-  styleUrls: [require('file-loader!./angular-forms.component.css')],
+  styleUrls: [require('file-loader!./assets/css/main.css')],
   providers: [DependencyService]
 })
 export class AngularFormsComponent implements OnInit {

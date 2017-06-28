@@ -9,7 +9,10 @@ import { ReactiveFormsFactory } from '../factory';
 @Component({
   selector: 'rb-data-table',
   templateUrl: require('file-loader!./data-table.component.html'),
-  styleUrls: [require('file-loader!./data-table.component.css')]
+  styleUrls: [
+    require('file-loader!../assets/css/main.css'),
+    require('file-loader!./data-table.component.css')
+  ]
 })
 export class DataTableComponent implements OnInit {
 
@@ -31,7 +34,7 @@ export class DataTableComponent implements OnInit {
     return Object.keys(object);
   }
 
-  public addRow(): void {
+  public addData(): void {
     this.submitted = true;
 
     if (!this.newFormGroup.valid) {
@@ -42,7 +45,7 @@ export class DataTableComponent implements OnInit {
     this.resetForms();
   }
 
-  public removeRow(index: number): void {
+  public removeData(index: number): void {
     this.formArray.removeAt(index);
   }
 

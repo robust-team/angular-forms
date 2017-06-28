@@ -29,7 +29,10 @@
 
                 <ng-container *ngIf="readOnly">
                   <div class="form-group">
-                    <label class="checkbox" [ngClass]="{ 'checked': question.answer }">{{ question.description }}</label>
+                    <label>
+                      <i class="rb-ico rb-ico-square rb-ico-{{ question.answer ? 'checked' : 'unchecked' }}" aria-hidden="true"></i>
+                      {{ question.description }}
+                    </label>
                   </div> <!--/.form-group-->
                 </ng-container> <!--/readOnly-->
               </ng-template> <!--/check-->
