@@ -3,9 +3,9 @@ import { Validation } from '../validation';
 
 export class Check extends Question<boolean> {
 
-  public static fromJson(question : Check): Check {
+  public static fromJson(question: Check): Check {
     return new Check(
-      question.code,
+      question.name,
       question.description,
       question.dependencies,
       question.type,
@@ -16,7 +16,7 @@ export class Check extends Question<boolean> {
   }
 
   public constructor(
-    code: string,
+    name: string,
     description: string,
     dependencies: Dependency[],
     type: string,
@@ -24,7 +24,7 @@ export class Check extends Question<boolean> {
     validations: Validation[] = [],
     private _defaultOption: boolean = null
   ) {
-    super(code, description, dependencies, type, answer || false, validations || []);
+    super(name, description, dependencies, type, answer || false, validations || []);
   }
 
   public get defaultOption(): boolean {

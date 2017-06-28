@@ -11,26 +11,26 @@ export class ValidatorFactory {
   }
 
   public createMaxValidator(): ValidatorFn {
-    return Validators.max((<Max> this.validation).value);
+    return Validators.max((<Max>this.validation).value);
   }
 
   public createMinValidator(): ValidatorFn {
-    return Validators.min((<Min> this.validation).value);
+    return Validators.min((<Min>this.validation).value);
   }
 
   public createMaxLengthValidator(): ValidatorFn {
-    return Validators.maxLength((<MaxLength> this.validation).value);
+    return Validators.maxLength((<MaxLength>this.validation).value);
   }
 
   public createMinLengthValidator(): ValidatorFn {
-    return Validators.minLength((<MinLength> this.validation).value);
+    return Validators.minLength((<MinLength>this.validation).value);
   }
 
   public createPatternValidator(): ValidatorFn {
-    return Validators.pattern((<Pattern> this.validation).regex);
+    return Validators.pattern((<Pattern>this.validation).regex);
   }
 
   public createRequiredValidator(): ValidatorFn {
-    return !(<Required> this.validation).requiredTrue ? Validators.required : Validators.requiredTrue;
+    return !(<Required>this.validation).requiredTrue ? Validators.required : Validators.requiredTrue;
   }
 }

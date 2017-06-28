@@ -9,14 +9,14 @@ import { ReactiveFormsFactory } from '../factory';
 @Component({
   selector: 'rb-data-table',
   template: `
-    <fieldset [formGroup]="formGroup">
+    <fieldset [formGroup]="formGroup" [ngClass]="{ 'read-only': readOnly }">
       <legend>{{ group.description }}</legend>
 
       <div class="table-responsive">
         <table class="table table-bordered table-striped table-hover">
           <thead>
             <tr>
-              <th class="text-center" *ngFor="let question of group.questions">
+              <th class="text-center" *ngFor="let question of group.questions[0]">
                 {{ question.description }}
               </th>
               <th class="text-center" *ngIf="!readOnly">Ação</th>
@@ -24,17 +24,17 @@ import { ReactiveFormsFactory } from '../factory';
           </thead>
           <tbody>
             <tr [formGroup]="newFormGroup" *ngIf="!readOnly">
-              <td *ngFor="let question of group.questions">
+              <td *ngFor="let question of group.questions[0]">
                 <ng-container [ngSwitch]="question.type">
 
                   <ng-template ngSwitchCase="check">
                     <div class="checkbox">
                       <label>
-                        <input type="checkbox" [name]="question.code" [formControlName]="question.code" />
+                        <input type="checkbox" [name]="question.name" [formControlName]="question.name" />
                         {{ question.description }}
                       </label>
                       <rb-validation-message [validations]="question.validations"
-                                             [control]="newFormGroup.get(question.code)"
+                                             [control]="newFormGroup.get(question.name)"
                                              [submitted]="submitted">
                       </rb-validation-message>
                     </div> <!--/.checkbox-->
@@ -43,19 +43,19 @@ import { ReactiveFormsFactory } from '../factory';
                   <ng-template ngSwitchCase="radio">
                     <div class="radio" *ngFor="let option of question.options">
                       <label>
-                        <input type="radio" [name]="question.code" [value]="option" [formControlName]="question.code" />
+                        <input type="radio" [name]="question.name" [value]="option" [formControlName]="question.name" />
                         {{ option }}
                       </label>
                     </div> <!--/.radio-->
                     <rb-validation-message [validations]="question.validations"
-                                           [control]="newFormGroup.get(question.code)"
+                                           [control]="newFormGroup.get(question.name)"
                                            [submitted]="submitted">
                     </rb-validation-message>
                   </ng-template> <!--/radio-->
 
                   <ng-template ngSwitchCase="select">
-                    <select [id]="question.code" class="form-control" [name]="question.code"
-                            [formControlName]="question.code">
+                    <select [id]="question.name" class="form-control" [name]="question.name"
+                            [formControlName]="question.name">
                       <option disabled [value]="null">
                         {{ question.placeholder ? question.placeholder : '' }}
                       </option>
@@ -64,28 +64,28 @@ import { ReactiveFormsFactory } from '../factory';
                       </option>
                     </select>
                     <rb-validation-message [validations]="question.validations"
-                                           [control]="newFormGroup.get(question.code)"
+                                           [control]="newFormGroup.get(question.name)"
                                            [submitted]="submitted">
                     </rb-validation-message>
                   </ng-template> <!--/select-->
 
                   <ng-template ngSwitchCase="textarea">
-                    <textarea [id]="question.code" class="form-control" [name]="question.code" rows="5"
+                    <textarea [id]="question.name" class="form-control" [name]="question.name" rows="5"
                               placeholder="{{ question.placeholder ? question.placeholder : '' }}"
-                              [formControlName]="question.code">
+                              [formControlName]="question.name">
                     </textarea>
                     <rb-validation-message [validations]="question.validations"
-                                           [control]="newFormGroup.get(question.code)"
+                                           [control]="newFormGroup.get(question.name)"
                                            [submitted]="submitted">
                     </rb-validation-message>
                   </ng-template> <!--/textarea-->
 
                   <ng-template ngSwitchCase="text" ngSwitchDefault>
-                    <input type="text" [id]="question.code" class="form-control" [name]="question.code"
+                    <input type="text" [id]="question.name" class="form-control" [name]="question.name"
                            placeholder="{{ question.placeholder ? question.placeholder : '' }}"
-                           [formControlName]="question.code" [mask]="question.mask" />
+                           [formControlName]="question.name" [mask]="question.mask" />
                     <rb-validation-message [validations]="question.validations"
-                                           [control]="newFormGroup.get(question.code)"
+                                           [control]="newFormGroup.get(question.name)"
                                            [submitted]="submitted">
                     </rb-validation-message>
                   </ng-template> <!--/text-->
@@ -93,13 +93,23 @@ import { ReactiveFormsFactory } from '../factory';
                 </ng-container> <!--/ngSwitch-questionType-->
               </td>
               <td class="text-center">
-                <button class="btn btn-default btn-add-row" (click)="addRow();">
+                <button class="btn btn-default btn-add-row" (click)="addRow()">
                   Adicionar
                 </button>
               </td>
             </tr>
-            <tr *ngFor="let row of formArray?.value; let indexRow = index">
-              <td *ngFor="let key of getKeysFromObject(row)">{{ row[key] }}</td>
+            <tr class="data" *ngFor="let row of formArray?.value; let indexRow = index">
+              <td *ngFor="let key of getKeysFromObject(row)">
+                <ng-container [ngSwitch]="getQuestionByName(key).type">
+                  <ng-template ngSwitchCase="check">
+                    <span class="checkbox" [ngClass]="{ 'checked': row[key] }"></span>
+                  </ng-template>
+
+                  <ng-template ngSwitchDefault>
+                    {{ row[key] }}
+                  </ng-template>
+                </ng-container>
+              </td>
               <td class="text-center" *ngIf="!readOnly">
                 <button class="btn btn-default btn-remove-row" (click)="removeRow(indexRow)">
                   Remover
@@ -126,29 +136,48 @@ import { ReactiveFormsFactory } from '../factory';
       border: 1px solid #ccc;
       padding: 5px 10px;
     }
+
+    .data .checkbox { text-align: center }
+
+    .data .checkbox:before {
+      background: linear-gradient(to bottom, #fff 0px, #e6e6e6 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
+      border: 1px solid #888;
+      border-radius: .3rem;
+      content: '';
+      cursor: default;
+      display: inline-block;
+      font-size: 1.6rem;
+      height: 1.4rem;
+      line-height: 1.4rem;
+      margin-right: .5rem;
+      text-align: center;
+      width: 1.4rem;
+    }
+
+    .data .checkbox.checked:before { content: '✓' }
   `]
 })
 export class DataTableComponent implements OnInit {
 
-  formArray: FormArray;
-  newFormGroup: FormGroup;
-  submitted: boolean = false;
+  public formArray: FormArray;
+  public newFormGroup: FormGroup;
+  public submitted: boolean = false;
 
-  @Input() formGroup: FormGroup;
-  @Input() group: DataTable;
-  @Input() formGroupSubmitted: boolean = false;
-  @Input() readOnly: boolean = false;
+  @Input() public formGroup: FormGroup;
+  @Input() public group: DataTable;
+  @Input() public formGroupSubmitted: boolean = false;
+  @Input() public readOnly: boolean = false;
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.formArray = <FormArray>this.formGroup.get(this.group.code);
-    this.newFormGroup = ReactiveFormsFactory.createFormGroupFromQuestions(this.group.questions);
+    this.newFormGroup = ReactiveFormsFactory.createFormGroupFromQuestions(this.group.questions[0]);
   }
 
-  getKeysFromObject(object: Object): string[] {
+  public getKeysFromObject(object: Object): string[] {
     return Object.keys(object);
   }
 
-  addRow(): void {
+  public addRow(): void {
     this.submitted = true;
 
     if (!this.newFormGroup.valid) {
@@ -159,12 +188,22 @@ export class DataTableComponent implements OnInit {
     this.resetForms();
   }
 
-  removeRow(index: number): void {
+  public removeRow(index: number): void {
     this.formArray.removeAt(index);
   }
 
-  resetForms(): void {
+  public resetForms(): void {
     this.newFormGroup.reset();
     this.submitted = false;
+  }
+
+  public getQuestionByName(name: string): Question<any> {
+    for (const question of this.group.questions[0]) {
+      if (name === question.name) {
+        return question;
+      }
+    }
+
+    return null;
   }
 }

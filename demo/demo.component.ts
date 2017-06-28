@@ -13,11 +13,11 @@ export class DemoComponent {
     {
       'code': 'G-01',
       'description': 'Fieldset Group',
-      'type': 'fieldset',
+      'type': 'group',
       'questions': [
         {
-          'code': 'Q-0101',
-          'description': 'Question Check 0101',
+          'name': 'Q-0101',
+          'description': 'Check Question 0101',
           'type': 'check',
           'defaultOption': false,
           'validations': [
@@ -25,8 +25,8 @@ export class DemoComponent {
           ]
         },
         {
-          'code': 'Q-0102',
-          'description': 'Question Radio 0102',
+          'name': 'Q-0102',
+          'description': 'Radio Question 0102',
           'type': 'radio',
           'options': ['Option 1', 'Option 2'],
           'defaultOption': 'Option 1',
@@ -35,20 +35,20 @@ export class DemoComponent {
           ]
         },
         {
-          'code': 'Q-0103',
-          'description': 'Question Select 0103',
+          'name': 'Q-0103',
+          'description': 'Select Question 0103',
           'type': 'select',
           'options': ['Option 1', 'Option 2'],
-          'placeholder': 'Select',
+          'placeholder': 'Select an option',
           'validations': [
             { 'type': 'required', 'message': 'Required field.' }
           ]
         },
         {
-          'code': 'Q-0104',
-          'description': 'Question Text 0104',
+          'name': 'Q-0104',
+          'description': 'Text Question 0104',
           'type': 'text',
-          'placeholder': 'Question Text 0104',
+          'placeholder': 'Text Question 0104',
           'validations': [
             { 'type': 'required', 'message': 'Required field.' },
             { 'type': 'minlength', 'message': 'Min Length: 3', 'value': 3 },
@@ -56,10 +56,10 @@ export class DemoComponent {
           ]
         },
         {
-          'code': 'Q-0105',
-          'description': 'Question Text 0105',
+          'name': 'Q-0105',
+          'description': 'Text Question 0105',
           'type': 'text',
-          'placeholder': 'Question Text 0105',
+          'placeholder': 'Text Question 0105',
           'validations': [
             { 'type': 'required', 'message': 'Required field.' },
             { 'type': 'pattern', 'message': 'Format: 00000-000', 'regex': '^\\d{5}-\\d{3}$' }
@@ -67,15 +67,15 @@ export class DemoComponent {
           'mask': '00000-000'
         },
         {
-          'code': 'Q-0106',
-          'description': 'Question TextArea 0106',
+          'name': 'Q-0106',
+          'description': 'TextArea Question 0106',
           'type': 'textarea',
-          'placeholder': 'Question TextArea 0106',
+          'placeholder': 'TextArea Question 0106',
           'validations': [
             { 'type': 'required', 'message': 'Required field.' }
           ],
           'dependencies': [
-            { 'code': 'Q-0103', 'criteria': 'equals', 'expectedAnswer': 'Option 1' }
+            { 'name': 'Q-0103', 'criteria': 'equals', 'expectedAnswer': 'Option 1' }
           ]
         }
       ]
@@ -83,42 +83,106 @@ export class DemoComponent {
     {
       'code': 'G-02',
       'description': 'DataTable Group',
-      'type': 'datatable',
+      'type': 'customDescription',
       'validations': [
         { 'type': 'required', 'message': 'Min number of registers: 1.' },
         { 'type': 'minlength', 'message': 'Min number of registers: 1.', 'value': 1 },
         { 'type': 'maxlength', 'message': 'Max number of registers: 3.', 'value': 3 }
       ],
       'questions': [
-        {
-          'code': 'Q-0201',
-          'description': 'Question Select 0201',
-          'type': 'select',
-          'validations': [
-            { 'type': 'required', 'message': 'Required field.' }
-          ],
-          'options': ['Option 1', 'Option 2', 'Option 3'],
-          'placeholder': 'Select'
-        },
-        {
-          'code': 'Q-0202',
-          'description': 'Question Text 0202',
-          'type': 'text',
-          'validations': [
-            { 'type': 'required', 'message': 'Required field.' }
-          ],
-          'placeholder': 'Question Text 0202',
-          'mask': 'decimal(10,2)'
-        },
-        {
-          'code': 'Q-0203',
-          'description': 'Question Text 0203',
-          'type': 'text',
-          'validations': [
-            { 'type': 'required', 'message': 'Required field.' }
-          ],
-          'placeholder': 'Question Text 0203'
-        }
+        [
+          {
+            'name': 'Q-0201',
+            'description': 'Select Question 0201',
+            'type': 'select',
+            'validations': [
+              { 'type': 'required', 'message': 'Required field.' }
+            ],
+            'options': ['Option 1', 'Option 2', 'Option 3'],
+            'placeholder': 'Select'
+          },
+          {
+            'name': 'Q-0202',
+            'description': 'Text Question 0202',
+            'type': 'text',
+            'validations': [
+              { 'type': 'required', 'message': 'Required field.' }
+            ],
+            'placeholder': 'Text Question 0202',
+            'mask': 'decimal(10,2)'
+          },
+          {
+            'name': 'Q-0203',
+            'description': 'Check Question 0203',
+            'type': 'check',
+            'defaulOption': false,
+            'placeholder': 'Check Question 0203'
+          }
+        ],
+        [
+          {
+            'name': 'Q-0201',
+            'description': 'Select Question 0201',
+            'type': 'select',
+            'validations': [
+              { 'type': 'required', 'message': 'Required field.' }
+            ],
+            'options': ['Option 1', 'Option 2', 'Option 3'],
+            'placeholder': 'Select',
+            'answer': 'Option 1'
+          },
+          {
+            'name': 'Q-0202',
+            'description': 'Text Question 0202',
+            'type': 'text',
+            'validations': [
+              { 'type': 'required', 'message': 'Required field.' }
+            ],
+            'placeholder': 'Question Text 0202',
+            'mask': 'decimal(10,2)',
+            'answer': '1.23'
+          },
+          {
+            'name': 'Q-0203',
+            'description': 'Check Question 0203',
+            'type': 'check',
+            'defaulOption': true,
+            'placeholder': 'Check Question 0203',
+            'answer': false
+          }
+        ],
+        [
+          {
+            'name': 'Q-0201',
+            'description': 'Select Question 0201',
+            'type': 'select',
+            'validations': [
+              { 'type': 'required', 'message': 'Required field.' }
+            ],
+            'options': ['Option 1', 'Option 2', 'Option 3'],
+            'placeholder': 'Select',
+            'answer': 'Option 2'
+          },
+          {
+            'name': 'Q-0202',
+            'description': 'Text Question 0202',
+            'type': 'text',
+            'validations': [
+              { 'type': 'required', 'message': 'Required field.' }
+            ],
+            'placeholder': 'Question Text 0202',
+            'mask': 'decimal(10,2)',
+            'answer': '9.87'
+          },
+          {
+            'name': 'Q-0203',
+            'description': 'Check Question 0203',
+            'type': 'check',
+            'defaulOption': true,
+            'placeholder': 'Check Question 0203',
+            'answer': true
+          }
+        ]
       ]
     }
   ];

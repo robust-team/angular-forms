@@ -14,7 +14,7 @@ import { ReactiveFormsFactory } from './factory';
 
         <ng-container [ngSwitch]="group.type">
 
-          <ng-container *ngSwitchCase="'fieldset'">
+          <ng-container *ngSwitchCase="'group'">
             <fieldset [formGroup]="formGroup.get(group.code)">
               <legend *ngIf="'Ungrouped' !== group.description">{{ group.description }}</legend>
 
@@ -27,11 +27,11 @@ import { ReactiveFormsFactory } from './factory';
                       <div class="form-group" [hidden]="hideQuestion(question, formGroup.get(group.code))">
                         <div class="checkbox">
                           <label>
-                            <input type="checkbox" [name]="question.code" [formControlName]="question.code" />
+                            <input type="checkbox" [name]="question.name" [formControlName]="question.name" />
                             {{ question.description }}
                           </label>
                           <rb-validation-message [validations]="question.validations"
-                                                 [control]="formGroup.get(group.code).get(question.code)"
+                                                 [control]="formGroup.get(group.code).get(question.name)"
                                                  [submitted]="submitted">
                           </rb-validation-message>
                         </div> <!--/.checkbox-->
@@ -51,12 +51,12 @@ import { ReactiveFormsFactory } from './factory';
                         <label>{{ question.description }}</label>
                         <div class="radio" *ngFor="let option of question.options">
                           <label>
-                            <input type="radio" [name]="question.code" [value]="option" [formControlName]="question.code" />
+                            <input type="radio" [name]="question.name" [value]="option" [formControlName]="question.name" />
                             {{ option }}
                           </label>
                         </div> <!--/.radio-->
                         <rb-validation-message [validations]="question.validations"
-                                               [control]="formGroup.get(group.code).get(question.code)"
+                                               [control]="formGroup.get(group.code).get(question.name)"
                                                [submitted]="submitted">
                         </rb-validation-message>
                       </div> <!--/.form-group-->
@@ -73,9 +73,9 @@ import { ReactiveFormsFactory } from './factory';
                   <ng-template ngSwitchCase="select">
                     <ng-container *ngIf="!readOnly">
                       <div class="form-group" [hidden]="hideQuestion(question, formGroup.get(group.code))">
-                        <label [for]="question.code">{{ question.description }}</label>
-                        <select [id]="question.code" class="form-control" [name]="question.code"
-                                [formControlName]="question.code">
+                        <label [for]="question.name">{{ question.description }}</label>
+                        <select [id]="question.name" class="form-control" [name]="question.name"
+                                [formControlName]="question.name">
                           <option disabled [value]="null">
                             {{ question.placeholder ? question.placeholder : '' }}
                           </option>
@@ -84,7 +84,7 @@ import { ReactiveFormsFactory } from './factory';
                           </option>
                         </select>
                         <rb-validation-message [validations]="question.validations"
-                                               [control]="formGroup.get(group.code).get(question.code)"
+                                               [control]="formGroup.get(group.code).get(question.name)"
                                                [submitted]="submitted">
                         </rb-validation-message>
                       </div> <!--/.form-group-->
@@ -101,13 +101,13 @@ import { ReactiveFormsFactory } from './factory';
                   <ng-template ngSwitchCase="textarea">
                     <ng-container *ngIf="!readOnly">
                       <div class="form-group" [hidden]="hideQuestion(question, formGroup.get(group.code))">
-                        <label [for]="question.code">{{ question.description }}</label>
-                        <textarea [id]="question.code" class="form-control" [name]="question.code" rows="5"
+                        <label [for]="question.name">{{ question.description }}</label>
+                        <textarea [id]="question.name" class="form-control" [name]="question.name" rows="5"
                                   placeholder="{{ question.placeholder ? question.placeholder : '' }}"
-                                  [formControlName]="question.code">
+                                  [formControlName]="question.name">
                         </textarea>
                         <rb-validation-message [validations]="question.validations"
-                                               [control]="formGroup.get(group.code).get(question.code)"
+                                               [control]="formGroup.get(group.code).get(question.name)"
                                                [submitted]="submitted">
                         </rb-validation-message>
                       </div> <!--/.form-group-->
@@ -124,12 +124,12 @@ import { ReactiveFormsFactory } from './factory';
                   <ng-template ngSwitchCase="text" ngSwitchDefault>
                     <ng-container *ngIf="!readOnly">
                       <div class="form-group" [hidden]="hideQuestion(question, formGroup.get(group.code))">
-                        <label [for]="question.code">{{ question.description }}</label>
-                        <input type="text" [id]="question.code" class="form-control" [name]="question.code"
-                                placeholder="{{ question.placeholder ? question.placeholder : '' }}"
-                                [formControlName]="question.code" [mask]="question.mask" />
+                        <label [for]="question.name">{{ question.description }}</label>
+                        <input type="text" [id]="question.name" class="form-control" [name]="question.name"
+                               placeholder="{{ question.placeholder ? question.placeholder : '' }}"
+                               [formControlName]="question.name" [mask]="question.mask" />
                         <rb-validation-message [validations]="question.validations"
-                                               [control]="formGroup.get(group.code).get(question.code)"
+                                               [control]="formGroup.get(group.code).get(question.name)"
                                                [submitted]="submitted">
                         </rb-validation-message>
                       </div> <!--/.form-group-->
@@ -148,7 +148,7 @@ import { ReactiveFormsFactory } from './factory';
             </fieldset>
           </ng-container> <!--/ngSwitchCase-fieldset-->
 
-          <ng-container *ngSwitchCase="'datatable'">
+          <ng-container *ngSwitchDefault>
             <rb-data-table [group]="group" [formGroup]="formGroup" [formGroupSubmitted]="submitted" [readOnly]="readOnly"></rb-data-table>
           </ng-container>
 
@@ -158,7 +158,7 @@ import { ReactiveFormsFactory } from './factory';
     </form>
   `,
   styles: [`
-    form.read-only label.checkbox:before {
+    .read-only label.checkbox:before {
       background: linear-gradient(to bottom, #fff 0px, #e6e6e6 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
       border: 1px solid #888;
       border-radius: .3rem;
@@ -172,7 +172,8 @@ import { ReactiveFormsFactory } from './factory';
       text-align: center;
       width: 1.4rem;
     }
-    form.read-only label.checkbox.checked:before { content: '✓' }
+
+    .read-only label.checkbox.checked:before { content: '✓' }
   `],
   providers: [DependencyService]
 })

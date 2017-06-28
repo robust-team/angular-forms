@@ -4,7 +4,7 @@ import { Validation } from '../validation';
 export abstract class Question<Answer> {
 
   public constructor(
-    private _code: string,
+    private _name: string,
     private _description: string,
     private _dependencies: Dependency[],
     private _type: string,
@@ -12,8 +12,8 @@ export abstract class Question<Answer> {
     private _validations: Validation[] = []
   ) { }
 
-  public get code(): string {
-    return this._code;
+  public get name(): string {
+    return this._name;
   }
 
   public get description(): string {

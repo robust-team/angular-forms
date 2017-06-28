@@ -1,6 +1,6 @@
 import { Group } from './group';
-import { Question } from '../question/question';
-import { Validation } from '../validation/validation';
+import { Question } from '../question';
+import { Validation } from '../validation';
 
 export class DataTable extends Group {
 
@@ -8,18 +8,17 @@ export class DataTable extends Group {
     code: string,
     description: string,
     type: string,
-    questions: Question<any>[],
-    private _validations: Validation[],
-    private _answers: Question<any>[][]
+    private _questions: Question<any>[][],
+    private _validations: Validation[]
   ) {
-    super(code, description, type, questions);
+    super(code, description, type);
+  }
+
+  public get questions(): Question<any>[][] {
+    return this._questions;
   }
 
   public get validations(): Validation[] {
     return this._validations;
-  }
-
-  public get answers(): Question<any>[][] {
-    return this._answers;
   }
 }

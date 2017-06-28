@@ -1,6 +1,6 @@
 import { FormGroup, FormArray, FormControl, ValidatorFn, Validators } from '@angular/forms';
 
-import { DataTable, Group } from '../group';
+import { Group, Fieldset, DataTable } from '../group';
 import { Question } from '../question';
 import { Validation, MinLength, MaxLength, Pattern, Required, Min, Max } from '../validation';
 import {
@@ -15,15 +15,13 @@ export class ReactiveFormsFactory {
     const formGroup: FormGroup = new FormGroup({});
 
     for (const group of groups) {
-      let control: FormGroup|FormArray;
+      let control: FormGroup | FormArray;
 
-      if ('datatable' !== group.type) {
-        control = ReactiveFormsFactory.createFormGroupFromQuestions(group.questions);
+      if ('group' === group.type) {
+        control = ReactiveFormsFactory.createFormGroupFromQuestions((<Fieldset>group).questions);
       } else {
-        const dataTable: DataTable = <DataTable> group;
-
-        control = ReactiveFormsFactory.createFormArray(dataTable.answers);
-        control.setValidators(ReactiveFormsFactory.createValidators(dataTable.validations));
+        control = ReactiveFormsFactory.createFormArray((<DataTable>group).questions.slice(1));
+        control.setValidators(ReactiveFormsFactory.createValidators((<DataTable>group).validations));
       }
 
       formGroup.addControl(group.code, control);
@@ -41,21 +39,21 @@ export class ReactiveFormsFactory {
         ? question['defaultOption']
         : question.answer;
 
-      formGroup.addControl(question.code, new FormControl(formState, validators));
+      formGroup.addControl(question.name, new FormControl(formState, validators));
     }
 
     return formGroup;
   }
 
-  public static createFormArray(answers: Question<any>[][] = null): FormArray {
+  public static createFormArray(questions: Question<any>[][] = null): FormArray {
     const formArray: FormArray = new FormArray([]);
 
-    if (answers) {
-      for (const answer of answers) {
+    if (questions) {
+      for (const question of questions) {
         const group: FormGroup = new FormGroup({});
 
-        for (const column of answer) {
-          group.addControl(column.code, new FormControl(column.answer));
+        for (const column of question) {
+          group.addControl(column.name, new FormControl(column.answer));
         }
 
         formArray.push(group);
