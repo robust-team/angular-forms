@@ -21,7 +21,7 @@ export class DemoComponent {
           'type': 'check',
           'defaultOption': 'false',
           'validations': [
-            { 'type': 'required', 'message': 'Required field.', 'requiredTrue': 'true' }
+            { 'type': 'pattern', 'message': 'Required field.', 'value': 'true' }
           ]
         },
         {
