@@ -136,6 +136,12 @@
                                     <a href="../classes/EmailValidator.html" >EmailValidator</a>
                                 </li>
                                 <li class="link">
+                                    <a href="../classes/Fieldset.html" >Fieldset</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../classes/FieldsetBuilder.html" >FieldsetBuilder</a>
+                                </li>
+                                <li class="link">
                                     <a href="../classes/Group.html" >Group</a>
                                 </li>
                                 <li class="link">
@@ -368,6 +374,12 @@
                                            <a href="../classes/EmailValidator.html" >EmailValidator</a>
                                        </li>
                                        <li class="link">
+                                           <a href="../classes/Fieldset.html" >Fieldset</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../classes/FieldsetBuilder.html" >FieldsetBuilder</a>
+                                       </li>
+                                       <li class="link">
                                            <a href="../classes/Group.html" >Group</a>
                                        </li>
                                        <li class="link">
@@ -564,17 +576,17 @@ export class DependencyService {
     }
 
     for (const dependency of question.dependencies) {
-      const answerDependency: string &#x3D; formGroup.get(dependency.code).value;
+      const answerDependency: string &#x3D; formGroup.get(dependency.name).value;
       const result: boolean &#x3D; this.executeOperation(answerDependency, dependency);
 
       if (!result) {
-        this.setStatusFormControl(&lt;FormControl&gt; formGroup.get(question.code), true);
+        this.setStatusFormControl(&lt;FormControl&gt; formGroup.get(question.name), true);
 
         return true;
       }
     }
 
-    this.setStatusFormControl(&lt;FormControl&gt; formGroup.get(question.code), false);
+    this.setStatusFormControl(&lt;FormControl&gt; formGroup.get(question.name), false);
 
     return false;
   }

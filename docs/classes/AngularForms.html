@@ -136,6 +136,12 @@
                                     <a href="../classes/EmailValidator.html" >EmailValidator</a>
                                 </li>
                                 <li class="link">
+                                    <a href="../classes/Fieldset.html" >Fieldset</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../classes/FieldsetBuilder.html" >FieldsetBuilder</a>
+                                </li>
+                                <li class="link">
                                     <a href="../classes/Group.html" >Group</a>
                                 </li>
                                 <li class="link">
@@ -368,6 +374,12 @@
                                            <a href="../classes/EmailValidator.html" >EmailValidator</a>
                                        </li>
                                        <li class="link">
+                                           <a href="../classes/Fieldset.html" >Fieldset</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../classes/FieldsetBuilder.html" >FieldsetBuilder</a>
+                                       </li>
+                                       <li class="link">
                                            <a href="../classes/Group.html" >Group</a>
                                        </li>
                                        <li class="link">
@@ -555,36 +567,29 @@
 
     </div>
     <div class="tab-pane fade tab-source-code" id="source">
-        <pre class="line-numbers"><code class="language-typescript">import { DataTableBuilder, GroupBuilder } from &#x27;./builder&#x27;;
-import { DataTable, Group } from &#x27;./group&#x27;;
+        <pre class="line-numbers"><code class="language-typescript">import { GroupBuilder, FieldsetBuilder, DataTableBuilder } from &#x27;./builder&#x27;;
+import { Group, Fieldset, DataTable } from &#x27;./group&#x27;;
 import { Question } from &#x27;./question&#x27;;
 import { QuestionFactory } from &#x27;./factory&#x27;;
 
 export class AngularForms {
 
   public static fromJson(jsonGroups: Group[]): Group[] {
-
-    const groups: Group[] &#x3D; [];
-
-    for (const group of jsonGroups) {
-      const groupBuilder: GroupBuilder &#x3D; &#x27;datatable&#x27; !&#x3D;&#x3D; group.type
-        ? new GroupBuilder(group.code, group.description, group.type)
-        : new DataTableBuilder(
-          group.code,
-          group.description,
-          group.type,
-          (&lt;DataTable&gt; group).validations,
-          (&lt;DataTable&gt; group).answers
-        );
+    return jsonGroups.map((group: Fieldset | DataTable) &#x3D;&gt; {
+      const groupBuilder: GroupBuilder&lt;any&gt; &#x3D; &#x27;group&#x27; &#x3D;&#x3D;&#x3D; group.type
+        ? new FieldsetBuilder(group.code, group.description, group.type)
+        : new DataTableBuilder(group.code, group.description, group.type, (&lt;DataTable&gt;group).validations);
 
       for (const question of group.questions) {
-        groupBuilder.addQuestion(new QuestionFactory(question).create());
+        groupBuilder.addQuestion(
+          &#x27;group&#x27; &#x3D;&#x3D;&#x3D; group.type
+            ? QuestionFactory.createSimpleQuestion(&lt;Question&lt;any&gt;&gt;question)
+            : QuestionFactory.createQuestionList(&lt;Question&lt;any&gt;[]&gt;question)
+        );
       }
 
-      groups.push(groupBuilder.build());
-    }
-
-    return groups;
+      return groupBuilder.build();
+    });
   }
 }
 </code></pre>

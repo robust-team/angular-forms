@@ -136,6 +136,12 @@
                                     <a href="../classes/EmailValidator.html" >EmailValidator</a>
                                 </li>
                                 <li class="link">
+                                    <a href="../classes/Fieldset.html" >Fieldset</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../classes/FieldsetBuilder.html" >FieldsetBuilder</a>
+                                </li>
+                                <li class="link">
                                     <a href="../classes/Group.html" >Group</a>
                                 </li>
                                 <li class="link">
@@ -368,6 +374,12 @@
                                            <a href="../classes/EmailValidator.html" >EmailValidator</a>
                                        </li>
                                        <li class="link">
+                                           <a href="../classes/Fieldset.html" >Fieldset</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../classes/FieldsetBuilder.html" >FieldsetBuilder</a>
+                                       </li>
+                                       <li class="link">
                                            <a href="../classes/Group.html" >Group</a>
                                        </li>
                                        <li class="link">
@@ -524,7 +536,7 @@
                         <tbody>
                             <tr>
                                 <td class="col-md-4">
-                                    <code>constructor(type: string, message: string, _regex: string)</code>
+                                    <code>constructor(type: string, message: string, _value: string)</code>
                                 </td>
                             </tr>
                                     <tr>
@@ -586,12 +598,12 @@
                         <tbody>
                             <tr>
                                 <td class="col-md-4">
-                                    <b><span class="modifier">Public</span> regex</b>
+                                    <b><span class="modifier">Public</span> value</b>
                                 </td>
                             </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <span class="modifier-icon fa fa-"></span><code>regex:     <code>string</code>
+                                    <span class="modifier-icon fa fa-"></span><code>value:     <code>string</code>
             </bcode>
                                 </td>
                             </tr>
@@ -610,19 +622,19 @@
 export class Pattern extends Validation {
 
   public static fromJson(validation: Pattern): Pattern {
-    return new Pattern(validation.type, validation.message, validation.regex);
+    return new Pattern(validation.type, validation.message, validation.value);
   }
 
   public constructor(
     type: string,
     message: string,
-    private _regex: string
+    private _value: string
   ) {
     super(type, message);
   }
 
-  public get regex(): string {
-    return this._regex;
+  public get value(): string {
+    return this._value;
   }
 }
 </code></pre>

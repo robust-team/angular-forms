@@ -136,6 +136,12 @@
                                     <a href="../classes/EmailValidator.html" >EmailValidator</a>
                                 </li>
                                 <li class="link">
+                                    <a href="../classes/Fieldset.html" >Fieldset</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../classes/FieldsetBuilder.html" >FieldsetBuilder</a>
+                                </li>
+                                <li class="link">
                                     <a href="../classes/Group.html"  data-type="entity-link" class="active" >Group</a>
                                 </li>
                                 <li class="link">
@@ -368,6 +374,12 @@
                                            <a href="../classes/EmailValidator.html" >EmailValidator</a>
                                        </li>
                                        <li class="link">
+                                           <a href="../classes/Fieldset.html" >Fieldset</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../classes/FieldsetBuilder.html" >FieldsetBuilder</a>
+                                       </li>
+                                       <li class="link">
                                            <a href="../classes/Group.html"  data-type="entity-link" class="active" >Group</a>
                                        </li>
                                        <li class="link">
@@ -518,7 +530,7 @@
                         <tbody>
                             <tr>
                                 <td class="col-md-4">
-                                    <code>constructor(_code: string, _description: string, _type: string, _questions: {})</code>
+                                    <code>constructor(_code: string, _description: string, _type: string)</code>
                                 </td>
                             </tr>
                                     <tr>
@@ -553,7 +565,7 @@
                             </tr>
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/group/group.ts:12</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/group/group.ts:11</a></div>
                                         </td>
                                     </tr>
                         </tbody>
@@ -573,27 +585,7 @@
                             </tr>
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/group/group.ts:16</a></div>
-                                        </td>
-                                    </tr>
-                        </tbody>
-                    </table>
-                    <table class="table table-sm table-bordered">
-                        <tbody>
-                            <tr>
-                                <td class="col-md-4">
-                                    <b><span class="modifier">Public</span> questions</b>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="col-md-4">
-                                    <span class="modifier-icon fa fa-"></span><code>questions:     <code>{}</code>
-            </bcode>
-                                </td>
-                            </tr>
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/group/group.ts:24</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/group/group.ts:15</a></div>
                                         </td>
                                     </tr>
                         </tbody>
@@ -613,7 +605,7 @@
                             </tr>
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/group/group.ts:20</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/group/group.ts:19</a></div>
                                         </td>
                                     </tr>
                         </tbody>
@@ -623,13 +615,12 @@
     <div class="tab-pane fade tab-source-code" id="source">
         <pre class="line-numbers"><code class="language-typescript">import { Question } from &#x27;../question&#x27;;
 
-export class Group {
+export abstract class Group {
 
   public constructor(
     private _code: string,
     private _description: string,
-    private _type: string,
-    private _questions: Question&lt;any&gt;[]
+    private _type: string
   ) { }
 
   public get code(): string {
@@ -642,10 +633,6 @@ export class Group {
 
   public get type(): string {
     return this._type;
-  }
-
-  public get questions(): Question&lt;any&gt;[] {
-    return this._questions;
   }
 }
 </code></pre>

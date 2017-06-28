@@ -136,6 +136,12 @@
                                     <a href="../classes/EmailValidator.html" >EmailValidator</a>
                                 </li>
                                 <li class="link">
+                                    <a href="../classes/Fieldset.html" >Fieldset</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../classes/FieldsetBuilder.html" >FieldsetBuilder</a>
+                                </li>
+                                <li class="link">
                                     <a href="../classes/Group.html" >Group</a>
                                 </li>
                                 <li class="link">
@@ -368,6 +374,12 @@
                                            <a href="../classes/EmailValidator.html" >EmailValidator</a>
                                        </li>
                                        <li class="link">
+                                           <a href="../classes/Fieldset.html" >Fieldset</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../classes/FieldsetBuilder.html" >FieldsetBuilder</a>
+                                       </li>
+                                       <li class="link">
                                            <a href="../classes/Group.html" >Group</a>
                                        </li>
                                        <li class="link">
@@ -524,7 +536,7 @@
                         <tbody>
                             <tr>
                                 <td class="col-md-4">
-                                    <code>constructor(code: string, description: string, type: string, questions: {}, _validations: {}, _answers: {})</code>
+                                    <code>constructor(code: string, description: string, type: string, _questions: {}, _validations: {})</code>
                                 </td>
                             </tr>
                                     <tr>
@@ -548,18 +560,18 @@
                         <tbody>
                             <tr>
                                 <td class="col-md-4">
-                                    <b><span class="modifier">Public</span> answers</b>
+                                    <b><span class="modifier">Public</span> questions</b>
                                 </td>
                             </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <span class="modifier-icon fa fa-"></span><code>answers:     <code>{}</code>
+                                    <span class="modifier-icon fa fa-"></span><code>questions:     <code>{}</code>
             </bcode>
                                 </td>
                             </tr>
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/group/data-table.ts:22</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/group/data-table.ts:17</a></div>
                                         </td>
                                     </tr>
                         </tbody>
@@ -579,7 +591,7 @@
                             </tr>
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/group/data-table.ts:18</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/group/data-table.ts:21</a></div>
                                         </td>
                                     </tr>
                         </tbody>
@@ -588,8 +600,8 @@
     </div>
     <div class="tab-pane fade tab-source-code" id="source">
         <pre class="line-numbers"><code class="language-typescript">import { Group } from &#x27;./group&#x27;;
-import { Question } from &#x27;../question/question&#x27;;
-import { Validation } from &#x27;../validation/validation&#x27;;
+import { Question } from &#x27;../question&#x27;;
+import { Validation } from &#x27;../validation&#x27;;
 
 export class DataTable extends Group {
 
@@ -597,19 +609,18 @@ export class DataTable extends Group {
     code: string,
     description: string,
     type: string,
-    questions: Question&lt;any&gt;[],
-    private _validations: Validation[],
-    private _answers: Question&lt;any&gt;[][]
+    private _questions: Question&lt;any&gt;[][],
+    private _validations: Validation[] &#x3D; []
   ) {
-    super(code, description, type, questions);
+    super(code, description, type);
+  }
+
+  public get questions(): Question&lt;any&gt;[][] {
+    return this._questions;
   }
 
   public get validations(): Validation[] {
     return this._validations;
-  }
-
-  public get answers(): Question&lt;any&gt;[][] {
-    return this._answers;
   }
 }
 </code></pre>
