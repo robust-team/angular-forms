@@ -20,8 +20,8 @@
                         {{ question.description }}
                       </label>
                       <rb-validation-message [validations]="question.validations"
-                                              [control]="formGroup.get(group.code).get(question.name)"
-                                              [submitted]="submitted">
+                                             [control]="formGroup.get(group.code).get(question.name)"
+                                             [submitted]="submitted">
                       </rb-validation-message>
                     </div> <!--/.checkbox-->
                   </div> <!--/.form-group-->
@@ -48,8 +48,8 @@
                       </label>
                     </div> <!--/.radio-->
                     <rb-validation-message [validations]="question.validations"
-                                            [control]="formGroup.get(group.code).get(question.name)"
-                                            [submitted]="submitted">
+                                           [control]="formGroup.get(group.code).get(question.name)"
+                                           [submitted]="submitted">
                     </rb-validation-message>
                   </div> <!--/.form-group-->
                 </ng-container> <!--/!readOnly-->
@@ -76,8 +76,8 @@
                       </option>
                     </select>
                     <rb-validation-message [validations]="question.validations"
-                                            [control]="formGroup.get(group.code).get(question.name)"
-                                            [submitted]="submitted">
+                                           [control]="formGroup.get(group.code).get(question.name)"
+                                           [submitted]="submitted">
                     </rb-validation-message>
                   </div> <!--/.form-group-->
                 </ng-container> <!--/!readOnly-->
@@ -99,8 +99,8 @@
                               [formControlName]="question.name">
                     </textarea>
                     <rb-validation-message [validations]="question.validations"
-                                            [control]="formGroup.get(group.code).get(question.name)"
-                                            [submitted]="submitted">
+                                           [control]="formGroup.get(group.code).get(question.name)"
+                                           [submitted]="submitted">
                     </rb-validation-message>
                   </div> <!--/.form-group-->
                 </ng-container> <!--/!readOnly-->
@@ -121,8 +121,8 @@
                            placeholder="{{ question.placeholder ? question.placeholder : '' }}"
                            [formControlName]="question.name" [mask]="question.mask" />
                     <rb-validation-message [validations]="question.validations"
-                                            [control]="formGroup.get(group.code).get(question.name)"
-                                            [submitted]="submitted">
+                                           [control]="formGroup.get(group.code).get(question.name)"
+                                           [submitted]="submitted">
                     </rb-validation-message>
                   </div> <!--/.form-group-->
                 </ng-container> <!--/!readOnly-->
