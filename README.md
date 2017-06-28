@@ -53,19 +53,19 @@ The **customForm** attribute represents the JSON coming from API. For example:
   {
     "code": "G-01",
     "description": "Fieldset Group",
-    "type": "fieldset",
+    "type": "group",
     "questions": [
       {
-        "code": "Q-0101",
+        "name": "Q-0101",
         "description": "Check Question 0101",
         "type": "check",
         "defaultOption": false,
         "validations": [
-          { "type": "required", "message": "Required field.", "requiredTrue": true }
+          { "type": "pattern", "message": "Required field.", "value": "true" }
         ]
       },
       {
-        "code": "Q-0102",
+        "name": "Q-0102",
         "description": "Radio Question 0102",
         "type": "radio",
         "options": ["Option 1", "Option 2"],
@@ -75,7 +75,7 @@ The **customForm** attribute represents the JSON coming from API. For example:
         ]
       },
       {
-        "code": "Q-0103",
+        "name": "Q-0103",
         "description": "Select Question 0103",
         "type": "select",
         "options": ["Option 1", "Option 2"],
@@ -85,7 +85,7 @@ The **customForm** attribute represents the JSON coming from API. For example:
         ]
       },
       {
-        "code": "Q-0104",
+        "name": "Q-0104",
         "description": "Text Question 0104",
         "type": "text",
         "placeholder": "Text Question 0104",
@@ -96,18 +96,18 @@ The **customForm** attribute represents the JSON coming from API. For example:
         ]
       },
       {
-        "code": "Q-0105",
+        "name": "Q-0105",
         "description": "Text Question 0105",
         "type": "text",
         "placeholder": "Text Question 0105",
         "validations": [
           { "type": "required", "message": "Required field." },
-          { "type": "pattern", "message": "Format: 00000-000", "regex": "^\\d{5}-\\d{3}$" }
+          { "type": "pattern", "message": "Format: 00000-000", "value": "^\\d{5}-\\d{3}$" }
         ],
         "mask": "00000-000"
       },
       {
-        "code": "Q-0106",
+        "name": "Q-0106",
         "description": "TextArea Question 0106",
         "type": "textarea",
         "placeholder": "TextArea Question 0106",
@@ -130,35 +130,50 @@ The **customForm** attribute represents the JSON coming from API. For example:
       { "type": "maxlength", "message": "Max number of registers: 3.", "value": 3 }
     ],
     "questions": [
-      {
-        "code": "Q-0201",
-        "description": "Select Question 0201",
-        "type": "select",
-        "validations": [
-          { "type": "required", "message": "Required field." }
-        ],
-        "options": ["Option 1", "Option 2", "Option 3"],
-        "placeholder": "Select"
-      },
-      {
-        "code": "Q-0202",
-        "description": "Text Question 0202",
-        "type": "text",
-        "validations": [
-          { "type": "required", "message": "Required field." }
-        ],
-        "placeholder": "Text Question 0202",
-        "mask": "decimal(10,2)"
-      },
-      {
-        "code": "Q-0203",
-        "description": "Text Question 0203",
-        "type": "text",
-        "validations": [
-          { "type": "required", "message": "Required field." }
-        ],
-        "placeholder": "Text Question 0203"
-      }
+      [
+        {
+          "name": "Q-0201",
+          "description": "Select Question 0201",
+          "type": "select",
+          "validations": [
+            { "type": "required", "message": "Required field." }
+          ],
+          "options": ["Option 1", "Option 2", "Option 3"],
+          "placeholder": "Select"
+        },
+        {
+          "name": "Q-0202",
+          "description": "Text Question 0202",
+          "type": "text",
+          "validations": [
+            { "type": "required", "message": "Required field." }
+          ],
+          "placeholder": "Text Question 0202"
+        }
+      ],
+      [
+        {
+          "name": "Q-0201",
+          "description": "Select Question 0201",
+          "type": "select",
+          "validations": [
+            { "type": "required", "message": "Required field." }
+          ],
+          "options": ["Option 1", "Option 2", "Option 3"],
+          "placeholder": "Select",
+          "answer": "Option 2"
+        },
+        {
+          "name": "Q-0202",
+          "description": "Text Question 0202",
+          "type": "text",
+          "validations": [
+            { "type": "required", "message": "Required field." }
+          ],
+          "placeholder": "Text Question 0202",
+          "answer": "Answer 0202"
+        }
+      ]
     ]
   }
 ]
@@ -219,22 +234,22 @@ The **Group** represents a grouping of questions, which can be of two types: **F
 
 ### Fieldset
 
-**Fieldset** is a grouping of questions that represents a simple fieldset of HTML.
+**Fieldset** is a grouping of questions that represents a simple fieldset of HTML. The value of your type is "**group**".
 
 ```json
 {
   "code": "G-01",
   "description": "Fieldset Group",
-  "type": "fieldset",
+  "type": "group",
   "questions": [
     {
-      "code": "Q-0101",
+      "name": "Q-0101",
       "description": "Check Question 0101",
       "type": "check",
       "validations": []
     },
     {
-      "code": "Q-0102",
+      "name": "Q-0102",
       "description": "Select Question 0102",
       "type": "select",
       "options": ["Option 1", "Option 2"],
@@ -254,22 +269,23 @@ The **Group** represents a grouping of questions, which can be of two types: **F
   "description": "DataTable Group",
   "type": "datatable",
   "questions": [
-    {
-      "code": "Q-0101",
-      "description": "Check Question 0101",
-      "type": "check",
-      "validations": []
-    },
-    {
-      "code": "Q-0102",
-      "description": "Select Question 0102",
-      "type": "select",
-      "options": ["Option 1", "Option 2"],
-      "validations": []
-    }
+    [
+      {
+        "name": "Q-0101",
+        "description": "Check Question 0101",
+        "type": "check",
+        "validations": []
+      },
+      {
+        "name": "Q-0102",
+        "description": "Select Question 0102",
+        "type": "select",
+        "options": ["Option 1", "Option 2"],
+        "validations": []
+      }
+    ]
   ],
-  "validations": [],
-  "answers": []
+  "validations": []
 }
 ```
 
@@ -289,7 +305,7 @@ The **Group** represents a grouping of questions, which can be of two types: **F
 
 ```json
 {
-  "code": "G-01",
+  "name": "Q-01",
   "description": "Check Question",
   "dependencies": [],
   "type": "check",
@@ -305,7 +321,7 @@ The **Group** represents a grouping of questions, which can be of two types: **F
 
 ```json
 {
-  "code": "G-01",
+  "name": "Q-01",
   "description": "Radio Question",
   "dependencies": [],
   "type": "radio",
@@ -322,7 +338,7 @@ The **Group** represents a grouping of questions, which can be of two types: **F
 
 ```json
 {
-  "code": "G-01",
+  "name": "Q-01",
   "description": "Select Question",
   "dependencies": [],
   "type": "select",
@@ -340,7 +356,7 @@ The **Group** represents a grouping of questions, which can be of two types: **F
 
 ```json
 {
-  "code": "Q-01",
+  "name": "Q-01",
   "description": "Text Question",
   "dependencies": [],
   "type": "text",
@@ -357,7 +373,7 @@ The **Group** represents a grouping of questions, which can be of two types: **F
 
 ```json
 {
-  "code": "Q-01",
+  "name": "Q-01",
   "description": "Text Question",
   "dependencies": [],
   "type": "text",
@@ -376,7 +392,7 @@ Read more in [https://fagnerlima.github.io/ng-mask/](https://fagnerlima.github.i
 
 ```json
 {
-  "code": "Q-01",
+  "name": "Q-01",
   "description": "Text Question",
   "dependencies": [],
   "type": "textarea",
@@ -465,7 +481,7 @@ Regular expression validation.
 {
   "type": "pattern",
   "message": "Pattern: 00000-000.",
-  "regex": "^\\d{5}-\\d{3}$"
+  "value": "^\\d{5}-\\d{3}$"
 }
 ```
 
@@ -492,7 +508,7 @@ Obligatory field validation. The **requiredTrue** field is used for checkbox val
 
 ```json
 {
-  "code": "Q-0106",
+  "name": "Q-0106",
   "description": "Question TextArea 0106",
   "type": "textarea",
   "placeholder": "Question TextArea 0106",
