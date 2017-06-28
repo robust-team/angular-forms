@@ -1,32 +1,25 @@
-import { DataTableBuilder, GroupBuilder } from './builder';
-import { DataTable, Group } from './group';
+import { GroupBuilder, FieldsetBuilder, DataTableBuilder } from './builder';
+import { Group, Fieldset, DataTable } from './group';
 import { Question } from './question';
 import { QuestionFactory } from './factory';
 
 export class AngularForms {
 
   public static fromJson(jsonGroups: Group[]): Group[] {
-
-    const groups: Group[] = [];
-
-    for (const group of jsonGroups) {
-      const groupBuilder: GroupBuilder = 'datatable' !== group.type
-        ? new GroupBuilder(group.code, group.description, group.type)
-        : new DataTableBuilder(
-          group.code,
-          group.description,
-          group.type,
-          (<DataTable> group).validations,
-          (<DataTable> group).answers
-        );
+    return jsonGroups.map((group: Fieldset | DataTable) => {
+      const groupBuilder: GroupBuilder<any> = 'group' === group.type
+        ? new FieldsetBuilder(group.code, group.description, group.type)
+        : new DataTableBuilder(group.code, group.description, group.type, (<DataTable>group).validations);
 
       for (const question of group.questions) {
-        groupBuilder.addQuestion(new QuestionFactory(question).create());
+        groupBuilder.addQuestion(
+          'group' === group.type
+            ? QuestionFactory.createSimpleQuestion(<Question<any>>question)
+            : QuestionFactory.createQuestionList(<Question<any>[]>question)
+        );
       }
 
-      groups.push(groupBuilder.build());
-    }
-
-    return groups;
+      return groupBuilder.build();
+    });
   }
 }

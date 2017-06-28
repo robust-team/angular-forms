@@ -136,6 +136,12 @@
                                     <a href="../classes/EmailValidator.html" >EmailValidator</a>
                                 </li>
                                 <li class="link">
+                                    <a href="../classes/Fieldset.html" >Fieldset</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../classes/FieldsetBuilder.html" >FieldsetBuilder</a>
+                                </li>
+                                <li class="link">
                                     <a href="../classes/Group.html" >Group</a>
                                 </li>
                                 <li class="link">
@@ -368,6 +374,12 @@
                                            <a href="../classes/EmailValidator.html" >EmailValidator</a>
                                        </li>
                                        <li class="link">
+                                           <a href="../classes/Fieldset.html" >Fieldset</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../classes/FieldsetBuilder.html" >FieldsetBuilder</a>
+                                       </li>
+                                       <li class="link">
                                            <a href="../classes/Group.html" >Group</a>
                                        </li>
                                        <li class="link">
@@ -497,6 +509,9 @@
     </li>
 
     <li>
+        <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+    </li>
+    <li>
         <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
     </li>
 </ul>
@@ -534,36 +549,17 @@
                 <td class="col-md-9"><code>rb-validation-message</code></td>
             </tr>
 
-
             <tr>
-                <td class="col-md-3">styles</td>
-                <td class="col-md-9"><code>
-    .validation-message-box {
-      margin: 0 0 7px;
-      padding: 5px 0 0;
-    }
-
-    .validation-message-box li {
-      border-left: 3px solid #a00;
-      color: #a00;
-      font-size: .9em;
-      list-style: none;
-      margin-bottom: 3px;
-      padding: 1px 0 1px 5px;
-    }
-  </code></td>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>validation-message.component.css</code></td>
             </tr>
 
-            <tr>
-                <td class="col-md-3">template</td>
-                <td class="col-md-9"><pre class="line-numbers"><code class="language-html">&lt;ul class&#x3D;&quot;validation-message-box&quot; *ngIf&#x3D;&quot;submitted || control.touched&quot;&gt;
-  &lt;li *ngFor&#x3D;&quot;let validation of validations&quot; [hidden]&#x3D;&quot;!control.hasError(validation.type)&quot;&gt;
-    {{ validation.message }}
-  &lt;/li&gt;
-&lt;/ul&gt;
-</code></pre></td>
-            </tr>
 
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./validation-message.component.html</code></td>
+            </tr>
 
 
         </tbody>
@@ -587,7 +583,7 @@
                     </tr>
                             <tr>
                                 <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/validation-message/validation-message.component.ts:33</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/validation-message/validation-message.component.ts:13</a></div>
                                 </td>
                             </tr>
                 </tbody>
@@ -610,7 +606,7 @@
                     </tr>
                             <tr>
                                 <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/validation-message/validation-message.component.ts:34</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/validation-message/validation-message.component.ts:14</a></div>
                                 </td>
                             </tr>
                 </tbody>
@@ -630,7 +626,7 @@
                     </tr>
                             <tr>
                                 <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/validation-message/validation-message.component.ts:35</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/validation-message/validation-message.component.ts:15</a></div>
                                 </td>
                             </tr>
                 </tbody>
@@ -651,38 +647,26 @@ import { Validation } from &#x27;../validation&#x27;;
 
 @Component({
   selector: &#x27;rb-validation-message&#x27;,
-  template: &#x60;
-    &lt;ul class&#x3D;&quot;validation-message-box&quot; *ngIf&#x3D;&quot;submitted || control.touched&quot;&gt;
-      &lt;li *ngFor&#x3D;&quot;let validation of validations&quot; [hidden]&#x3D;&quot;!control.hasError(validation.type)&quot;&gt;
-        {{ validation.message }}
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &#x60;,
-  styles: [&#x60;
-    .validation-message-box {
-      margin: 0 0 7px;
-      padding: 5px 0 0;
-    }
-
-    .validation-message-box li {
-      border-left: 3px solid #a00;
-      color: #a00;
-      font-size: .9em;
-      list-style: none;
-      margin-bottom: 3px;
-      padding: 1px 0 1px 5px;
-    }
-  &#x60;]
+  templateUrl: &#x27;./validation-message.component.html&#x27;,
+  styleUrls: [&#x27;./validation-message.component.css&#x27;]
 })
 export class ValidationMessageComponent {
 
-  @Input() control: AbstractControl &#x3D; new FormControl();
-  @Input() submitted: boolean &#x3D; false;
-  @Input() validations: Validation[] &#x3D; [];
+  @Input() public control: AbstractControl &#x3D; new FormControl();
+  @Input() public submitted: boolean &#x3D; false;
+  @Input() public validations: Validation[] &#x3D; [];
 }
 </code></pre>
     </div>
 
+    <div class="tab-pane fade" id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;ul class&#x3D;&quot;validation-message-box&quot; *ngIf&#x3D;&quot;submitted || control.touched&quot;&gt;
+  &lt;li *ngFor&#x3D;&quot;let validation of validations&quot; [hidden]&#x3D;&quot;!control.hasError(validation.type)&quot;&gt;
+    {{ validation.message }}
+  &lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+    </div>
 
     <div class="tab-pane fade" id="tree">
         <div id="tree-container"></div>

@@ -1,13 +1,13 @@
 export class Dependency {
 
   public constructor(
-    private _code: string,
+    private _name: string,
     private _criteria: string,
     private _expectedAnswer: string
   ) { }
 
-  public get code(): string {
-    return this._code;
+  public get name(): string {
+    return this._name;
   }
 
   public get criteria(): string {

@@ -136,6 +136,12 @@
                                     <a href="../classes/EmailValidator.html" >EmailValidator</a>
                                 </li>
                                 <li class="link">
+                                    <a href="../classes/Fieldset.html" >Fieldset</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../classes/FieldsetBuilder.html" >FieldsetBuilder</a>
+                                </li>
+                                <li class="link">
                                     <a href="../classes/Group.html" >Group</a>
                                 </li>
                                 <li class="link">
@@ -368,6 +374,12 @@
                                            <a href="../classes/EmailValidator.html" >EmailValidator</a>
                                        </li>
                                        <li class="link">
+                                           <a href="../classes/Fieldset.html" >Fieldset</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../classes/FieldsetBuilder.html" >FieldsetBuilder</a>
+                                       </li>
+                                       <li class="link">
                                            <a href="../classes/Group.html" >Group</a>
                                        </li>
                                        <li class="link">
@@ -524,7 +536,7 @@
                         <tbody>
                             <tr>
                                 <td class="col-md-4">
-                                    <code>constructor(code: string, description: string, dependencies: {}, type: string, answer: string, validations: {}, _options: {}, _defaultOption: string)</code>
+                                    <code>constructor(name: string, description: string, dependencies: {}, type: string, answer: string, validations: {}, _options: {}, _defaultOption: string)</code>
                                 </td>
                             </tr>
                                     <tr>
@@ -593,7 +605,7 @@ import { Validation } from &#x27;../validation&#x27;;
 export abstract class Choice extends Question&lt;string&gt; {
 
   public constructor(
-    code: string,
+    name: string,
     description: string,
     dependencies: Dependency[],
     type: string,
@@ -602,7 +614,7 @@ export abstract class Choice extends Question&lt;string&gt; {
     private _options: string[] &#x3D; [],
     private _defaultOption: string &#x3D; null
   ) {
-    super(code, description, dependencies, type, answer, validations || []);
+    super(name, description, dependencies || [], type, answer, validations || []);
   }
 
   public get options(): string[] {

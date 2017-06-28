@@ -5,7 +5,7 @@ export class Text extends Question<string> {
 
   public static fromJson(question: Text): Text {
     return new Text(
-      question.code,
+      question.name,
       question.description,
       question.dependencies,
       question.type,
@@ -17,7 +17,7 @@ export class Text extends Question<string> {
   }
 
   public constructor(
-    code: string,
+    name: string,
     description: string,
     dependencies: Dependency[],
     type: string,
@@ -26,7 +26,7 @@ export class Text extends Question<string> {
     private _mask: string = null,
     private _placeholder: string = null,
   ) {
-    super(code, description, dependencies, type, answer, validations || []);
+    super(name, description, dependencies || [], type, answer, validations || []);
   }
 
   public get mask(): string {

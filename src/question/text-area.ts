@@ -5,7 +5,7 @@ export class TextArea extends Question<string> {
 
   public static fromJson(question: TextArea): TextArea {
     return new TextArea(
-      question.code,
+      question.name,
       question.description,
       question.dependencies,
       question.type,
@@ -16,7 +16,7 @@ export class TextArea extends Question<string> {
   }
 
   public constructor(
-    code: string,
+    name: string,
     description: string,
     dependencies: Dependency[],
     type: string,
@@ -24,7 +24,7 @@ export class TextArea extends Question<string> {
     validations: Validation[] = [],
     private _placeholder: string = null,
   ) {
-    super(code, description, dependencies, type, answer, validations || []);
+    super(name, description, dependencies || [], type, answer, validations || []);
   }
 
   public get placeholder(): string {

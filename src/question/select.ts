@@ -5,7 +5,7 @@ export class Select extends Choice {
 
   public static fromJson(question: Select): Select {
     return new Select(
-      question.code,
+      question.name,
       question.description,
       question.dependencies,
       question.type,
@@ -18,7 +18,7 @@ export class Select extends Choice {
   }
 
   public constructor(
-    code: string,
+    name: string,
     description: string,
     dependencies: Dependency[],
     type: string,
@@ -28,7 +28,7 @@ export class Select extends Choice {
     defaultOption: string = null,
     private _placeholder: string = null
   ) {
-    super(code, description, dependencies, type, answer, validations, options, defaultOption);
+    super(name, description, dependencies || [], type, answer, validations || [], options, defaultOption);
   }
 
   public get placeholder(): string {

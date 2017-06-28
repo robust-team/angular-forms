@@ -136,6 +136,12 @@
                                     <a href="../classes/EmailValidator.html" >EmailValidator</a>
                                 </li>
                                 <li class="link">
+                                    <a href="../classes/Fieldset.html" >Fieldset</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../classes/FieldsetBuilder.html" >FieldsetBuilder</a>
+                                </li>
+                                <li class="link">
                                     <a href="../classes/Group.html" >Group</a>
                                 </li>
                                 <li class="link">
@@ -368,6 +374,12 @@
                                            <a href="../classes/EmailValidator.html" >EmailValidator</a>
                                        </li>
                                        <li class="link">
+                                           <a href="../classes/Fieldset.html" >Fieldset</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../classes/FieldsetBuilder.html" >FieldsetBuilder</a>
+                                       </li>
+                                       <li class="link">
                                            <a href="../classes/Group.html" >Group</a>
                                        </li>
                                        <li class="link">
@@ -524,7 +536,7 @@
                         <tbody>
                             <tr>
                                 <td class="col-md-4">
-                                    <code>constructor(code: string, description: string, dependencies: {}, type: string, answer: boolean, validations: {}, _defaultOption: boolean)</code>
+                                    <code>constructor(name: string, description: string, dependencies: {}, type: string, answer: boolean, validations: {}, _defaultOption: boolean)</code>
                                 </td>
                             </tr>
                                     <tr>
@@ -610,20 +622,20 @@ import { Validation } from &#x27;../validation&#x27;;
 
 export class Check extends Question&lt;boolean&gt; {
 
-  public static fromJson(question : Check): Check {
+  public static fromJson(question: Check): Check {
     return new Check(
-      question.code,
+      question.name,
       question.description,
       question.dependencies,
       question.type,
-      question.answer,
+      &#x27;true&#x27; &#x3D;&#x3D;&#x3D; String(question.answer),
       question.validations,
-      question.defaultOption
+      &#x27;true&#x27; &#x3D;&#x3D;&#x3D; String(question.defaultOption)
     );
   }
 
   public constructor(
-    code: string,
+    name: string,
     description: string,
     dependencies: Dependency[],
     type: string,
@@ -631,7 +643,7 @@ export class Check extends Question&lt;boolean&gt; {
     validations: Validation[] &#x3D; [],
     private _defaultOption: boolean &#x3D; null
   ) {
-    super(code, description, dependencies, type, answer || false, validations || []);
+    super(name, description, dependencies || [], type, answer || false, validations || []);
   }
 
   public get defaultOption(): boolean {

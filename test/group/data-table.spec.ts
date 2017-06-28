@@ -3,6 +3,6 @@ import { DataTable } from '../../src/group';
 
 describe('AngularForms :: Group :: DataTable', () => {
   it('should be instantiable', () => {
-    assert.ok(new DataTable('G-01', 'A simple group', 'group-type', [], [], null));
+    assert.ok(new DataTable('G-01', 'A simple group', 'datatable', [[], []], []));
   });
 });

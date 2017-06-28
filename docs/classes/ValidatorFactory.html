@@ -136,6 +136,12 @@
                                     <a href="../classes/EmailValidator.html" >EmailValidator</a>
                                 </li>
                                 <li class="link">
+                                    <a href="../classes/Fieldset.html" >Fieldset</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../classes/FieldsetBuilder.html" >FieldsetBuilder</a>
+                                </li>
+                                <li class="link">
                                     <a href="../classes/Group.html" >Group</a>
                                 </li>
                                 <li class="link">
@@ -366,6 +372,12 @@
                                        </li>
                                        <li class="link">
                                            <a href="../classes/EmailValidator.html" >EmailValidator</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../classes/Fieldset.html" >Fieldset</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../classes/FieldsetBuilder.html" >FieldsetBuilder</a>
                                        </li>
                                        <li class="link">
                                            <a href="../classes/Group.html" >Group</a>
@@ -778,27 +790,27 @@ export class ValidatorFactory {
   }
 
   public createMaxValidator(): ValidatorFn {
-    return Validators.max((&lt;Max&gt; this.validation).value);
+    return Validators.max((&lt;Max&gt;this.validation).value);
   }
 
   public createMinValidator(): ValidatorFn {
-    return Validators.min((&lt;Min&gt; this.validation).value);
+    return Validators.min((&lt;Min&gt;this.validation).value);
   }
 
   public createMaxLengthValidator(): ValidatorFn {
-    return Validators.maxLength((&lt;MaxLength&gt; this.validation).value);
+    return Validators.maxLength((&lt;MaxLength&gt;this.validation).value);
   }
 
   public createMinLengthValidator(): ValidatorFn {
-    return Validators.minLength((&lt;MinLength&gt; this.validation).value);
+    return Validators.minLength((&lt;MinLength&gt;this.validation).value);
   }
 
   public createPatternValidator(): ValidatorFn {
-    return Validators.pattern((&lt;Pattern&gt; this.validation).regex);
+    return Validators.pattern((&lt;Pattern&gt;this.validation).value);
   }
 
   public createRequiredValidator(): ValidatorFn {
-    return !(&lt;Required&gt; this.validation).requiredTrue ? Validators.required : Validators.requiredTrue;
+    return !(&lt;Required&gt;this.validation).requiredTrue ? Validators.required : Validators.requiredTrue;
   }
 }
 </code></pre>

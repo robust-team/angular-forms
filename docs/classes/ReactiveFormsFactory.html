@@ -136,6 +136,12 @@
                                     <a href="../classes/EmailValidator.html" >EmailValidator</a>
                                 </li>
                                 <li class="link">
+                                    <a href="../classes/Fieldset.html" >Fieldset</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../classes/FieldsetBuilder.html" >FieldsetBuilder</a>
+                                </li>
+                                <li class="link">
                                     <a href="../classes/Group.html" >Group</a>
                                 </li>
                                 <li class="link">
@@ -368,6 +374,12 @@
                                            <a href="../classes/EmailValidator.html" >EmailValidator</a>
                                        </li>
                                        <li class="link">
+                                           <a href="../classes/Fieldset.html" >Fieldset</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../classes/FieldsetBuilder.html" >FieldsetBuilder</a>
+                                       </li>
+                                       <li class="link">
                                            <a href="../classes/Group.html" >Group</a>
                                        </li>
                                        <li class="link">
@@ -567,7 +579,7 @@
             
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/factory/reactive-forms-factory.ts:35</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/factory/reactive-forms-factory.ts:33</a></div>
                                         </td>
                                     </tr>
             
@@ -592,14 +604,14 @@
                             <tr>
                                 <td class="col-md-4">
                                         <span class="modifier-icon method fa fa-play "></span>
-                                    <code>createFormArray(answers: {})</code>
+                                    <code>createFormArray(questions: {})</code>
                                 </td>
                             </tr>
             
             
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/factory/reactive-forms-factory.ts:50</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/factory/reactive-forms-factory.ts:48</a></div>
                                         </td>
                                     </tr>
             
@@ -631,7 +643,7 @@
             
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="68" class="link-to-prism">src/factory/reactive-forms-factory.ts:68</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="66" class="link-to-prism">src/factory/reactive-forms-factory.ts:66</a></div>
                                         </td>
                                     </tr>
             
@@ -653,7 +665,7 @@
     <div class="tab-pane fade tab-source-code" id="source">
         <pre class="line-numbers"><code class="language-typescript">import { FormGroup, FormArray, FormControl, ValidatorFn, Validators } from &#x27;@angular/forms&#x27;;
 
-import { DataTable, Group } from &#x27;../group&#x27;;
+import { Group, Fieldset, DataTable } from &#x27;../group&#x27;;
 import { Question } from &#x27;../question&#x27;;
 import { Validation, MinLength, MaxLength, Pattern, Required, Min, Max } from &#x27;../validation&#x27;;
 import {
@@ -668,15 +680,13 @@ export class ReactiveFormsFactory {
     const formGroup: FormGroup &#x3D; new FormGroup({});
 
     for (const group of groups) {
-      let control: FormGroup|FormArray;
+      let control: FormGroup | FormArray;
 
-      if (&#x27;datatable&#x27; !&#x3D;&#x3D; group.type) {
-        control &#x3D; ReactiveFormsFactory.createFormGroupFromQuestions(group.questions);
+      if (&#x27;group&#x27; &#x3D;&#x3D;&#x3D; group.type) {
+        control &#x3D; ReactiveFormsFactory.createFormGroupFromQuestions((&lt;Fieldset&gt;group).questions);
       } else {
-        const dataTable: DataTable &#x3D; &lt;DataTable&gt; group;
-
-        control &#x3D; ReactiveFormsFactory.createFormArray(dataTable.answers);
-        control.setValidators(ReactiveFormsFactory.createValidators(dataTable.validations));
+        control &#x3D; ReactiveFormsFactory.createFormArray((&lt;DataTable&gt;group).questions.slice(1));
+        control.setValidators(ReactiveFormsFactory.createValidators((&lt;DataTable&gt;group).validations));
       }
 
       formGroup.addControl(group.code, control);
@@ -694,21 +704,21 @@ export class ReactiveFormsFactory {
         ? question[&#x27;defaultOption&#x27;]
         : question.answer;
 
-      formGroup.addControl(question.code, new FormControl(formState, validators));
+      formGroup.addControl(question.name, new FormControl(formState, validators));
     }
 
     return formGroup;
   }
 
-  public static createFormArray(answers: Question&lt;any&gt;[][] &#x3D; null): FormArray {
+  public static createFormArray(questions: Question&lt;any&gt;[][] &#x3D; null): FormArray {
     const formArray: FormArray &#x3D; new FormArray([]);
 
-    if (answers) {
-      for (const answer of answers) {
+    if (questions) {
+      for (const question of questions) {
         const group: FormGroup &#x3D; new FormGroup({});
 
-        for (const column of answer) {
-          group.addControl(column.code, new FormControl(column.answer));
+        for (const column of question) {
+          group.addControl(column.name, new FormControl(column.answer));
         }
 
         formArray.push(group);

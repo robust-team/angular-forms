@@ -136,6 +136,12 @@
                                     <a href="../classes/EmailValidator.html" >EmailValidator</a>
                                 </li>
                                 <li class="link">
+                                    <a href="../classes/Fieldset.html" >Fieldset</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../classes/FieldsetBuilder.html" >FieldsetBuilder</a>
+                                </li>
+                                <li class="link">
                                     <a href="../classes/Group.html" >Group</a>
                                 </li>
                                 <li class="link">
@@ -368,6 +374,12 @@
                                            <a href="../classes/EmailValidator.html" >EmailValidator</a>
                                        </li>
                                        <li class="link">
+                                           <a href="../classes/Fieldset.html" >Fieldset</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../classes/FieldsetBuilder.html" >FieldsetBuilder</a>
+                                       </li>
+                                       <li class="link">
                                            <a href="../classes/Group.html" >Group</a>
                                        </li>
                                        <li class="link">
@@ -524,7 +536,7 @@
                         <tbody>
                             <tr>
                                 <td class="col-md-4">
-                                    <code>constructor(code: string, description: string, dependencies: {}, type: string, answer: string, validations: {}, _placeholder: string)</code>
+                                    <code>constructor(name: string, description: string, dependencies: {}, type: string, answer: string, validations: {}, _placeholder: string)</code>
                                 </td>
                             </tr>
                                     <tr>
@@ -612,7 +624,7 @@ export class TextArea extends Question&lt;string&gt; {
 
   public static fromJson(question: TextArea): TextArea {
     return new TextArea(
-      question.code,
+      question.name,
       question.description,
       question.dependencies,
       question.type,
@@ -623,7 +635,7 @@ export class TextArea extends Question&lt;string&gt; {
   }
 
   public constructor(
-    code: string,
+    name: string,
     description: string,
     dependencies: Dependency[],
     type: string,
@@ -631,7 +643,7 @@ export class TextArea extends Question&lt;string&gt; {
     validations: Validation[] &#x3D; [],
     private _placeholder: string &#x3D; null,
   ) {
-    super(code, description, dependencies, type, answer, validations || []);
+    super(name, description, dependencies || [], type, answer, validations || []);
   }
 
   public get placeholder(): string {

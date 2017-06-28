@@ -12,17 +12,17 @@ export class DependencyService {
     }
 
     for (const dependency of question.dependencies) {
-      const answerDependency: string = formGroup.get(dependency.code).value;
+      const answerDependency: string = formGroup.get(dependency.name).value;
       const result: boolean = this.executeOperation(answerDependency, dependency);
 
       if (!result) {
-        this.setStatusFormControl(<FormControl> formGroup.get(question.code), true);
+        this.setStatusFormControl(<FormControl> formGroup.get(question.name), true);
 
         return true;
       }
     }
 
-    this.setStatusFormControl(<FormControl> formGroup.get(question.code), false);
+    this.setStatusFormControl(<FormControl> formGroup.get(question.name), false);
 
     return false;
   }

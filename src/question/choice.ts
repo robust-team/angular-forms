@@ -4,7 +4,7 @@ import { Validation } from '../validation';
 export abstract class Choice extends Question<string> {
 
   public constructor(
-    code: string,
+    name: string,
     description: string,
     dependencies: Dependency[],
     type: string,
@@ -13,7 +13,7 @@ export abstract class Choice extends Question<string> {
     private _options: string[] = [],
     private _defaultOption: string = null
   ) {
-    super(code, description, dependencies, type, answer, validations || []);
+    super(name, description, dependencies || [], type, answer, validations || []);
   }
 
   public get options(): string[] {
