@@ -179,7 +179,7 @@ The **customForm** attribute represents the JSON coming from API. For example:
 ]
 ```
 
-![screen](./docs/screens/angular-forms-01.png)
+![screen](docs/screens/angular-forms-01.png)
 
 4. Get form values by adding a local variable to the component and calling the **getForm()** method. For example:
 
@@ -230,7 +230,7 @@ Example output:
 <rb-angular-forms #angularForms [groups]="customForm" [readOnly]="true"></rb-angular-forms>
 ```
 
-![screen](./docs/screens/angular-forms-02.png)
+![screen](docs/screens/angular-forms-02.png)
 
 ## Groups
 
