@@ -9,9 +9,9 @@ export class Check extends Question<boolean> {
       question.description,
       question.dependencies,
       question.type,
-      question.answer,
+      'true' === String(question.answer),
       question.validations,
-      question.defaultOption
+      'true' === String(question.defaultOption)
     );
   }
 
@@ -24,7 +24,7 @@ export class Check extends Question<boolean> {
     validations: Validation[] = [],
     private _defaultOption: boolean = null
   ) {
-    super(name, description, dependencies, type, answer || false, validations || []);
+    super(name, description, dependencies || [], type, answer || false, validations || []);
   }
 
   public get defaultOption(): boolean {

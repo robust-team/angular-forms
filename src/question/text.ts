@@ -26,7 +26,7 @@ export class Text extends Question<string> {
     private _mask: string = null,
     private _placeholder: string = null,
   ) {
-    super(name, description, dependencies, type, answer, validations || []);
+    super(name, description, dependencies || [], type, answer, validations || []);
   }
 
   public get mask(): string {

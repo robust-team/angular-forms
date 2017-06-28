@@ -24,7 +24,7 @@ export class TextArea extends Question<string> {
     validations: Validation[] = [],
     private _placeholder: string = null,
   ) {
-    super(name, description, dependencies, type, answer, validations || []);
+    super(name, description, dependencies || [], type, answer, validations || []);
   }
 
   public get placeholder(): string {

@@ -13,7 +13,7 @@ export abstract class Choice extends Question<string> {
     private _options: string[] = [],
     private _defaultOption: string = null
   ) {
-    super(name, description, dependencies, type, answer, validations || []);
+    super(name, description, dependencies || [], type, answer, validations || []);
   }
 
   public get options(): string[] {

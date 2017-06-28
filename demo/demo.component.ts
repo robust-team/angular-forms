@@ -19,9 +19,9 @@ export class DemoComponent {
           'name': 'Q-0101',
           'description': 'Check Question 0101',
           'type': 'check',
-          'defaultOption': false,
+          'defaultOption': 'false',
           'validations': [
-            { 'type': 'required', 'message': 'Required field.', 'requiredTrue': true }
+            { 'type': 'required', 'message': 'Required field.', 'requiredTrue': 'true' }
           ]
         },
         {
@@ -115,7 +115,7 @@ export class DemoComponent {
             'name': 'Q-0203',
             'description': 'Check Question 0203',
             'type': 'check',
-            'defaulOption': false,
+            'defaulOption': 'false',
             'placeholder': 'Check Question 0203'
           }
         ],
@@ -146,9 +146,9 @@ export class DemoComponent {
             'name': 'Q-0203',
             'description': 'Check Question 0203',
             'type': 'check',
-            'defaulOption': true,
+            'defaulOption': 'true',
             'placeholder': 'Check Question 0203',
-            'answer': false
+            'answer': 'false'
           }
         ],
         [
@@ -178,9 +178,9 @@ export class DemoComponent {
             'name': 'Q-0203',
             'description': 'Check Question 0203',
             'type': 'check',
-            'defaulOption': true,
+            'defaulOption': 'true',
             'placeholder': 'Check Question 0203',
-            'answer': true
+            'answer': 'true'
           }
         ]
       ]

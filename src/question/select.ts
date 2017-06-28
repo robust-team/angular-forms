@@ -28,7 +28,7 @@ export class Select extends Choice {
     defaultOption: string = null,
     private _placeholder: string = null
   ) {
-    super(name, description, dependencies, type, answer, validations, options, defaultOption);
+    super(name, description, dependencies || [], type, answer, validations || [], options, defaultOption);
   }
 
   public get placeholder(): string {
