@@ -8,7 +8,9 @@
           <th class="text-center" *ngFor="let question of group.questions[0]">
             {{ question.description }}
           </th>
-          <th class="text-center" *ngIf="!readOnly">Action</th>
+          <th class="text-center" *ngIf="!readOnly">
+            {{ 'ACTION' | translate }}
+          </th>
         </tr>
       </thead>
       <tbody>
@@ -84,7 +86,7 @@
           <td class="text-center">
             <button class="btn btn-default btn-add-data" (click)="addData()">
               <i class="rb-ico rb-ico-add" aria-hidden="true"></i>
-              Add
+              {{ 'ADD' | translate }}
             </button>
           </td>
         </tr>
@@ -103,7 +105,7 @@
           <td class="text-center" *ngIf="!readOnly">
             <button class="btn btn-default btn-remove-data" (click)="removeData(indexData)">
               <i class="rb-ico rb-ico-remove" aria-hidden="true"></i>
-              Remove
+              {{ 'REMOVE' | translate }}
             </button>
           </td>
         </tr>
