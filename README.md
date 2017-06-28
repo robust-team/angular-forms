@@ -92,7 +92,7 @@ The **customForm** attribute represents the JSON coming from API. For example:
         "validations": [
           { "type": "required", "message": "Required field." },
           { "type": "minlength", "message": "Min Length: 3", "value": 3 },
-          { "type": "maxlength", "message": "Max Length: 6", "value": 10 }
+          { "type": "maxlength", "message": "Max Length: 10", "value": 10 }
         ]
       },
       {
