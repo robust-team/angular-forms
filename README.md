@@ -232,6 +232,12 @@ Example output:
 
 ![screen](docs/screens/angular-forms-02.png)
 
+6. For you config the language to be used by AngularForms, use the **lang** input. There are two langs available: **en-US** (default) and **pt-BR**.
+
+```html
+<rb-angular-forms #angularForms [groups]="customForm" lang="pt-BR"></rb-angular-forms>
+```
+
 ## Groups
 
 The **Group** represents a grouping of questions, which can be of two types: **Fieldset** and **DataTable**.
