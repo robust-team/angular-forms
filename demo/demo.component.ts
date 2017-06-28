@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   template: `
     <div class='container'>
       <h1>AngularForms</h1>
-      <rb-angular-forms #angularForms [groups]='customForm' [readOnly]='false'></rb-angular-forms>
+      <rb-angular-forms #angularForms [groups]="customForm" [readOnly]="false"></rb-angular-forms>
       <button class='btn btn-primary' (click)='print(angularForms.getForm())'>Print Form</button>
     </div>
   `
@@ -55,7 +55,7 @@ export class DemoComponent {
         'validations': [
           { 'type': 'required', 'message': 'Required field.' },
           { 'type': 'minlength', 'message': 'Min Length: 3', 'value': 3 },
-          { 'type': 'maxlength', 'message': 'Max Length: 6', 'value': 10 }
+          { 'type': 'maxlength', 'message': 'Max Length: 10', 'value': 10 }
         ]
       },
       {
