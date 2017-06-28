@@ -1,0 +1,29 @@
+fieldset.datatable {
+  border: 1px solid #ccc;
+  margin-bottom: 15px;
+  padding: 0 15px 15px;
+}
+
+fieldset.datatable legend {
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+}
+
+.data .checkbox { text-align: center }
+
+.data .checkbox:before {
+  background: linear-gradient(to bottom, #fff 0px, #e6e6e6 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
+  border: 1px solid #888;
+  border-radius: .3rem;
+  content: '';
+  cursor: default;
+  display: inline-block;
+  font-size: 1.6rem;
+  height: 1.4rem;
+  line-height: 1.4rem;
+  margin-right: .5rem;
+  text-align: center;
+  width: 1.4rem;
+}
+
+.data .checkbox.checked:before { content: '✓' }
