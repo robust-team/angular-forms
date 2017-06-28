@@ -9,7 +9,7 @@ export class DataTable extends Group {
     description: string,
     type: string,
     private _questions: Question<any>[][],
-    private _validations: Validation[]
+    private _validations: Validation[] = []
   ) {
     super(code, description, type);
   }

@@ -2,7 +2,7 @@ import { Question, Text, TextArea, Check, Radio, Select } from '../question';
 
 export class QuestionFactory {
 
-  private types: any = {
+  private static types: any = {
     'check': Check,
     'radio': Radio,
     'select': Select,
@@ -10,11 +10,11 @@ export class QuestionFactory {
     'textarea': TextArea,
   };
 
-  public createSimpleQuestion(question: Question<any>): Question<any> {
-    return this.types[question.type].fromJson(question);
+  public static createSimpleQuestion(question: Question<any>): Question<any> {
+    return QuestionFactory.types[question.type].fromJson(question);
   }
 
-  public createQuestionList(questionList: Question<any>[]): Question<any>[] {
-    return questionList.map((question: Question<any>) => this.createSimpleQuestion(question));
+  public static createQuestionList(questionList: Question<any>[]): Question<any>[] {
+    return questionList.map((question: Question<any>) => QuestionFactory.createSimpleQuestion(question));
   }
 }

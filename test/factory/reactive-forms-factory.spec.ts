@@ -2,15 +2,15 @@ import { FormArray, FormGroup, ValidatorFn } from '@angular/forms';
 
 import { assert } from 'chai';
 import { ReactiveFormsFactory } from '../../src/factory';
-import { DataTable, Group } from '../../src/group';
+import { Fieldset, DataTable, Group } from '../../src/group';
 import { Question, Text } from '../../src/question';
 import { Validation, MinLength, MaxLength, Pattern, Required } from '../../src/validation';
 
 describe('AngularForms :: Factory :: ReactiveFormsFactory', () => {
   it('should create a FormGroup from Groups', () => {
     const groups: Group[] = [
-      new Group('group-01', 'Group 01', 'fieldset', []),
-      new Group('group-02', 'Group 02', 'fieldset', [])
+      new Fieldset('group-01', 'Group 01', 'group', []),
+      new Fieldset('group-02', 'Group 02', 'group', [])
     ];
 
     assert.isTrue(ReactiveFormsFactory.createFormGroupFromGroups(groups) instanceof FormGroup);
@@ -18,8 +18,8 @@ describe('AngularForms :: Factory :: ReactiveFormsFactory', () => {
 
   it('should create a FormGroup from DataTables', () => {
     const groups: Group[] = [
-      new DataTable('group-01', 'Group 01', 'datatable', [], [], []),
-      new DataTable('group-02', 'Group 02', 'datatable', [], [], [])
+      new DataTable('group-01', 'Group 01', 'datatable', [], []),
+      new DataTable('group-02', 'Group 02', 'datatable', [], [])
     ];
 
     assert.isTrue(ReactiveFormsFactory.createFormGroupFromGroups(groups) instanceof FormGroup);

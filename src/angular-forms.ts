@@ -14,8 +14,8 @@ export class AngularForms {
       for (const question of group.questions) {
         groupBuilder.addQuestion(
           'group' === group.type
-            ? (new QuestionFactory()).createSimpleQuestion(<Question<any>>question)
-            : (new QuestionFactory()).createQuestionList(<Question<any>[]>question)
+            ? QuestionFactory.createSimpleQuestion(<Question<any>>question)
+            : QuestionFactory.createQuestionList(<Question<any>[]>question)
         );
       }
 
