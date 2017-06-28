@@ -62,7 +62,7 @@ export class DemoComponent {
           'placeholder': 'Text Question 0105',
           'validations': [
             { 'type': 'required', 'message': 'Required field.' },
-            { 'type': 'pattern', 'message': 'Format: 00000-000', 'regex': '^\\d{5}-\\d{3}$' }
+            { 'type': 'pattern', 'message': 'Format: 00000-000', 'value': '^\\d{5}-\\d{3}$' }
           ],
           'mask': '00000-000'
         },

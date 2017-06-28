@@ -27,7 +27,7 @@ export class ValidatorFactory {
   }
 
   public createPatternValidator(): ValidatorFn {
-    return Validators.pattern((<Pattern>this.validation).regex);
+    return Validators.pattern((<Pattern>this.validation).value);
   }
 
   public createRequiredValidator(): ValidatorFn {
