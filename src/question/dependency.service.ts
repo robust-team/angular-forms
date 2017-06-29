@@ -7,7 +7,7 @@ import { Dependency, Question } from '.';
 export class DependencyService {
 
   public hideQuestion(question: Question<any>, formGroup: FormGroup): boolean {
-    if (!question.dependencies) {
+    if (!question.dependencies || 0 === question.dependencies.length) {
       return false;
     }
 
