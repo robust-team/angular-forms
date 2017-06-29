@@ -44,17 +44,21 @@
     "@angular/core": "^4.0.0",
     "@angular/forms": "^4.0.0",
     "@fagnerlima/ng-mask": "^2.2.1",
-    "@ngx-translate/core": "^7.0.0"
+    "@ngx-translate/core": "^7.0.0",
+    "rxjs": "^5.0.1"
   },
   "devDependencies": {
     "@angular/common": "^4.0.0",
     "@angular/compiler": "^4.0.0",
     "@angular/compiler-cli": "^4.0.0",
     "@angular/core": "^4.0.0",
+    "@angular/forms": "^4.0.0",
     "@angular/language-service": "^4.0.0",
     "@angular/platform-browser": "^4.0.0",
     "@angular/platform-browser-dynamic": "^4.0.0",
     "@compodoc/compodoc": "^1.0.0-beta.3",
+    "@fagnerlima/ng-mask": "^2.2.1",
+    "@ngx-translate/core": "^7.0.0",
     "@types/chai": "^4.0.0",
     "@types/html-webpack-plugin": "^2.11.2",
     "@types/mocha": "^2.2.41",
