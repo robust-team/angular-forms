@@ -10,70 +10,76 @@ describe('AngularForms :: ChainOfResponsibility :: ValidatorFactory', () => {
   let validatorFactoryHandler: ValidatorFactoryHandler;
 
   beforeEach(() => {
-    this.validatorFactoryHandler = new RequiredValidator();
-    this.validatorFactoryHandler.append(new EmailValidator());
-    this.validatorFactoryHandler.append(new MaxValidator());
-    this.validatorFactoryHandler.append(new MinValidator());
-    this.validatorFactoryHandler.append(new MaxLengthValidator());
-    this.validatorFactoryHandler.append(new MinLengthValidator());
-    this.validatorFactoryHandler.append(new PatternValidator());
+    validatorFactoryHandler = new RequiredValidator();
+    validatorFactoryHandler.append(new EmailValidator());
+    validatorFactoryHandler.append(new MaxValidator());
+    validatorFactoryHandler.append(new MinValidator());
+    validatorFactoryHandler.append(new MaxLengthValidator());
+    validatorFactoryHandler.append(new MinLengthValidator());
+    validatorFactoryHandler.append(new PatternValidator());
   });
 
   it('should create a Email Validator', () => {
     const validation: Validation = new Email('email', 'Message');
 
-    assert.isTrue('function' === typeof this.validatorFactoryHandler.handle(validation));
+    assert.isTrue('function' === typeof validatorFactoryHandler.handle(validation));
   });
 
   it('should create a Max Validator', () => {
     const validation: Validation = new Max('max', 'Message', 10);
 
-    assert.isTrue('function' === typeof this.validatorFactoryHandler.handle(validation));
+    assert.isTrue('function' === typeof validatorFactoryHandler.handle(validation));
   });
 
   it('should create a Min Validator', () => {
     const validation: Validation = new Min('min', 'Message', 6);
 
-    assert.isTrue('function' === typeof this.validatorFactoryHandler.handle(validation));
+    assert.isTrue('function' === typeof validatorFactoryHandler.handle(validation));
   });
 
   it('should create a MaxLength Validator', () => {
     const validation: Validation = new MaxLength('maxlength', 'Message', 6);
 
-    assert.isTrue('function' === typeof this.validatorFactoryHandler.handle(validation));
+    assert.isTrue('function' === typeof validatorFactoryHandler.handle(validation));
   });
 
   it('should create a MinLength Validator', () => {
     const validation: Validation = new MinLength('minlength', 'Message', 6);
 
-    assert.isTrue('function' === typeof this.validatorFactoryHandler.handle(validation));
+    assert.isTrue('function' === typeof validatorFactoryHandler.handle(validation));
   });
 
-  it('should create a Pattern Validator', () => {
+  it('should create a Pattern Validator with string', () => {
     const validation: Validation = new Pattern('pattern', 'Message', '^\\d{3}$');
 
-    assert.isTrue('function' === typeof this.validatorFactoryHandler.handle(validation));
+    assert.isTrue('function' === typeof validatorFactoryHandler.handle(validation));
+  });
+
+  it('should create a Pattern Validator with regex', () => {
+    const validation: Validation = new Pattern('pattern', 'Message', '/^\d{3}[A-Z]{4}$/i');
+
+    assert.isTrue('function' === typeof validatorFactoryHandler.handle(validation));
   });
 
   it('should create a Required Validator', () => {
     const validation: Validation = new Required('required', 'Message');
 
-    assert.isTrue('function' === typeof this.validatorFactoryHandler.handle(validation));
+    assert.isTrue('function' === typeof validatorFactoryHandler.handle(validation));
   });
 
   it('should create a Required True Validator', () => {
     const validation: Validation = new Required('required', 'Message', true);
 
-    assert.isTrue('function' === typeof this.validatorFactoryHandler.handle(validation));
+    assert.isTrue('function' === typeof validatorFactoryHandler.handle(validation));
   });
 
   it('should throw a ValidationTypeNotFoundError', () => {
     const validation: Validation = new Required('date', 'Message');
 
-    // assert.throw(this.validatorFactoryHandler.handle(validation));
+    // assert.throw(validatorFactoryHandler.handle(validation));
 
     try {
-      this.validatorFactoryHandler.handle(validation);
+      validatorFactoryHandler.handle(validation);
     } catch (error) {
       assert.isTrue(error instanceof ValidationTypeNotFoundError);
 
