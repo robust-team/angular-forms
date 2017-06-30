@@ -27,7 +27,17 @@ export class ValidatorFactory {
   }
 
   public createPatternValidator(): ValidatorFn {
-    return Validators.pattern((<Pattern>this.validation).value);
+    const value: string = (<Pattern>this.validation).value;
+
+    if (value.startsWith('/')) {
+      const valuePattern: RegExp = /\/(.*)\/([gim]+)?/;
+      const pattern: string = value.replace(valuePattern, '$1');
+      const flags: string = value.replace(valuePattern, '$2');
+
+      return Validators.pattern(new RegExp(pattern, flags));
+    }
+
+    return Validators.pattern(value);
   }
 
   public createRequiredValidator(): ValidatorFn {

@@ -34,17 +34,30 @@ describe('AngularForms :: Factory :: ReactiveFormsFactory', () => {
     assert.isTrue(ReactiveFormsFactory.createFormGroupFromQuestions(questions) instanceof FormGroup);
   });
 
-  it('should create a FormArray', () => {
-    assert.isTrue(ReactiveFormsFactory.createFormArray() instanceof FormArray);
+  it('should create a FormArray without answers', () => {
+    const questions: Question<any>[][] = [
+      [
+        new Text('question-01', 'Question 01', [], 'text'),
+        new Text('question-02', 'Question 02', [], 'text')
+      ]
+    ];
+
+    assert.isTrue(ReactiveFormsFactory.createFormArrayFromQuestions(questions) instanceof FormArray);
   });
 
   it('should create a FormArray with answers', () => {
-    const answers: Question<any>[] = [
-      new Text('question-01', 'Question 01', [], 'text', 'Answer', [], '', ''),
-      new Text('question-02', 'Question 02', [], 'text', 'Answer', [], '', '')
+    const questions: Question<any>[][] = [
+      [
+        new Text('question-01', 'Question 01', [], 'text'),
+        new Text('question-02', 'Question 02', [], 'text')
+      ],
+      [
+        new Text('question-01', 'Question 01', [], 'text', 'Answer 1'),
+        new Text('question-02', 'Question 02', [], 'text', 'Answer 2')
+      ]
     ];
 
-    assert.isTrue(ReactiveFormsFactory.createFormArray() instanceof FormArray);
+    assert.isTrue(ReactiveFormsFactory.createFormArrayFromQuestions(questions) instanceof FormArray);
   });
 
   it('should create Validators', () => {

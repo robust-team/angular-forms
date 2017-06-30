@@ -115,7 +115,7 @@ The **customForm** attribute represents the JSON coming from API. For example:
           { "type": "required", "message": "Required field." }
         ],
         "dependencies": [
-          { "name": "Q-0103", "criteria": "equals", "expectedAnswer": "Option 1" }
+          { "code": "Q-0103", "criteria": "equals", "expectedAnswer": "Option 1" }
         ]
       }
     ]
@@ -231,6 +231,12 @@ Example output:
 ```
 
 ![screen](docs/screens/angular-forms-02.png)
+
+6. For you config the language to be used by AngularForms, use the **lang** input. There are two langs available: **en-US** (default) and **pt-BR**.
+
+```html
+<rb-angular-forms #angularForms [groups]="customForm" lang="pt-BR"></rb-angular-forms>
+```
 
 ## Groups
 
@@ -520,8 +526,8 @@ Obligatory field validation. The **requiredTrue** field is used for checkbox val
     { "type": "required", "message": "Required field." }
   ],
   "dependencies": [
-    { "name": "Q-0103", "criteria": "equals", "expectedAnswer": "Option 1" }
-    { "name": "Q-0104", "criteria": "greaterthan", "expectedAnswer": "10" }
+    { "code": "Q-0103", "criteria": "equals", "expectedAnswer": "Option 1" }
+    { "code": "Q-0104", "criteria": "greaterthan", "expectedAnswer": "10" }
   ]
 }
 ```

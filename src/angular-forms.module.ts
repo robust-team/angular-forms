@@ -6,6 +6,8 @@ import { NgMaskModule } from '@fagnerlima/ng-mask';
 import { AngularFormsComponent } from '.';
 import { DataTableModule } from './data-table';
 import { ValidationMessageModule } from './validation-message';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { AngularFormsTranslateLoader } from './angular-forms-translate-loader';
 
 @NgModule({
   imports: [
@@ -13,7 +15,13 @@ import { ValidationMessageModule } from './validation-message';
     ReactiveFormsModule,
     DataTableModule,
     ValidationMessageModule,
-    NgMaskModule
+    NgMaskModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useClass: AngularFormsTranslateLoader
+      }
+    })
   ],
   declarations: [AngularFormsComponent],
   exports: [AngularFormsComponent]

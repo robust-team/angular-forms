@@ -20,7 +20,7 @@ export class ReactiveFormsFactory {
       if ('group' === group.type) {
         control = ReactiveFormsFactory.createFormGroupFromQuestions((<Fieldset>group).questions);
       } else {
-        control = ReactiveFormsFactory.createFormArray((<DataTable>group).questions.slice(1));
+        control = ReactiveFormsFactory.createFormArrayFromQuestions((<DataTable>group).questions.slice(1));
         control.setValidators(ReactiveFormsFactory.createValidators((<DataTable>group).validations));
       }
 
@@ -45,19 +45,17 @@ export class ReactiveFormsFactory {
     return formGroup;
   }
 
-  public static createFormArray(questions: Question<any>[][] = null): FormArray {
+  public static createFormArrayFromQuestions(questions: Question<any>[][]): FormArray {
     const formArray: FormArray = new FormArray([]);
 
-    if (questions) {
-      for (const question of questions) {
-        const group: FormGroup = new FormGroup({});
+    for (const question of questions) {
+      const group: FormGroup = new FormGroup({});
 
-        for (const column of question) {
-          group.addControl(column.name, new FormControl(column.answer));
-        }
-
-        formArray.push(group);
+      for (const column of question) {
+        group.addControl(column.name, new FormControl(column.answer));
       }
+
+      formArray.push(group);
     }
 
     return formArray;
