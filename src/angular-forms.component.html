@@ -57,7 +57,7 @@
                 <ng-container *ngIf="readOnly">
                   <div class="form-group">
                     <label>{{ question.description }}:</label>
-                    <span>{{ question.answer }}</span>
+                    <span>{{ question.answer || 'NOT_INFORMED' | translate }}</span>
                   </div> <!--/.form-group-->
                 </ng-container>
               </ng-template> <!--/radio-->
@@ -85,7 +85,7 @@
                 <ng-container *ngIf="readOnly">
                   <div class="form-group">
                     <label>{{ question.description }}:</label>
-                    <span>{{ question.answer }}</span>
+                    <span>{{ question.answer || 'NOT_INFORMED' | translate }}</span>
                   </div> <!--/.form-group-->
                 </ng-container> <!--/readOnly-->
               </ng-template> <!--/select-->
@@ -108,7 +108,7 @@
                 <ng-container *ngIf="readOnly">
                   <div class="form-group">
                     <label>{{ question.description }}:</label>
-                    <span>{{ question.answer }}</span>
+                    <span>{{ question.answer || 'NOT_INFORMED' | translate }}</span>
                   </div> <!--/.form-group-->
                 </ng-container> <!--/readOnly-->
               </ng-template> <!--/textarea-->
@@ -130,7 +130,7 @@
                 <ng-container *ngIf="readOnly">
                   <div class="form-group">
                     <label>{{ question.description }}:</label>
-                    <span>{{ question.answer }}</span>
+                    <span>{{ question.answer || 'NOT_INFORMED' | translate }}</span>
                   </div> <!--/.form-group-->
                 </ng-container>
               </ng-template> <!--/text-->

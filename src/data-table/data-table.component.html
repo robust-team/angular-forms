@@ -98,7 +98,7 @@
               </ng-template>
 
               <ng-template ngSwitchDefault>
-                {{ data[key] }}
+                {{ data[key] || 'NOT_INFORMED' | translate }}
               </ng-template>
             </ng-container>
           </td>
