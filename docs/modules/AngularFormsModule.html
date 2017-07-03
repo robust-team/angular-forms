@@ -115,6 +115,9 @@
                                     <a href="../classes/AngularForms.html" >AngularForms</a>
                                 </li>
                                 <li class="link">
+                                    <a href="../classes/AngularFormsTranslateLoader.html" >AngularFormsTranslateLoader</a>
+                                </li>
+                                <li class="link">
                                     <a href="../classes/Check.html" >Check</a>
                                 </li>
                                 <li class="link">
@@ -353,6 +356,9 @@
                                            <a href="../classes/AngularForms.html" >AngularForms</a>
                                        </li>
                                        <li class="link">
+                                           <a href="../classes/AngularFormsTranslateLoader.html" >AngularFormsTranslateLoader</a>
+                                       </li>
+                                       <li class="link">
                                            <a href="../classes/Check.html" >Check</a>
                                        </li>
                                        <li class="link">
@@ -559,6 +565,8 @@ import { NgMaskModule } from &#x27;@fagnerlima/ng-mask&#x27;;
 import { AngularFormsComponent } from &#x27;.&#x27;;
 import { DataTableModule } from &#x27;./data-table&#x27;;
 import { ValidationMessageModule } from &#x27;./validation-message&#x27;;
+import { TranslateModule, TranslateLoader } from &#x27;@ngx-translate/core&#x27;;
+import { AngularFormsTranslateLoader } from &#x27;./angular-forms-translate-loader&#x27;;
 
 @NgModule({
   imports: [
@@ -566,7 +574,13 @@ import { ValidationMessageModule } from &#x27;./validation-message&#x27;;
     ReactiveFormsModule,
     DataTableModule,
     ValidationMessageModule,
-    NgMaskModule
+    NgMaskModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useClass: AngularFormsTranslateLoader
+      }
+    })
   ],
   declarations: [AngularFormsComponent],
   exports: [AngularFormsComponent]
