@@ -15,7 +15,9 @@ A Simple Form Generator for Angular.
 - **@angular/common**: 4.0.0 or higher,
 - **@angular/core**: 4.0.0 or higher,
 - **@angular/forms**: 4.0.0 or higher,
-- **@fagnerlima/ng-mask**: 2.2.1 or higher.
+- **@fagnerlima/ng-mask**: 2.2.1 or higher,
+- **@ngx-translate/core**: 7.0.0 or higher,
+- **rxjs**: 5.0.1 or higher.
 
 ## Usage
 
