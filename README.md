@@ -375,7 +375,7 @@ The **Group** represents a grouping of questions, which can be of two types: **F
   "answer": null,
   "validations": [],
   "mask": null,
-  "placeholder: null
+  "placeholder": null
 }
 ```
 
@@ -392,7 +392,7 @@ The **Group** represents a grouping of questions, which can be of two types: **F
   "answer": null,
   "validations": [],
   "mask": "integer(6)",
-  "placeholder: null
+  "placeholder": null
 }
 ```
 
@@ -410,7 +410,7 @@ Read more in [https://fagnerlima.github.io/ng-mask/](https://fagnerlima.github.i
   "type": "textarea",
   "answer": null,
   "validations": [],
-  "placeholder: null
+  "placeholder": null
 }
 ```
 
@@ -528,7 +528,7 @@ Obligatory field validation. The **requiredTrue** field is used for checkbox val
     { "type": "required", "message": "Required field." }
   ],
   "dependencies": [
-    { "code": "Q-0103", "criteria": "equals", "expectedAnswer": "Option 1" }
+    { "code": "Q-0103", "criteria": "equals", "expectedAnswer": "Option 1" },
     { "code": "Q-0104", "criteria": "greaterthan", "expectedAnswer": "10" }
   ]
 }
