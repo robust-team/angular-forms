@@ -115,6 +115,9 @@
                                     <a href="../classes/AngularForms.html" >AngularForms</a>
                                 </li>
                                 <li class="link">
+                                    <a href="../classes/AngularFormsTranslateLoader.html" >AngularFormsTranslateLoader</a>
+                                </li>
+                                <li class="link">
                                     <a href="../classes/Check.html" >Check</a>
                                 </li>
                                 <li class="link">
@@ -351,6 +354,9 @@
                    >
                                        <li class="link">
                                            <a href="../classes/AngularForms.html" >AngularForms</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../classes/AngularFormsTranslateLoader.html" >AngularFormsTranslateLoader</a>
                                        </li>
                                        <li class="link">
                                            <a href="../classes/Check.html" >Check</a>
@@ -757,7 +763,7 @@
             
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/factory/validator-factory.ts:33</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/factory/validator-factory.ts:43</a></div>
                                         </td>
                                     </tr>
             
@@ -806,7 +812,17 @@ export class ValidatorFactory {
   }
 
   public createPatternValidator(): ValidatorFn {
-    return Validators.pattern((&lt;Pattern&gt;this.validation).value);
+    const value: string &#x3D; (&lt;Pattern&gt;this.validation).value;
+
+    if (value.startsWith(&#x27;/&#x27;)) {
+      const valuePattern: RegExp &#x3D; /\/(.*)\/([gim]+)?/;
+      const pattern: string &#x3D; value.replace(valuePattern, &#x27;$1&#x27;);
+      const flags: string &#x3D; value.replace(valuePattern, &#x27;$2&#x27;);
+
+      return Validators.pattern(new RegExp(pattern, flags));
+    }
+
+    return Validators.pattern(value);
   }
 
   public createRequiredValidator(): ValidatorFn {

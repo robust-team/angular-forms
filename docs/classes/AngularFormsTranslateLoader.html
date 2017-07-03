@@ -115,7 +115,7 @@
                                     <a href="../classes/AngularForms.html" >AngularForms</a>
                                 </li>
                                 <li class="link">
-                                    <a href="../classes/AngularFormsTranslateLoader.html" >AngularFormsTranslateLoader</a>
+                                    <a href="../classes/AngularFormsTranslateLoader.html"  data-type="entity-link" class="active" >AngularFormsTranslateLoader</a>
                                 </li>
                                 <li class="link">
                                     <a href="../classes/Check.html" >Check</a>
@@ -190,7 +190,7 @@
                                     <a href="../classes/Radio.html" >Radio</a>
                                 </li>
                                 <li class="link">
-                                    <a href="../classes/ReactiveFormsFactory.html"  data-type="entity-link" class="active" >ReactiveFormsFactory</a>
+                                    <a href="../classes/ReactiveFormsFactory.html" >ReactiveFormsFactory</a>
                                 </li>
                                 <li class="link">
                                     <a href="../classes/Required.html" >Required</a>
@@ -356,7 +356,7 @@
                                            <a href="../classes/AngularForms.html" >AngularForms</a>
                                        </li>
                                        <li class="link">
-                                           <a href="../classes/AngularFormsTranslateLoader.html" >AngularFormsTranslateLoader</a>
+                                           <a href="../classes/AngularFormsTranslateLoader.html"  data-type="entity-link" class="active" >AngularFormsTranslateLoader</a>
                                        </li>
                                        <li class="link">
                                            <a href="../classes/Check.html" >Check</a>
@@ -431,7 +431,7 @@
                                            <a href="../classes/Radio.html" >Radio</a>
                                        </li>
                                        <li class="link">
-                                           <a href="../classes/ReactiveFormsFactory.html"  data-type="entity-link" class="active" >ReactiveFormsFactory</a>
+                                           <a href="../classes/ReactiveFormsFactory.html" >ReactiveFormsFactory</a>
                                        </li>
                                        <li class="link">
                                            <a href="../classes/Required.html" >Required</a>
@@ -506,7 +506,7 @@
 
 <ol class="breadcrumb">
   <li>Classes</li>
-  <li>ReactiveFormsFactory</li>
+  <li>AngularFormsTranslateLoader</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -524,11 +524,17 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/factory/reactive-forms-factory.ts</code>
+            <code>src/angular-forms-translate-loader.ts</code>
         </p>
 
 
 
+            <p class="comment">
+                <h3>Implements</h3>
+            </p>
+            <p class="comment">
+                        <code>TranslateLoader</code>
+            </p>
 
 
             <section>
@@ -540,20 +546,20 @@
                         <tbody>
                             <tr>
                                 <td class="col-md-4">
-                                    <b><span class="modifier">Public</span> createFormGroupFromGroups</b>
+                                    <b><span class="modifier">Public</span> getTranslation</b>
                                 </td>
                             </tr>
                             <tr>
                                 <td class="col-md-4">
                                         <span class="modifier-icon method fa fa-play "></span>
-                                    <code>createFormGroupFromGroups(groups: {})</code>
+                                    <code>getTranslation(lang: string)</code>
                                 </td>
                             </tr>
             
             
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/factory/reactive-forms-factory.ts:14</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="6" class="link-to-prism">src/angular-forms-translate-loader.ts:6</a></div>
                                         </td>
                                     </tr>
             
@@ -562,102 +568,6 @@
             
                                         <div class="io-description">
                                             <b>Returns : </b>    <code>any</code>
-            
-                                        </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <table class="table table-sm table-bordered">
-                        <tbody>
-                            <tr>
-                                <td class="col-md-4">
-                                    <b><span class="modifier">Public</span> createFormGroupFromQuestions</b>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="col-md-4">
-                                        <span class="modifier-icon method fa fa-play "></span>
-                                    <code>createFormGroupFromQuestions(questions: {})</code>
-                                </td>
-                            </tr>
-            
-            
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/factory/reactive-forms-factory.ts:33</a></div>
-                                        </td>
-                                    </tr>
-            
-                            <tr>
-                                <td class="col-md-4">
-            
-                                        <div class="io-description">
-                                            <b>Returns : </b>    <code>any</code>
-            
-                                        </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <table class="table table-sm table-bordered">
-                        <tbody>
-                            <tr>
-                                <td class="col-md-4">
-                                    <b><span class="modifier">Public</span> createFormArrayFromQuestions</b>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="col-md-4">
-                                        <span class="modifier-icon method fa fa-play "></span>
-                                    <code>createFormArrayFromQuestions(questions: {})</code>
-                                </td>
-                            </tr>
-            
-            
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/factory/reactive-forms-factory.ts:48</a></div>
-                                        </td>
-                                    </tr>
-            
-                            <tr>
-                                <td class="col-md-4">
-            
-                                        <div class="io-description">
-                                            <b>Returns : </b>    <code>any</code>
-            
-                                        </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <table class="table table-sm table-bordered">
-                        <tbody>
-                            <tr>
-                                <td class="col-md-4">
-                                    <b><span class="modifier">Public</span> createValidators</b>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="col-md-4">
-                                        <span class="modifier-icon method fa fa-play "></span>
-                                    <code>createValidators(validations: {})</code>
-                                </td>
-                            </tr>
-            
-            
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="64" class="link-to-prism">src/factory/reactive-forms-factory.ts:64</a></div>
-                                        </td>
-                                    </tr>
-            
-                            <tr>
-                                <td class="col-md-4">
-            
-                                        <div class="io-description">
-                                            <b>Returns : </b>    <code>{}</code>
             
                                         </div>
                                 </td>
@@ -669,92 +579,13 @@
 
     </div>
     <div class="tab-pane fade tab-source-code" id="source">
-        <pre class="line-numbers"><code class="language-typescript">import { FormGroup, FormArray, FormControl, ValidatorFn, Validators } from &#x27;@angular/forms&#x27;;
+        <pre class="line-numbers"><code class="language-typescript">import { TranslateLoader } from &#x27;@ngx-translate/core&#x27;;
+import { Observable } from &#x27;rxjs/Observable&#x27;;
 
-import { Group, Fieldset, DataTable } from &#x27;../group&#x27;;
-import { Question } from &#x27;../question&#x27;;
-import { Validation, MinLength, MaxLength, Pattern, Required, Min, Max } from &#x27;../validation&#x27;;
-import {
-  ValidatorFactoryHandler, RequiredValidator, EmailValidator, MaxValidator, MinValidator,
-  MaxLengthValidator, MinLengthValidator, PatternValidator
-} from &#x27;../chain-of-responsibility/validator-factory&#x27;;
-import { ValidationTypeNotFoundError } from &#x27;../chain-of-responsibility/validator-factory/error&#x27;;
+export class AngularFormsTranslateLoader implements TranslateLoader {
 
-export class ReactiveFormsFactory {
-
-  public static createFormGroupFromGroups(groups: Group[]): FormGroup {
-    const formGroup: FormGroup &#x3D; new FormGroup({});
-
-    for (const group of groups) {
-      let control: FormGroup | FormArray;
-
-      if (&#x27;group&#x27; &#x3D;&#x3D;&#x3D; group.type) {
-        control &#x3D; ReactiveFormsFactory.createFormGroupFromQuestions((&lt;Fieldset&gt;group).questions);
-      } else {
-        control &#x3D; ReactiveFormsFactory.createFormArrayFromQuestions((&lt;DataTable&gt;group).questions.slice(1));
-        control.setValidators(ReactiveFormsFactory.createValidators((&lt;DataTable&gt;group).validations));
-      }
-
-      formGroup.addControl(group.code, control);
-    }
-
-    return formGroup;
-  }
-
-  public static createFormGroupFromQuestions(questions: Question&lt;any&gt;[]): FormGroup {
-    const formGroup: FormGroup &#x3D; new FormGroup({});
-
-    for (const question of questions) {
-      const validators: ValidatorFn[] &#x3D; ReactiveFormsFactory.createValidators(question.validations);
-      const formState: any &#x3D; !question.answer &amp;&amp; question[&#x27;defaultOption&#x27;]
-        ? question[&#x27;defaultOption&#x27;]
-        : question.answer;
-
-      formGroup.addControl(question.name, new FormControl(formState, validators));
-    }
-
-    return formGroup;
-  }
-
-  public static createFormArrayFromQuestions(questions: Question&lt;any&gt;[][]): FormArray {
-    const formArray: FormArray &#x3D; new FormArray([]);
-
-    for (const question of questions) {
-      const group: FormGroup &#x3D; new FormGroup({});
-
-      for (const column of question) {
-        group.addControl(column.name, new FormControl(column.answer));
-      }
-
-      formArray.push(group);
-    }
-
-    return formArray;
-  }
-
-  public static createValidators(validations: Validation[]): ValidatorFn[] {
-    const validators: ValidatorFn[] &#x3D; [];
-
-    for (const validation of validations) {
-      const validatorFactoryHandler: ValidatorFactoryHandler &#x3D; (new RequiredValidator())
-        .append(new EmailValidator())
-        .append(new MaxValidator())
-        .append(new MinValidator())
-        .append(new MaxLengthValidator())
-        .append(new MinLengthValidator())
-        .append(new PatternValidator());
-
-      try {
-        const validatorFn: ValidatorFn &#x3D; validatorFactoryHandler.handle(validation);
-        validators.push(validatorFn);
-      } catch (error) {
-        if (error instanceof ValidationTypeNotFoundError) {
-          console.error(&#x60;[AngularForms] ${error.name}: ${error.message}&#x60;);
-        }
-      }
-    }
-
-    return validators;
+  public getTranslation(lang: string): Observable&lt;any&gt; {
+    return Observable.of(require(&#x60;./assets/i18n/${lang}.json&#x60;));
   }
 }
 </code></pre>

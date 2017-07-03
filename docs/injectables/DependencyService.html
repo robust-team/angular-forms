@@ -115,6 +115,9 @@
                                     <a href="../classes/AngularForms.html" >AngularForms</a>
                                 </li>
                                 <li class="link">
+                                    <a href="../classes/AngularFormsTranslateLoader.html" >AngularFormsTranslateLoader</a>
+                                </li>
+                                <li class="link">
                                     <a href="../classes/Check.html" >Check</a>
                                 </li>
                                 <li class="link">
@@ -353,6 +356,9 @@
                                            <a href="../classes/AngularForms.html" >AngularForms</a>
                                        </li>
                                        <li class="link">
+                                           <a href="../classes/AngularFormsTranslateLoader.html" >AngularFormsTranslateLoader</a>
+                                       </li>
+                                       <li class="link">
                                            <a href="../classes/Check.html" >Check</a>
                                        </li>
                                        <li class="link">
@@ -571,12 +577,12 @@ import { Dependency, Question } from &#x27;.&#x27;;
 export class DependencyService {
 
   public hideQuestion(question: Question&lt;any&gt;, formGroup: FormGroup): boolean {
-    if (!question.dependencies) {
+    if (!question.dependencies || 0 &#x3D;&#x3D;&#x3D; question.dependencies.length) {
       return false;
     }
 
     for (const dependency of question.dependencies) {
-      const answerDependency: string &#x3D; formGroup.get(dependency.name).value;
+      const answerDependency: string &#x3D; formGroup.get(dependency.code).value;
       const result: boolean &#x3D; this.executeOperation(answerDependency, dependency);
 
       if (!result) {

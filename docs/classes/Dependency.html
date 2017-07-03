@@ -115,6 +115,9 @@
                                     <a href="../classes/AngularForms.html" >AngularForms</a>
                                 </li>
                                 <li class="link">
+                                    <a href="../classes/AngularFormsTranslateLoader.html" >AngularFormsTranslateLoader</a>
+                                </li>
+                                <li class="link">
                                     <a href="../classes/Check.html" >Check</a>
                                 </li>
                                 <li class="link">
@@ -353,6 +356,9 @@
                                            <a href="../classes/AngularForms.html" >AngularForms</a>
                                        </li>
                                        <li class="link">
+                                           <a href="../classes/AngularFormsTranslateLoader.html" >AngularFormsTranslateLoader</a>
+                                       </li>
+                                       <li class="link">
                                            <a href="../classes/Check.html" >Check</a>
                                        </li>
                                        <li class="link">
@@ -530,7 +536,7 @@
                         <tbody>
                             <tr>
                                 <td class="col-md-4">
-                                    <code>constructor(_name: string, _criteria: string, _expectedAnswer: string)</code>
+                                    <code>constructor(_code: string, _criteria: string, _expectedAnswer: string)</code>
                                 </td>
                             </tr>
                                     <tr>
@@ -550,6 +556,26 @@
                     <h3 id="inputs">
                         Properties
                     </h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b><span class="modifier">Public</span> code</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <span class="modifier-icon fa fa-"></span><code>code:     <code>string</code>
+            </bcode>
+                                </td>
+                            </tr>
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/question/dependency.ts:9</a></div>
+                                        </td>
+                                    </tr>
+                        </tbody>
+                    </table>
                     <table class="table table-sm table-bordered">
                         <tbody>
                             <tr>
@@ -590,39 +616,19 @@
                                     </tr>
                         </tbody>
                     </table>
-                    <table class="table table-sm table-bordered">
-                        <tbody>
-                            <tr>
-                                <td class="col-md-4">
-                                    <b><span class="modifier">Public</span> name</b>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="col-md-4">
-                                    <span class="modifier-icon fa fa-"></span><code>name:     <code>string</code>
-            </bcode>
-                                </td>
-                            </tr>
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/question/dependency.ts:9</a></div>
-                                        </td>
-                                    </tr>
-                        </tbody>
-                    </table>
             </section>
     </div>
     <div class="tab-pane fade tab-source-code" id="source">
         <pre class="line-numbers"><code class="language-typescript">export class Dependency {
 
   public constructor(
-    private _name: string,
+    private _code: string,
     private _criteria: string,
     private _expectedAnswer: string
   ) { }
 
-  public get name(): string {
-    return this._name;
+  public get code(): string {
+    return this._code;
   }
 
   public get criteria(): string {

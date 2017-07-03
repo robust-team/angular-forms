@@ -115,6 +115,9 @@
                                     <a href="../classes/AngularForms.html" >AngularForms</a>
                                 </li>
                                 <li class="link">
+                                    <a href="../classes/AngularFormsTranslateLoader.html" >AngularFormsTranslateLoader</a>
+                                </li>
+                                <li class="link">
                                     <a href="../classes/Check.html" >Check</a>
                                 </li>
                                 <li class="link">
@@ -353,6 +356,9 @@
                                            <a href="../classes/AngularForms.html" >AngularForms</a>
                                        </li>
                                        <li class="link">
+                                           <a href="../classes/AngularFormsTranslateLoader.html" >AngularFormsTranslateLoader</a>
+                                       </li>
+                                       <li class="link">
                                            <a href="../classes/Check.html" >Check</a>
                                        </li>
                                        <li class="link">
@@ -552,6 +558,7 @@
 import { CommonModule } from &#x27;@angular/common&#x27;;
 import { ReactiveFormsModule } from &#x27;@angular/forms&#x27;;
 
+import { TranslateModule } from &#x27;@ngx-translate/core&#x27;;
 import { NgMaskModule } from &#x27;@fagnerlima/ng-mask&#x27;;
 import { DataTableComponent } from &#x27;.&#x27;;
 import { ValidationMessageModule } from &#x27;../validation-message&#x27;;
@@ -561,7 +568,8 @@ import { ValidationMessageModule } from &#x27;../validation-message&#x27;;
     CommonModule,
     ReactiveFormsModule,
     ValidationMessageModule,
-    NgMaskModule
+    NgMaskModule,
+    TranslateModule
   ],
   declarations: [DataTableComponent],
   exports: [DataTableComponent],
