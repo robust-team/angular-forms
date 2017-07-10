@@ -1,6 +1,6 @@
 {
   "name": "@robust-team/angular-forms",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "license": "MIT",
   "description": "A Simple Angular Forms Generator",
   "main": "./bundles/angular-forms.umd.js",
@@ -74,7 +74,6 @@
     "core-js": "^2.4.1",
     "cz-conventional-changelog": "^2.0.0",
     "del-cli": "^1.0.0",
-    "file-loader": "^0.11.2",
     "fork-ts-checker-webpack-plugin": "^0.2.2",
     "html-webpack-plugin": "^2.28.0",
     "husky": "^0.13.0",
