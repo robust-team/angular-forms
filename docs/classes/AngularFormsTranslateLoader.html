@@ -242,6 +242,9 @@
             
             
             
+                    <li class="chapter">
+                        <a data-type="chapter-link" href="../miscellaneous.html" ><span class="fa fa-cubes"></span>Miscellaneous</a>
+                    </li>
             
             
                     <li class="divider"></li>
@@ -483,6 +486,9 @@
                    
                    
                    
+                           <li class="chapter">
+                               <a data-type="chapter-link" href="../miscellaneous.html" ><span class="fa fa-cubes"></span>Miscellaneous</a>
+                           </li>
                    
                    
                            <li class="divider"></li>
@@ -559,7 +565,7 @@
             
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="6" class="link-to-prism">src/angular-forms-translate-loader.ts:6</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/angular-forms-translate-loader.ts:21</a></div>
                                         </td>
                                     </tr>
             
@@ -582,10 +588,25 @@
         <pre class="line-numbers"><code class="language-typescript">import { TranslateLoader } from &#x27;@ngx-translate/core&#x27;;
 import { Observable } from &#x27;rxjs/Observable&#x27;;
 
+const i18n: { [lang: string]: Object } &#x3D; {
+  &#x27;en-US&#x27;: {
+    &#x27;ACTION&#x27;: &#x27;Action&#x27;,
+    &#x27;ADD&#x27;: &#x27;Add&#x27;,
+    &#x27;NOT_INFORMED&#x27;: &#x27;Not informed&#x27;,
+    &#x27;REMOVE&#x27;: &#x27;Remove&#x27;
+  },
+  &#x27;pt-BR&#x27;: {
+    &#x27;ACTION&#x27;: &#x27;Ação&#x27;,
+    &#x27;ADD&#x27;: &#x27;Adicionar&#x27;,
+    &#x27;NOT_INFORMED&#x27;: &#x27;Não informado&#x27;,
+    &#x27;REMOVE&#x27;: &#x27;Remover&#x27;
+  }
+};
+
 export class AngularFormsTranslateLoader implements TranslateLoader {
 
   public getTranslation(lang: string): Observable&lt;any&gt; {
-    return Observable.of(require(&#x60;./assets/i18n/${lang}.json&#x60;));
+    return Observable.of(i18n[lang]);
   }
 }
 </code></pre>
