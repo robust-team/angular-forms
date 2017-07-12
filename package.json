@@ -1,6 +1,6 @@
 {
   "name": "@robust-team/angular-forms",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "license": "MIT",
   "description": "A Simple Angular Forms Generator",
   "main": "./bundles/angular-forms.umd.js",
