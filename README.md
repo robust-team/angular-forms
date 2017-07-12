@@ -226,6 +226,15 @@ Example output:
 }
 ```
 
+**AngularFormsComponent**'s methods:
+
+| Method | Function |
+|-|-|
+| **isValid()** | Returns the status of form. |
+| **getAnswersGroups()** | Returns only the answers grouped in yours respective Groups.  |
+| **getAnswers()** | Returns only the answers of simple Questions and of DataTables (that is considered a Question).  |
+| **getForm()** | Returns an object with two attributes: **valid** (return of **isValid** method) and **value** (return of **getAnswersGroups** method. |
+
 5. If you want only to show the answers from JSON, use the **readOnly** input with **true** value (your default value is **false**).
 
 ```html
