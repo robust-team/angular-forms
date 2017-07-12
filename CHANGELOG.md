@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.4.0"></a>
+## [0.4.0](https://github.com/robust-team/angular-forms/compare/v0.3.4...v0.4.0) (2017-07-12)
+
+## Features
+
+* New method in AngularFormsComponent (**isValid**, **getAnswersGroups** and **getAnswers**).
+
 <a name="0.3.4"></a>
 ## [0.3.4](https://github.com/robust-team/angular-forms/compare/v0.3.3...v0.3.4) (2017-07-12)
 

@@ -11,6 +11,7 @@ import { AngularFormsTranslateLoader } from '../src/angular-forms-translate-load
 import { DataTableModule } from '../src/data-table';
 import { ValidationMessageModule } from '../src/validation-message/validation-message.module';
 import { Select, Text, Dependency } from '../src/question';
+import { DemoService } from '../demo/demo.service';
 
 describe('AngularFormsComponent', () => {
   let component: AngularFormsComponent;
@@ -38,6 +39,7 @@ describe('AngularFormsComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(AngularFormsComponent);
     component = fixture.componentInstance;
+    component.groups = (new DemoService()).getForm();
 
     fixture.detectChanges();
   });
@@ -85,5 +87,11 @@ describe('AngularFormsComponent', () => {
     const form: Object = component.getForm();
 
     assert.deepEqual(Object.keys(form), ['valid', 'value']);
+  });
+
+  it('should call the getAnswers method', () => {
+    const answers: Object = component.getAnswers();
+
+    assert.isOk(answers);
   });
 });
