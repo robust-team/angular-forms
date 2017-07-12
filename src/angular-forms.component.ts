@@ -10,13 +10,13 @@ import { ReactiveFormsFactory } from './factory';
 @Component({
   selector: 'rb-angular-forms',
   template: `
-    <form [formGroup]="formGroup" [ngClass]="{ 'read-only': readOnly }">
+    <form class="rb-angular-forms" [formGroup]="formGroup" [ngClass]="{ 'read-only': readOnly }">
       <ng-container *ngFor="let group of groups">
 
         <ng-container [ngSwitch]="group.type">
 
           <ng-container *ngSwitchCase="'group'">
-            <fieldset [formGroup]="formGroup.get(group.code)">
+            <fieldset class="rb-fieldset" [formGroup]="formGroup.get(group.code)">
               <legend *ngIf="'Ungrouped' !== group.description">{{ group.description }}</legend>
 
               <ng-container *ngFor="let question of group.questions">
