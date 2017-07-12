@@ -563,8 +563,8 @@
                 <td class="col-md-3">styles</td>
                 <td class="col-md-9"><code>
     .validation-message-box {
-      margin: 0 0 7px;
-      padding: 5px 0 0;
+      margin: 0;
+      padding: 0;
     }
     .validation-message-box li {
       border-left: 3px solid #a00;
@@ -574,6 +574,7 @@
       margin-bottom: 3px;
       padding: 1px 0 1px 5px;
     }
+    .validation-message-box li:first-of-type { margin-top: 5px }
   </code></td>
             </tr>
 
@@ -603,14 +604,14 @@
                         </td>
                         <td class="col-md-10">
                               <p>
-                                <em>Type:</em>    <code>any</code>
+                                <em>Type:</em>    <code><a href="https://angular.io/docs/ts/latest/api/forms/index/AbstractControl-class.html" target="_blank" >AbstractControl</a></code>
 
                               </p>
                         </td>
                     </tr>
                             <tr>
                                 <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/validation-message/validation-message.component.ts:32</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/validation-message/validation-message.component.ts:33</a></div>
                                 </td>
                             </tr>
                 </tbody>
@@ -633,7 +634,7 @@
                     </tr>
                             <tr>
                                 <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/validation-message/validation-message.component.ts:33</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/validation-message/validation-message.component.ts:34</a></div>
                                 </td>
                             </tr>
                 </tbody>
@@ -646,14 +647,14 @@
                         </td>
                         <td class="col-md-10">
                               <p>
-                                <em>Type:</em>    <code>{}</code>
+                                <em>Type:</em>    <code>[]</code>
 
                               </p>
                         </td>
                     </tr>
                             <tr>
                                 <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/validation-message/validation-message.component.ts:34</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/validation-message/validation-message.component.ts:35</a></div>
                                 </td>
                             </tr>
                 </tbody>
@@ -667,42 +668,7 @@
 
 
     <div class="tab-pane fade tab-source-code" id="source">
-        <pre class="line-numbers"><code class="language-typescript">import { Component, Input } from &#x27;@angular/core&#x27;;
-import { FormControl, AbstractControl } from &#x27;@angular/forms&#x27;;
-
-import { Validation } from &#x27;../validation&#x27;;
-
-@Component({
-  selector: &#x27;rb-validation-message&#x27;,
-  template: &#x60;
-    &lt;ul class&#x3D;&quot;validation-message-box&quot; *ngIf&#x3D;&quot;submitted || control.touched&quot;&gt;
-      &lt;li *ngFor&#x3D;&quot;let validation of validations&quot; [hidden]&#x3D;&quot;!control.hasError(validation.type)&quot;&gt;
-        {{ validation.message }}
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &#x60;,
-  styles: [&#x60;
-    .validation-message-box {
-      margin: 0 0 7px;
-      padding: 5px 0 0;
-    }
-    .validation-message-box li {
-      border-left: 3px solid #a00;
-      color: #a00;
-      font-size: .9em;
-      list-style: none;
-      margin-bottom: 3px;
-      padding: 1px 0 1px 5px;
-    }
-  &#x60;]
-})
-export class ValidationMessageComponent {
-
-  @Input() public control: AbstractControl &#x3D; new FormControl();
-  @Input() public submitted: boolean &#x3D; false;
-  @Input() public validations: Validation[] &#x3D; [];
-}
-</code></pre>
+        <pre class="line-numbers"><code class="language-typescript"></code></pre>
     </div>
 
 
