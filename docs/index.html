@@ -701,7 +701,34 @@ export class MyModule { }</code></pre><ol>
       &quot;Q-204&quot;: null
     }
   }
-}</code></pre><ol>
+}</code></pre><p><strong>AngularFormsComponent</strong>&#39;s methods:</p>
+<table class="table table-bordered compodoc-table">
+<thead>
+<tr>
+<th>Method</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>isValid()</strong></td>
+<td>Returns the status of form.</td>
+</tr>
+<tr>
+<td><strong>getAnswersGroups()</strong></td>
+<td>Returns only the answers grouped in yours respective Groups.</td>
+</tr>
+<tr>
+<td><strong>getAnswers()</strong></td>
+<td>Returns only the answers of simple Questions and of DataTables (that is considered a Question).</td>
+</tr>
+<tr>
+<td><strong>getForm()</strong></td>
+<td>Returns an object with two attributes: <strong>valid</strong> (return of <strong>isValid</strong> method) and <strong>value</strong> (return of <strong>getAnswersGroups</strong> method.</td>
+</tr>
+</tbody>
+</table>
+<ol>
 <li>If you want only to show the answers from JSON, use the <strong>readOnly</strong> input with <strong>true</strong> value (your default value is <strong>false</strong>).</li>
 </ol>
 <pre class="line-numbers"><code class="language-html">&lt;rb-angular-forms #angularForms [groups]=&quot;customForm&quot; [readOnly]=&quot;true&quot;&gt;&lt;/rb-angular-forms&gt;</code></pre><p><img src="docs/screens/angular-forms-02.png" alt="screen" class="img-responsive"></p>
