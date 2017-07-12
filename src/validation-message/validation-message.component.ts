@@ -14,8 +14,8 @@ import { Validation } from '../validation';
   `,
   styles: [`
     .validation-message-box {
-      margin: 0 0 7px;
-      padding: 5px 0 0;
+      margin: 0;
+      padding: 0;
     }
     .validation-message-box li {
       border-left: 3px solid #a00;
@@ -25,6 +25,7 @@ import { Validation } from '../validation';
       margin-bottom: 3px;
       padding: 1px 0 1px 5px;
     }
+    .validation-message-box li:first-of-type { margin-top: 5px }
   `]
 })
 export class ValidationMessageComponent {
