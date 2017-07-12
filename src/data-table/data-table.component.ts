@@ -9,7 +9,7 @@ import { ReactiveFormsFactory } from '../factory';
 @Component({
   selector: 'rb-data-table',
   template: `
-    <fieldset [formGroup]="formGroup" [ngClass]="{ 'read-only': readOnly }">
+    <fieldset class="rb-data-table" [formGroup]="formGroup" [ngClass]="{ 'read-only': readOnly }">
       <legend>{{ group.description }}</legend>
 
       <div class="table-responsive">

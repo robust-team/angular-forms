@@ -59,7 +59,9 @@ describe('AngularFormsComponent', () => {
 
   it('should not hide a question', () => {
     const question01: Select = new Select('Q-01', 'Question 01', [], 'select', 'Option 2', [], ['Option 1', 'Option 2']);
-    const question02: Text = new Text('Q-02', 'Question 02', [new Dependency('Q-01', 'equals', 'Option 2')], 'text');
+    const question02: Text = new Text('Q-02', 'Question 02', [
+      new Dependency('Q-01', 'equals', 'Option 2'), new Dependency('Q-03', 'equals', 'Option 2')
+    ], 'text');
     const formGroup: FormGroup = new FormGroup({
       'Q-01': new FormControl('Option 2'),
       'Q-02': new FormControl()

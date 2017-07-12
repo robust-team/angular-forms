@@ -562,11 +562,11 @@
             <tr>
                 <td class="col-md-3">styles</td>
                 <td class="col-md-9"><code>
-    .validation-message-box {
+    .rb-validation-message-box {
       margin: 0;
       padding: 0;
     }
-    .validation-message-box li {
+    .rb-validation-message-box li {
       border-left: 3px solid #a00;
       color: #a00;
       font-size: .9em;
@@ -574,13 +574,13 @@
       margin-bottom: 3px;
       padding: 1px 0 1px 5px;
     }
-    .validation-message-box li:first-of-type { margin-top: 5px }
+    .rb-validation-message-box li:first-of-type { margin-top: 5px }
   </code></td>
             </tr>
 
             <tr>
                 <td class="col-md-3">template</td>
-                <td class="col-md-9"><pre class="line-numbers"><code class="language-html">&lt;ul class&#x3D;&quot;validation-message-box&quot; *ngIf&#x3D;&quot;submitted || control.touched&quot;&gt;
+                <td class="col-md-9"><pre class="line-numbers"><code class="language-html">&lt;ul class&#x3D;&quot;rb-validation-message-box&quot; *ngIf&#x3D;&quot;submitted || control.touched&quot;&gt;
   &lt;li *ngFor&#x3D;&quot;let validation of validations&quot; [hidden]&#x3D;&quot;!control.hasError(validation.type)&quot;&gt;
     {{ validation.message }}
   &lt;/li&gt;
@@ -695,7 +695,7 @@
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><ul class="validation-message-box" *ngIf="submitted || control.touched">  <li *ngFor="let validation of validations" [hidden]="!control.hasError(validation.type)">    {{ validation.message }}  </li></ul></div>'
+        var COMPONENT_TEMPLATE = '<div><ul class="rb-validation-message-box" *ngIf="submitted || control.touched">  <li *ngFor="let validation of validations" [hidden]="!control.hasError(validation.type)">    {{ validation.message }}  </li></ul></div>'
     var COMPONENTS = [{'name': 'AngularFormsComponent', 'selector': 'rb-angular-forms'},{'name': 'DataTableComponent', 'selector': 'rb-data-table'},{'name': 'ValidationMessageComponent', 'selector': 'rb-validation-message'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'ValidationMessageComponent'};
