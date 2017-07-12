@@ -86,4 +86,10 @@ describe('AngularFormsComponent', () => {
 
     assert.deepEqual(Object.keys(form), ['valid', 'value']);
   });
+
+  it('should call the getAnswers method', () => {
+    const answers: Object = component.getAnswers();
+
+    assert.isOk(Object.keys(answers));
+  });
 });
