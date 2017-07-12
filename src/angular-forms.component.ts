@@ -207,10 +207,35 @@ export class AngularFormsComponent implements OnInit {
     return this.dependencyService.hideQuestion(question, formGroup);
   }
 
-  public getForm(): { valid: boolean, value: any } {
+  public getForm(): { valid: boolean, value: Object } {
     this.submitted = true;
 
-    return { valid: this.formGroup.valid, value: this.formGroup.value };
+    return { valid: this.isValid(), value: this.getAnswersGroups() };
+  }
+
+  public isValid(): boolean {
+    return this.formGroup.valid;
+  }
+
+  public getAnswersGroups(): Object {
+    return this.formGroup.value;
+  }
+
+  public getAnswers(): Object {
+    const answersGroups: Object = this.getAnswersGroups();
+    const answers: Object = {};
+
+    Object.keys(answersGroups).forEach((i: string) => {
+      if (answersGroups[i] instanceof Array) {
+        answers[i] = answersGroups[i];
+
+        return;
+      }
+
+      Object.keys(answersGroups[i]).forEach((j: string) => answers[j] = answersGroups[i][j]);
+    });
+
+    return answers;
   }
 
   private configTranslate(): void {

@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+
+import { AngularFormsComponent } from '../src';
 
 @Component({
   selector: 'rb-demo-app',
@@ -6,7 +8,10 @@ import { Component } from '@angular/core';
     <div class='container'>
       <h1>AngularForms</h1>
       <rb-angular-forms #angularForms [groups]="customForm" [readOnly]="false" lang="pt-BR"></rb-angular-forms>
-      <button class='btn btn-primary' (click)='print(angularForms.getForm())'>Print Form</button>
+      <button class='btn btn-primary' (click)='getForm()'>getForm()</button>
+      <button class='btn btn-primary' (click)='isValid()'>isValid()</button>
+      <button class='btn btn-primary' (click)='getAnswersGroups()'>getAnswersGroups()</button>
+      <button class='btn btn-primary' (click)='getAnswers()'>getAnswers()</button>
     </div>
   `
 })
@@ -141,7 +146,21 @@ export class DemoComponent {
     }
   ];
 
-  public print(value: any): void {
-    console.log(value);
+  @ViewChild('angularForms') public angularForms: AngularFormsComponent;
+
+  public getForm(): void {
+    console.log(this.angularForms.getForm());
+  }
+
+  public isValid(): void {
+    console.log(this.angularForms.isValid());
+  }
+
+  public getAnswersGroups(): void {
+    console.log(this.angularForms.getAnswersGroups());
+  }
+
+  public getAnswers(): void {
+    console.log(this.angularForms.getAnswers());
   }
 }
