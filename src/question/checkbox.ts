@@ -1,10 +1,10 @@
 import { Dependency, Question } from '.';
 import { Validation } from '../validation';
 
-export class Check extends Question<boolean> {
+export class Checkbox extends Question<boolean> {
 
-  public static fromJson(question: Check): Check {
-    return new Check(
+  public static fromJson(question: Checkbox): Checkbox {
+    return new Checkbox(
       question.name,
       question.description,
       question.dependencies,

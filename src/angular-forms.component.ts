@@ -23,7 +23,7 @@ import { ReactiveFormsFactory } from './factory';
 
                 <ng-container [ngSwitch]="question.type">
 
-                  <ng-template ngSwitchCase="check">
+                  <ng-template ngSwitchCase="checkbox">
                     <ng-container *ngIf="!readOnly">
                       <div class="form-group" [hidden]="hideQuestion(question, formGroup.get(group.code))">
                         <div class="checkbox">
@@ -47,7 +47,7 @@ import { ReactiveFormsFactory } from './factory';
                         </label>
                       </div> <!--/.form-group-->
                     </ng-container> <!--/readOnly-->
-                  </ng-template> <!--/check-->
+                  </ng-template> <!--/checkbox-->
 
                   <ng-template ngSwitchCase="radio">
                     <ng-container *ngIf="!readOnly">

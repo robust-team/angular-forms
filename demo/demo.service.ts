@@ -9,7 +9,7 @@ const groups: any[] = [
       {
         'name': 'Q-0101',
         'description': 'Check Question 0101',
-        'type': 'check',
+        'type': 'checkbox',
         'defaultOption': false,
         'validations': [
           { 'type': 'pattern', 'message': 'Required field.', 'value': 'true' }
@@ -93,6 +93,18 @@ const groups: any[] = [
           'placeholder': 'Select'
         },
         {
+          'name': 'Q-020201',
+          'description': 'Text Question 020201',
+          'type': 'text',
+          'validations': [
+            { 'type': 'required', 'message': 'Required field.' }
+          ],
+          'dependencies': [
+            { 'code': 'Q-0201', 'criteria': 'equals', 'expectedAnswer': 'Option 3' }
+          ],
+          'placeholder': 'Text Question 020201'
+        },
+        {
           'name': 'Q-0202',
           'description': 'Text Question 0202',
           'type': 'text',
@@ -115,6 +127,19 @@ const groups: any[] = [
           'answer': 'Option 2'
         },
         {
+          'name': 'Q-020201',
+          'description': 'Text Question 020201',
+          'type': 'text',
+          'validations': [
+            { 'type': 'required', 'message': 'Required field.' }
+          ],
+          'dependencies': [
+            { 'code': 'Q-0201', 'criteria': 'equals', 'expectedAnswer': 'Option 3' }
+          ],
+          'placeholder': 'Text Question 020201',
+          'answer': null
+        },
+        {
           'name': 'Q-0202',
           'description': 'Text Question 0202',
           'type': 'text',
@@ -123,6 +148,42 @@ const groups: any[] = [
           ],
           'placeholder': 'Text Question 0202',
           'answer': 'Answer 0202'
+        }
+      ],
+      [
+        {
+          'name': 'Q-0201',
+          'description': 'Select Question 0201',
+          'type': 'select',
+          'validations': [
+            { 'type': 'required', 'message': 'Required field.' }
+          ],
+          'options': ['Option 1', 'Option 2', 'Option 3'],
+          'placeholder': 'Select',
+          'answer': 'Option 3'
+        },
+        {
+          'name': 'Q-020201',
+          'description': 'Text Question 020201',
+          'type': 'text',
+          'validations': [
+            { 'type': 'required', 'message': 'Required field.' }
+          ],
+          'dependencies': [
+            { 'code': 'Q-0201', 'criteria': 'equals', 'expectedAnswer': 'Option 3' }
+          ],
+          'placeholder': 'Text Question 020201',
+          'answer': 'Anwer 3'
+        },
+        {
+          'name': 'Q-0202',
+          'description': 'Text Question 0202',
+          'type': 'text',
+          'validations': [
+            { 'type': 'required', 'message': 'Required field.' }
+          ],
+          'placeholder': 'Text Question 0202',
+          'answer': 'Answer 0202 2'
         }
       ]
     ]
