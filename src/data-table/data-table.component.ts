@@ -29,7 +29,7 @@ import { ReactiveFormsFactory } from '../factory';
               <td *ngFor="let question of group.questions[0]">
                 <ng-container [ngSwitch]="question.type">
 
-                  <ng-template ngSwitchCase="check">
+                  <ng-template ngSwitchCase="checkbox">
                     <div class="checkbox">
                       <label>
                         <input type="checkbox" [name]="question.name" [formControlName]="question.name" />
@@ -40,7 +40,7 @@ import { ReactiveFormsFactory } from '../factory';
                                              [submitted]="submitted">
                       </rb-validation-message>
                     </div> <!--/.checkbox-->
-                  </ng-template> <!--/check-->
+                  </ng-template> <!--/checkbox-->
 
                   <ng-template ngSwitchCase="radio">
                     <div class="radio" *ngFor="let option of question.options">
@@ -104,7 +104,7 @@ import { ReactiveFormsFactory } from '../factory';
             <tr class="data" *ngFor="let data of formArray?.value; let indexData = index">
               <td *ngFor="let key of getKeysFromObject(data)" class="{{ 'check' === getQuestionByName(key).type ? 'text-center' : '' }}">
                 <ng-container [ngSwitch]="getQuestionByName(key).type">
-                  <ng-template ngSwitchCase="check">
+                  <ng-template ngSwitchCase="checkbox">
                     <i class="rb-ico rb-ico-square rb-ico-{{ data[key] ? 'checked' : 'unchecked' }}" aria-hidden="true"></i>
                   </ng-template>
 

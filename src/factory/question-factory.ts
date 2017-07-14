@@ -1,9 +1,9 @@
-import { Question, Text, TextArea, Check, Radio, Select } from '../question';
+import { Question, Text, TextArea, Checkbox, Radio, Select } from '../question';
 
 export class QuestionFactory {
 
   private static types: any = {
-    'check': Check,
+    'checkbox': Checkbox,
     'radio': Radio,
     'select': Select,
     'text': Text,

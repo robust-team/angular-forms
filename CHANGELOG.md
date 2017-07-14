@@ -2,10 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.5.0"></a>
+## [0.5.0](https://github.com/robust-team/angular-forms/compare/v0.4.0...v0.5.0) (2017-07-14)
+
+### Changes
+
+* Check Question refactored to CheckBox.
+* Type for TextArea Question refactored of text-area to textarea.
+
 <a name="0.4.0"></a>
 ## [0.4.0](https://github.com/robust-team/angular-forms/compare/v0.3.4...v0.4.0) (2017-07-12)
 
-## Features
+### Features
 
 * New method in AngularFormsComponent (**isValid**, **getAnswersGroups** and **getAnswers**).
 

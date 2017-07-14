@@ -118,7 +118,7 @@
                                     <a href="../classes/AngularFormsTranslateLoader.html" >AngularFormsTranslateLoader</a>
                                 </li>
                                 <li class="link">
-                                    <a href="../classes/Checkbox.html" >Checkbox</a>
+                                    <a href="../classes/Checkbox.html"  data-type="entity-link" class="active" >Checkbox</a>
                                 </li>
                                 <li class="link">
                                     <a href="../classes/Choice.html" >Choice</a>
@@ -154,7 +154,7 @@
                                     <a href="../classes/Max.html" >Max</a>
                                 </li>
                                 <li class="link">
-                                    <a href="../classes/MaxLength.html"  data-type="entity-link" class="active" >MaxLength</a>
+                                    <a href="../classes/MaxLength.html" >MaxLength</a>
                                 </li>
                                 <li class="link">
                                     <a href="../classes/MaxLengthValidator.html" >MaxLengthValidator</a>
@@ -362,7 +362,7 @@
                                            <a href="../classes/AngularFormsTranslateLoader.html" >AngularFormsTranslateLoader</a>
                                        </li>
                                        <li class="link">
-                                           <a href="../classes/Checkbox.html" >Checkbox</a>
+                                           <a href="../classes/Checkbox.html"  data-type="entity-link" class="active" >Checkbox</a>
                                        </li>
                                        <li class="link">
                                            <a href="../classes/Choice.html" >Choice</a>
@@ -398,7 +398,7 @@
                                            <a href="../classes/Max.html" >Max</a>
                                        </li>
                                        <li class="link">
-                                           <a href="../classes/MaxLength.html"  data-type="entity-link" class="active" >MaxLength</a>
+                                           <a href="../classes/MaxLength.html" >MaxLength</a>
                                        </li>
                                        <li class="link">
                                            <a href="../classes/MaxLengthValidator.html" >MaxLengthValidator</a>
@@ -512,7 +512,7 @@
 
 <ol class="breadcrumb">
   <li>Classes</li>
-  <li>MaxLength</li>
+  <li>Checkbox</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -530,7 +530,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/validation/max-length.ts</code>
+            <code>src/question/checkbox.ts</code>
         </p>
 
 
@@ -538,7 +538,7 @@
                 <h3>Extends</h3>
             </p>
             <p class="comment">
-                    <code><a href="../classes/Validation.html" target="_self" >Validation</a></code>
+                    <code><a href="../classes/Question.html" target="_self" >Question</a></code>
             </p>
 
 
@@ -548,12 +548,12 @@
                         <tbody>
                             <tr>
                                 <td class="col-md-4">
-                                    <code>constructor(type: string, message: string, _value: number)</code>
+                                    <code>constructor(name: string, description: string, dependencies: [], type: string, answer: boolean, validations: [], _defaultOption: boolean)</code>
                                 </td>
                             </tr>
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">src/validation/max-length.ts:7</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/question/checkbox.ts:16</a></div>
                                         </td>
                                     </tr>
             
@@ -576,14 +576,14 @@
                             <tr>
                                 <td class="col-md-4">
                                         <span class="modifier-icon method fa fa-play "></span>
-                                    <code>fromJson(validation: <a href="../classes/MaxLength.html">MaxLength</a>)</code>
+                                    <code>fromJson(question: <a href="../classes/Checkbox.html">Checkbox</a>)</code>
                                 </td>
                             </tr>
             
             
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="5" class="link-to-prism">src/validation/max-length.ts:5</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="6" class="link-to-prism">src/question/checkbox.ts:6</a></div>
                                         </td>
                                     </tr>
             
@@ -591,7 +591,7 @@
                                 <td class="col-md-4">
             
                                         <div class="io-description">
-                                            <b>Returns : </b>    <code><a href="../classes/MaxLength.html" target="_self" >MaxLength</a></code>
+                                            <b>Returns : </b>    <code><a href="../classes/Checkbox.html" target="_self" >Checkbox</a></code>
             
                                         </div>
                                 </td>
@@ -610,24 +610,24 @@
                         <tbody>
                             <tr>
                                 <td class="col-md-4">
-                                    <b><span class="modifier">Public</span> value</b>
+                                    <b><span class="modifier">Public</span> defaultOption</b>
                                 </td>
                             </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <span class="modifier-icon fa fa-"></span><code>value:     <code>number</code>
+                                    <span class="modifier-icon fa fa-"></span><code>defaultOption:     <code>boolean</code>
             </bcode>
                                 </td>
                             </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <i>Type : </i>    <code>number</code>
+                                        <i>Type : </i>    <code>boolean</code>
             
                                     </td>
                                 </tr>
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/validation/max-length.ts:17</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/question/checkbox.ts:30</a></div>
                                         </td>
                                     </tr>
                         </tbody>
@@ -635,24 +635,37 @@
             </section>
     </div>
     <div class="tab-pane fade tab-source-code" id="source">
-        <pre class="line-numbers"><code class="language-typescript">import { Validation } from &#x27;.&#x27;;
+        <pre class="line-numbers"><code class="language-typescript">import { Dependency, Question } from &#x27;.&#x27;;
+import { Validation } from &#x27;../validation&#x27;;
 
-export class MaxLength extends Validation {
+export class Checkbox extends Question&lt;boolean&gt; {
 
-  public static fromJson(validation: MaxLength): MaxLength {
-    return new MaxLength(validation.type, validation.message, validation.value);
+  public static fromJson(question: Checkbox): Checkbox {
+    return new Checkbox(
+      question.name,
+      question.description,
+      question.dependencies,
+      question.type,
+      &#x27;true&#x27; &#x3D;&#x3D;&#x3D; String(question.answer),
+      question.validations,
+      &#x27;true&#x27; &#x3D;&#x3D;&#x3D; String(question.defaultOption)
+    );
   }
 
   public constructor(
+    name: string,
+    description: string,
+    dependencies: Dependency[],
     type: string,
-    message: string,
-    private _value: number
+    answer: boolean &#x3D; false,
+    validations: Validation[] &#x3D; [],
+    private _defaultOption: boolean &#x3D; null
   ) {
-    super(type, message);
+    super(name, description, dependencies || [], type, answer || false, validations || []);
   }
 
-  public get value(): number {
-    return this._value;
+  public get defaultOption(): boolean {
+    return this._defaultOption;
   }
 }
 </code></pre>

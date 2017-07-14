@@ -60,7 +60,7 @@ The **customForm** attribute represents the JSON coming from API. For example:
       {
         "name": "Q-0101",
         "description": "Check Question 0101",
-        "type": "check",
+        "type": "checkbox",
         "defaultOption": false,
         "validations": [
           { "type": "pattern", "message": "Required field.", "value": "true" }
@@ -266,7 +266,7 @@ The **Group** represents a grouping of questions, which can be of two types: **F
     {
       "name": "Q-0101",
       "description": "Check Question 0101",
-      "type": "check",
+      "type": "checkbox",
       "validations": []
     },
     {
@@ -294,7 +294,7 @@ The **Group** represents a grouping of questions, which can be of two types: **F
       {
         "name": "Q-0101",
         "description": "Check Question 0101",
-        "type": "check",
+        "type": "checkbox",
         "validations": []
       },
       {
@@ -314,7 +314,7 @@ The **Group** represents a grouping of questions, which can be of two types: **F
 
 **Question** represents a simple question, which can be of five types:
 
-- **check**;
+- **checkbox**;
 - **radio**;
 - **select**;
 - **text**;
@@ -329,7 +329,7 @@ The **Group** represents a grouping of questions, which can be of two types: **F
   "name": "Q-01",
   "description": "Check Question",
   "dependencies": [],
-  "type": "check",
+  "type": "checkbox",
   "answer": null,
   "validations": [],
   "defaultOption": false
