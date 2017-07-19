@@ -206,9 +206,11 @@ export class AngularFormsComponent implements OnInit, AfterViewChecked {
     return this.dependencyService.hideQuestion(question, formGroup);
   }
 
-  public getForm(): { valid: boolean, value: Object } {
+  public submit(): void {
     this.submitted = true;
+  }
 
+  public getForm(): { valid: boolean, value: Object } {
     return { valid: this.isValid(), value: this.getAnswersGroups() };
   }
 
