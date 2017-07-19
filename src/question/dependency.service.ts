@@ -34,10 +34,10 @@ export class DependencyService {
 
   private executeOperation(answerDependency: string, dependency: Dependency): boolean {
     const operations: { [type: string]: boolean } = {
-      'equals': StringUtil.convertToString(answerDependency) === StringUtil.convertToString(dependency.expectedAnswer),
+      'equals': StringUtil.convertToString(answerDependency, false) === StringUtil.convertToString(dependency.expectedAnswer, false),
       'lessthan': parseFloat(answerDependency) < parseFloat(dependency.expectedAnswer),
       'greaterthan': parseFloat(answerDependency) > parseFloat(dependency.expectedAnswer),
-      'notequals': StringUtil.convertToString(answerDependency) !== StringUtil.convertToString(dependency.expectedAnswer)
+      'notequals': StringUtil.convertToString(answerDependency, false) !== StringUtil.convertToString(dependency.expectedAnswer, false)
     };
 
     return operations[dependency.criteria];
