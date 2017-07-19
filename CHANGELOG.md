@@ -13,6 +13,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 * **Dependencies** fixed when the readOnly option is enabled.
 * **Dependencies** fixed when your values are not string type.
+* **ExpressionChangedAfterItHasBeenCheckedError** fixed.
 
 <a name="0.5.0"></a>
 ## [0.5.0](https://github.com/robust-team/angular-forms/compare/v0.4.0...v0.5.0) (2017-07-14)
