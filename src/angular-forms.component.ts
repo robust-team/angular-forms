@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Input, AfterViewChecked, ChangeDetectorRef } from '@angular/core';
 import { FormGroup, FormGroupDirective } from '@angular/forms';
 
 import { TranslateService } from '@ngx-translate/core';
@@ -6,6 +6,7 @@ import { AngularForms } from '.';
 import { Group } from './group';
 import { Question, DependencyService } from './question';
 import { ReactiveFormsFactory } from './factory';
+import { String as StringUtil } from './util';
 
 @Component({
   selector: 'rb-angular-forms',
@@ -24,8 +25,8 @@ import { ReactiveFormsFactory } from './factory';
                 <ng-container [ngSwitch]="question.type">
 
                   <ng-template ngSwitchCase="checkbox">
-                    <ng-container *ngIf="!readOnly">
-                      <div class="form-group" [hidden]="hideQuestion(question, formGroup.get(group.code))">
+                    <div class="form-group" [hidden]="hideQuestion(question, formGroup.get(group.code))">
+                      <ng-container *ngIf="!readOnly; else readOnlyCheckbox">
                         <div class="checkbox">
                           <label>
                             <input type="checkbox" [name]="question.name" [formControlName]="question.name" />
@@ -36,22 +37,20 @@ import { ReactiveFormsFactory } from './factory';
                                                  [submitted]="submitted">
                           </rb-validation-message>
                         </div> <!--/.checkbox-->
-                      </div> <!--/.form-group-->
-                    </ng-container> <!--/!readOnly-->
+                      </ng-container> <!--/!readOnly-->
 
-                    <ng-container *ngIf="readOnly">
-                      <div class="form-group">
+                      <ng-template #readOnlyCheckbox>
                         <label>
                           <i class="rb-ico rb-ico-square rb-ico-{{ question.answer ? 'checked' : 'unchecked' }}" aria-hidden="true"></i>
                           {{ question.description }}
                         </label>
-                      </div> <!--/.form-group-->
-                    </ng-container> <!--/readOnly-->
+                      </ng-template> <!--/readOnly-->
+                    </div> <!--/.form-group-->
                   </ng-template> <!--/checkbox-->
 
                   <ng-template ngSwitchCase="radio">
-                    <ng-container *ngIf="!readOnly">
-                      <div class="form-group" [hidden]="hideQuestion(question, formGroup.get(group.code))">
+                    <div class="form-group" [hidden]="hideQuestion(question, formGroup.get(group.code))">
+                      <ng-container *ngIf="!readOnly; else readOnlyRadio">
                         <label>{{ question.description }}</label>
                         <div class="radio" *ngFor="let option of question.options">
                           <label>
@@ -63,20 +62,18 @@ import { ReactiveFormsFactory } from './factory';
                                                [control]="formGroup.get(group.code).get(question.name)"
                                                [submitted]="submitted">
                         </rb-validation-message>
-                      </div> <!--/.form-group-->
-                    </ng-container> <!--/!readOnly-->
+                      </ng-container> <!--/!readOnly-->
 
-                    <ng-container *ngIf="readOnly">
-                      <div class="form-group">
-                        <label>{{ question.description }}:</label>
+                      <ng-template #readOnlyRadio>
+                        <label>{{ question.description }}</label>
                         <span>{{ question.answer || 'NOT_INFORMED' | translate }}</span>
-                      </div> <!--/.form-group-->
-                    </ng-container>
+                      </ng-template> <!--/readOnly-->
+                    </div> <!--/.form-group-->
                   </ng-template> <!--/radio-->
 
                   <ng-template ngSwitchCase="select">
-                    <ng-container *ngIf="!readOnly">
-                      <div class="form-group" [hidden]="hideQuestion(question, formGroup.get(group.code))">
+                    <div class="form-group" [hidden]="hideQuestion(question, formGroup.get(group.code))">
+                      <ng-container *ngIf="!readOnly; else readOnlySelect">
                         <label [for]="question.name">{{ question.description }}</label>
                         <select [id]="question.name" class="form-control" [name]="question.name"
                                 [formControlName]="question.name">
@@ -91,20 +88,18 @@ import { ReactiveFormsFactory } from './factory';
                                                [control]="formGroup.get(group.code).get(question.name)"
                                                [submitted]="submitted">
                         </rb-validation-message>
-                      </div> <!--/.form-group-->
-                    </ng-container> <!--/!readOnly-->
+                      </ng-container> <!--!readOnly-->
 
-                    <ng-container *ngIf="readOnly">
-                      <div class="form-group">
-                        <label>{{ question.description }}:</label>
+                      <ng-template #readOnlySelect>
+                        <label>{{ question.description }}</label>
                         <span>{{ question.answer || 'NOT_INFORMED' | translate }}</span>
-                      </div> <!--/.form-group-->
-                    </ng-container> <!--/readOnly-->
+                      </ng-template> <!--/readOnly-->
+                    </div> <!--/.form-group-->
                   </ng-template> <!--/select-->
 
                   <ng-template ngSwitchCase="textarea">
-                    <ng-container *ngIf="!readOnly">
-                      <div class="form-group" [hidden]="hideQuestion(question, formGroup.get(group.code))">
+                    <div class="form-group" [hidden]="hideQuestion(question, formGroup.get(group.code))">
+                      <ng-container *ngIf="!readOnly; else readOnlyTextarea">
                         <label [for]="question.name">{{ question.description }}</label>
                         <textarea [id]="question.name" class="form-control" [name]="question.name" rows="5"
                                   placeholder="{{ question.placeholder ? question.placeholder : '' }}"
@@ -114,37 +109,33 @@ import { ReactiveFormsFactory } from './factory';
                                                [control]="formGroup.get(group.code).get(question.name)"
                                                [submitted]="submitted">
                         </rb-validation-message>
-                      </div> <!--/.form-group-->
-                    </ng-container> <!--/!readOnly-->
+                      </ng-container> <!--!readOnly-->
 
-                    <ng-container *ngIf="readOnly">
-                      <div class="form-group">
-                        <label>{{ question.description }}:</label>
+                      <ng-template #readOnlyTextarea>
+                        <label>{{ question.description }}</label>
                         <span>{{ question.answer || 'NOT_INFORMED' | translate }}</span>
-                      </div> <!--/.form-group-->
-                    </ng-container> <!--/readOnly-->
+                      </ng-template> <!--/readOnly-->
+                    </div> <!--/.form-group-->
                   </ng-template> <!--/textarea-->
 
                   <ng-template ngSwitchCase="text" ngSwitchDefault>
-                    <ng-container *ngIf="!readOnly">
-                      <div class="form-group" [hidden]="hideQuestion(question, formGroup.get(group.code))">
+                    <div class="form-group" [hidden]="hideQuestion(question, formGroup.get(group.code))">
+                      <ng-container *ngIf="!readOnly; else readOnlyText">
                         <label [for]="question.name">{{ question.description }}</label>
                         <input type="text" [id]="question.name" class="form-control" [name]="question.name"
-                               placeholder="{{ question.placeholder ? question.placeholder : '' }}"
-                               [formControlName]="question.name" [mask]="question.mask" />
+                                placeholder="{{ question.placeholder ? question.placeholder : '' }}"
+                                [formControlName]="question.name" [mask]="question.mask" />
                         <rb-validation-message [validations]="question.validations"
                                                [control]="formGroup.get(group.code).get(question.name)"
                                                [submitted]="submitted">
                         </rb-validation-message>
-                      </div> <!--/.form-group-->
-                    </ng-container> <!--/!readOnly-->
+                      </ng-container> <!--!readOnly-->
 
-                    <ng-container *ngIf="readOnly">
-                      <div class="form-group">
-                        <label>{{ question.description }}:</label>
+                      <ng-template #readOnlyText>
+                        <label>{{ question.description }}</label>
                         <span>{{ question.answer || 'NOT_INFORMED' | translate }}</span>
-                      </div> <!--/.form-group-->
-                    </ng-container>
+                      </ng-template> <!--readOnly-->
+                    </div> <!--/.form-group-->
                   </ng-template> <!--/text-->
                 </ng-container> <!--/ngSwitch-questionType-->
 
@@ -186,7 +177,7 @@ import { ReactiveFormsFactory } from './factory';
   `],
   providers: [DependencyService]
 })
-export class AngularFormsComponent implements OnInit {
+export class AngularFormsComponent implements OnInit, AfterViewChecked {
 
   public formGroup: FormGroup;
   public submitted: boolean = false;
@@ -195,12 +186,20 @@ export class AngularFormsComponent implements OnInit {
   @Input() public lang: string = 'en-US';
   @Input() public readOnly: boolean = false;
 
-  public constructor(private translateService: TranslateService, private dependencyService: DependencyService) { }
+  public constructor(
+    private changeDetectorRef: ChangeDetectorRef,
+    private dependencyService: DependencyService,
+    private translateService: TranslateService
+  ) { }
 
   public ngOnInit(): void {
     this.configTranslate();
     this.groups = AngularForms.fromJson(this.groups);
     this.formGroup = ReactiveFormsFactory.createFormGroupFromGroups(this.groups);
+  }
+
+  public ngAfterViewChecked(): void {
+    this.changeDetectorRef.detectChanges();
   }
 
   public hideQuestion(question: Question<any>, formGroup: FormGroup): boolean {
@@ -218,21 +217,35 @@ export class AngularFormsComponent implements OnInit {
   }
 
   public getAnswersGroups(): Object {
-    return this.formGroup.value;
+    const answersGroups: Object = this.formGroup.value;
+
+    Object.keys(answersGroups).forEach((groupIndex: string) => {
+      if (answersGroups[groupIndex] instanceof Array) {
+        (<Array<Object>>answersGroups[groupIndex]).map((answersGroup: Object) => this.convertAnswersOfGroupToString(answersGroup));
+
+        return;
+      }
+
+      answersGroups[groupIndex] = this.convertAnswersOfGroupToString(answersGroups[groupIndex]);
+    });
+
+    return answersGroups;
   }
 
   public getAnswers(): Object {
     const answersGroups: Object = this.getAnswersGroups();
     const answers: Object = {};
 
-    Object.keys(answersGroups).forEach((i: string) => {
-      if (answersGroups[i] instanceof Array) {
-        answers[i] = answersGroups[i];
+    Object.keys(answersGroups).forEach((groupIndex: string) => {
+      if (answersGroups[groupIndex] instanceof Array) {
+        answers[groupIndex] = answersGroups[groupIndex];
 
         return;
       }
 
-      Object.keys(answersGroups[i]).forEach((j: string) => answers[j] = answersGroups[i][j]);
+      Object.keys(answersGroups[groupIndex]).forEach(
+        (questionIndex: string) => answers[questionIndex] = answersGroups[groupIndex][questionIndex]
+      );
     });
 
     return answers;
@@ -242,5 +255,13 @@ export class AngularFormsComponent implements OnInit {
     this.translateService.addLangs(['en-US', 'pt-BR']);
     this.translateService.setDefaultLang('en-US');
     this.translateService.use(this.lang || 'en-US');
+  }
+
+  private convertAnswersOfGroupToString(answersGroup: Object): Object {
+    Object.keys(answersGroup).forEach((questionIndex: string) => {
+      answersGroup[questionIndex] = StringUtil.convertToString(answersGroup[questionIndex]);
+    });
+
+    return answersGroup;
   }
 }

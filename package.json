@@ -1,6 +1,6 @@
 {
   "name": "@robust-team/angular-forms",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "license": "MIT",
   "description": "A Simple Angular Forms Generator",
   "main": "./bundles/angular-forms.umd.js",
@@ -45,6 +45,7 @@
     "@angular/forms": "^4.0.0",
     "@fagnerlima/ng-mask": "^2.2.1",
     "@ngx-translate/core": "^7.0.0",
+    "@types/node": "^7.0.0",
     "rxjs": "^5.0.1"
   },
   "devDependencies": {
