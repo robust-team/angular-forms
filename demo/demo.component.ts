@@ -9,10 +9,10 @@ import { AngularFormsComponent } from '../src';
     <div class='container'>
       <h1>AngularForms</h1>
       <rb-angular-forms #angularForms [groups]="customForm" [readOnly]="false" lang="pt-BR"></rb-angular-forms>
-      <button class='btn btn-primary' (click)='getForm()'>getForm()</button>
-      <button class='btn btn-primary' (click)='isValid()'>isValid()</button>
-      <button class='btn btn-primary' (click)='getAnswersGroups()'>getAnswersGroups()</button>
-      <button class='btn btn-primary' (click)='getAnswers()'>getAnswers()</button>
+      <button class="btn btn-primary" (click)="getForm()">getForm()</button>
+      <button class="btn btn-primary" (click)="isValid()">isValid()</button>
+      <button class="btn btn-primary" (click)="getAnswersGroups()">getAnswersGroups()</button>
+      <button class="btn btn-primary" (click)="getAnswers()">getAnswers()</button>
     </div>
   `,
   providers: [DemoService]
