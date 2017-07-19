@@ -6,6 +6,7 @@ import { AngularForms } from '.';
 import { Group } from './group';
 import { Question, DependencyService } from './question';
 import { ReactiveFormsFactory } from './factory';
+import { String as StringUtil } from './util';
 
 @Component({
   selector: 'rb-angular-forms',
@@ -208,21 +209,35 @@ export class AngularFormsComponent implements OnInit {
   }
 
   public getAnswersGroups(): Object {
-    return this.formGroup.value;
+    const answersGroups: Object = this.formGroup.value;
+
+    Object.keys(answersGroups).forEach((groupIndex: string) => {
+      if (answersGroups[groupIndex] instanceof Array) {
+        (<Array<Object>>answersGroups[groupIndex]).map((answersGroup: Object) => this.convertAnswersOfGroupToString(answersGroup));
+
+        return;
+      }
+
+      answersGroups[groupIndex] = this.convertAnswersOfGroupToString(answersGroups[groupIndex]);
+    });
+
+    return answersGroups;
   }
 
   public getAnswers(): Object {
     const answersGroups: Object = this.getAnswersGroups();
     const answers: Object = {};
 
-    Object.keys(answersGroups).forEach((i: string) => {
-      if (answersGroups[i] instanceof Array) {
-        answers[i] = answersGroups[i];
+    Object.keys(answersGroups).forEach((groupIndex: string) => {
+      if (answersGroups[groupIndex] instanceof Array) {
+        answers[groupIndex] = answersGroups[groupIndex];
 
         return;
       }
 
-      Object.keys(answersGroups[i]).forEach((j: string) => answers[j] = answersGroups[i][j]);
+      Object.keys(answersGroups[groupIndex]).forEach(
+        (questionIndex: string) => answers[questionIndex] = answersGroups[groupIndex][questionIndex]
+      );
     });
 
     return answers;
@@ -232,5 +247,13 @@ export class AngularFormsComponent implements OnInit {
     this.translateService.addLangs(['en-US', 'pt-BR']);
     this.translateService.setDefaultLang('en-US');
     this.translateService.use(this.lang || 'en-US');
+  }
+
+  private convertAnswersOfGroupToString(answersGroup: Object): Object {
+    Object.keys(answersGroup).forEach((questionIndex: string) => {
+      answersGroup[questionIndex] = StringUtil.convertToString(answersGroup[questionIndex]);
+    });
+
+    return answersGroup;
   }
 }
