@@ -202,7 +202,7 @@
                                     <a href="../classes/Select.html" >Select</a>
                                 </li>
                                 <li class="link">
-                                    <a href="../classes/String.html" >String</a>
+                                    <a href="../classes/String.html"  data-type="entity-link" class="active" >String</a>
                                 </li>
                                 <li class="link">
                                     <a href="../classes/Text.html" >Text</a>
@@ -211,7 +211,7 @@
                                     <a href="../classes/TextArea.html" >TextArea</a>
                                 </li>
                                 <li class="link">
-                                    <a href="../classes/Validation.html"  data-type="entity-link" class="active" >Validation</a>
+                                    <a href="../classes/Validation.html" >Validation</a>
                                 </li>
                                 <li class="link">
                                     <a href="../classes/ValidationTypeNotFoundError.html" >ValidationTypeNotFoundError</a>
@@ -449,7 +449,7 @@
                                            <a href="../classes/Select.html" >Select</a>
                                        </li>
                                        <li class="link">
-                                           <a href="../classes/String.html" >String</a>
+                                           <a href="../classes/String.html"  data-type="entity-link" class="active" >String</a>
                                        </li>
                                        <li class="link">
                                            <a href="../classes/Text.html" >Text</a>
@@ -458,7 +458,7 @@
                                            <a href="../classes/TextArea.html" >TextArea</a>
                                        </li>
                                        <li class="link">
-                                           <a href="../classes/Validation.html"  data-type="entity-link" class="active" >Validation</a>
+                                           <a href="../classes/Validation.html" >Validation</a>
                                        </li>
                                        <li class="link">
                                            <a href="../classes/ValidationTypeNotFoundError.html" >ValidationTypeNotFoundError</a>
@@ -518,7 +518,7 @@
 
 <ol class="breadcrumb">
   <li>Classes</li>
-  <li>Validation</li>
+  <li>String</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -536,106 +536,65 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/validation/validation.ts</code>
+            <code>src/util/string.ts</code>
         </p>
 
 
 
 
-            <section>
-                <h3 id="constructor">Constructor</h3>
-                    <table class="table table-sm table-bordered">
-                        <tbody>
-                            <tr>
-                                <td class="col-md-4">
-                                    <code>constructor(_type: string, _message: string)</code>
-                                </td>
-                            </tr>
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="1" class="link-to-prism">src/validation/validation.ts:1</a></div>
-                                        </td>
-                                    </tr>
-            
-                        </tbody>
-                    </table>
-            </section>
-
-
 
             <section>
                 
-                    <h3 id="inputs">
-                        Properties
+                    <h3 id="methods">
+                        Methods
                     </h3>
                     <table class="table table-sm table-bordered">
                         <tbody>
                             <tr>
                                 <td class="col-md-4">
-                                    <b><span class="modifier">Public</span> message</b>
+                                    <b><span class="modifier">Public</span> convertToString</b>
                                 </td>
                             </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <span class="modifier-icon fa fa-"></span><code>message:     <code>string</code>
-            </bcode>
+                                        <span class="modifier-icon method fa fa-play "></span>
+                                    <code>convertToString(value: any)</code>
                                 </td>
                             </tr>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <i>Type : </i>    <code>string</code>
             
-                                    </td>
-                                </tr>
+            
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/validation/validation.ts:12</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="5" class="link-to-prism">src/util/string.ts:5</a></div>
                                         </td>
                                     </tr>
-                        </tbody>
-                    </table>
-                    <table class="table table-sm table-bordered">
-                        <tbody>
-                            <tr>
-                                <td class="col-md-4">
-                                    <b><span class="modifier">Public</span> type</b>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="col-md-4">
-                                    <span class="modifier-icon fa fa-"></span><code>type:     <code>string</code>
-            </bcode>
-                                </td>
-                            </tr>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <i>Type : </i>    <code>string</code>
             
-                                    </td>
-                                </tr>
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/validation/validation.ts:8</a></div>
-                                        </td>
-                                    </tr>
+                            <tr>
+                                <td class="col-md-4">
+            
+                                        <div class="io-description">
+                                            <b>Returns : </b>    <code>string</code>
+            
+                                        </div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
             </section>
+
+
     </div>
     <div class="tab-pane fade tab-source-code" id="source">
-        <pre class="line-numbers"><code class="language-typescript">export abstract class Validation {
+        <pre class="line-numbers"><code class="language-typescript">import { isNullOrUndefined } from &#x27;util&#x27;;
 
-  public constructor(
-    private _type: string,
-    private _message: string
-  ) { }
+export class String {
 
-  public get type(): string {
-    return this._type;
-  }
+  public static convertToString(value: any): string {
+    if (&#x27;string&#x27; &#x3D;&#x3D;&#x3D; typeof value) {
+      return value;
+    }
 
-  public get message(): string {
-    return this._message;
+    return !isNullOrUndefined(value) ? value.toString() : null;
   }
 }
 </code></pre>

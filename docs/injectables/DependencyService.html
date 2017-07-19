@@ -202,6 +202,9 @@
                                     <a href="../classes/Select.html" >Select</a>
                                 </li>
                                 <li class="link">
+                                    <a href="../classes/String.html" >String</a>
+                                </li>
+                                <li class="link">
                                     <a href="../classes/Text.html" >Text</a>
                                 </li>
                                 <li class="link">
@@ -446,6 +449,9 @@
                                            <a href="../classes/Select.html" >Select</a>
                                        </li>
                                        <li class="link">
+                                           <a href="../classes/String.html" >String</a>
+                                       </li>
+                                       <li class="link">
                                            <a href="../classes/Text.html" >Text</a>
                                        </li>
                                        <li class="link">
@@ -555,7 +561,7 @@
             
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/question/dependency.service.ts:9</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/question/dependency.service.ts:10</a></div>
                                         </td>
                                     </tr>
             
@@ -578,6 +584,7 @@
 import { FormGroup, FormControl } from &#x27;@angular/forms&#x27;;
 
 import { Dependency, Question } from &#x27;.&#x27;;
+import { String as StringUtil } from &#x27;../util&#x27;;
 
 @Injectable()
 export class DependencyService {
@@ -609,10 +616,10 @@ export class DependencyService {
 
   private executeOperation(answerDependency: string, dependency: Dependency): boolean {
     const operations: { [type: string]: boolean } &#x3D; {
-      &#x27;equals&#x27;: answerDependency &#x3D;&#x3D;&#x3D; dependency.expectedAnswer,
+      &#x27;equals&#x27;: StringUtil.convertToString(answerDependency) &#x3D;&#x3D;&#x3D; StringUtil.convertToString(dependency.expectedAnswer),
       &#x27;lessthan&#x27;: parseFloat(answerDependency) &lt; parseFloat(dependency.expectedAnswer),
       &#x27;greaterthan&#x27;: parseFloat(answerDependency) &gt; parseFloat(dependency.expectedAnswer),
-      &#x27;notequals&#x27;: answerDependency !&#x3D;&#x3D; dependency.expectedAnswer
+      &#x27;notequals&#x27;: StringUtil.convertToString(answerDependency) !&#x3D;&#x3D; StringUtil.convertToString(dependency.expectedAnswer)
     };
 
     return operations[dependency.criteria];

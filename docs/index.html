@@ -202,6 +202,9 @@
                                     <a href="./classes/Select.html" >Select</a>
                                 </li>
                                 <li class="link">
+                                    <a href="./classes/String.html" >String</a>
+                                </li>
+                                <li class="link">
                                     <a href="./classes/Text.html" >Text</a>
                                 </li>
                                 <li class="link">
@@ -446,6 +449,9 @@
                                            <a href="./classes/Select.html" >Select</a>
                                        </li>
                                        <li class="link">
+                                           <a href="./classes/String.html" >String</a>
+                                       </li>
+                                       <li class="link">
                                            <a href="./classes/Text.html" >Text</a>
                                        </li>
                                        <li class="link">
@@ -551,8 +557,8 @@ export class MyModule { }</code></pre><ol>
       {
         &quot;name&quot;: &quot;Q-0101&quot;,
         &quot;description&quot;: &quot;Check Question 0101&quot;,
-        &quot;type&quot;: &quot;check&quot;,
-        &quot;defaultOption&quot;: false,
+        &quot;type&quot;: &quot;checkbox&quot;,
+        &quot;defaultOption&quot;: &quot;false&quot;,
         &quot;validations&quot;: [
           { &quot;type&quot;: &quot;pattern&quot;, &quot;message&quot;: &quot;Required field.&quot;, &quot;value&quot;: &quot;true&quot; }
         ]
@@ -747,7 +753,7 @@ export class MyModule { }</code></pre><ol>
     {
       &quot;name&quot;: &quot;Q-0101&quot;,
       &quot;description&quot;: &quot;Check Question 0101&quot;,
-      &quot;type&quot;: &quot;check&quot;,
+      &quot;type&quot;: &quot;checkbox&quot;,
       &quot;validations&quot;: []
     },
     {
@@ -769,7 +775,7 @@ export class MyModule { }</code></pre><ol>
       {
         &quot;name&quot;: &quot;Q-0101&quot;,
         &quot;description&quot;: &quot;Check Question 0101&quot;,
-        &quot;type&quot;: &quot;check&quot;,
+        &quot;type&quot;: &quot;checkbox&quot;,
         &quot;validations&quot;: []
       },
       {
@@ -785,7 +791,7 @@ export class MyModule { }</code></pre><ol>
 }</code></pre><h2 id="questions">Questions</h2>
 <p><strong>Question</strong> represents a simple question, which can be of five types:</p>
 <ul>
-<li><strong>check</strong>;</li>
+<li><strong>checkbox</strong>;</li>
 <li><strong>radio</strong>;</li>
 <li><strong>select</strong>;</li>
 <li><strong>text</strong>;</li>
@@ -797,10 +803,10 @@ export class MyModule { }</code></pre><ol>
   &quot;name&quot;: &quot;Q-01&quot;,
   &quot;description&quot;: &quot;Check Question&quot;,
   &quot;dependencies&quot;: [],
-  &quot;type&quot;: &quot;check&quot;,
+  &quot;type&quot;: &quot;checkbox&quot;,
   &quot;answer&quot;: null,
   &quot;validations&quot;: [],
-  &quot;defaultOption&quot;: false
+  &quot;defaultOption&quot;: &quot;false&quot;
 }</code></pre><h3 id="radio">Radio</h3>
 <p><strong>Radio</strong> represents a <em>radio</em> input from HTML.</p>
 <pre class="line-numbers"><code class="language-json">{
