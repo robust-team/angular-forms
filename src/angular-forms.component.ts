@@ -24,8 +24,8 @@ import { ReactiveFormsFactory } from './factory';
                 <ng-container [ngSwitch]="question.type">
 
                   <ng-template ngSwitchCase="checkbox">
-                    <ng-container *ngIf="!readOnly">
-                      <div class="form-group" [hidden]="hideQuestion(question, formGroup.get(group.code))">
+                    <div class="form-group" [hidden]="hideQuestion(question, formGroup.get(group.code))">
+                      <ng-container *ngIf="!readOnly; else readOnlyCheckbox">
                         <div class="checkbox">
                           <label>
                             <input type="checkbox" [name]="question.name" [formControlName]="question.name" />
@@ -36,22 +36,20 @@ import { ReactiveFormsFactory } from './factory';
                                                  [submitted]="submitted">
                           </rb-validation-message>
                         </div> <!--/.checkbox-->
-                      </div> <!--/.form-group-->
-                    </ng-container> <!--/!readOnly-->
+                      </ng-container> <!--/!readOnly-->
 
-                    <ng-container *ngIf="readOnly">
-                      <div class="form-group">
+                      <ng-template #readOnlyCheckbox>
                         <label>
                           <i class="rb-ico rb-ico-square rb-ico-{{ question.answer ? 'checked' : 'unchecked' }}" aria-hidden="true"></i>
                           {{ question.description }}
                         </label>
-                      </div> <!--/.form-group-->
-                    </ng-container> <!--/readOnly-->
+                      </ng-template> <!--/readOnly-->
+                    </div> <!--/.form-group-->
                   </ng-template> <!--/checkbox-->
 
                   <ng-template ngSwitchCase="radio">
-                    <ng-container *ngIf="!readOnly">
-                      <div class="form-group" [hidden]="hideQuestion(question, formGroup.get(group.code))">
+                    <div class="form-group" [hidden]="hideQuestion(question, formGroup.get(group.code))">
+                      <ng-container *ngIf="!readOnly; else readOnlyRadio">
                         <label>{{ question.description }}</label>
                         <div class="radio" *ngFor="let option of question.options">
                           <label>
@@ -63,20 +61,18 @@ import { ReactiveFormsFactory } from './factory';
                                                [control]="formGroup.get(group.code).get(question.name)"
                                                [submitted]="submitted">
                         </rb-validation-message>
-                      </div> <!--/.form-group-->
-                    </ng-container> <!--/!readOnly-->
+                      </ng-container> <!--/!readOnly-->
 
-                    <ng-container *ngIf="readOnly">
-                      <div class="form-group">
-                        <label>{{ question.description }}:</label>
+                      <ng-template #readOnlyRadio>
+                        <label>{{ question.description }}</label>
                         <span>{{ question.answer || 'NOT_INFORMED' | translate }}</span>
-                      </div> <!--/.form-group-->
-                    </ng-container>
+                      </ng-template> <!--/readOnly-->
+                    </div> <!--/.form-group-->
                   </ng-template> <!--/radio-->
 
                   <ng-template ngSwitchCase="select">
-                    <ng-container *ngIf="!readOnly">
-                      <div class="form-group" [hidden]="hideQuestion(question, formGroup.get(group.code))">
+                    <div class="form-group" [hidden]="hideQuestion(question, formGroup.get(group.code))">
+                      <ng-container *ngIf="!readOnly; else readOnlySelect">
                         <label [for]="question.name">{{ question.description }}</label>
                         <select [id]="question.name" class="form-control" [name]="question.name"
                                 [formControlName]="question.name">
@@ -91,20 +87,18 @@ import { ReactiveFormsFactory } from './factory';
                                                [control]="formGroup.get(group.code).get(question.name)"
                                                [submitted]="submitted">
                         </rb-validation-message>
-                      </div> <!--/.form-group-->
-                    </ng-container> <!--/!readOnly-->
+                      </ng-container> <!--!readOnly-->
 
-                    <ng-container *ngIf="readOnly">
-                      <div class="form-group">
-                        <label>{{ question.description }}:</label>
+                      <ng-template #readOnlySelect>
+                        <label>{{ question.description }}</label>
                         <span>{{ question.answer || 'NOT_INFORMED' | translate }}</span>
-                      </div> <!--/.form-group-->
-                    </ng-container> <!--/readOnly-->
+                      </ng-template> <!--/readOnly-->
+                    </div> <!--/.form-group-->
                   </ng-template> <!--/select-->
 
                   <ng-template ngSwitchCase="textarea">
-                    <ng-container *ngIf="!readOnly">
-                      <div class="form-group" [hidden]="hideQuestion(question, formGroup.get(group.code))">
+                    <div class="form-group" [hidden]="hideQuestion(question, formGroup.get(group.code))">
+                      <ng-container *ngIf="!readOnly; else readOnlyTextarea">
                         <label [for]="question.name">{{ question.description }}</label>
                         <textarea [id]="question.name" class="form-control" [name]="question.name" rows="5"
                                   placeholder="{{ question.placeholder ? question.placeholder : '' }}"
@@ -114,37 +108,33 @@ import { ReactiveFormsFactory } from './factory';
                                                [control]="formGroup.get(group.code).get(question.name)"
                                                [submitted]="submitted">
                         </rb-validation-message>
-                      </div> <!--/.form-group-->
-                    </ng-container> <!--/!readOnly-->
+                      </ng-container> <!--!readOnly-->
 
-                    <ng-container *ngIf="readOnly">
-                      <div class="form-group">
-                        <label>{{ question.description }}:</label>
+                      <ng-template #readOnlyTextarea>
+                        <label>{{ question.description }}</label>
                         <span>{{ question.answer || 'NOT_INFORMED' | translate }}</span>
-                      </div> <!--/.form-group-->
-                    </ng-container> <!--/readOnly-->
+                      </ng-template> <!--/readOnly-->
+                    </div> <!--/.form-group-->
                   </ng-template> <!--/textarea-->
 
                   <ng-template ngSwitchCase="text" ngSwitchDefault>
-                    <ng-container *ngIf="!readOnly">
-                      <div class="form-group" [hidden]="hideQuestion(question, formGroup.get(group.code))">
+                    <div class="form-group" [hidden]="hideQuestion(question, formGroup.get(group.code))">
+                      <ng-container *ngIf="!readOnly; else readOnlyText">
                         <label [for]="question.name">{{ question.description }}</label>
                         <input type="text" [id]="question.name" class="form-control" [name]="question.name"
-                               placeholder="{{ question.placeholder ? question.placeholder : '' }}"
-                               [formControlName]="question.name" [mask]="question.mask" />
+                                placeholder="{{ question.placeholder ? question.placeholder : '' }}"
+                                [formControlName]="question.name" [mask]="question.mask" />
                         <rb-validation-message [validations]="question.validations"
                                                [control]="formGroup.get(group.code).get(question.name)"
                                                [submitted]="submitted">
                         </rb-validation-message>
-                      </div> <!--/.form-group-->
-                    </ng-container> <!--/!readOnly-->
+                      </ng-container> <!--!readOnly-->
 
-                    <ng-container *ngIf="readOnly">
-                      <div class="form-group">
-                        <label>{{ question.description }}:</label>
+                      <ng-template #readOnlyText>
+                        <label>{{ question.description }}</label>
                         <span>{{ question.answer || 'NOT_INFORMED' | translate }}</span>
-                      </div> <!--/.form-group-->
-                    </ng-container>
+                      </ng-template> <!--readOnly-->
+                    </div> <!--/.form-group-->
                   </ng-template> <!--/text-->
                 </ng-container> <!--/ngSwitch-questionType-->
 
