@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Input, AfterViewChecked, ChangeDetectorRef } from '@angular/core';
 import { FormGroup, FormGroupDirective } from '@angular/forms';
 
 import { TranslateService } from '@ngx-translate/core';
@@ -177,7 +177,7 @@ import { String as StringUtil } from './util';
   `],
   providers: [DependencyService]
 })
-export class AngularFormsComponent implements OnInit {
+export class AngularFormsComponent implements OnInit, AfterViewChecked {
 
   public formGroup: FormGroup;
   public submitted: boolean = false;
@@ -186,12 +186,20 @@ export class AngularFormsComponent implements OnInit {
   @Input() public lang: string = 'en-US';
   @Input() public readOnly: boolean = false;
 
-  public constructor(private translateService: TranslateService, private dependencyService: DependencyService) { }
+  public constructor(
+    private changeDetectorRef: ChangeDetectorRef,
+    private dependencyService: DependencyService,
+    private translateService: TranslateService
+  ) { }
 
   public ngOnInit(): void {
     this.configTranslate();
     this.groups = AngularForms.fromJson(this.groups);
     this.formGroup = ReactiveFormsFactory.createFormGroupFromGroups(this.groups);
+  }
+
+  public ngAfterViewChecked(): void {
+    this.changeDetectorRef.detectChanges();
   }
 
   public hideQuestion(question: Question<any>, formGroup: FormGroup): boolean {
