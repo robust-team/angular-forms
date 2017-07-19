@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 
 import { Dependency, Question } from '.';
+import { String as StringUtil } from '../util';
 
 @Injectable()
 export class DependencyService {
@@ -33,10 +34,10 @@ export class DependencyService {
 
   private executeOperation(answerDependency: string, dependency: Dependency): boolean {
     const operations: { [type: string]: boolean } = {
-      'equals': (null !== answerDependency ? answerDependency.toString() : '') === dependency.expectedAnswer.toString(),
+      'equals': StringUtil.convertToString(answerDependency) === StringUtil.convertToString(dependency.expectedAnswer),
       'lessthan': parseFloat(answerDependency) < parseFloat(dependency.expectedAnswer),
       'greaterthan': parseFloat(answerDependency) > parseFloat(dependency.expectedAnswer),
-      'notequals': (null !== answerDependency ? answerDependency.toString() : '') !== dependency.expectedAnswer.toString()
+      'notequals': StringUtil.convertToString(answerDependency) !== StringUtil.convertToString(dependency.expectedAnswer)
     };
 
     return operations[dependency.criteria];
