@@ -48,7 +48,7 @@
 
 .required-control::after {
   color: #a00;
-  content: ' *';
+  content: '*';
 }
 
 /* Choice Question */
