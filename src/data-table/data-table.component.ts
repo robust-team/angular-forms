@@ -1,4 +1,3 @@
-import { style } from '@angular/core/core';
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { FormGroup, FormArray, FormControl, AbstractControl, FormGroupDirective } from '@angular/forms';
 
@@ -129,39 +128,6 @@ import { ReactiveFormsFactory } from '../factory';
       </rb-validation-message>
     </fieldset>
   `,
-  styles: [`
-    /* Icons */
-    .rb-ico { font-style: normal }
-    .rb-ico:after { font-size: 1.6rem }
-    .rb-ico.rb-ico-add:after { content: '✚' }
-    .rb-ico.rb-ico-remove:after { content: '✖' }
-    .rb-ico.rb-ico-square:after {
-      background: linear-gradient(to bottom, #fff 0px, #e6e6e6 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
-      border: 1px solid #888;
-      border-radius: .3rem;
-      content: '';
-      cursor: default;
-      display: inline-block;
-      font-size: 1.6rem;
-      height: 1.4rem;
-      line-height: 1.4rem;
-      margin-right: .5rem;
-      text-align: center;
-      width: 1.4rem;
-    }
-    .rb-ico.rb-ico-square.rb-ico-checked:after { content: '✔' }
-    .rb-ico.rb-ico-square.rb-ico-unchecked:after { content: '' }
-
-    fieldset.datatable {
-      border: 1px solid #ccc;
-      margin-bottom: 15px;
-      padding: 0 15px 15px;
-    }
-    fieldset.datatable legend {
-      border: 1px solid #ccc;
-      padding: 5px 10px;
-    }
-  `]
 })
 export class DataTableComponent implements OnInit {
 

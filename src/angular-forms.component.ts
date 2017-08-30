@@ -123,8 +123,8 @@ import { String as StringUtil } from './util';
                       <ng-container *ngIf="!readOnly; else readOnlyText">
                         <label [for]="question.name">{{ question.description }}</label>
                         <input type="text" [id]="question.name" class="form-control" [name]="question.name"
-                                placeholder="{{ question.placeholder ? question.placeholder : '' }}"
-                                [formControlName]="question.name" [mask]="question.mask" />
+                               placeholder="{{ question.placeholder ? question.placeholder : '' }}"
+                               [formControlName]="question.name" [mask]="question.mask" />
                         <rb-validation-message [validations]="question.validations"
                                                [control]="formGroup.get(group.code).get(question.name)"
                                                [submitted]="submitted">
@@ -152,29 +152,6 @@ import { String as StringUtil } from './util';
       </ng-container> <!--groups-->
     </form>
   `,
-  styles: [`
-    /* Icons */
-    .rb-ico { font-style: normal }
-    .rb-ico:after { font-size: 1.6rem }
-    .rb-ico.rb-ico-add:after { content: '✚' }
-    .rb-ico.rb-ico-remove:after { content: '✖' }
-    .rb-ico.rb-ico-square:after {
-      background: linear-gradient(to bottom, #fff 0px, #e6e6e6 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
-      border: 1px solid #888;
-      border-radius: .3rem;
-      content: '';
-      cursor: default;
-      display: inline-block;
-      font-size: 1.6rem;
-      height: 1.4rem;
-      line-height: 1.4rem;
-      margin-right: .5rem;
-      text-align: center;
-      width: 1.4rem;
-    }
-    .rb-ico.rb-ico-square.rb-ico-checked:after { content: '✔' }
-    .rb-ico.rb-ico-square.rb-ico-unchecked:after { content: '' }
-  `],
   providers: [DependencyService]
 })
 export class AngularFormsComponent implements OnInit, AfterViewChecked {
