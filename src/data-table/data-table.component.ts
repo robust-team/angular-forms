@@ -9,14 +9,20 @@ import { ReactiveFormsFactory } from '../factory';
   selector: 'rb-data-table',
   template: `
     <fieldset class="rb-data-table" [formGroup]="formGroup" [ngClass]="{ 'read-only': readOnly }">
-      <legend>{{ group.description }}</legend>
+      <legend>
+        <span [ngClass]="{ 'required-control': group.isRequired() && !readOnly }">
+          {{ group.description }}
+        </span>
+      </legend>
 
       <div class="table-responsive">
         <table class="table table-bordered table-striped table-hover">
           <thead>
             <tr>
               <th class="text-center" *ngFor="let question of group.questions[0]">
-                {{ question.description }}
+                <span [ngClass]="{ 'required-control': question.isRequired() && !readOnly }">
+                  {{ question.description }}
+                </span>
               </th>
               <th class="text-center" *ngIf="!readOnly">
                 {{ 'ACTION' | translate }}

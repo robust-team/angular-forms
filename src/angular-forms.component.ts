@@ -30,7 +30,9 @@ import { String as StringUtil } from './util';
                         <div class="checkbox">
                           <label>
                             <input type="checkbox" [name]="question.name" [formControlName]="question.name" />
-                            {{ question.description }}
+                            <span [ngClass]="{ 'required-control': question.isRequired() }">
+                              {{ question.description }}
+                            </span>
                           </label>
                           <rb-validation-message [validations]="question.validations"
                                                  [control]="formGroup.get(group.code).get(question.name)"
@@ -51,7 +53,9 @@ import { String as StringUtil } from './util';
                   <ng-template ngSwitchCase="radio">
                     <div class="form-group" [hidden]="hideQuestion(question, formGroup.get(group.code))">
                       <ng-container *ngIf="!readOnly; else readOnlyRadio">
-                        <label>{{ question.description }}</label>
+                        <label [ngClass]="{ 'required-control': question.isRequired() }">
+                          {{ question.description }}
+                        </label>
                         <div class="radio" *ngFor="let option of question.options">
                           <label>
                             <input type="radio" [name]="question.name" [value]="option" [formControlName]="question.name" />
@@ -74,7 +78,9 @@ import { String as StringUtil } from './util';
                   <ng-template ngSwitchCase="select">
                     <div class="form-group" [hidden]="hideQuestion(question, formGroup.get(group.code))">
                       <ng-container *ngIf="!readOnly; else readOnlySelect">
-                        <label [for]="question.name">{{ question.description }}</label>
+                        <label [for]="question.name" [ngClass]="{ 'required-control': question.isRequired() }">
+                          {{ question.description }}
+                        </label>
                         <select [id]="question.name" class="form-control" [name]="question.name"
                                 [formControlName]="question.name">
                           <option disabled [value]="null">
@@ -100,7 +106,9 @@ import { String as StringUtil } from './util';
                   <ng-template ngSwitchCase="textarea">
                     <div class="form-group" [hidden]="hideQuestion(question, formGroup.get(group.code))">
                       <ng-container *ngIf="!readOnly; else readOnlyTextarea">
-                        <label [for]="question.name">{{ question.description }}</label>
+                        <label [for]="question.name" [ngClass]="{ 'required-control': question.isRequired() }">
+                          {{ question.description }}
+                        </label>
                         <textarea [id]="question.name" class="form-control" [name]="question.name" rows="5"
                                   placeholder="{{ question.placeholder ? question.placeholder : '' }}"
                                   [formControlName]="question.name">
@@ -121,7 +129,9 @@ import { String as StringUtil } from './util';
                   <ng-template ngSwitchCase="text" ngSwitchDefault>
                     <div class="form-group" [hidden]="hideQuestion(question, formGroup.get(group.code))">
                       <ng-container *ngIf="!readOnly; else readOnlyText">
-                        <label [for]="question.name">{{ question.description }}</label>
+                        <label [for]="question.name" [ngClass]="{ 'required-control': question.isRequired() }">
+                          {{ question.description }}
+                        </label>
                         <input type="text" [id]="question.name" class="form-control" [name]="question.name"
                                placeholder="{{ question.placeholder ? question.placeholder : '' }}"
                                [formControlName]="question.name" [mask]="question.mask" />

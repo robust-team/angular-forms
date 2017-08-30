@@ -45,3 +45,8 @@
   padding: 1px 0 1px 5px;
 }
 .rb-validation-message li:first-of-type { margin-top: 5px }
+
+.required-control::after {
+  color: #a00;
+  content: ' *';
+}

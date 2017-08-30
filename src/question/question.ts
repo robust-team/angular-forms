@@ -1,5 +1,5 @@
 import { Dependency } from '.';
-import { Validation } from '../validation';
+import { Pattern, Validation } from '../validation';
 
 export abstract class Question<Answer> {
 
@@ -11,6 +11,16 @@ export abstract class Question<Answer> {
     private _answer: Answer = null,
     private _validations: Validation[] = []
   ) { }
+
+  public isRequired(): boolean {
+    for (const validation of this._validations) {
+      if ('required' === validation.type || ('pattern' === validation.type && 'true' === (<Pattern>validation).value.toString())) {
+        return true;
+      }
+    }
+
+    return false;
+  }
 
   public get name(): string {
     return this._name;
