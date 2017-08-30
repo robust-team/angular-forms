@@ -17,7 +17,7 @@ A Simple Form Generator for Angular.
 - **@angular/forms**: 4.0.0 or higher,
 - **@fagnerlima/ng-mask**: 2.2.1 or higher,
 - **@ngx-translate/core**: 7.0.0 or higher,
-- **rxjs**: 5.0.1 or higher.
+- **rxjs**: 5.4.2 or higher.
 
 ## Usage
 
@@ -81,6 +81,7 @@ The **customForm** attribute represents the JSON coming from API. For example:
         "description": "Select Question 0103",
         "type": "select",
         "options": ["Option 1", "Option 2"],
+        "editableOption": "Option 2",
         "placeholder": "Select",
         "validations": [
           { "type": "required", "message": "Required field." }
@@ -368,6 +369,7 @@ The **Group** represents a grouping of questions, which can be of two types: **F
   "validations": [],
   "options": ["Option 1", "Option 2"],
   "defaultOption": null,
+  "editableOption": "Option 2",
   "placeholder": "Select an option"
 }
 ```
