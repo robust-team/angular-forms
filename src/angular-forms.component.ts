@@ -6,7 +6,7 @@ import { AngularForms } from '.';
 import { Group } from './group';
 import { DependencyService, Select, SelectService, Question } from './question';
 import { ReactiveFormsFactory } from './factory';
-import { String as StringUtil } from './util';
+import { StringUtils } from './util';
 
 @Component({
   selector: 'rb-angular-forms',
@@ -258,7 +258,7 @@ export class AngularFormsComponent implements OnInit, AfterViewChecked {
 
   private convertAnswersOfGroupToString(answersGroup: Object): Object {
     Object.keys(answersGroup).forEach((questionIndex: string) => {
-      answersGroup[questionIndex] = StringUtil.convertToString(answersGroup[questionIndex]);
+      answersGroup[questionIndex] = StringUtils.convertToString(answersGroup[questionIndex]);
     });
 
     return answersGroup;
