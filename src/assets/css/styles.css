@@ -50,3 +50,6 @@
   color: #a00;
   content: ' *';
 }
+
+/* Choice Question */
+.editable-option { margin-top: 10px; }

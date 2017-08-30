@@ -1,7 +1,7 @@
-import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
-import { FormGroup, FormArray, FormControl, AbstractControl, FormGroupDirective } from '@angular/forms';
+import { Component, Input, OnInit } from '@angular/core';
+import { FormGroup, FormArray, FormControl } from '@angular/forms';
 
-import { Question } from '../question';
+import { Select, SelectService, Question } from '../question';
 import { Group, DataTable } from '../group';
 import { ReactiveFormsFactory } from '../factory';
 
@@ -61,8 +61,9 @@ import { ReactiveFormsFactory } from '../factory';
                   </ng-template> <!--/radio-->
 
                   <ng-template ngSwitchCase="select">
-                    <select [id]="question.name" class="form-control" [name]="question.name"
-                            [formControlName]="question.name">
+                  <select [id]="question.name" class="form-control" [name]="question.name" #selectQuestion
+                          formControlName="{{ question.editableOption !== selectQuestion.value ? question.name : '' }}"
+                          (change)="onChangeOptionSelect(selectQuestion, newFormGroup.get(question.name), question)">
                       <option disabled [value]="null">
                         {{ question.placeholder ? question.placeholder : '' }}
                       </option>
@@ -70,6 +71,11 @@ import { ReactiveFormsFactory } from '../factory';
                         {{ option }}
                       </option>
                     </select>
+                    <ng-container *ngIf="question.editableOption">
+                    <input [class.hidden]="question.editableOption !== selectQuestion.value"
+                             type="text" [id]="question.name" class="form-control editable-option" [name]="question.name"
+                             [formControlName]="question.name" />
+                    </ng-container>
                     <rb-validation-message [validations]="question.validations"
                                            [control]="newFormGroup.get(question.name)"
                                            [submitted]="submitted">
@@ -149,6 +155,10 @@ export class DataTableComponent implements OnInit {
   public ngOnInit(): void {
     this.formArray = <FormArray>this.formGroup.get(this.group.code);
     this.newFormGroup = ReactiveFormsFactory.createFormGroupFromQuestions(this.group.questions[0]);
+  }
+
+  public onChangeOptionSelect(htmlFormControl: HTMLInputElement, formControl: FormControl, question: Select): void {
+    SelectService.onChangeOption(htmlFormControl, formControl, question);
   }
 
   public getKeysFromObject(object: Object): string[] {

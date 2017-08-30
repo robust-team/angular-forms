@@ -30,6 +30,7 @@ const groups: any[] = [
         'description': 'Select Question 0103',
         'type': 'select',
         'options': ['Option 1', 'Option 2'],
+        'editableOption': 'Option 2',
         'placeholder': 'Select',
         'validations': [
           { 'type': 'required', 'message': 'Required field.' }
@@ -90,6 +91,7 @@ const groups: any[] = [
             { 'type': 'required', 'message': 'Required field.' }
           ],
           'options': ['Option 1', 'Option 2', 'Option 3'],
+          'editableOption': 'Option 3',
           'placeholder': 'Select'
         },
         {

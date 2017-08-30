@@ -1,10 +1,10 @@
-import { Component, OnInit, EventEmitter, Output, Input, AfterViewChecked, ChangeDetectorRef } from '@angular/core';
-import { FormGroup, FormGroupDirective } from '@angular/forms';
+import { Component, OnInit, Output, Input, AfterViewChecked, ChangeDetectorRef } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 
 import { TranslateService } from '@ngx-translate/core';
 import { AngularForms } from '.';
 import { Group } from './group';
-import { Question, DependencyService } from './question';
+import { DependencyService, Select, SelectService, Question } from './question';
 import { ReactiveFormsFactory } from './factory';
 import { String as StringUtil } from './util';
 
@@ -81,8 +81,9 @@ import { String as StringUtil } from './util';
                         <label [for]="question.name" [ngClass]="{ 'required-control': question.isRequired() }">
                           {{ question.description }}
                         </label>
-                        <select [id]="question.name" class="form-control" [name]="question.name"
-                                [formControlName]="question.name">
+                        <select [id]="question.name" class="form-control" [name]="question.name" #selectQuestion
+                                formControlName="{{ question.editableOption !== selectQuestion.value ? question.name : '' }}"
+                                (change)="onChangeOptionSelect(selectQuestion, formGroup.get(group.code).get(question.name), question)">
                           <option disabled [value]="null">
                             {{ question.placeholder ? question.placeholder : '' }}
                           </option>
@@ -90,6 +91,11 @@ import { String as StringUtil } from './util';
                             {{ option }}
                           </option>
                         </select>
+                        <ng-container *ngIf="question.editableOption">
+                          <input [class.hidden]="question.editableOption !== selectQuestion.value"
+                                 type="text" [id]="question.name" class="form-control editable-option" [name]="question.name"
+                                 [formControlName]="question.name" />
+                        </ng-container>
                         <rb-validation-message [validations]="question.validations"
                                                [control]="formGroup.get(group.code).get(question.name)"
                                                [submitted]="submitted">
@@ -191,6 +197,10 @@ export class AngularFormsComponent implements OnInit, AfterViewChecked {
 
   public hideQuestion(question: Question<any>, formGroup: FormGroup): boolean {
     return this.dependencyService.hideQuestion(question, formGroup);
+  }
+
+  public onChangeOptionSelect(htmlFormControl: HTMLInputElement, formControl: FormControl, question: Select): void {
+    SelectService.onChangeOption(htmlFormControl, formControl, question);
   }
 
   public submit(): void {
