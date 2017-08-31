@@ -13,6 +13,7 @@ export class Select extends Choice {
       question.validations,
       question.options,
       question.defaultOption,
+      question.editableOption,
       question.placeholder
     );
   }
@@ -26,9 +27,14 @@ export class Select extends Choice {
     validations: Validation[] = [],
     options: string[] = [],
     defaultOption: string = null,
+    private _editableOption: string = null,
     private _placeholder: string = null
   ) {
     super(name, description, dependencies || [], type, answer, validations || [], options, defaultOption);
+  }
+
+  public get editableOption(): string {
+    return this._editableOption;
   }
 
   public get placeholder(): string {

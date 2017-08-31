@@ -11,7 +11,8 @@
     "build:demo": "webpack -p",
     "build:umd": "webpack --config webpack.config.umd.ts",
     "build:ngc": "ngc -p tsconfig-ngc.json",
-    "build:dist": "npm run build:umd && npm run build:ngc",
+    "build:copyfiles": "copyfiles assets/css/*.css dist",
+    "build:dist": "npm run build:umd && npm run build:ngc && npm run build:copyfiles",
     "build:clean": "del-cli dist",
     "test": "karma start --single-run && npm run build:dist && npm run build:clean",
     "test-ci": "karma start --single-run --browsers PhantomJS",
@@ -39,31 +40,25 @@
     "url": "https://github.com/robust-team/angular-forms/issues"
   },
   "homepage": "https://github.com/robust-team/angular-forms#readme",
-  "peerDependencies": {
+  "dependencies": {
     "@angular/common": "^4.0.0",
     "@angular/core": "^4.0.0",
     "@angular/forms": "^4.0.0",
     "@fagnerlima/ng-mask": "^2.2.1",
     "@ngx-translate/core": "^7.0.0",
-    "@types/node": "^7.0.0",
-    "rxjs": "^5.0.1"
+    "@types/node": "^8.0.24",
+    "rxjs": "^5.4.2"
   },
   "devDependencies": {
-    "@angular/common": "^4.0.0",
     "@angular/compiler": "^4.0.0",
     "@angular/compiler-cli": "^4.0.0",
-    "@angular/core": "^4.0.0",
-    "@angular/forms": "^4.0.0",
     "@angular/language-service": "^4.0.0",
     "@angular/platform-browser": "^4.0.0",
     "@angular/platform-browser-dynamic": "^4.0.0",
     "@compodoc/compodoc": "^1.0.0-beta.3",
-    "@fagnerlima/ng-mask": "^2.2.1",
-    "@ngx-translate/core": "^7.0.0",
     "@types/chai": "^4.0.0",
     "@types/html-webpack-plugin": "^2.11.2",
     "@types/mocha": "^2.2.41",
-    "@types/node": "^7.0.0",
     "@types/sinon": "^2.1.2",
     "@types/sinon-chai": "^2.7.26",
     "@types/webpack": "^2.2.8",
@@ -88,7 +83,6 @@
     "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "^2.0.1",
     "mocha": "^3.3.0",
-    "rxjs": "^5.0.1",
     "sinon": "^2.0.0",
     "sinon-chai": "^2.8.0",
     "standard-version": "^4.0.0",
@@ -101,6 +95,6 @@
     "webpack-angular-externals": "^1.0.0",
     "webpack-dev-server": "^2.2.0",
     "webpack-rxjs-externals": "^1.0.0",
-    "zone.js": "^0.8.4"
+    "zone.js": "^0.8.14"
   }
 }

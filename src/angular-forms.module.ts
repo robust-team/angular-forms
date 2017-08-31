@@ -3,10 +3,10 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { NgMaskModule } from '@fagnerlima/ng-mask';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { AngularFormsComponent } from '.';
 import { DataTableModule } from './data-table';
 import { ValidationMessageModule } from './validation-message';
-import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { AngularFormsTranslateLoader } from './angular-forms-translate-loader';
 
 @NgModule({
