@@ -6,10 +6,9 @@ export class Fieldset extends Group {
   public constructor(
     code: string,
     description: string,
-    type: string,
     private _questions: Question<any>[]
   ) {
-    super(code, description, type);
+    super(code, description, 'group');
   }
 
   public get questions(): Question<any>[] {

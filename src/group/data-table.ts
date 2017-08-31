@@ -7,11 +7,10 @@ export class DataTable extends Group {
   public constructor(
     code: string,
     description: string,
-    type: string,
     private _questions: Question<any>[][],
     private _validations: Validation[] = []
   ) {
-    super(code, description, type);
+    super(code, description, 'datatable');
   }
 
   public isRequired(): boolean {

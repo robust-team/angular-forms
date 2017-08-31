@@ -3,15 +3,14 @@ import { Question } from '../question';
 
 export abstract class GroupBuilder<QuestionListType> {
 
-  protected questions: QuestionListType;
+  protected questions: QuestionListType[];
 
   public constructor(
     protected code: string,
-    protected description: string,
-    protected type: string
+    protected description: string
   ) { }
 
-  public abstract addQuestion<QuestionType>(question: QuestionType): void;
+  public abstract addQuestion(question: QuestionListType): void;
 
   public abstract build(): Group;
 }

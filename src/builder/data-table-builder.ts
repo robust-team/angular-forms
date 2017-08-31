@@ -3,15 +3,14 @@ import { DataTable } from '../group';
 import { Question } from '../question';
 import { Validation } from '../validation';
 
-export class DataTableBuilder extends GroupBuilder<Question<any>[][]> {
+export class DataTableBuilder extends GroupBuilder<Question<any>[]> {
 
   public constructor(
     code: string,
     description: string,
-    type: string,
     private validations: Validation[] = null
   ) {
-    super(code, description, type);
+    super(code, description);
     this.questions = [];
   }
 
@@ -23,7 +22,6 @@ export class DataTableBuilder extends GroupBuilder<Question<any>[][]> {
     return new DataTable(
       this.code,
       this.description,
-      this.type,
       this.questions,
       this.validations
     );
