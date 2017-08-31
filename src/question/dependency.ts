@@ -1,8 +1,10 @@
+import { DependencyCriteria } from '.';
+
 export class Dependency {
 
   public constructor(
     private _code: string,
-    private _criteria: string,
+    private _criteria: DependencyCriteria,
     private _expectedAnswer: string
   ) { }
 
@@ -10,7 +12,7 @@ export class Dependency {
     return this._code;
   }
 
-  public get criteria(): string {
+  public get criteria(): DependencyCriteria {
     return this._criteria;
   }
 

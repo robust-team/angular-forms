@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 
-import { Dependency, Question } from '.';
+import { Dependency, DependencyCriteria, Question } from '.';
 import { StringUtils } from '../util';
 
 @Injectable()
@@ -33,14 +33,18 @@ export class DependencyService {
   }
 
   private executeOperation(answerDependency: string, dependency: Dependency): boolean {
-    const operations: { [type: string]: boolean } = {
-      'equals': StringUtils.convertToString(answerDependency) === StringUtils.convertToString(dependency.expectedAnswer),
-      'lessthan': parseFloat(answerDependency) < parseFloat(dependency.expectedAnswer),
-      'greaterthan': parseFloat(answerDependency) > parseFloat(dependency.expectedAnswer),
-      'notequals': StringUtils.convertToString(answerDependency) !== StringUtils.convertToString(dependency.expectedAnswer)
-    };
+    switch (dependency.criteria) {
+      case DependencyCriteria.EQUALS:
+        return StringUtils.convertToString(answerDependency) === StringUtils.convertToString(dependency.expectedAnswer);
+      case DependencyCriteria.LESS_THAN:
+        return parseFloat(answerDependency) < parseFloat(dependency.expectedAnswer);
+      case DependencyCriteria.GREATER_THAN:
+        return parseFloat(answerDependency) > parseFloat(dependency.expectedAnswer);
+      case DependencyCriteria.NOT_EQUALS:
+        return StringUtils.convertToString(answerDependency) !== StringUtils.convertToString(dependency.expectedAnswer);
+    }
 
-    return operations[dependency.criteria];
+    return false;
   }
 
   private setStatusFormControl(formControl: FormControl, hidden: boolean): void {
