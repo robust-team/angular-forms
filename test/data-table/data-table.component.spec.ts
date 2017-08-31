@@ -53,7 +53,7 @@ describe('DataTableComponent', () => {
   it('should call onChangeOptionSelect method', () => {
     const htmlFormControl: any = { value: 'Option 2' };
     const formControl: FormControl = new FormControl('Option 2');
-    const question: Select = new Select('Q-01', 'Question 01', [], 'Option 2', [], ['Option 1', 'Option 2'], null, 'Option 2');
+    const question: Select = new Select('Q-01', 'Question 01', [], 'Option 2', [], false, ['Option 1', 'Option 2'], null, 'Option 2');
     component.onChangeOptionSelect(htmlFormControl, formControl, question);
   });
 

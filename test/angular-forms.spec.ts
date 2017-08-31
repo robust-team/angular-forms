@@ -52,6 +52,7 @@ describe('AngularForms :: AngularForms', () => {
             type: 'text',
             answer: null,
             validations: [],
+            disabled: false,
             mask: null,
             placeholder: null
           },
@@ -62,6 +63,7 @@ describe('AngularForms :: AngularForms', () => {
             type: 'text',
             answer: null,
             validations: [],
+            disabled: false,
             mask: null,
             placeholder: null
           }
@@ -74,6 +76,7 @@ describe('AngularForms :: AngularForms', () => {
             type: 'text',
             answer: 'My answer 1',
             validations: [],
+            disabled: false,
             mask: null,
             placeholder: null
           },
@@ -84,6 +87,7 @@ describe('AngularForms :: AngularForms', () => {
             type: 'text',
             answer: 'My answer 2',
             validations: [],
+            disabled: false,
             mask: null,
             placeholder: null
           }
@@ -95,12 +99,12 @@ describe('AngularForms :: AngularForms', () => {
     assert.deepEqual(AngularForms.fromJson(jsonGroups), [
       new DataTable('group-01', 'A simple datatable with questions', [
         [
-          new Text('question-01', 'A simple question 1', [], null, [], null),
-          new Text('question-02', 'A simple question 2', [], null, [], null, null)
+          new Text('question-01', 'A simple question 1', [], null, [], false, null, null),
+          new Text('question-02', 'A simple question 2', [], null, [], false, null, null)
         ],
         [
-          new Text('question-01', 'A simple question 1', [], 'My answer 1', [], null, null),
-          new Text('question-02', 'A simple question 2', [], 'My answer 2', [], null, null)
+          new Text('question-01', 'A simple question 1', [], 'My answer 1', [], false, null, null),
+          new Text('question-02', 'A simple question 2', [], 'My answer 2', [], false, null, null)
         ]
       ], [])
     ]);
