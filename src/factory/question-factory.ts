@@ -2,7 +2,7 @@ import { Question, QuestionType, Text, TextArea, Checkbox, Radio, Select } from 
 
 export class QuestionFactory {
 
-  public static createSimpleQuestion(question: Question<any>): Question<any> {
+  public static createQuestion(question: Question<any>): Question<any> {
     switch (question.type) {
       case QuestionType.CHECKBOX:
         return Checkbox.fromJson(<Checkbox>question);
@@ -10,14 +10,14 @@ export class QuestionFactory {
         return Radio.fromJson(<Radio>question);
       case QuestionType.SELECT:
         return Select.fromJson(<Select>question);
-      case QuestionType.TEXT:
-        return Text.fromJson(<Text>question);
       case QuestionType.TEXTAREA:
         return TextArea.fromJson(<TextArea>question);
+      default:
+        return Text.fromJson(<Text>question);
     }
   }
 
   public static createQuestionList(questionList: Question<any>[]): Question<any>[] {
-    return questionList.map((question: Question<any>) => QuestionFactory.createSimpleQuestion(question));
+    return questionList.map((question: Question<any>) => QuestionFactory.createQuestion(question));
   }
 }
