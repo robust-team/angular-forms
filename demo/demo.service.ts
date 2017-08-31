@@ -74,9 +74,9 @@ const groups: any[] = [
       },
       {
         'name': 'Q-0107',
-        'description': 'TextArea Question 0107',
-        'type': 'textarea',
-        'placeholder': 'TextArea Question 0107',
+        'description': 'Text Question 0107',
+        'type': 'text',
+        'placeholder': 'Text Question 0107',
         'validations': [
           { 'type': 'required', 'message': 'Required field.' }
         ],
@@ -85,6 +85,25 @@ const groups: any[] = [
           { 'code': 'Q-0104', 'criteria': 'notequals', 'expectedAnswer': '100' },
           { 'code': 'Q-0104', 'criteria': 'greaterthan', 'expectedAnswer': '100' },
           { 'code': 'Q-0104', 'criteria': 'lessthanorequals', 'expectedAnswer': '300' }
+        ]
+      },
+      {
+        'name': 'Q-0108',
+        'description': 'Text Question 0108',
+        'type': 'text',
+        'placeholder': 'Text Question 0108',
+        'validations': [
+          { 'type': 'min', 'message': 'Min value: 1.', 'value': '1' },
+          { 'type': 'max', 'message': 'Min value: 10.', 'value': '10' }
+        ]
+      },
+      {
+        'name': 'Q-0109',
+        'description': 'Text Question 0109',
+        'type': 'text',
+        'placeholder': 'Text Question 0109',
+        'validations': [
+          { 'type': 'email', 'message': 'Invalid e-mail.' }
         ]
       }
     ]
