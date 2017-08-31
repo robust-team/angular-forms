@@ -23,7 +23,8 @@ const groups: any[] = [
         'defaultOption': 'Option 1',
         'validations': [
           { 'type': 'required', 'message': 'Required field.' }
-        ]
+        ],
+        'disabled': true
       },
       {
         'name': 'Q-0103',
@@ -95,18 +96,6 @@ const groups: any[] = [
           'placeholder': 'Select'
         },
         {
-          'name': 'Q-020201',
-          'description': 'Text Question 020201',
-          'type': 'text',
-          'validations': [
-            { 'type': 'required', 'message': 'Required field.' }
-          ],
-          'dependencies': [
-            { 'code': 'Q-0201', 'criteria': 'equals', 'expectedAnswer': 'Option 3' }
-          ],
-          'placeholder': 'Text Question 020201'
-        },
-        {
           'name': 'Q-0202',
           'description': 'Text Question 0202',
           'type': 'text',
@@ -127,19 +116,6 @@ const groups: any[] = [
           'options': ['Option 1', 'Option 2', 'Option 3'],
           'placeholder': 'Select',
           'answer': 'Option 2'
-        },
-        {
-          'name': 'Q-020201',
-          'description': 'Text Question 020201',
-          'type': 'text',
-          'validations': [
-            { 'type': 'required', 'message': 'Required field.' }
-          ],
-          'dependencies': [
-            { 'code': 'Q-0201', 'criteria': 'equals', 'expectedAnswer': 'Option 3' }
-          ],
-          'placeholder': 'Text Question 020201',
-          'answer': null
         },
         {
           'name': 'Q-0202',
@@ -163,19 +139,6 @@ const groups: any[] = [
           'options': ['Option 1', 'Option 2', 'Option 3'],
           'placeholder': 'Select',
           'answer': 'Option 3'
-        },
-        {
-          'name': 'Q-020201',
-          'description': 'Text Question 020201',
-          'type': 'text',
-          'validations': [
-            { 'type': 'required', 'message': 'Required field.' }
-          ],
-          'dependencies': [
-            { 'code': 'Q-0201', 'criteria': 'equals', 'expectedAnswer': 'Option 3' }
-          ],
-          'placeholder': 'Text Question 020201',
-          'answer': 'Anwer 3'
         },
         {
           'name': 'Q-0202',
