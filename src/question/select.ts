@@ -22,7 +22,7 @@ export class Select extends Choice {
   public constructor(
     name: string,
     description: string,
-    dependencies: Dependency[],
+    dependencies: Dependency[] = [],
     answer: string = null,
     validations: Validation[] = [],
     disabled: boolean = false,
@@ -31,7 +31,7 @@ export class Select extends Choice {
     private _editableOption: string = null,
     private _placeholder: string = null
   ) {
-    super(name, description, QuestionType.SELECT, dependencies || [], answer, validations || [], disabled, options || [], defaultOption);
+    super(name, description, QuestionType.SELECT, dependencies, answer, validations, disabled, options, defaultOption);
   }
 
   public get editableOption(): string {

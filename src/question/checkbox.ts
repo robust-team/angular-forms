@@ -18,13 +18,13 @@ export class Checkbox extends Question<boolean> {
   public constructor(
     name: string,
     description: string,
-    dependencies: Dependency[],
+    dependencies: Dependency[] = [],
     answer: boolean = false,
     validations: Validation[] = [],
     disabled: boolean = false,
     private _defaultOption: boolean = null
   ) {
-    super(name, description, QuestionType.CHECKBOX, dependencies || [], answer || false, validations || [], disabled);
+    super(name, description, QuestionType.CHECKBOX, dependencies, answer || false, validations, disabled);
   }
 
   public get defaultOption(): boolean {

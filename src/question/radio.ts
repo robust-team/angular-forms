@@ -28,6 +28,6 @@ export class Radio extends Choice {
     options: string[] = [],
     defaultOption: string = null
   ) {
-    super(name, description, QuestionType.RADIO, dependencies || [], answer, validations || [], disabled, options || [], defaultOption);
+    super(name, description, QuestionType.RADIO, dependencies, answer, validations, disabled, options, defaultOption);
   }
 }

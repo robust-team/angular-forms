@@ -20,14 +20,14 @@ export class Text extends Question<string> {
   public constructor(
     name: string,
     description: string,
-    dependencies: Dependency[],
+    dependencies: Dependency[] = [],
     answer: string = null,
     validations: Validation[] = [],
     disabled: boolean = false,
     private _mask: string = null,
     private _placeholder: string = null,
   ) {
-    super(name, description, QuestionType.TEXT, dependencies || [], answer, validations || [], disabled);
+    super(name, description, QuestionType.TEXT, dependencies, answer, validations, disabled);
   }
 
   public get mask(): string {
