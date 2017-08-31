@@ -1,4 +1,4 @@
-import { Group } from './group';
+import { Group, GroupType } from '.';
 import { Question } from '../question';
 
 export class Fieldset extends Group {
@@ -8,7 +8,7 @@ export class Fieldset extends Group {
     description: string,
     private _questions: Question<any>[]
   ) {
-    super(code, description, 'group');
+    super(code, description, GroupType.FIELDSET);
   }
 
   public get questions(): Question<any>[] {

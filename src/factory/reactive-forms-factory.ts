@@ -1,6 +1,6 @@
 import { FormGroup, FormArray, FormControl, ValidatorFn, Validators } from '@angular/forms';
 
-import { Group, Fieldset, DataTable } from '../group';
+import { Group, GroupType, Fieldset, DataTable } from '../group';
 import { Question } from '../question';
 import { Validation, MinLength, MaxLength, Pattern, Required, Min, Max } from '../validation';
 import {
@@ -17,7 +17,7 @@ export class ReactiveFormsFactory {
     for (const group of groups) {
       let control: FormGroup | FormArray;
 
-      if ('group' === group.type) {
+      if (GroupType.FIELDSET === group.type) {
         control = ReactiveFormsFactory.createFormGroupFromQuestions((<Fieldset>group).questions);
       } else {
         control = ReactiveFormsFactory.createFormArrayFromQuestions((<DataTable>group).questions.slice(1));

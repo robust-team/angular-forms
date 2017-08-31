@@ -1,3 +1,4 @@
+import { GroupType } from '.';
 import { Question } from '../question';
 
 export abstract class Group {
@@ -5,7 +6,7 @@ export abstract class Group {
   public constructor(
     private _code: string,
     private _description: string,
-    private _type: string
+    private _type: GroupType
   ) { }
 
   public get code(): string {
@@ -16,7 +17,7 @@ export abstract class Group {
     return this._description;
   }
 
-  public get type(): string {
+  public get type(): GroupType {
     return this._type;
   }
 }

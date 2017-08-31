@@ -1,4 +1,4 @@
-import { Group } from './group';
+import { Group, GroupType } from '.';
 import { Question } from '../question';
 import { Pattern, Validation } from '../validation';
 
@@ -10,7 +10,7 @@ export class DataTable extends Group {
     private _questions: Question<any>[][],
     private _validations: Validation[] = []
   ) {
-    super(code, description, 'datatable');
+    super(code, description, GroupType.DATATABLE);
   }
 
   public isRequired(): boolean {
