@@ -21,7 +21,10 @@ export class ReactiveFormsFactory {
         control = ReactiveFormsFactory.createFormGroupFromQuestions((<Fieldset>group).questions);
       } else {
         control = ReactiveFormsFactory.createFormArrayFromQuestions((<DataTable>group).questions.slice(1));
-        control.setValidators(ReactiveFormsFactory.createValidators((<DataTable>group).validations));
+
+        if ((<DataTable>group).validations && 0 < (<DataTable>group).validations.length) {
+          control.setValidators(ReactiveFormsFactory.createValidators((<DataTable>group).validations));
+        }
       }
 
       formGroup.addControl(group.code, control);
@@ -37,6 +40,10 @@ export class ReactiveFormsFactory {
       const validators: ValidatorFn[] = ReactiveFormsFactory.createValidators(question.validations);
       const answer: any = !question.answer && (<Choice>question).defaultOption ? (<Choice>question).defaultOption : question.answer;
       const control: FormControl = new FormControl({ value: answer, disabled: checkDisabledQuestions && question.disabled }, validators);
+
+      if (question.validations && 0 < question.validations.length) {
+        control.setValidators(ReactiveFormsFactory.createValidators(question.validations));
+      }
 
       formGroup.addControl(question.name, control);
     }
