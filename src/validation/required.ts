@@ -1,4 +1,4 @@
-import { Validation } from '.';
+import { Validation, ValidationType } from '.';
 
 export class Required extends Validation {
 
@@ -10,7 +10,7 @@ export class Required extends Validation {
     message: string,
     private _requiredTrue: boolean = false
   ) {
-    super('required', message);
+    super(ValidationType.REQUIRED, message);
   }
 
   public get requiredTrue(): boolean {

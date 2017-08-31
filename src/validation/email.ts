@@ -1,4 +1,4 @@
-import { Validation } from '.';
+import { Validation, ValidationType } from '.';
 
 export class Email extends Validation {
 
@@ -7,6 +7,6 @@ export class Email extends Validation {
   }
 
   public constructor(message: string) {
-    super('email', message);
+    super(ValidationType.EMAIL, message);
   }
 }

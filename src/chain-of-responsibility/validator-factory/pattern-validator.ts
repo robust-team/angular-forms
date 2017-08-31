@@ -1,13 +1,13 @@
 import { ValidatorFn } from '@angular/forms';
 
 import { ValidatorFactoryHandler } from '.';
-import { Validation } from '../../validation';
+import { Validation, ValidationType } from '../../validation';
 import { ValidatorFactory } from '../../factory';
 
 export class PatternValidator extends ValidatorFactoryHandler {
 
   public handle(validation: Validation): ValidatorFn {
-    if ('pattern' === validation.type) {
+    if (ValidationType.PATTERN === validation.type) {
       return (new ValidatorFactory(validation)).createPatternValidator();
     }
 

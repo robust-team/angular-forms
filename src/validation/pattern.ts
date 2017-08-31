@@ -1,4 +1,4 @@
-import { Validation } from '.';
+import { Validation, ValidationType } from '.';
 
 export class Pattern extends Validation {
 
@@ -10,7 +10,7 @@ export class Pattern extends Validation {
     message: string,
     private _value: string
   ) {
-    super('pattern', message);
+    super(ValidationType.PATTERN, message);
   }
 
   public get value(): string {

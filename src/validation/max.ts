@@ -1,4 +1,4 @@
-import { Validation } from '.';
+import { Validation, ValidationType } from '.';
 
 export class Max extends Validation {
 
@@ -10,7 +10,7 @@ export class Max extends Validation {
     message: string,
     private _value: number
   ) {
-    super('max', message);
+    super(ValidationType.MAX, message);
   }
 
   public get value(): number {

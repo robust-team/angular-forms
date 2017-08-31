@@ -1,6 +1,6 @@
 import { Group, GroupType } from '.';
 import { Question } from '../question';
-import { Pattern, Validation } from '../validation';
+import { Pattern, Validation, ValidationType } from '../validation';
 
 export class DataTable extends Group {
 
@@ -15,7 +15,7 @@ export class DataTable extends Group {
 
   public isRequired(): boolean {
     for (const validation of this._validations) {
-      if ('required' === validation.type) {
+      if (ValidationType.REQUIRED === validation.type) {
         return true;
       }
     }

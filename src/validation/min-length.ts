@@ -1,4 +1,4 @@
-import { Validation } from '.';
+import { Validation, ValidationType } from '.';
 
 export class MinLength extends Validation {
 
@@ -10,7 +10,7 @@ export class MinLength extends Validation {
     message: string,
     private _value: number
   ) {
-    super('minlength', message);
+    super(ValidationType.MIN_LENGTH, message);
   }
 
   public get value(): number {
