@@ -72,4 +72,20 @@ describe('AngularForms :: ChainOfResponsibility :: ValidatorFactory', () => {
 
     assert.isTrue('function' === typeof validatorFactoryHandler.handle(validation));
   });
+
+  it('should throw a ValidationTypeNotFoundError', () => {
+    const validation: any = { type: 'date', message: 'Message' };
+
+    // assert.throw(validatorFactoryHandler.handle(validation));
+
+    try {
+      validatorFactoryHandler.handle(validation);
+    } catch (error) {
+      assert.isTrue(error instanceof ValidationTypeNotFoundError);
+
+      return;
+    }
+
+    throw new Error();
+  });
 });
