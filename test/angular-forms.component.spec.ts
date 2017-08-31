@@ -48,6 +48,17 @@ describe('AngularFormsComponent', () => {
     assert(component);
   });
 
+  it('should call onChangeOptionSelect method', () => {
+    const htmlFormControl: any = { value: 'Option 2' };
+    const formControl: FormControl = new FormControl('Option 2');
+    const question: Select = new Select('Q-01', 'Question 01', [], 'select', 'Option 2', [], ['Option 1', 'Option 2'], null, 'Option 2');
+    component.onChangeOptionSelect(htmlFormControl, formControl, question);
+  });
+
+  it('should call submit method', () => {
+    component.submit();
+  });
+
   it('should not hide a question without dependencies', () => {
     const question01: Select = new Select('Q-01', 'Question 01', [], 'select', 'Option 2', [], ['Option 1', 'Option 2']);
     const question02: Text = new Text('Q-02', 'Question 02', [], 'text');
