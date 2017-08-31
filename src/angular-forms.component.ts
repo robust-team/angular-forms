@@ -167,8 +167,7 @@ import { StringUtils } from './util';
 
       </ng-container> <!--groups-->
     </form>
-  `,
-  providers: [DependencyService]
+  `
 })
 export class AngularFormsComponent implements OnInit, AfterViewChecked {
 
@@ -181,7 +180,6 @@ export class AngularFormsComponent implements OnInit, AfterViewChecked {
 
   public constructor(
     private changeDetectorRef: ChangeDetectorRef,
-    private dependencyService: DependencyService,
     private translateService: TranslateService
   ) { }
 
@@ -196,7 +194,7 @@ export class AngularFormsComponent implements OnInit, AfterViewChecked {
   }
 
   public hideQuestion(question: Question<any>, formGroup: FormGroup): boolean {
-    return this.dependencyService.hideQuestion(question, formGroup);
+    return DependencyService.hideQuestion(question, formGroup);
   }
 
   public onChangeOptionSelect(htmlFormControl: HTMLInputElement, formControl: FormControl, question: Select): void {
