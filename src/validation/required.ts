@@ -3,15 +3,14 @@ import { Validation } from '.';
 export class Required extends Validation {
 
   public static fromJson(validation: Required): Required {
-    return new Required(validation.type, validation.message, validation.requiredTrue);
+    return new Required(validation.message, validation.requiredTrue);
   }
 
   public constructor(
-    type: string,
     message: string,
     private _requiredTrue: boolean = false
   ) {
-    super(type, message);
+    super('required', message);
   }
 
   public get requiredTrue(): boolean {
