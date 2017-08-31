@@ -1,4 +1,4 @@
-import { Dependency } from '.';
+import { Dependency, QuestionType } from '.';
 import { Pattern, Validation } from '../validation';
 
 export abstract class Question<Answer> {
@@ -6,8 +6,8 @@ export abstract class Question<Answer> {
   public constructor(
     private _name: string,
     private _description: string,
+    private _type: QuestionType,
     private _dependencies: Dependency[] = [],
-    private _type: string,
     private _answer: Answer = null,
     private _validations: Validation[] = []
   ) { }
@@ -30,12 +30,12 @@ export abstract class Question<Answer> {
     return this._description;
   }
 
-  public get dependencies(): Dependency[] {
-    return this._dependencies;
+  public get type(): QuestionType {
+    return this._type;
   }
 
-  public get type(): string {
-    return this._type;
+  public get dependencies(): Dependency[] {
+    return this._dependencies;
   }
 
   public get answer(): Answer {

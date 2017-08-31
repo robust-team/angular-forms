@@ -1,4 +1,4 @@
-import { Dependency, Question } from '.';
+import { Dependency, Question, QuestionType } from '.';
 import { Validation } from '../validation';
 
 export class TextArea extends Question<string> {
@@ -8,7 +8,6 @@ export class TextArea extends Question<string> {
       question.name,
       question.description,
       question.dependencies,
-      question.type,
       question.answer,
       question.validations,
       question.placeholder
@@ -19,12 +18,11 @@ export class TextArea extends Question<string> {
     name: string,
     description: string,
     dependencies: Dependency[],
-    type: string,
     answer: string = null,
     validations: Validation[] = [],
     private _placeholder: string = null,
   ) {
-    super(name, description, dependencies || [], type, answer, validations || []);
+    super(name, description, QuestionType.TEXTAREA, dependencies || [], answer, validations || []);
   }
 
   public get placeholder(): string {

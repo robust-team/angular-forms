@@ -1,4 +1,4 @@
-import { Dependency, Question } from '.';
+import { Dependency, Question, QuestionType } from '.';
 import { Validation } from '../validation';
 
 export class Checkbox extends Question<boolean> {
@@ -8,7 +8,6 @@ export class Checkbox extends Question<boolean> {
       question.name,
       question.description,
       question.dependencies,
-      question.type,
       'true' === String(question.answer),
       question.validations,
       'true' === String(question.defaultOption)
@@ -19,12 +18,11 @@ export class Checkbox extends Question<boolean> {
     name: string,
     description: string,
     dependencies: Dependency[],
-    type: string,
     answer: boolean = false,
     validations: Validation[] = [],
     private _defaultOption: boolean = null
   ) {
-    super(name, description, dependencies || [], type, answer || false, validations || []);
+    super(name, description, QuestionType.CHECKBOX, dependencies || [], answer || false, validations || []);
   }
 
   public get defaultOption(): boolean {

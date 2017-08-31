@@ -1,4 +1,5 @@
-import { Choice } from '.';
+import { Choice, Dependency, QuestionType } from '.';
+import { Validation } from '../validation';
 
 export class Radio extends Choice {
 
@@ -8,11 +9,22 @@ export class Radio extends Choice {
       question.name,
       question.description,
       question.dependencies,
-      question.type,
       question.answer,
       question.validations,
       question.options,
       question.defaultOption
     );
+  }
+
+  public constructor(
+    name: string,
+    description: string,
+    dependencies: Dependency[] = [],
+    answer: string = null,
+    validations: Validation[] = [],
+    options: string[] = [],
+    defaultOption: string = null
+  ) {
+    super(name, description, QuestionType.RADIO, dependencies || [], answer, validations || [], options || [], defaultOption);
   }
 }
