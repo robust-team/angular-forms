@@ -41,6 +41,7 @@ const groups: any[] = [
         'name': 'Q-0104',
         'description': 'Text Question 0104',
         'type': 'text',
+        'answer': 200,
         'placeholder': 'Text Question 0104',
         'validations': [
           { 'type': 'required', 'message': 'Required field.' },
@@ -69,6 +70,21 @@ const groups: any[] = [
         ],
         'dependencies': [
           { 'code': 'Q-0103', 'criteria': 'equals', 'expectedAnswer': 'Option 1' }
+        ]
+      },
+      {
+        'name': 'Q-0107',
+        'description': 'TextArea Question 0107',
+        'type': 'textarea',
+        'placeholder': 'TextArea Question 0107',
+        'validations': [
+          { 'type': 'required', 'message': 'Required field.' }
+        ],
+        'dependencies': [
+          { 'code': 'Q-0104', 'criteria': 'lessthan', 'expectedAnswer': '300' },
+          { 'code': 'Q-0104', 'criteria': 'notequals', 'expectedAnswer': '100' },
+          { 'code': 'Q-0104', 'criteria': 'greaterthan', 'expectedAnswer': '100' },
+          { 'code': 'Q-0104', 'criteria': 'lessthanorequals', 'expectedAnswer': '300' }
         ]
       }
     ]
