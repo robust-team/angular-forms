@@ -334,6 +334,7 @@ The **Group** represents a grouping of questions, which can be of two types: **F
   "type": "checkbox",
   "answer": null,
   "validations": [],
+  "disabled": false,
   "defaultOption": "false"
 }
 ```
@@ -350,6 +351,7 @@ The **Group** represents a grouping of questions, which can be of two types: **F
   "type": "radio",
   "answer": null,
   "validations": [],
+  "disabled": false,
   "options": ["Option 1", "Option 2"],
   "defaultOption": null
 }
@@ -367,6 +369,7 @@ The **Group** represents a grouping of questions, which can be of two types: **F
   "type": "select",
   "answer": null,
   "validations": [],
+  "disabled": false,
   "options": ["Option 1", "Option 2"],
   "defaultOption": null,
   "editableOption": "Option 2",
@@ -386,6 +389,7 @@ The **Group** represents a grouping of questions, which can be of two types: **F
   "type": "text",
   "answer": null,
   "validations": [],
+  "disabled": false,
   "mask": null,
   "placeholder": null
 }
@@ -422,6 +426,7 @@ Read more in [https://fagnerlima.github.io/ng-mask/](https://fagnerlima.github.i
   "type": "textarea",
   "answer": null,
   "validations": [],
+  "disabled": false,
   "placeholder": null
 }
 ```
