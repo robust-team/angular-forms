@@ -1,7 +1,7 @@
 import { FormGroup, FormArray, FormControl, ValidatorFn, Validators } from '@angular/forms';
 
 import { Group, GroupType, Fieldset, DataTable } from '../group';
-import { Question } from '../question';
+import { Choice, Question } from '../question';
 import { Validation, MinLength, MaxLength, Pattern, Required, Min, Max } from '../validation';
 import {
   ValidatorFactoryHandler, RequiredValidator, EmailValidator, MaxValidator, MinValidator,
@@ -30,16 +30,15 @@ export class ReactiveFormsFactory {
     return formGroup;
   }
 
-  public static createFormGroupFromQuestions(questions: Question<any>[]): FormGroup {
+  public static createFormGroupFromQuestions(questions: Question<any>[], checkDisabledQuestions: boolean = true): FormGroup {
     const formGroup: FormGroup = new FormGroup({});
 
     for (const question of questions) {
       const validators: ValidatorFn[] = ReactiveFormsFactory.createValidators(question.validations);
-      const formState: any = !question.answer && question['defaultOption']
-        ? question['defaultOption']
-        : question.answer;
+      const answer: any = !question.answer && (<Choice>question).defaultOption ? (<Choice>question).defaultOption : question.answer;
+      const control: FormControl = new FormControl({ value: answer, disabled: checkDisabledQuestions && question.disabled }, validators);
 
-      formGroup.addControl(question.name, new FormControl(formState, validators));
+      formGroup.addControl(question.name, control);
     }
 
     return formGroup;

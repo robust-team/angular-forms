@@ -9,7 +9,8 @@ export abstract class Question<Answer> {
     private _type: QuestionType,
     private _dependencies: Dependency[] = [],
     private _answer: Answer = null,
-    private _validations: Validation[] = []
+    private _validations: Validation[] = [],
+    private _disabled: boolean = false
   ) { }
 
   public isRequired(): boolean {
@@ -44,5 +45,9 @@ export abstract class Question<Answer> {
 
   public get validations(): Validation[] {
     return this._validations;
+  }
+
+  public get disabled(): boolean {
+    return this._disabled;
   }
 }

@@ -20,9 +20,10 @@ export class Checkbox extends Question<boolean> {
     dependencies: Dependency[],
     answer: boolean = false,
     validations: Validation[] = [],
+    disabled: boolean = false,
     private _defaultOption: boolean = null
   ) {
-    super(name, description, QuestionType.CHECKBOX, dependencies || [], answer || false, validations || []);
+    super(name, description, QuestionType.CHECKBOX, dependencies || [], answer || false, validations || [], disabled);
   }
 
   public get defaultOption(): boolean {

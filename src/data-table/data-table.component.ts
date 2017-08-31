@@ -154,7 +154,7 @@ export class DataTableComponent implements OnInit {
 
   public ngOnInit(): void {
     this.formArray = <FormArray>this.formGroup.get(this.group.code);
-    this.newFormGroup = ReactiveFormsFactory.createFormGroupFromQuestions(this.group.questions[0]);
+    this.newFormGroup = ReactiveFormsFactory.createFormGroupFromQuestions(this.group.questions[0], false);
   }
 
   public onChangeOptionSelect(htmlFormControl: HTMLInputElement, formControl: FormControl, question: Select): void {

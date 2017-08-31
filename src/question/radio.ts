@@ -11,6 +11,7 @@ export class Radio extends Choice {
       question.dependencies,
       question.answer,
       question.validations,
+      question.disabled,
       question.options,
       question.defaultOption
     );
@@ -22,9 +23,10 @@ export class Radio extends Choice {
     dependencies: Dependency[] = [],
     answer: string = null,
     validations: Validation[] = [],
+    disabled: boolean = false,
     options: string[] = [],
     defaultOption: string = null
   ) {
-    super(name, description, QuestionType.RADIO, dependencies || [], answer, validations || [], options || [], defaultOption);
+    super(name, description, QuestionType.RADIO, dependencies || [], answer, validations || [], disabled, options || [], defaultOption);
   }
 }
