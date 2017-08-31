@@ -33,7 +33,7 @@ describe('AngularForms :: AngularForms', () => {
 
     assert.deepEqual(AngularForms.fromJson(jsonGroups), [
       new Fieldset('group-01', 'A simple group with a question', [
-        new Text('question-01', 'A simple question', [], 'text', 'My answer', [])
+        new Text('question-01', 'A simple question', [], 'My answer', [])
       ])
     ]);
   });
@@ -95,12 +95,12 @@ describe('AngularForms :: AngularForms', () => {
     assert.deepEqual(AngularForms.fromJson(jsonGroups), [
       new DataTable('group-01', 'A simple datatable with questions', [
         [
-          new Text('question-01', 'A simple question 1', [], 'text', null, [], null),
-          new Text('question-02', 'A simple question 2', [], 'text', null, [], null, null)
+          new Text('question-01', 'A simple question 1', [], null, [], null),
+          new Text('question-02', 'A simple question 2', [], null, [], null, null)
         ],
         [
-          new Text('question-01', 'A simple question 1', [], 'text', 'My answer 1', [], null, null),
-          new Text('question-02', 'A simple question 2', [], 'text', 'My answer 2', [], null, null)
+          new Text('question-01', 'A simple question 1', [], 'My answer 1', [], null, null),
+          new Text('question-02', 'A simple question 2', [], 'My answer 2', [], null, null)
         ]
       ], [])
     ]);

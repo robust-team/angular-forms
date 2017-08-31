@@ -27,8 +27,8 @@ describe('AngularForms :: Factory :: ReactiveFormsFactory', () => {
 
   it('should create a FormGroup from Questions', () => {
     const questions: Question<any>[] = [
-      new Text('question-01', 'Question 01', [], 'text', 'Answer'),
-      new Text('question-02', 'Question 02', [], 'text', 'Answer')
+      new Text('question-01', 'Question 01', [], 'Answer'),
+      new Text('question-02', 'Question 02', [], 'Answer')
     ];
 
     assert.isTrue(ReactiveFormsFactory.createFormGroupFromQuestions(questions) instanceof FormGroup);
@@ -37,8 +37,8 @@ describe('AngularForms :: Factory :: ReactiveFormsFactory', () => {
   it('should create a FormArray without answers', () => {
     const questions: Question<any>[][] = [
       [
-        new Text('question-01', 'Question 01', [], 'text'),
-        new Text('question-02', 'Question 02', [], 'text')
+        new Text('question-01', 'Question 01', []),
+        new Text('question-02', 'Question 02', [])
       ]
     ];
 
@@ -48,12 +48,12 @@ describe('AngularForms :: Factory :: ReactiveFormsFactory', () => {
   it('should create a FormArray with answers', () => {
     const questions: Question<any>[][] = [
       [
-        new Text('question-01', 'Question 01', [], 'text'),
-        new Text('question-02', 'Question 02', [], 'text')
+        new Text('question-01', 'Question 01', []),
+        new Text('question-02', 'Question 02', [])
       ],
       [
-        new Text('question-01', 'Question 01', [], 'text', 'Answer 1'),
-        new Text('question-02', 'Question 02', [], 'text', 'Answer 2')
+        new Text('question-01', 'Question 01', [], 'Answer 1'),
+        new Text('question-02', 'Question 02', [], 'Answer 2')
       ]
     ];
 
