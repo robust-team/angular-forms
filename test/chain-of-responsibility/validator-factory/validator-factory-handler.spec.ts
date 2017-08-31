@@ -82,6 +82,8 @@ describe('AngularForms :: ChainOfResponsibility :: ValidatorFactory', () => {
       validatorFactoryHandler.handle(validation);
     } catch (error) {
       assert.isTrue(error instanceof ValidationTypeNotFoundError);
+      assert.ok(error['name']);
+      assert.ok(error['message']);
 
       return;
     }
