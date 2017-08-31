@@ -3,6 +3,6 @@ import { Pattern } from '../../src/validation';
 
 describe('AngularForms :: Validation :: Pattern', () => {
   it('should be instantiable', () => {
-    assert.ok(new Pattern('pattern', 'Message', '^\\d{3}$'));
+    assert.ok(new Pattern('Message', '^\\d{3}$'));
   });
 });

@@ -9,8 +9,8 @@ import { Validation, MinLength, MaxLength, Pattern, Required } from '../../src/v
 describe('AngularForms :: Factory :: ReactiveFormsFactory', () => {
   it('should create a FormGroup from Groups', () => {
     const groups: Group[] = [
-      new Fieldset('group-01', 'Group 01', 'group', []),
-      new Fieldset('group-02', 'Group 02', 'group', [])
+      new Fieldset('group-01', 'Group 01', []),
+      new Fieldset('group-02', 'Group 02', [])
     ];
 
     assert.isTrue(ReactiveFormsFactory.createFormGroupFromGroups(groups) instanceof FormGroup);
@@ -18,8 +18,8 @@ describe('AngularForms :: Factory :: ReactiveFormsFactory', () => {
 
   it('should create a FormGroup from DataTables', () => {
     const groups: Group[] = [
-      new DataTable('group-01', 'Group 01', 'datatable', [], []),
-      new DataTable('group-02', 'Group 02', 'datatable', [], [])
+      new DataTable('group-01', 'Group 01', [], []),
+      new DataTable('group-02', 'Group 02', [], [])
     ];
 
     assert.isTrue(ReactiveFormsFactory.createFormGroupFromGroups(groups) instanceof FormGroup);
@@ -62,9 +62,9 @@ describe('AngularForms :: Factory :: ReactiveFormsFactory', () => {
 
   it('should create Validators', () => {
     const validations: Validation[] = [
-      new Required('required', 'Message'),
-      new MaxLength('maxlength', 'Message', 30),
-      new MinLength('minlength', 'Message', 6)
+      new Required('Message'),
+      new MaxLength('Message', 30),
+      new MinLength('Message', 6)
     ];
 
     assert.isTrue(ReactiveFormsFactory.createValidators(validations) instanceof Array);
