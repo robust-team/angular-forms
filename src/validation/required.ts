@@ -2,10 +2,6 @@ import { Validation, ValidationType } from '.';
 
 export class Required extends Validation {
 
-  public static fromJson(validation: Required): Required {
-    return new Required(validation.message, validation.requiredTrue);
-  }
-
   public constructor(
     message: string,
     private _requiredTrue: boolean = false
