@@ -1,5 +1,6 @@
 import { Dependency, Question, QuestionType } from '.';
 import { Validation } from '../validation';
+import { ValidationFactory } from '../factory';
 
 export class Text extends Question<string> {
 
@@ -9,7 +10,7 @@ export class Text extends Question<string> {
       question.description,
       question.dependencies,
       question.answer,
-      question.validations,
+      ValidationFactory.createValidationList(question.validations),
       question.disabled,
       question.mask,
       question.placeholder

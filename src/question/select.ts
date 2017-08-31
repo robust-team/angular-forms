@@ -1,5 +1,6 @@
 import { Choice, Dependency, QuestionType } from '.';
 import { Validation } from '../validation';
+import { ValidationFactory } from '../factory';
 
 export class Select extends Choice {
 
@@ -9,7 +10,7 @@ export class Select extends Choice {
       question.description,
       question.dependencies,
       question.answer,
-      question.validations,
+      ValidationFactory.createValidationList(question.validations),
       question.disabled,
       question.options,
       question.defaultOption,

@@ -15,8 +15,7 @@ export abstract class Question<Answer> {
 
   public isRequired(): boolean {
     for (const validation of this._validations) {
-      if (ValidationType.REQUIRED === validation.type
-        || (ValidationType.PATTERN === validation.type && 'true' === (<Pattern>validation).value.toString())) {
+      if (validation.isRequired()) {
         return true;
       }
     }

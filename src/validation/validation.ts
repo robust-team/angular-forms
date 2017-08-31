@@ -7,6 +7,10 @@ export abstract class Validation {
     private _message: string
   ) { }
 
+  public isRequired(): boolean {
+    return ValidationType.REQUIRED === this._type;
+  }
+
   public get type(): ValidationType {
     return this._type;
   }

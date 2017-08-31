@@ -1,5 +1,6 @@
 import { Dependency, Question, QuestionType } from '.';
 import { Validation } from '../validation';
+import { ValidationFactory } from '../factory';
 
 export class Checkbox extends Question<boolean> {
 
@@ -9,7 +10,7 @@ export class Checkbox extends Question<boolean> {
       question.description,
       question.dependencies,
       'true' === String(question.answer),
-      question.validations,
+      ValidationFactory.createValidationList(question.validations),
       'true' === String(question.defaultOption)
     );
   }
