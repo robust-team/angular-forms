@@ -82,7 +82,7 @@ import { StringUtils } from './util';
                           {{ question.description }}
                         </label>
                         <select [id]="question.name" class="form-control" [name]="question.name" #selectQuestion
-                                formControlName="{{ question.editableOption !== selectQuestion.value ? question.name : '' }}"
+                                [formControlName]="question.name"
                                 (change)="onChangeOptionSelect(selectQuestion, formGroup.get(group.code).get(question.name), question)">
                           <option disabled [value]="null">
                             {{ question.placeholder ? question.placeholder : '' }}
@@ -91,8 +91,8 @@ import { StringUtils } from './util';
                             {{ option }}
                           </option>
                         </select>
-                        <ng-container *ngIf="question.editableOption">
-                          <input [class.hidden]="question.editableOption !== selectQuestion.value"
+                        <ng-container *ngIf="question.editableOption && question.editableOption.length">
+                          <input [hidden]="question.editableOption !== selectQuestion.value"
                                  type="text" [id]="question.name" class="form-control editable-option" [name]="question.name"
                                  [formControlName]="question.name" />
                         </ng-container>
