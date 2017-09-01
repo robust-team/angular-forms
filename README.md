@@ -17,7 +17,7 @@ A Simple Form Generator for Angular.
 - **@angular/forms**: 4.0.0 or higher,
 - **@fagnerlima/ng-mask**: 2.2.1 or higher,
 - **@ngx-translate/core**: 7.0.0 or higher,
-- **rxjs**: 5.0.1 or higher.
+- **rxjs**: 5.4.2 or higher.
 
 ## Usage
 
@@ -27,7 +27,13 @@ A Simple Form Generator for Angular.
 npm i @robust-team/angular-forms
 ```
 
-2. Import the AngularFormsModule into Module class.
+2. Import the styles.css:
+
+```
+node_modules/@robust-team/angular-forms/assets/css/styles.css
+```
+
+3. Import the AngularFormsModule into Module class.
 
 ```typescript
 import { AngularFormsModule } from '@robust-team/angular-forms';
@@ -42,7 +48,7 @@ import { AngularFormsModule } from '@robust-team/angular-forms';
 export class MyModule { }
 ```
 
-3. Insert the AngularFormsComponent into template.
+4. Insert the AngularFormsComponent into template.
 
 ```html
 <rb-angular-forms [groups]="customForm"></rb-angular-forms>
@@ -81,6 +87,7 @@ The **customForm** attribute represents the JSON coming from API. For example:
         "description": "Select Question 0103",
         "type": "select",
         "options": ["Option 1", "Option 2"],
+        "editableOption": "Option 2",
         "placeholder": "Select",
         "validations": [
           { "type": "required", "message": "Required field." }
@@ -183,7 +190,7 @@ The **customForm** attribute represents the JSON coming from API. For example:
 
 ![screen](docs/screens/angular-forms-01.png)
 
-4. Get form values by adding a local variable to the component and calling the **getForm()** method. For example:
+5. Get form values by adding a local variable to the component and calling the **getForm()** method. For example:
 
 ```html
 <rb-angular-forms #angularForms [groups]="customForm"></rb-angular-forms>
@@ -236,7 +243,7 @@ Example output:
 | **getForm()** | Returns an object with two attributes: **valid** (return of **isValid** method) and **value** (return of **getAnswersGroups** method. |
 | **submit()** | Send the form, enabling the validation of all questions. |
 
-5. If you want only to show the answers from JSON, use the **readOnly** input with **true** value (your default value is **false**).
+6. If you want only to show the answers from JSON, use the **readOnly** input with **true** value (your default value is **false**).
 
 ```html
 <rb-angular-forms #angularForms [groups]="customForm" [readOnly]="true"></rb-angular-forms>
@@ -244,7 +251,7 @@ Example output:
 
 ![screen](docs/screens/angular-forms-02.png)
 
-6. For you config the language to be used by AngularForms, use the **lang** input. There are two langs available: **en-US** (default) and **pt-BR**.
+7. For you config the language to be used by AngularForms, use the **lang** input. There are two langs available: **en-US** (default) and **pt-BR**.
 
 ```html
 <rb-angular-forms #angularForms [groups]="customForm" lang="pt-BR"></rb-angular-forms>
@@ -333,6 +340,7 @@ The **Group** represents a grouping of questions, which can be of two types: **F
   "type": "checkbox",
   "answer": null,
   "validations": [],
+  "disabled": false,
   "defaultOption": "false"
 }
 ```
@@ -349,6 +357,7 @@ The **Group** represents a grouping of questions, which can be of two types: **F
   "type": "radio",
   "answer": null,
   "validations": [],
+  "disabled": false,
   "options": ["Option 1", "Option 2"],
   "defaultOption": null
 }
@@ -366,8 +375,10 @@ The **Group** represents a grouping of questions, which can be of two types: **F
   "type": "select",
   "answer": null,
   "validations": [],
+  "disabled": false,
   "options": ["Option 1", "Option 2"],
   "defaultOption": null,
+  "editableOption": "Option 2",
   "placeholder": "Select an option"
 }
 ```
@@ -384,6 +395,7 @@ The **Group** represents a grouping of questions, which can be of two types: **F
   "type": "text",
   "answer": null,
   "validations": [],
+  "disabled": false,
   "mask": null,
   "placeholder": null
 }
@@ -420,6 +432,7 @@ Read more in [https://fagnerlima.github.io/ng-mask/](https://fagnerlima.github.i
   "type": "textarea",
   "answer": null,
   "validations": [],
+  "disabled": false,
   "placeholder": null
 }
 ```

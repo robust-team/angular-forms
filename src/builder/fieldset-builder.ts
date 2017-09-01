@@ -3,14 +3,13 @@ import { Fieldset } from '../group';
 import { Question } from '../question';
 import { Validation } from '../validation';
 
-export class FieldsetBuilder extends GroupBuilder<Question<any>[]> {
+export class FieldsetBuilder extends GroupBuilder<Question<any>> {
 
   public constructor(
     code: string,
-    description: string,
-    type: string
+    description: string
   ) {
-    super(code, description, type);
+    super(code, description);
     this.questions = [];
   }
 
@@ -22,7 +21,6 @@ export class FieldsetBuilder extends GroupBuilder<Question<any>[]> {
     return new Fieldset(
       this.code,
       this.description,
-      this.type,
       this.questions
     );
   }

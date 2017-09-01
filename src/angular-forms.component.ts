@@ -1,12 +1,12 @@
-import { Component, OnInit, EventEmitter, Output, Input, AfterViewChecked, ChangeDetectorRef } from '@angular/core';
-import { FormGroup, FormGroupDirective } from '@angular/forms';
+import { Component, OnInit, Output, Input, AfterViewChecked, ChangeDetectorRef } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 
 import { TranslateService } from '@ngx-translate/core';
 import { AngularForms } from '.';
 import { Group } from './group';
-import { Question, DependencyService } from './question';
+import { DependencyService, Select, SelectService, Question } from './question';
 import { ReactiveFormsFactory } from './factory';
-import { String as StringUtil } from './util';
+import { StringUtils } from './util';
 
 @Component({
   selector: 'rb-angular-forms',
@@ -30,7 +30,9 @@ import { String as StringUtil } from './util';
                         <div class="checkbox">
                           <label>
                             <input type="checkbox" [name]="question.name" [formControlName]="question.name" />
-                            {{ question.description }}
+                            <span [ngClass]="{ 'required-control': question.isRequired() }">
+                              {{ question.description }}
+                            </span>
                           </label>
                           <rb-validation-message [validations]="question.validations"
                                                  [control]="formGroup.get(group.code).get(question.name)"
@@ -51,7 +53,9 @@ import { String as StringUtil } from './util';
                   <ng-template ngSwitchCase="radio">
                     <div class="form-group" [hidden]="hideQuestion(question, formGroup.get(group.code))">
                       <ng-container *ngIf="!readOnly; else readOnlyRadio">
-                        <label>{{ question.description }}</label>
+                        <label [ngClass]="{ 'required-control': question.isRequired() }">
+                          {{ question.description }}
+                        </label>
                         <div class="radio" *ngFor="let option of question.options">
                           <label>
                             <input type="radio" [name]="question.name" [value]="option" [formControlName]="question.name" />
@@ -74,9 +78,12 @@ import { String as StringUtil } from './util';
                   <ng-template ngSwitchCase="select">
                     <div class="form-group" [hidden]="hideQuestion(question, formGroup.get(group.code))">
                       <ng-container *ngIf="!readOnly; else readOnlySelect">
-                        <label [for]="question.name">{{ question.description }}</label>
-                        <select [id]="question.name" class="form-control" [name]="question.name"
-                                [formControlName]="question.name">
+                        <label [for]="question.name" [ngClass]="{ 'required-control': question.isRequired() }">
+                          {{ question.description }}
+                        </label>
+                        <select [id]="question.name" class="form-control" [name]="question.name" #selectQuestion
+                                formControlName="{{ question.editableOption !== selectQuestion.value ? question.name : '' }}"
+                                (change)="onChangeOptionSelect(selectQuestion, formGroup.get(group.code).get(question.name), question)">
                           <option disabled [value]="null">
                             {{ question.placeholder ? question.placeholder : '' }}
                           </option>
@@ -84,6 +91,11 @@ import { String as StringUtil } from './util';
                             {{ option }}
                           </option>
                         </select>
+                        <ng-container *ngIf="question.editableOption">
+                          <input [class.hidden]="question.editableOption !== selectQuestion.value"
+                                 type="text" [id]="question.name" class="form-control editable-option" [name]="question.name"
+                                 [formControlName]="question.name" />
+                        </ng-container>
                         <rb-validation-message [validations]="question.validations"
                                                [control]="formGroup.get(group.code).get(question.name)"
                                                [submitted]="submitted">
@@ -100,7 +112,9 @@ import { String as StringUtil } from './util';
                   <ng-template ngSwitchCase="textarea">
                     <div class="form-group" [hidden]="hideQuestion(question, formGroup.get(group.code))">
                       <ng-container *ngIf="!readOnly; else readOnlyTextarea">
-                        <label [for]="question.name">{{ question.description }}</label>
+                        <label [for]="question.name" [ngClass]="{ 'required-control': question.isRequired() }">
+                          {{ question.description }}
+                        </label>
                         <textarea [id]="question.name" class="form-control" [name]="question.name" rows="5"
                                   placeholder="{{ question.placeholder ? question.placeholder : '' }}"
                                   [formControlName]="question.name">
@@ -121,10 +135,12 @@ import { String as StringUtil } from './util';
                   <ng-template ngSwitchCase="text" ngSwitchDefault>
                     <div class="form-group" [hidden]="hideQuestion(question, formGroup.get(group.code))">
                       <ng-container *ngIf="!readOnly; else readOnlyText">
-                        <label [for]="question.name">{{ question.description }}</label>
+                        <label [for]="question.name" [ngClass]="{ 'required-control': question.isRequired() }">
+                          {{ question.description }}
+                        </label>
                         <input type="text" [id]="question.name" class="form-control" [name]="question.name"
-                                placeholder="{{ question.placeholder ? question.placeholder : '' }}"
-                                [formControlName]="question.name" [mask]="question.mask" />
+                               placeholder="{{ question.placeholder ? question.placeholder : '' }}"
+                               [formControlName]="question.name" [mask]="question.mask" />
                         <rb-validation-message [validations]="question.validations"
                                                [control]="formGroup.get(group.code).get(question.name)"
                                                [submitted]="submitted">
@@ -151,31 +167,7 @@ import { String as StringUtil } from './util';
 
       </ng-container> <!--groups-->
     </form>
-  `,
-  styles: [`
-    /* Icons */
-    .rb-ico { font-style: normal }
-    .rb-ico:after { font-size: 1.6rem }
-    .rb-ico.rb-ico-add:after { content: '✚' }
-    .rb-ico.rb-ico-remove:after { content: '✖' }
-    .rb-ico.rb-ico-square:after {
-      background: linear-gradient(to bottom, #fff 0px, #e6e6e6 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
-      border: 1px solid #888;
-      border-radius: .3rem;
-      content: '';
-      cursor: default;
-      display: inline-block;
-      font-size: 1.6rem;
-      height: 1.4rem;
-      line-height: 1.4rem;
-      margin-right: .5rem;
-      text-align: center;
-      width: 1.4rem;
-    }
-    .rb-ico.rb-ico-square.rb-ico-checked:after { content: '✔' }
-    .rb-ico.rb-ico-square.rb-ico-unchecked:after { content: '' }
-  `],
-  providers: [DependencyService]
+  `
 })
 export class AngularFormsComponent implements OnInit, AfterViewChecked {
 
@@ -188,7 +180,6 @@ export class AngularFormsComponent implements OnInit, AfterViewChecked {
 
   public constructor(
     private changeDetectorRef: ChangeDetectorRef,
-    private dependencyService: DependencyService,
     private translateService: TranslateService
   ) { }
 
@@ -203,7 +194,11 @@ export class AngularFormsComponent implements OnInit, AfterViewChecked {
   }
 
   public hideQuestion(question: Question<any>, formGroup: FormGroup): boolean {
-    return this.dependencyService.hideQuestion(question, formGroup);
+    return DependencyService.hideQuestion(question, formGroup);
+  }
+
+  public onChangeOptionSelect(htmlFormControl: HTMLInputElement, formControl: FormControl, question: Select): void {
+    SelectService.onChangeOption(htmlFormControl, formControl, question);
   }
 
   public submit(): void {
@@ -261,7 +256,7 @@ export class AngularFormsComponent implements OnInit, AfterViewChecked {
 
   private convertAnswersOfGroupToString(answersGroup: Object): Object {
     Object.keys(answersGroup).forEach((questionIndex: string) => {
-      answersGroup[questionIndex] = StringUtil.convertToString(answersGroup[questionIndex]);
+      answersGroup[questionIndex] = StringUtils.convertToString(answersGroup[questionIndex]);
     });
 
     return answersGroup;

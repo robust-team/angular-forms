@@ -1,13 +1,13 @@
 import { ValidatorFn } from '@angular/forms';
 
 import { ValidatorFactoryHandler } from '.';
-import { Validation } from '../../validation';
+import { Validation, ValidationType } from '../../validation';
 import { ValidatorFactory } from '../../factory';
 
 export class MaxLengthValidator extends ValidatorFactoryHandler {
 
   public handle(validation: Validation): ValidatorFn {
-    if ('maxlength' === validation.type) {
+    if (ValidationType.MAX_LENGTH === validation.type) {
       return (new ValidatorFactory(validation)).createMaxLengthValidator();
     }
 

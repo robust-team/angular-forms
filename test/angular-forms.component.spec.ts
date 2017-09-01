@@ -10,7 +10,7 @@ import { AngularFormsComponent } from '../src/angular-forms.component';
 import { AngularFormsTranslateLoader } from '../src/angular-forms-translate-loader';
 import { DataTableModule } from '../src/data-table';
 import { ValidationMessageModule } from '../src/validation-message/validation-message.module';
-import { Select, Text, Dependency } from '../src/question';
+import { Select, Text, Dependency, DependencyCriteria } from '../src/question';
 import { DemoService } from '../demo/demo.service';
 
 describe('AngularFormsComponent', () => {
@@ -48,8 +48,19 @@ describe('AngularFormsComponent', () => {
     assert(component);
   });
 
+  it('should call onChangeOptionSelect method', () => {
+    const htmlFormControl: any = { value: 'Option 2' };
+    const formControl: FormControl = new FormControl('Option 2');
+    const question: Select = new Select('Q-01', 'Question 01', [], 'Option 2', [], false, ['Option 1', 'Option 2'], null, 'Option 2');
+    component.onChangeOptionSelect(htmlFormControl, formControl, question);
+  });
+
+  it('should call submit method', () => {
+    component.submit();
+  });
+
   it('should not hide a question without dependencies', () => {
-    const question01: Select = new Select('Q-01', 'Question 01', [], 'select', 'Option 2', [], ['Option 1', 'Option 2']);
+    const question01: Select = new Select('Q-01', 'Question 01', [], 'Option 2', [], false, ['Option 1', 'Option 2']);
     const question02: Text = new Text('Q-02', 'Question 02', [], 'text');
     const formGroup: FormGroup = new FormGroup({
       'Q-01': new FormControl('Option 2'),
@@ -60,9 +71,9 @@ describe('AngularFormsComponent', () => {
   });
 
   it('should not hide a question', () => {
-    const question01: Select = new Select('Q-01', 'Question 01', [], 'select', 'Option 2', [], ['Option 1', 'Option 2']);
+    const question01: Select = new Select('Q-01', 'Question 01', [], 'Option 2', [], false, ['Option 1', 'Option 2']);
     const question02: Text = new Text('Q-02', 'Question 02', [
-      new Dependency('Q-01', 'equals', 'Option 2'), new Dependency('Q-03', 'equals', 'Option 2')
+      new Dependency('Q-01', DependencyCriteria.EQUALS, 'Option 2'), new Dependency('Q-03', DependencyCriteria.EQUALS, 'Option 2')
     ], 'text');
     const formGroup: FormGroup = new FormGroup({
       'Q-01': new FormControl('Option 2'),
@@ -73,8 +84,8 @@ describe('AngularFormsComponent', () => {
   });
 
   it('should hide a question without dependencies', () => {
-    const question01: Select = new Select('Q-01', 'Question 01', [], 'select', 'Option 1', [], ['Option 1', 'Option 2']);
-    const question02: Text = new Text('Q-02', 'Question 02', [new Dependency('Q-01', 'equals', 'Option 2')], 'text');
+    const question01: Select = new Select('Q-01', 'Question 01', [], 'Option 1', [], false, ['Option 1', 'Option 2']);
+    const question02: Text = new Text('Q-02', 'Question 02', [new Dependency('Q-01', DependencyCriteria.EQUALS, 'Option 2')], 'text');
     const formGroup: FormGroup = new FormGroup({
       'Q-01': new FormControl('Option 1'),
       'Q-02': new FormControl()

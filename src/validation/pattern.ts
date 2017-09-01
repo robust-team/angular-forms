@@ -1,17 +1,17 @@
-import { Validation } from '.';
+import { Validation, ValidationType } from '.';
 
 export class Pattern extends Validation {
 
-  public static fromJson(validation: Pattern): Pattern {
-    return new Pattern(validation.type, validation.message, validation.value);
-  }
-
   public constructor(
-    type: string,
     message: string,
     private _value: string
   ) {
-    super(type, message);
+    super(ValidationType.PATTERN, message);
+  }
+
+  /** @override */
+  public isRequired(): boolean {
+    return ValidationType.PATTERN === this.type && 'true' === this._value.toString();
   }
 
   public get value(): string {

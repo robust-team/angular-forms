@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 
-import { Dependency, Question } from '.';
-import { String as StringUtil } from '../util';
+import { Dependency, DependencyCriteria, Question } from '.';
+import { StringUtils } from '../util';
 
 @Injectable()
 export class DependencyService {
 
-  public hideQuestion(question: Question<any>, formGroup: FormGroup): boolean {
+  public static hideQuestion(question: Question<any>, formGroup: FormGroup): boolean {
     if (!question.dependencies || 0 === question.dependencies.length) {
       return false;
     }
@@ -18,32 +18,36 @@ export class DependencyService {
       }
 
       const answerDependency: string = formGroup.get(dependency.code).value;
-      const result: boolean = this.executeOperation(answerDependency, dependency);
+      const result: boolean = DependencyService.executeOperation(answerDependency, dependency);
 
       if (!result) {
-        this.setStatusFormControl(<FormControl> formGroup.get(question.name), true);
+        DependencyService.setStatusFormControl(<FormControl> formGroup.get(question.name), true);
 
         return true;
       }
     }
 
-    this.setStatusFormControl(<FormControl> formGroup.get(question.name), false);
+    DependencyService.setStatusFormControl(<FormControl> formGroup.get(question.name), false);
 
     return false;
   }
 
-  private executeOperation(answerDependency: string, dependency: Dependency): boolean {
-    const operations: { [type: string]: boolean } = {
-      'equals': StringUtil.convertToString(answerDependency) === StringUtil.convertToString(dependency.expectedAnswer),
-      'lessthan': parseFloat(answerDependency) < parseFloat(dependency.expectedAnswer),
-      'greaterthan': parseFloat(answerDependency) > parseFloat(dependency.expectedAnswer),
-      'notequals': StringUtil.convertToString(answerDependency) !== StringUtil.convertToString(dependency.expectedAnswer)
-    };
+  private static executeOperation(answerDependency: string, dependency: Dependency): boolean {
+    switch (dependency.criteria) {
+      case DependencyCriteria.EQUALS:
+        return StringUtils.convertToString(answerDependency) === StringUtils.convertToString(dependency.expectedAnswer);
+      case DependencyCriteria.LESS_THAN:
+        return parseFloat(answerDependency) < parseFloat(dependency.expectedAnswer);
+      case DependencyCriteria.GREATER_THAN:
+        return parseFloat(answerDependency) > parseFloat(dependency.expectedAnswer);
+      case DependencyCriteria.NOT_EQUALS:
+        return StringUtils.convertToString(answerDependency) !== StringUtils.convertToString(dependency.expectedAnswer);
+    }
 
-    return operations[dependency.criteria];
+    return false;
   }
 
-  private setStatusFormControl(formControl: FormControl, hidden: boolean): void {
+  private static setStatusFormControl(formControl: FormControl, hidden: boolean): void {
     if (hidden) {
       formControl.disable();
     } else {

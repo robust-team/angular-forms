@@ -1,7 +1,7 @@
 import { FormGroup, FormArray, FormControl, ValidatorFn, Validators } from '@angular/forms';
 
-import { Group, Fieldset, DataTable } from '../group';
-import { Question } from '../question';
+import { Group, GroupType, Fieldset, DataTable } from '../group';
+import { Choice, Question } from '../question';
 import { Validation, MinLength, MaxLength, Pattern, Required, Min, Max } from '../validation';
 import {
   ValidatorFactoryHandler, RequiredValidator, EmailValidator, MaxValidator, MinValidator,
@@ -17,11 +17,14 @@ export class ReactiveFormsFactory {
     for (const group of groups) {
       let control: FormGroup | FormArray;
 
-      if ('group' === group.type) {
+      if (GroupType.FIELDSET === group.type) {
         control = ReactiveFormsFactory.createFormGroupFromQuestions((<Fieldset>group).questions);
       } else {
         control = ReactiveFormsFactory.createFormArrayFromQuestions((<DataTable>group).questions.slice(1));
-        control.setValidators(ReactiveFormsFactory.createValidators((<DataTable>group).validations));
+
+        if ((<DataTable>group).validations && 0 < (<DataTable>group).validations.length) {
+          control.setValidators(ReactiveFormsFactory.createValidators((<DataTable>group).validations));
+        }
       }
 
       formGroup.addControl(group.code, control);
@@ -30,16 +33,19 @@ export class ReactiveFormsFactory {
     return formGroup;
   }
 
-  public static createFormGroupFromQuestions(questions: Question<any>[]): FormGroup {
+  public static createFormGroupFromQuestions(questions: Question<any>[], checkDisabledQuestions: boolean = true): FormGroup {
     const formGroup: FormGroup = new FormGroup({});
 
     for (const question of questions) {
       const validators: ValidatorFn[] = ReactiveFormsFactory.createValidators(question.validations);
-      const formState: any = !question.answer && question['defaultOption']
-        ? question['defaultOption']
-        : question.answer;
+      const answer: any = !question.answer && (<Choice>question).defaultOption ? (<Choice>question).defaultOption : question.answer;
+      const control: FormControl = new FormControl({ value: answer, disabled: checkDisabledQuestions && question.disabled }, validators);
 
-      formGroup.addControl(question.name, new FormControl(formState, validators));
+      if (question.validations && 0 < question.validations.length) {
+        control.setValidators(ReactiveFormsFactory.createValidators(question.validations));
+      }
+
+      formGroup.addControl(question.name, control);
     }
 
     return formGroup;

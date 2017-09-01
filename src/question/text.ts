@@ -1,5 +1,6 @@
-import { Dependency, Question } from '.';
+import { Dependency, Question, QuestionType } from '.';
 import { Validation } from '../validation';
+import { ValidationFactory } from '../factory';
 
 export class Text extends Question<string> {
 
@@ -8,9 +9,9 @@ export class Text extends Question<string> {
       question.name,
       question.description,
       question.dependencies,
-      question.type,
       question.answer,
-      question.validations,
+      ValidationFactory.createValidationList(question.validations),
+      question.disabled,
       question.mask,
       question.placeholder
     );
@@ -19,14 +20,14 @@ export class Text extends Question<string> {
   public constructor(
     name: string,
     description: string,
-    dependencies: Dependency[],
-    type: string,
+    dependencies: Dependency[] = [],
     answer: string = null,
     validations: Validation[] = [],
+    disabled: boolean = false,
     private _mask: string = null,
     private _placeholder: string = null,
   ) {
-    super(name, description, dependencies || [], type, answer, validations || []);
+    super(name, description, QuestionType.TEXT, dependencies, answer, validations, disabled);
   }
 
   public get mask(): string {

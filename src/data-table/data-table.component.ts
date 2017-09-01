@@ -1,8 +1,7 @@
-import { style } from '@angular/core/core';
-import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
-import { FormGroup, FormArray, FormControl, AbstractControl, FormGroupDirective } from '@angular/forms';
+import { Component, Input, OnInit } from '@angular/core';
+import { FormGroup, FormArray, FormControl } from '@angular/forms';
 
-import { Question } from '../question';
+import { Select, SelectService, Question } from '../question';
 import { Group, DataTable } from '../group';
 import { ReactiveFormsFactory } from '../factory';
 
@@ -10,14 +9,20 @@ import { ReactiveFormsFactory } from '../factory';
   selector: 'rb-data-table',
   template: `
     <fieldset class="rb-data-table" [formGroup]="formGroup" [ngClass]="{ 'read-only': readOnly }">
-      <legend>{{ group.description }}</legend>
+      <legend>
+        <span [ngClass]="{ 'required-control': group.isRequired() && !readOnly }">
+          {{ group.description }}
+        </span>
+      </legend>
 
       <div class="table-responsive">
         <table class="table table-bordered table-striped table-hover">
           <thead>
             <tr>
               <th class="text-center" *ngFor="let question of group.questions[0]">
-                {{ question.description }}
+                <span [ngClass]="{ 'required-control': question.isRequired() && !readOnly }">
+                  {{ question.description }}
+                </span>
               </th>
               <th class="text-center" *ngIf="!readOnly">
                 {{ 'ACTION' | translate }}
@@ -56,8 +61,9 @@ import { ReactiveFormsFactory } from '../factory';
                   </ng-template> <!--/radio-->
 
                   <ng-template ngSwitchCase="select">
-                    <select [id]="question.name" class="form-control" [name]="question.name"
-                            [formControlName]="question.name">
+                  <select [id]="question.name" class="form-control" [name]="question.name" #selectQuestion
+                          formControlName="{{ question.editableOption !== selectQuestion.value ? question.name : '' }}"
+                          (change)="onChangeOptionSelect(selectQuestion, newFormGroup.get(question.name), question)">
                       <option disabled [value]="null">
                         {{ question.placeholder ? question.placeholder : '' }}
                       </option>
@@ -65,6 +71,11 @@ import { ReactiveFormsFactory } from '../factory';
                         {{ option }}
                       </option>
                     </select>
+                    <ng-container *ngIf="question.editableOption">
+                    <input [class.hidden]="question.editableOption !== selectQuestion.value"
+                             type="text" [id]="question.name" class="form-control editable-option" [name]="question.name"
+                             [formControlName]="question.name" />
+                    </ng-container>
                     <rb-validation-message [validations]="question.validations"
                                            [control]="newFormGroup.get(question.name)"
                                            [submitted]="submitted">
@@ -129,39 +140,6 @@ import { ReactiveFormsFactory } from '../factory';
       </rb-validation-message>
     </fieldset>
   `,
-  styles: [`
-    /* Icons */
-    .rb-ico { font-style: normal }
-    .rb-ico:after { font-size: 1.6rem }
-    .rb-ico.rb-ico-add:after { content: '✚' }
-    .rb-ico.rb-ico-remove:after { content: '✖' }
-    .rb-ico.rb-ico-square:after {
-      background: linear-gradient(to bottom, #fff 0px, #e6e6e6 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
-      border: 1px solid #888;
-      border-radius: .3rem;
-      content: '';
-      cursor: default;
-      display: inline-block;
-      font-size: 1.6rem;
-      height: 1.4rem;
-      line-height: 1.4rem;
-      margin-right: .5rem;
-      text-align: center;
-      width: 1.4rem;
-    }
-    .rb-ico.rb-ico-square.rb-ico-checked:after { content: '✔' }
-    .rb-ico.rb-ico-square.rb-ico-unchecked:after { content: '' }
-
-    fieldset.datatable {
-      border: 1px solid #ccc;
-      margin-bottom: 15px;
-      padding: 0 15px 15px;
-    }
-    fieldset.datatable legend {
-      border: 1px solid #ccc;
-      padding: 5px 10px;
-    }
-  `]
 })
 export class DataTableComponent implements OnInit {
 
@@ -176,7 +154,11 @@ export class DataTableComponent implements OnInit {
 
   public ngOnInit(): void {
     this.formArray = <FormArray>this.formGroup.get(this.group.code);
-    this.newFormGroup = ReactiveFormsFactory.createFormGroupFromQuestions(this.group.questions[0]);
+    this.newFormGroup = ReactiveFormsFactory.createFormGroupFromQuestions(this.group.questions[0], false);
+  }
+
+  public onChangeOptionSelect(htmlFormControl: HTMLInputElement, formControl: FormControl, question: Select): void {
+    SelectService.onChangeOption(htmlFormControl, formControl, question);
   }
 
   public getKeysFromObject(object: Object): string[] {

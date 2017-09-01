@@ -1,17 +1,12 @@
-import { Validation } from '.';
+import { Validation, ValidationType } from '.';
 
 export class MaxLength extends Validation {
 
-  public static fromJson(validation: MaxLength): MaxLength {
-    return new MaxLength(validation.type, validation.message, validation.value);
-  }
-
   public constructor(
-    type: string,
     message: string,
     private _value: number
   ) {
-    super(type, message);
+    super(ValidationType.MAX_LENGTH, message);
   }
 
   public get value(): number {

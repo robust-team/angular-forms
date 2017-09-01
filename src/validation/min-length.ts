@@ -1,17 +1,12 @@
-import { Validation } from '.';
+import { Validation, ValidationType } from '.';
 
 export class MinLength extends Validation {
 
-  public static fromJson(validation: MinLength): MinLength {
-    return new MinLength(validation.type, validation.message, validation.value);
-  }
-
   public constructor(
-    type: string,
     message: string,
     private _value: number
   ) {
-    super(type, message);
+    super(ValidationType.MIN_LENGTH, message);
   }
 
   public get value(): number {

@@ -1,6 +1,6 @@
 import { isNullOrUndefined } from 'util';
 
-export class String {
+export class StringUtils {
 
   public static convertToString(value: any): string {
     if ('string' === typeof value) {

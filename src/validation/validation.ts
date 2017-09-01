@@ -1,11 +1,17 @@
+import { ValidationType } from '.';
+
 export abstract class Validation {
 
   public constructor(
-    private _type: string,
+    private _type: ValidationType,
     private _message: string
   ) { }
 
-  public get type(): string {
+  public isRequired(): boolean {
+    return ValidationType.REQUIRED === this._type;
+  }
+
+  public get type(): ValidationType {
     return this._type;
   }
 

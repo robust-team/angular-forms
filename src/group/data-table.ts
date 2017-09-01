@@ -1,17 +1,26 @@
-import { Group } from './group';
+import { Group, GroupType } from '.';
 import { Question } from '../question';
-import { Validation } from '../validation';
+import { Pattern, Validation, ValidationType } from '../validation';
 
 export class DataTable extends Group {
 
   public constructor(
     code: string,
     description: string,
-    type: string,
     private _questions: Question<any>[][],
     private _validations: Validation[] = []
   ) {
-    super(code, description, type);
+    super(code, description, GroupType.DATATABLE);
+  }
+
+  public isRequired(): boolean {
+    for (const validation of this._validations) {
+      if (ValidationType.REQUIRED === validation.type) {
+        return true;
+      }
+    }
+
+    return false;
   }
 
   public get questions(): Question<any>[][] {

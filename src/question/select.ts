@@ -1,5 +1,6 @@
-import { Choice, Dependency } from '.';
+import { Choice, Dependency, QuestionType } from '.';
 import { Validation } from '../validation';
+import { ValidationFactory } from '../factory';
 
 export class Select extends Choice {
 
@@ -8,11 +9,12 @@ export class Select extends Choice {
       question.name,
       question.description,
       question.dependencies,
-      question.type,
       question.answer,
-      question.validations,
+      ValidationFactory.createValidationList(question.validations),
+      question.disabled,
       question.options,
       question.defaultOption,
+      question.editableOption,
       question.placeholder
     );
   }
@@ -20,15 +22,20 @@ export class Select extends Choice {
   public constructor(
     name: string,
     description: string,
-    dependencies: Dependency[],
-    type: string,
+    dependencies: Dependency[] = [],
     answer: string = null,
     validations: Validation[] = [],
+    disabled: boolean = false,
     options: string[] = [],
     defaultOption: string = null,
+    private _editableOption: string = null,
     private _placeholder: string = null
   ) {
-    super(name, description, dependencies || [], type, answer, validations || [], options, defaultOption);
+    super(name, description, QuestionType.SELECT, dependencies, answer, validations, disabled, options, defaultOption);
+  }
+
+  public get editableOption(): string {
+    return this._editableOption;
   }
 
   public get placeholder(): string {

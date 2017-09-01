@@ -11,7 +11,7 @@ import { DataTableComponent } from '../../src/data-table';
 import { ValidationMessageModule } from '../../src/validation-message';
 import { AngularFormsTranslateLoader } from '../../src/angular-forms-translate-loader';
 import { DataTable } from '../../src/group';
-import { Question, Text } from '../../src/question';
+import { Question, Select, Text } from '../../src/question';
 
 describe('DataTableComponent', () => {
   let component: DataTableComponent;
@@ -41,13 +41,20 @@ describe('DataTableComponent', () => {
 
     component = fixture.componentInstance;
     component.formGroup = new FormGroup({ 'G-01': new FormArray([]) });
-    component.group = new DataTable('G-01', 'Group 01', 'datatable', [[new Text('Q-01', 'Question 01', [], 'text')]]);
+    component.group = new DataTable('G-01', 'Group 01', [[new Text('Q-01', 'Question 01', [])]]);
 
     fixture.detectChanges();
   });
 
   it('should create', () => {
     assert(component);
+  });
+
+  it('should call onChangeOptionSelect method', () => {
+    const htmlFormControl: any = { value: 'Option 2' };
+    const formControl: FormControl = new FormControl('Option 2');
+    const question: Select = new Select('Q-01', 'Question 01', [], 'Option 2', [], false, ['Option 1', 'Option 2'], null, 'Option 2');
+    component.onChangeOptionSelect(htmlFormControl, formControl, question);
   });
 
   it('should call getKeysFromObject method', () => {
@@ -63,7 +70,7 @@ describe('DataTableComponent', () => {
   });
 
   it('should call getQuestionByName method', () => {
-    assert.deepEqual(component.getQuestionByName('Q-01'), new Text('Q-01', 'Question 01', [], 'text'));
-    assert.notDeepEqual(component.getQuestionByName('Q-02'), new Text('Q-01', 'Question 01', [], 'text'));
+    assert.deepEqual(component.getQuestionByName('Q-01'), new Text('Q-01', 'Question 01', []));
+    assert.notDeepEqual(component.getQuestionByName('Q-02'), new Text('Q-01', 'Question 01', []));
   });
 });

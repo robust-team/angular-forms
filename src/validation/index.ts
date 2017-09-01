@@ -1,3 +1,4 @@
+export * from './validation-type.enum';
 export * from './validation';
 export * from './email';
 export * from './max';
