@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.0.0"></a>
+## [1.0.0](https://github.com/robust-team/angular-forms/compare/v0.5.2...v1.0.0) (2017-09-01)
+
+### Features
+
+* Addition of *asterisk* to required form controls.
+* Addition of the **editableOption** attribute in **Select**.
+* Addition of the **disabled** attribute in **Questions** into **Fieldset**.
+
+### Changes
+
+* Creation of the **styles.css** file and deletion of the inline styles into the components.
+* **String** updated to **StringUtils**.
+* Constructors of the **Groups**, **Questions** and **Validations** updated.
+* Methods into **DependencyService** updated to static methods.
+* **GroupType**, **QuestionType**, **ValidationType** and **DependencyCriteria** Enum created.
+* **ValidationFactory** created.
+
 <a name="0.5.2"></a>
 ## [0.5.2](https://github.com/robust-team/angular-forms/compare/v0.5.1...v0.5.2) (2017-07-19)
 

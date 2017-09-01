@@ -1,6 +1,6 @@
 {
   "name": "@robust-team/angular-forms",
-  "version": "0.5.2",
+  "version": "1.0.0",
   "license": "MIT",
   "description": "A Simple Angular Forms Generator",
   "main": "./bundles/angular-forms.umd.js",
@@ -11,7 +11,7 @@
     "build:demo": "webpack -p",
     "build:umd": "webpack --config webpack.config.umd.ts",
     "build:ngc": "ngc -p tsconfig-ngc.json",
-    "build:copyfiles": "copyfiles assets/css/*.css dist",
+    "build:copyfiles": "copyfiles assets/**/*.css dist",
     "build:dist": "npm run build:umd && npm run build:ngc && npm run build:copyfiles",
     "build:clean": "del-cli dist",
     "test": "karma start --single-run && npm run build:dist && npm run build:clean",
