@@ -36,15 +36,27 @@
                         <a data-type="chapter-link" href="./index.html"><span class="fa fa-home"></span>Getting started</a>
                         <ul class="links">
                                 <li class="link">
-                                    <a href="./index.html"  class="active" ><span class="fa fa-file-text-o"></span>README</a>
-                                </li>
-                                <li class="link">
-                                    <a  href="./overview.html" 
+                                    <a 
                                         
                                          href="./overview.html" 
-                                        
+                                         href="./overview.html" 
                                         >
                                         <span class="fa fa-th"></span>Overview
+                                    </a>
+                                </li>
+                                <li class="link">
+                                  <a href="./index.html"  class="active" ><span class="fa fa-file-text-o"></span>README</a>
+                                </li>
+                                <li class="link">
+                                    <a href="./changelog.html"
+                                        >
+                                        <span class="fa fa-file-text-o"></span>CHANGELOG
+                                    </a>
+                                </li>
+                                <li class="link">
+                                    <a href="./license.html"
+                                        >
+                                        <span class="fa fa-file-text-o"></span>LICENSE
                                     </a>
                                 </li>
                         </ul>
@@ -58,10 +70,10 @@
                             >
                                 <span class="fa fa-archive"></span>
                                 <span class="link-name">Modules</span>
-                                <span class="fa fa-angle-up"></span>
+                                <span class="fa fa-angle-down"></span>
                             </div>
                         </a>
-                        <ul class="links collapse in"
+                        <ul class="links collapse "
                                 id="xs-modules-links"
                             >
                                 <li class="link">
@@ -69,6 +81,9 @@
                                 </li>
                                 <li class="link">
                                     <a href="./modules/DataTableModule.html" >DataTableModule</a>
+                                </li>
+                                <li class="link">
+                                    <a href="./modules/DemoModule.html" >DemoModule</a>
                                 </li>
                                 <li class="link">
                                     <a href="./modules/ValidationMessageModule.html" >ValidationMessageModule</a>
@@ -82,9 +97,9 @@
                             >
                             <span class="fa fa-cogs"></span>
                             <span>Components</span>
-                            <span class="fa fa-angle-up"></span>
+                            <span class="fa fa-angle-down"></span>
                         </div>
-                        <ul class="links collapse in"
+                        <ul class="links collapse "
                                 id="xs-components-links"
                             >
                                 <li class="link">
@@ -92,6 +107,9 @@
                                 </li>
                                 <li class="link">
                                     <a href="./components/DataTableComponent.html" >DataTableComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="./components/DemoComponent.html" >DemoComponent</a>
                                 </li>
                                 <li class="link">
                                     <a href="./components/ValidationMessageComponent.html" >ValidationMessageComponent</a>
@@ -106,9 +124,9 @@
                             >
                             <span class="fa fa-file-code-o"></span>
                             <span>Classes</span>
-                            <span class="fa fa-angle-up"></span>
+                            <span class="fa fa-angle-down"></span>
                         </div>
-                        <ul class="links collapse in"
+                        <ul class="links collapse "
                                 id="xs-classes-links"
                             >
                                 <li class="link">
@@ -202,7 +220,7 @@
                                     <a href="./classes/Select.html" >Select</a>
                                 </li>
                                 <li class="link">
-                                    <a href="./classes/String.html" >String</a>
+                                    <a href="./classes/StringUtils.html" >StringUtils</a>
                                 </li>
                                 <li class="link">
                                     <a href="./classes/Text.html" >Text</a>
@@ -212,6 +230,9 @@
                                 </li>
                                 <li class="link">
                                     <a href="./classes/Validation.html" >Validation</a>
+                                </li>
+                                <li class="link">
+                                    <a href="./classes/ValidationFactory.html" >ValidationFactory</a>
                                 </li>
                                 <li class="link">
                                     <a href="./classes/ValidationTypeNotFoundError.html" >ValidationTypeNotFoundError</a>
@@ -231,23 +252,45 @@
                             >
                             <span class="fa fa-long-arrow-down"></span>
                             <span>Injectables</span>
-                            <span class="fa fa-angle-up"></span>
+                            <span class="fa fa-angle-down"></span>
                         </div>
-                        <ul class="links collapse in"
+                        <ul class="links collapse "
                                 id="xs-injectables-links"
                             >
                                 <li class="link">
+                                    <a href="./injectables/DemoService.html" >DemoService</a>
+                                </li>
+                                <li class="link">
                                     <a href="./injectables/DependencyService.html" >DependencyService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="./injectables/SelectService.html" >SelectService</a>
                                 </li>
                         </ul>
                     </li>
             
             
             
-            
                     <li class="chapter">
-                        <a data-type="chapter-link" href="./miscellaneous.html" ><span class="fa fa-cubes"></span>Miscellaneous</a>
+                        <div class="simple menu-toggler" data-toggle="collapse"
+                                data-target="#xs-miscellaneous-links"
+                            >
+                            <span class="fa fa-cubes"></span>
+                            <span>Miscellaneous</span>
+                            <span class="fa fa-angle-down"></span>
+                        </div>
+                        <ul class="links collapse "
+                                id="xs-miscellaneous-links"
+                            >
+                                <li class="link">
+                                  <a href="./miscellaneous/enumerations.html" data-type="entity-link" >Enums</a>
+                                </li>
+                                <li class="link">
+                                  <a href="./miscellaneous/variables.html" data-type="entity-link" >Variables</a>
+                                </li>
+                        </ul>
                     </li>
+            
             
             
                     <li class="divider"></li>
@@ -283,15 +326,27 @@
                                <a data-type="chapter-link" href="./index.html"><span class="fa fa-home"></span>Getting started</a>
                                <ul class="links">
                                        <li class="link">
-                                           <a href="./index.html"  class="active" ><span class="fa fa-file-text-o"></span>README</a>
-                                       </li>
-                                       <li class="link">
-                                           <a  href="./overview.html" 
+                                           <a 
                                                
                                                 href="./overview.html" 
-                                               
+                                                href="./overview.html" 
                                                >
                                                <span class="fa fa-th"></span>Overview
+                                           </a>
+                                       </li>
+                                       <li class="link">
+                                         <a href="./index.html"  class="active" ><span class="fa fa-file-text-o"></span>README</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="./changelog.html"
+                                               >
+                                               <span class="fa fa-file-text-o"></span>CHANGELOG
+                                           </a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="./license.html"
+                                               >
+                                               <span class="fa fa-file-text-o"></span>LICENSE
                                            </a>
                                        </li>
                                </ul>
@@ -305,10 +360,10 @@
                                    >
                                        <span class="fa fa-archive"></span>
                                        <span class="link-name">Modules</span>
-                                       <span class="fa fa-angle-up"></span>
+                                       <span class="fa fa-angle-down"></span>
                                    </div>
                                </a>
-                               <ul class="links collapse in"
+                               <ul class="links collapse "
                                        id="modules-links"
                    >
                                        <li class="link">
@@ -316,6 +371,9 @@
                                        </li>
                                        <li class="link">
                                            <a href="./modules/DataTableModule.html" >DataTableModule</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="./modules/DemoModule.html" >DemoModule</a>
                                        </li>
                                        <li class="link">
                                            <a href="./modules/ValidationMessageModule.html" >ValidationMessageModule</a>
@@ -329,9 +387,9 @@
                    >
                                    <span class="fa fa-cogs"></span>
                                    <span>Components</span>
-                                   <span class="fa fa-angle-up"></span>
+                                   <span class="fa fa-angle-down"></span>
                                </div>
-                               <ul class="links collapse in"
+                               <ul class="links collapse "
                                        id="components-links"
                    >
                                        <li class="link">
@@ -339,6 +397,9 @@
                                        </li>
                                        <li class="link">
                                            <a href="./components/DataTableComponent.html" >DataTableComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="./components/DemoComponent.html" >DemoComponent</a>
                                        </li>
                                        <li class="link">
                                            <a href="./components/ValidationMessageComponent.html" >ValidationMessageComponent</a>
@@ -353,9 +414,9 @@
                    >
                                    <span class="fa fa-file-code-o"></span>
                                    <span>Classes</span>
-                                   <span class="fa fa-angle-up"></span>
+                                   <span class="fa fa-angle-down"></span>
                                </div>
-                               <ul class="links collapse in"
+                               <ul class="links collapse "
                                        id="classes-links"
                    >
                                        <li class="link">
@@ -449,7 +510,7 @@
                                            <a href="./classes/Select.html" >Select</a>
                                        </li>
                                        <li class="link">
-                                           <a href="./classes/String.html" >String</a>
+                                           <a href="./classes/StringUtils.html" >StringUtils</a>
                                        </li>
                                        <li class="link">
                                            <a href="./classes/Text.html" >Text</a>
@@ -459,6 +520,9 @@
                                        </li>
                                        <li class="link">
                                            <a href="./classes/Validation.html" >Validation</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="./classes/ValidationFactory.html" >ValidationFactory</a>
                                        </li>
                                        <li class="link">
                                            <a href="./classes/ValidationTypeNotFoundError.html" >ValidationTypeNotFoundError</a>
@@ -478,23 +542,45 @@
                    >
                                    <span class="fa fa-long-arrow-down"></span>
                                    <span>Injectables</span>
-                                   <span class="fa fa-angle-up"></span>
+                                   <span class="fa fa-angle-down"></span>
                                </div>
-                               <ul class="links collapse in"
+                               <ul class="links collapse "
                                        id="injectables-links"
                    >
                                        <li class="link">
+                                           <a href="./injectables/DemoService.html" >DemoService</a>
+                                       </li>
+                                       <li class="link">
                                            <a href="./injectables/DependencyService.html" >DependencyService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="./injectables/SelectService.html" >SelectService</a>
                                        </li>
                                </ul>
                            </li>
                    
                    
                    
-                   
                            <li class="chapter">
-                               <a data-type="chapter-link" href="./miscellaneous.html" ><span class="fa fa-cubes"></span>Miscellaneous</a>
+                               <div class="simple menu-toggler" data-toggle="collapse"
+                                       data-target="#miscellaneous-links"
+                   >
+                                   <span class="fa fa-cubes"></span>
+                                   <span>Miscellaneous</span>
+                                   <span class="fa fa-angle-down"></span>
+                               </div>
+                               <ul class="links collapse "
+                                       id="miscellaneous-links"
+                   >
+                                       <li class="link">
+                                         <a href="./miscellaneous/enumerations.html" data-type="entity-link" >Enums</a>
+                                       </li>
+                                       <li class="link">
+                                         <a href="./miscellaneous/variables.html" data-type="entity-link" >Variables</a>
+                                       </li>
+                               </ul>
                            </li>
+                   
                    
                    
                            <li class="divider"></li>
@@ -508,8 +594,9 @@
                    
                    </nav>
                </div>
-               <div class="content readme">
+               <div class="content getting-started">
                    <div class="content-data">
+
 <h1 id="angularforms">AngularForms</h1>
 <p><a href="https://travis-ci.org/robust-team/angular-forms"><img src="https://travis-ci.org/robust-team/angular-forms.svg?branch=master" alt="Build Status" class="img-responsive"></a>
 <a href="https://codecov.io/gh/robust-team/angular-forms"><img src="https://codecov.io/gh/robust-team/angular-forms/branch/master/graph/badge.svg" alt="codecov" class="img-responsive"></a>
@@ -526,13 +613,16 @@
 <li><strong>@angular/forms</strong>: 4.0.0 or higher,</li>
 <li><strong>@fagnerlima/ng-mask</strong>: 2.2.1 or higher,</li>
 <li><strong>@ngx-translate/core</strong>: 7.0.0 or higher,</li>
-<li><strong>rxjs</strong>: 5.0.1 or higher.</li>
+<li><strong>rxjs</strong>: 5.4.2 or higher.</li>
 </ul>
 <h2 id="usage">Usage</h2>
 <ol>
 <li>Install AngularForms using npm:</li>
 </ol>
 <pre class="line-numbers"><code class="language-none">npm i &#64;robust-team/angular-forms</code></pre><ol>
+<li>Import the styles.css:</li>
+</ol>
+<pre class="line-numbers"><code class="language-none">node_modules/&#64;robust-team/angular-forms/assets/css/styles.css</code></pre><ol>
 <li>Import the AngularFormsModule into Module class.</li>
 </ol>
 <pre class="line-numbers"><code class="language-typescript">import { AngularFormsModule } from &#39;&#64;robust-team/angular-forms&#39;;
@@ -578,6 +668,7 @@ export class MyModule { }</code></pre><ol>
         &quot;description&quot;: &quot;Select Question 0103&quot;,
         &quot;type&quot;: &quot;select&quot;,
         &quot;options&quot;: [&quot;Option 1&quot;, &quot;Option 2&quot;],
+        &quot;editableOption&quot;: &quot;Option 2&quot;,
         &quot;placeholder&quot;: &quot;Select&quot;,
         &quot;validations&quot;: [
           { &quot;type&quot;: &quot;required&quot;, &quot;message&quot;: &quot;Required field.&quot; }
@@ -810,6 +901,7 @@ export class MyModule { }</code></pre><ol>
   &quot;type&quot;: &quot;checkbox&quot;,
   &quot;answer&quot;: null,
   &quot;validations&quot;: [],
+  &quot;disabled&quot;: false,
   &quot;defaultOption&quot;: &quot;false&quot;
 }</code></pre><h3 id="radio">Radio</h3>
 <p><strong>Radio</strong> represents a <em>radio</em> input from HTML.</p>
@@ -820,6 +912,7 @@ export class MyModule { }</code></pre><ol>
   &quot;type&quot;: &quot;radio&quot;,
   &quot;answer&quot;: null,
   &quot;validations&quot;: [],
+  &quot;disabled&quot;: false,
   &quot;options&quot;: [&quot;Option 1&quot;, &quot;Option 2&quot;],
   &quot;defaultOption&quot;: null
 }</code></pre><h3 id="select">Select</h3>
@@ -831,8 +924,10 @@ export class MyModule { }</code></pre><ol>
   &quot;type&quot;: &quot;select&quot;,
   &quot;answer&quot;: null,
   &quot;validations&quot;: [],
+  &quot;disabled&quot;: false,
   &quot;options&quot;: [&quot;Option 1&quot;, &quot;Option 2&quot;],
   &quot;defaultOption&quot;: null,
+  &quot;editableOption&quot;: &quot;Option 2&quot;,
   &quot;placeholder&quot;: &quot;Select an option&quot;
 }</code></pre><h3 id="text">Text</h3>
 <p><strong>Text</strong> represents a <em>text</em> input from HTML.</p>
@@ -843,6 +938,7 @@ export class MyModule { }</code></pre><ol>
   &quot;type&quot;: &quot;text&quot;,
   &quot;answer&quot;: null,
   &quot;validations&quot;: [],
+  &quot;disabled&quot;: false,
   &quot;mask&quot;: null,
   &quot;placeholder&quot;: null
 }</code></pre><h4 id="masks">Masks</h4>
@@ -866,6 +962,7 @@ export class MyModule { }</code></pre><ol>
   &quot;type&quot;: &quot;textarea&quot;,
   &quot;answer&quot;: null,
   &quot;validations&quot;: [],
+  &quot;disabled&quot;: false,
   &quot;placeholder&quot;: null
 }</code></pre><h2 id="validations">Validations</h2>
 <p><strong>Validations</strong> can be used in <strong>Question</strong> and <strong>DataTable</strong>, which can be of seven types:</p>
@@ -940,6 +1037,7 @@ export class MyModule { }</code></pre><ol>
     { &quot;code&quot;: &quot;Q-0104&quot;, &quot;criteria&quot;: &quot;greaterthan&quot;, &quot;expectedAnswer&quot;: &quot;10&quot; }
   ]
 }</code></pre>
+
 
 
 

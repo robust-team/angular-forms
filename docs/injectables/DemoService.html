@@ -223,7 +223,7 @@
                                     <a href="../classes/StringUtils.html" >StringUtils</a>
                                 </li>
                                 <li class="link">
-                                    <a href="../classes/Text.html"  data-type="entity-link" class="active" >Text</a>
+                                    <a href="../classes/Text.html" >Text</a>
                                 </li>
                                 <li class="link">
                                     <a href="../classes/TextArea.html" >TextArea</a>
@@ -258,7 +258,7 @@
                                 id="xs-injectables-links"
                             >
                                 <li class="link">
-                                    <a href="../injectables/DemoService.html" >DemoService</a>
+                                    <a href="../injectables/DemoService.html"  data-type="entity-link" class="active" >DemoService</a>
                                 </li>
                                 <li class="link">
                                     <a href="../injectables/DependencyService.html" >DependencyService</a>
@@ -513,7 +513,7 @@
                                            <a href="../classes/StringUtils.html" >StringUtils</a>
                                        </li>
                                        <li class="link">
-                                           <a href="../classes/Text.html"  data-type="entity-link" class="active" >Text</a>
+                                           <a href="../classes/Text.html" >Text</a>
                                        </li>
                                        <li class="link">
                                            <a href="../classes/TextArea.html" >TextArea</a>
@@ -548,7 +548,7 @@
                                        id="injectables-links"
                    >
                                        <li class="link">
-                                           <a href="../injectables/DemoService.html" >DemoService</a>
+                                           <a href="../injectables/DemoService.html"  data-type="entity-link" class="active" >DemoService</a>
                                        </li>
                                        <li class="link">
                                            <a href="../injectables/DependencyService.html" >DependencyService</a>
@@ -594,7 +594,7 @@
                    
                    </nav>
                </div>
-               <div class="content class">
+               <div class="content injectable">
                    <div class="content-data">
 
 
@@ -602,11 +602,9 @@
 
 
 
-
-
 <ol class="breadcrumb">
-  <li>Classes</li>
-  <li>Text</li>
+  <li>Injectables</li>
+  <li>DemoService</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -626,16 +624,8 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/question/text.ts</code>
+            <code>demo/demo.service.ts</code>
         </p>
-
-
-            <p class="comment">
-                <h3>Extends</h3>
-            </p>
-            <p class="comment">
-                    <code><a href="../classes/Question.html" target="_self" >Question</a></code>
-            </p>
 
 
 
@@ -645,23 +635,6 @@
                     <tbody>
                         <tr>
                             <td class="col-md-4">
-                                <h6><b>Properties</b></h6>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <ul class="index-list">
-                                    <li>
-                                        <span class="modifier">Public</span> <a href="#mask">mask</a>
-                                    </li>
-                                    <li>
-                                        <span class="modifier">Public</span> <a href="#placeholder">placeholder</a>
-                                    </li>
-                                </ul>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="col-md-4">
                                 <h6><b>Methods</b></h6>
                             </td>
                         </tr>
@@ -669,7 +642,7 @@
                             <td class="col-md-4">
                                 <ul class="index-list">
                                     <li>
-                                        <span class="modifier">Public</span> <a href="#fromJson">fromJson</a>
+                                        <span class="modifier">Public</span> <a href="#getForm">getForm</a>
                                     </li>
                                 </ul>
                             </td>
@@ -678,24 +651,6 @@
                 </table>
             </section>
 
-            <section>
-                <h3 id="constructor">Constructor</h3>
-                    <table class="table table-sm table-bordered">
-                        <tbody>
-                            <tr>
-                                <td class="col-md-4">
-                                    <code>constructor(name: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, description: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, dependencies: [], answer: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, validations: [], disabled: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, _mask: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, _placeholder: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
-                                </td>
-                            </tr>
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/question/text.ts:18</a></div>
-                                        </td>
-                                    </tr>
-            
-                        </tbody>
-                    </table>
-            </section>
 
             <section>
                 
@@ -706,21 +661,21 @@
                         <tbody>
                             <tr>
                                 <td class="col-md-4">
-                                    <a name="fromJson"></a>
-                                    <b><span class="modifier">Public</span> fromJson</b>
+                                    <a name="getForm"></a>
+                                    <b><span class="modifier">Public</span> getForm</b>
                                 </td>
                             </tr>
                             <tr>
                                 <td class="col-md-4">
                                         <span class="modifier-icon method fa fa-play "></span>
-                                    <code>fromJson(question: <a href="../classes/Text.html">Text</a>)</code>
+                                    <code>getForm()</code>
                                 </td>
                             </tr>
             
             
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">src/question/text.ts:7</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="196" class="link-to-prism">demo/demo.service.ts:196</a></div>
                                         </td>
                                     </tr>
             
@@ -728,7 +683,7 @@
                                 <td class="col-md-4">
             
                                         <div class="io-description">
-                                            <b>Returns : </b>    <code><a href="../classes/Text.html" target="_self" >Text</a></code>
+                                            <b>Returns : </b>    <code>any[]</code>
             
                                         </div>
                                 </td>
@@ -737,118 +692,214 @@
                     </table>
             </section>
 
-
-            <section>
-                
-                    <h3 id="inputs">
-                        Properties
-                    </h3>
-                    <table class="table table-sm table-bordered">
-                        <tbody>
-                            <tr>
-                                <td class="col-md-4">
-                                    <a name="mask"></a>
-                                    <b><span class="modifier">Public</span> mask</b>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="col-md-4">
-                                    <span class="modifier-icon fa fa-"></span><code>mask:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-            </code>
-                                </td>
-                            </tr>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-            
-                                    </td>
-                                </tr>
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/question/text.ts:33</a></div>
-                                        </td>
-                                    </tr>
-            
-            
-                        </tbody>
-                    </table>
-                    <table class="table table-sm table-bordered">
-                        <tbody>
-                            <tr>
-                                <td class="col-md-4">
-                                    <a name="placeholder"></a>
-                                    <b><span class="modifier">Public</span> placeholder</b>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="col-md-4">
-                                    <span class="modifier-icon fa fa-"></span><code>placeholder:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-            </code>
-                                </td>
-                            </tr>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-            
-                                    </td>
-                                </tr>
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/question/text.ts:37</a></div>
-                                        </td>
-                                    </tr>
-            
-            
-                        </tbody>
-                    </table>
-            </section>
     </div>
 
 
     <div class="tab-pane fade tab-source-code" id="source">
-        <pre class="line-numbers"><code class="language-typescript">import { Dependency, Question, QuestionType } from &#x27;.&#x27;;
-import { Validation } from &#x27;../validation&#x27;;
-import { ValidationFactory } from &#x27;../factory&#x27;;
+        <pre class="line-numbers"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
 
-export class Text extends Question&lt;string&gt; {
-
-  public static fromJson(question: Text): Text {
-    return new Text(
-      question.name,
-      question.description,
-      question.dependencies,
-      question.answer,
-      ValidationFactory.createValidationList(question.validations),
-      question.disabled,
-      question.mask,
-      question.placeholder
-    );
+const groups: any[] &#x3D; [
+  {
+    &#x27;code&#x27;: &#x27;G-01&#x27;,
+    &#x27;description&#x27;: &#x27;Fieldset Group&#x27;,
+    &#x27;type&#x27;: &#x27;group&#x27;,
+    &#x27;questions&#x27;: [
+      {
+        &#x27;name&#x27;: &#x27;Q-0101&#x27;,
+        &#x27;description&#x27;: &#x27;Check Question 0101&#x27;,
+        &#x27;type&#x27;: &#x27;checkbox&#x27;,
+        &#x27;defaultOption&#x27;: false,
+        &#x27;validations&#x27;: [
+          { &#x27;type&#x27;: &#x27;pattern&#x27;, &#x27;message&#x27;: &#x27;Required field.&#x27;, &#x27;value&#x27;: &#x27;true&#x27; }
+        ]
+      },
+      {
+        &#x27;name&#x27;: &#x27;Q-0102&#x27;,
+        &#x27;description&#x27;: &#x27;Radio Question 0102&#x27;,
+        &#x27;type&#x27;: &#x27;radio&#x27;,
+        &#x27;options&#x27;: [&#x27;Option 1&#x27;, &#x27;Option 2&#x27;],
+        &#x27;defaultOption&#x27;: &#x27;Option 1&#x27;,
+        &#x27;validations&#x27;: [
+          { &#x27;type&#x27;: &#x27;required&#x27;, &#x27;message&#x27;: &#x27;Required field.&#x27; }
+        ],
+        &#x27;disabled&#x27;: true
+      },
+      {
+        &#x27;name&#x27;: &#x27;Q-0103&#x27;,
+        &#x27;description&#x27;: &#x27;Select Question 0103&#x27;,
+        &#x27;type&#x27;: &#x27;select&#x27;,
+        &#x27;options&#x27;: [&#x27;Option 1&#x27;, &#x27;Option 2&#x27;],
+        &#x27;editableOption&#x27;: &#x27;Option 2&#x27;,
+        &#x27;placeholder&#x27;: &#x27;Select&#x27;,
+        &#x27;validations&#x27;: [
+          { &#x27;type&#x27;: &#x27;required&#x27;, &#x27;message&#x27;: &#x27;Required field.&#x27; }
+        ]
+      },
+      {
+        &#x27;name&#x27;: &#x27;Q-0104&#x27;,
+        &#x27;description&#x27;: &#x27;Text Question 0104&#x27;,
+        &#x27;type&#x27;: &#x27;text&#x27;,
+        &#x27;answer&#x27;: 200,
+        &#x27;placeholder&#x27;: &#x27;Text Question 0104&#x27;,
+        &#x27;validations&#x27;: [
+          { &#x27;type&#x27;: &#x27;required&#x27;, &#x27;message&#x27;: &#x27;Required field.&#x27; },
+          { &#x27;type&#x27;: &#x27;minlength&#x27;, &#x27;message&#x27;: &#x27;Min Length: 3&#x27;, &#x27;value&#x27;: 3 },
+          { &#x27;type&#x27;: &#x27;maxlength&#x27;, &#x27;message&#x27;: &#x27;Max Length: 10&#x27;, &#x27;value&#x27;: 10 }
+        ]
+      },
+      {
+        &#x27;name&#x27;: &#x27;Q-0105&#x27;,
+        &#x27;description&#x27;: &#x27;Text Question 0105&#x27;,
+        &#x27;type&#x27;: &#x27;text&#x27;,
+        &#x27;placeholder&#x27;: &#x27;Text Question 0105&#x27;,
+        &#x27;validations&#x27;: [
+          { &#x27;type&#x27;: &#x27;required&#x27;, &#x27;message&#x27;: &#x27;Required field.&#x27; },
+          { &#x27;type&#x27;: &#x27;pattern&#x27;, &#x27;message&#x27;: &#x27;Format: 00000-000&#x27;, &#x27;value&#x27;: &#x27;^\\d{5}-\\d{3}$&#x27; }
+        ],
+        &#x27;mask&#x27;: &#x27;00000-000&#x27;
+      },
+      {
+        &#x27;name&#x27;: &#x27;Q-0106&#x27;,
+        &#x27;description&#x27;: &#x27;TextArea Question 0106&#x27;,
+        &#x27;type&#x27;: &#x27;textarea&#x27;,
+        &#x27;placeholder&#x27;: &#x27;TextArea Question 0106&#x27;,
+        &#x27;validations&#x27;: [
+          { &#x27;type&#x27;: &#x27;required&#x27;, &#x27;message&#x27;: &#x27;Required field.&#x27; }
+        ],
+        &#x27;dependencies&#x27;: [
+          { &#x27;code&#x27;: &#x27;Q-0103&#x27;, &#x27;criteria&#x27;: &#x27;equals&#x27;, &#x27;expectedAnswer&#x27;: &#x27;Option 1&#x27; }
+        ]
+      },
+      {
+        &#x27;name&#x27;: &#x27;Q-0107&#x27;,
+        &#x27;description&#x27;: &#x27;Text Question 0107&#x27;,
+        &#x27;type&#x27;: &#x27;text&#x27;,
+        &#x27;placeholder&#x27;: &#x27;Text Question 0107&#x27;,
+        &#x27;validations&#x27;: [
+          { &#x27;type&#x27;: &#x27;required&#x27;, &#x27;message&#x27;: &#x27;Required field.&#x27; }
+        ],
+        &#x27;dependencies&#x27;: [
+          { &#x27;code&#x27;: &#x27;Q-0104&#x27;, &#x27;criteria&#x27;: &#x27;lessthan&#x27;, &#x27;expectedAnswer&#x27;: &#x27;300&#x27; },
+          { &#x27;code&#x27;: &#x27;Q-0104&#x27;, &#x27;criteria&#x27;: &#x27;notequals&#x27;, &#x27;expectedAnswer&#x27;: &#x27;100&#x27; },
+          { &#x27;code&#x27;: &#x27;Q-0104&#x27;, &#x27;criteria&#x27;: &#x27;greaterthan&#x27;, &#x27;expectedAnswer&#x27;: &#x27;100&#x27; },
+          { &#x27;code&#x27;: &#x27;Q-0104&#x27;, &#x27;criteria&#x27;: &#x27;lessthanorequals&#x27;, &#x27;expectedAnswer&#x27;: &#x27;300&#x27; }
+        ]
+      },
+      {
+        &#x27;name&#x27;: &#x27;Q-0108&#x27;,
+        &#x27;description&#x27;: &#x27;Text Question 0108&#x27;,
+        &#x27;type&#x27;: &#x27;text&#x27;,
+        &#x27;placeholder&#x27;: &#x27;Text Question 0108&#x27;,
+        &#x27;validations&#x27;: [
+          { &#x27;type&#x27;: &#x27;min&#x27;, &#x27;message&#x27;: &#x27;Min value: 1.&#x27;, &#x27;value&#x27;: &#x27;1&#x27; },
+          { &#x27;type&#x27;: &#x27;max&#x27;, &#x27;message&#x27;: &#x27;Min value: 10.&#x27;, &#x27;value&#x27;: &#x27;10&#x27; }
+        ]
+      },
+      {
+        &#x27;name&#x27;: &#x27;Q-0109&#x27;,
+        &#x27;description&#x27;: &#x27;Text Question 0109&#x27;,
+        &#x27;type&#x27;: &#x27;text&#x27;,
+        &#x27;placeholder&#x27;: &#x27;Text Question 0109&#x27;,
+        &#x27;validations&#x27;: [
+          { &#x27;type&#x27;: &#x27;email&#x27;, &#x27;message&#x27;: &#x27;Invalid e-mail.&#x27; }
+        ]
+      }
+    ]
+  },
+  {
+    &#x27;code&#x27;: &#x27;G-02&#x27;,
+    &#x27;description&#x27;: &#x27;DataTable Group&#x27;,
+    &#x27;type&#x27;: &#x27;datatable&#x27;,
+    &#x27;validations&#x27;: [
+      { &#x27;type&#x27;: &#x27;required&#x27;, &#x27;message&#x27;: &#x27;Min number of registers: 1.&#x27; },
+      { &#x27;type&#x27;: &#x27;minlength&#x27;, &#x27;message&#x27;: &#x27;Min number of registers: 1.&#x27;, &#x27;value&#x27;: 1 },
+      { &#x27;type&#x27;: &#x27;maxlength&#x27;, &#x27;message&#x27;: &#x27;Max number of registers: 3.&#x27;, &#x27;value&#x27;: 3 }
+    ],
+    &#x27;questions&#x27;: [
+      [
+        {
+          &#x27;name&#x27;: &#x27;Q-0201&#x27;,
+          &#x27;description&#x27;: &#x27;Select Question 0201&#x27;,
+          &#x27;type&#x27;: &#x27;select&#x27;,
+          &#x27;validations&#x27;: [
+            { &#x27;type&#x27;: &#x27;required&#x27;, &#x27;message&#x27;: &#x27;Required field.&#x27; }
+          ],
+          &#x27;options&#x27;: [&#x27;Option 1&#x27;, &#x27;Option 2&#x27;, &#x27;Option 3&#x27;],
+          &#x27;editableOption&#x27;: &#x27;Option 3&#x27;,
+          &#x27;placeholder&#x27;: &#x27;Select&#x27;
+        },
+        {
+          &#x27;name&#x27;: &#x27;Q-0202&#x27;,
+          &#x27;description&#x27;: &#x27;Text Question 0202&#x27;,
+          &#x27;type&#x27;: &#x27;text&#x27;,
+          &#x27;validations&#x27;: [
+            { &#x27;type&#x27;: &#x27;required&#x27;, &#x27;message&#x27;: &#x27;Required field.&#x27; }
+          ],
+          &#x27;placeholder&#x27;: &#x27;Text Question 0202&#x27;
+        }
+      ],
+      [
+        {
+          &#x27;name&#x27;: &#x27;Q-0201&#x27;,
+          &#x27;description&#x27;: &#x27;Select Question 0201&#x27;,
+          &#x27;type&#x27;: &#x27;select&#x27;,
+          &#x27;validations&#x27;: [
+            { &#x27;type&#x27;: &#x27;required&#x27;, &#x27;message&#x27;: &#x27;Required field.&#x27; }
+          ],
+          &#x27;options&#x27;: [&#x27;Option 1&#x27;, &#x27;Option 2&#x27;, &#x27;Option 3&#x27;],
+          &#x27;placeholder&#x27;: &#x27;Select&#x27;,
+          &#x27;answer&#x27;: &#x27;Option 2&#x27;
+        },
+        {
+          &#x27;name&#x27;: &#x27;Q-0202&#x27;,
+          &#x27;description&#x27;: &#x27;Text Question 0202&#x27;,
+          &#x27;type&#x27;: &#x27;text&#x27;,
+          &#x27;validations&#x27;: [
+            { &#x27;type&#x27;: &#x27;required&#x27;, &#x27;message&#x27;: &#x27;Required field.&#x27; }
+          ],
+          &#x27;placeholder&#x27;: &#x27;Text Question 0202&#x27;,
+          &#x27;answer&#x27;: &#x27;Answer 0202&#x27;
+        }
+      ],
+      [
+        {
+          &#x27;name&#x27;: &#x27;Q-0201&#x27;,
+          &#x27;description&#x27;: &#x27;Select Question 0201&#x27;,
+          &#x27;type&#x27;: &#x27;select&#x27;,
+          &#x27;validations&#x27;: [
+            { &#x27;type&#x27;: &#x27;required&#x27;, &#x27;message&#x27;: &#x27;Required field.&#x27; }
+          ],
+          &#x27;options&#x27;: [&#x27;Option 1&#x27;, &#x27;Option 2&#x27;, &#x27;Option 3&#x27;],
+          &#x27;placeholder&#x27;: &#x27;Select&#x27;,
+          &#x27;answer&#x27;: &#x27;Option 3&#x27;
+        },
+        {
+          &#x27;name&#x27;: &#x27;Q-0202&#x27;,
+          &#x27;description&#x27;: &#x27;Text Question 0202&#x27;,
+          &#x27;type&#x27;: &#x27;text&#x27;,
+          &#x27;validations&#x27;: [
+            { &#x27;type&#x27;: &#x27;required&#x27;, &#x27;message&#x27;: &#x27;Required field.&#x27; }
+          ],
+          &#x27;placeholder&#x27;: &#x27;Text Question 0202&#x27;,
+          &#x27;answer&#x27;: &#x27;Answer 0202 2&#x27;
+        }
+      ]
+    ]
   }
+];
 
-  public constructor(
-    name: string,
-    description: string,
-    dependencies: Dependency[] &#x3D; [],
-    answer: string &#x3D; null,
-    validations: Validation[] &#x3D; [],
-    disabled: boolean &#x3D; false,
-    private _mask: string &#x3D; null,
-    private _placeholder: string &#x3D; null,
-  ) {
-    super(name, description, QuestionType.TEXT, dependencies, answer, validations, disabled);
-  }
+@Injectable()
+export class DemoService {
 
-  public get mask(): string {
-    return this._mask;
-  }
-
-  public get placeholder(): string {
-    return this._placeholder;
+  public getForm(): any[] {
+    return groups;
   }
 }
 </code></pre>
     </div>
 </div>
+
+
 
 
 

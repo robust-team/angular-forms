@@ -36,15 +36,27 @@
                         <a data-type="chapter-link" href="../index.html"><span class="fa fa-home"></span>Getting started</a>
                         <ul class="links">
                                 <li class="link">
-                                    <a href="../index.html" ><span class="fa fa-file-text-o"></span>README</a>
-                                </li>
-                                <li class="link">
                                     <a 
                                         
                                          href="../overview.html" 
                                          href="../overview.html" 
                                         >
                                         <span class="fa fa-th"></span>Overview
+                                    </a>
+                                </li>
+                                <li class="link">
+                                  <a href="../index.html" ><span class="fa fa-file-text-o"></span>README</a>
+                                </li>
+                                <li class="link">
+                                    <a href="./changelog.html"
+                                        >
+                                        <span class="fa fa-file-text-o"></span>CHANGELOG
+                                    </a>
+                                </li>
+                                <li class="link">
+                                    <a href="./license.html"
+                                        >
+                                        <span class="fa fa-file-text-o"></span>LICENSE
                                     </a>
                                 </li>
                         </ul>
@@ -58,10 +70,10 @@
                             >
                                 <span class="fa fa-archive"></span>
                                 <span class="link-name">Modules</span>
-                                <span class="fa fa-angle-up"></span>
+                                <span class="fa fa-angle-down"></span>
                             </div>
                         </a>
-                        <ul class="links collapse in"
+                        <ul class="links collapse "
                                 id="xs-modules-links"
                             >
                                 <li class="link">
@@ -69,6 +81,9 @@
                                 </li>
                                 <li class="link">
                                     <a href="../modules/DataTableModule.html" >DataTableModule</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../modules/DemoModule.html" >DemoModule</a>
                                 </li>
                                 <li class="link">
                                     <a href="../modules/ValidationMessageModule.html" >ValidationMessageModule</a>
@@ -82,9 +97,9 @@
                             >
                             <span class="fa fa-cogs"></span>
                             <span>Components</span>
-                            <span class="fa fa-angle-up"></span>
+                            <span class="fa fa-angle-down"></span>
                         </div>
-                        <ul class="links collapse in"
+                        <ul class="links collapse "
                                 id="xs-components-links"
                             >
                                 <li class="link">
@@ -92,6 +107,9 @@
                                 </li>
                                 <li class="link">
                                     <a href="../components/DataTableComponent.html"  data-type="entity-link" class="active" >DataTableComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../components/DemoComponent.html" >DemoComponent</a>
                                 </li>
                                 <li class="link">
                                     <a href="../components/ValidationMessageComponent.html" >ValidationMessageComponent</a>
@@ -106,9 +124,9 @@
                             >
                             <span class="fa fa-file-code-o"></span>
                             <span>Classes</span>
-                            <span class="fa fa-angle-up"></span>
+                            <span class="fa fa-angle-down"></span>
                         </div>
-                        <ul class="links collapse in"
+                        <ul class="links collapse "
                                 id="xs-classes-links"
                             >
                                 <li class="link">
@@ -202,7 +220,7 @@
                                     <a href="../classes/Select.html" >Select</a>
                                 </li>
                                 <li class="link">
-                                    <a href="../classes/String.html" >String</a>
+                                    <a href="../classes/StringUtils.html" >StringUtils</a>
                                 </li>
                                 <li class="link">
                                     <a href="../classes/Text.html" >Text</a>
@@ -212,6 +230,9 @@
                                 </li>
                                 <li class="link">
                                     <a href="../classes/Validation.html" >Validation</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../classes/ValidationFactory.html" >ValidationFactory</a>
                                 </li>
                                 <li class="link">
                                     <a href="../classes/ValidationTypeNotFoundError.html" >ValidationTypeNotFoundError</a>
@@ -231,23 +252,45 @@
                             >
                             <span class="fa fa-long-arrow-down"></span>
                             <span>Injectables</span>
-                            <span class="fa fa-angle-up"></span>
+                            <span class="fa fa-angle-down"></span>
                         </div>
-                        <ul class="links collapse in"
+                        <ul class="links collapse "
                                 id="xs-injectables-links"
                             >
                                 <li class="link">
+                                    <a href="../injectables/DemoService.html" >DemoService</a>
+                                </li>
+                                <li class="link">
                                     <a href="../injectables/DependencyService.html" >DependencyService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../injectables/SelectService.html" >SelectService</a>
                                 </li>
                         </ul>
                     </li>
             
             
             
-            
                     <li class="chapter">
-                        <a data-type="chapter-link" href="../miscellaneous.html" ><span class="fa fa-cubes"></span>Miscellaneous</a>
+                        <div class="simple menu-toggler" data-toggle="collapse"
+                                data-target="#xs-miscellaneous-links"
+                            >
+                            <span class="fa fa-cubes"></span>
+                            <span>Miscellaneous</span>
+                            <span class="fa fa-angle-down"></span>
+                        </div>
+                        <ul class="links collapse "
+                                id="xs-miscellaneous-links"
+                            >
+                                <li class="link">
+                                  <a href="../miscellaneous/enumerations.html" data-type="entity-link" >Enums</a>
+                                </li>
+                                <li class="link">
+                                  <a href="../miscellaneous/variables.html" data-type="entity-link" >Variables</a>
+                                </li>
+                        </ul>
                     </li>
+            
             
             
                     <li class="divider"></li>
@@ -283,15 +326,27 @@
                                <a data-type="chapter-link" href="../index.html"><span class="fa fa-home"></span>Getting started</a>
                                <ul class="links">
                                        <li class="link">
-                                           <a href="../index.html" ><span class="fa fa-file-text-o"></span>README</a>
-                                       </li>
-                                       <li class="link">
                                            <a 
                                                
                                                 href="../overview.html" 
                                                 href="../overview.html" 
                                                >
                                                <span class="fa fa-th"></span>Overview
+                                           </a>
+                                       </li>
+                                       <li class="link">
+                                         <a href="../index.html" ><span class="fa fa-file-text-o"></span>README</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="./changelog.html"
+                                               >
+                                               <span class="fa fa-file-text-o"></span>CHANGELOG
+                                           </a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="./license.html"
+                                               >
+                                               <span class="fa fa-file-text-o"></span>LICENSE
                                            </a>
                                        </li>
                                </ul>
@@ -305,10 +360,10 @@
                                    >
                                        <span class="fa fa-archive"></span>
                                        <span class="link-name">Modules</span>
-                                       <span class="fa fa-angle-up"></span>
+                                       <span class="fa fa-angle-down"></span>
                                    </div>
                                </a>
-                               <ul class="links collapse in"
+                               <ul class="links collapse "
                                        id="modules-links"
                    >
                                        <li class="link">
@@ -316,6 +371,9 @@
                                        </li>
                                        <li class="link">
                                            <a href="../modules/DataTableModule.html" >DataTableModule</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../modules/DemoModule.html" >DemoModule</a>
                                        </li>
                                        <li class="link">
                                            <a href="../modules/ValidationMessageModule.html" >ValidationMessageModule</a>
@@ -329,9 +387,9 @@
                    >
                                    <span class="fa fa-cogs"></span>
                                    <span>Components</span>
-                                   <span class="fa fa-angle-up"></span>
+                                   <span class="fa fa-angle-down"></span>
                                </div>
-                               <ul class="links collapse in"
+                               <ul class="links collapse "
                                        id="components-links"
                    >
                                        <li class="link">
@@ -339,6 +397,9 @@
                                        </li>
                                        <li class="link">
                                            <a href="../components/DataTableComponent.html"  data-type="entity-link" class="active" >DataTableComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/DemoComponent.html" >DemoComponent</a>
                                        </li>
                                        <li class="link">
                                            <a href="../components/ValidationMessageComponent.html" >ValidationMessageComponent</a>
@@ -353,9 +414,9 @@
                    >
                                    <span class="fa fa-file-code-o"></span>
                                    <span>Classes</span>
-                                   <span class="fa fa-angle-up"></span>
+                                   <span class="fa fa-angle-down"></span>
                                </div>
-                               <ul class="links collapse in"
+                               <ul class="links collapse "
                                        id="classes-links"
                    >
                                        <li class="link">
@@ -449,7 +510,7 @@
                                            <a href="../classes/Select.html" >Select</a>
                                        </li>
                                        <li class="link">
-                                           <a href="../classes/String.html" >String</a>
+                                           <a href="../classes/StringUtils.html" >StringUtils</a>
                                        </li>
                                        <li class="link">
                                            <a href="../classes/Text.html" >Text</a>
@@ -459,6 +520,9 @@
                                        </li>
                                        <li class="link">
                                            <a href="../classes/Validation.html" >Validation</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../classes/ValidationFactory.html" >ValidationFactory</a>
                                        </li>
                                        <li class="link">
                                            <a href="../classes/ValidationTypeNotFoundError.html" >ValidationTypeNotFoundError</a>
@@ -478,23 +542,45 @@
                    >
                                    <span class="fa fa-long-arrow-down"></span>
                                    <span>Injectables</span>
-                                   <span class="fa fa-angle-up"></span>
+                                   <span class="fa fa-angle-down"></span>
                                </div>
-                               <ul class="links collapse in"
+                               <ul class="links collapse "
                                        id="injectables-links"
                    >
                                        <li class="link">
+                                           <a href="../injectables/DemoService.html" >DemoService</a>
+                                       </li>
+                                       <li class="link">
                                            <a href="../injectables/DependencyService.html" >DependencyService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../injectables/SelectService.html" >SelectService</a>
                                        </li>
                                </ul>
                            </li>
                    
                    
                    
-                   
                            <li class="chapter">
-                               <a data-type="chapter-link" href="../miscellaneous.html" ><span class="fa fa-cubes"></span>Miscellaneous</a>
+                               <div class="simple menu-toggler" data-toggle="collapse"
+                                       data-target="#miscellaneous-links"
+                   >
+                                   <span class="fa fa-cubes"></span>
+                                   <span>Miscellaneous</span>
+                                   <span class="fa fa-angle-down"></span>
+                               </div>
+                               <ul class="links collapse "
+                                       id="miscellaneous-links"
+                   >
+                                       <li class="link">
+                                         <a href="../miscellaneous/enumerations.html" data-type="entity-link" >Enums</a>
+                                       </li>
+                                       <li class="link">
+                                         <a href="../miscellaneous/variables.html" data-type="entity-link" >Variables</a>
+                                       </li>
+                               </ul>
                            </li>
+                   
                    
                    
                            <li class="divider"></li>
@@ -512,6 +598,8 @@
                    <div class="content-data">
 
 
+
+
 <ol class="breadcrumb">
   <li>Components</li>
   <li>DataTableComponent</li>
@@ -519,7 +607,7 @@
 
 <ul class="nav nav-tabs" role="tablist">
     <li class="active">
-        <a href="#infos" id="infos-tab" role="tab" data-toggle="tab" data-link="infos">Infos</a>
+        <a href="#info" id="info-tab" role="tab" data-toggle="tab" data-link="info">Info</a>
     </li>
 
     <li>
@@ -532,7 +620,7 @@
 </ul>
 
 <div class="tab-content">
-    <div class="tab-pane fade active in" id="infos"><p class="comment">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
     <h3>File</h3>
 </p>
 <p class="comment">
@@ -571,54 +659,24 @@
             </tr>
 
 
-            <tr>
-                <td class="col-md-3">styles</td>
-                <td class="col-md-9"><code>
-    /* Icons */
-    .rb-ico { font-style: normal }
-    .rb-ico:after { font-size: 1.6rem }
-    .rb-ico.rb-ico-add:after { content: &#x27;✚&#x27; }
-    .rb-ico.rb-ico-remove:after { content: &#x27;✖&#x27; }
-    .rb-ico.rb-ico-square:after {
-      background: linear-gradient(to bottom, #fff 0px, #e6e6e6 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
-      border: 1px solid #888;
-      border-radius: .3rem;
-      content: &#x27;&#x27;;
-      cursor: default;
-      display: inline-block;
-      font-size: 1.6rem;
-      height: 1.4rem;
-      line-height: 1.4rem;
-      margin-right: .5rem;
-      text-align: center;
-      width: 1.4rem;
-    }
-    .rb-ico.rb-ico-square.rb-ico-checked:after { content: &#x27;✔&#x27; }
-    .rb-ico.rb-ico-square.rb-ico-unchecked:after { content: &#x27;&#x27; }
-
-    fieldset.datatable {
-      border: 1px solid #ccc;
-      margin-bottom: 15px;
-      padding: 0 15px 15px;
-    }
-    fieldset.datatable legend {
-      border: 1px solid #ccc;
-      padding: 5px 10px;
-    }
-  </code></td>
-            </tr>
 
             <tr>
                 <td class="col-md-3">template</td>
                 <td class="col-md-9"><pre class="line-numbers"><code class="language-html">&lt;fieldset class&#x3D;&quot;rb-data-table&quot; [formGroup]&#x3D;&quot;formGroup&quot; [ngClass]&#x3D;&quot;{ &#x27;read-only&#x27;: readOnly }&quot;&gt;
-  &lt;legend&gt;{{ group.description }}&lt;/legend&gt;
+  &lt;legend&gt;
+    &lt;span [ngClass]&#x3D;&quot;{ &#x27;required-control&#x27;: group.isRequired() &amp;&amp; !readOnly }&quot;&gt;
+      {{ group.description }}
+    &lt;/span&gt;
+  &lt;/legend&gt;
 
   &lt;div class&#x3D;&quot;table-responsive&quot;&gt;
     &lt;table class&#x3D;&quot;table table-bordered table-striped table-hover&quot;&gt;
       &lt;thead&gt;
         &lt;tr&gt;
           &lt;th class&#x3D;&quot;text-center&quot; *ngFor&#x3D;&quot;let question of group.questions[0]&quot;&gt;
-            {{ question.description }}
+            &lt;span [ngClass]&#x3D;&quot;{ &#x27;required-control&#x27;: question.isRequired() &amp;&amp; !readOnly }&quot;&gt;
+              {{ question.description }}
+            &lt;/span&gt;
           &lt;/th&gt;
           &lt;th class&#x3D;&quot;text-center&quot; *ngIf&#x3D;&quot;!readOnly&quot;&gt;
             {{ &#x27;ACTION&#x27; | translate }}
@@ -657,8 +715,9 @@
               &lt;/ng-template&gt; &lt;!--/radio--&gt;
 
               &lt;ng-template ngSwitchCase&#x3D;&quot;select&quot;&gt;
-                &lt;select [id]&#x3D;&quot;question.name&quot; class&#x3D;&quot;form-control&quot; [name]&#x3D;&quot;question.name&quot;
-                        [formControlName]&#x3D;&quot;question.name&quot;&gt;
+              &lt;select [id]&#x3D;&quot;question.name&quot; class&#x3D;&quot;form-control&quot; [name]&#x3D;&quot;question.name&quot; #selectQuestion
+                      formControlName&#x3D;&quot;{{ question.editableOption !&#x3D;&#x3D; selectQuestion.value ? question.name : &#x27;&#x27; }}&quot;
+                      (change)&#x3D;&quot;onChangeOptionSelect(selectQuestion, newFormGroup.get(question.name), question)&quot;&gt;
                   &lt;option disabled [value]&#x3D;&quot;null&quot;&gt;
                     {{ question.placeholder ? question.placeholder : &#x27;&#x27; }}
                   &lt;/option&gt;
@@ -666,6 +725,11 @@
                     {{ option }}
                   &lt;/option&gt;
                 &lt;/select&gt;
+                &lt;ng-container *ngIf&#x3D;&quot;question.editableOption&quot;&gt;
+                &lt;input [class.hidden]&#x3D;&quot;question.editableOption !&#x3D;&#x3D; selectQuestion.value&quot;
+                         type&#x3D;&quot;text&quot; [id]&#x3D;&quot;question.name&quot; class&#x3D;&quot;form-control editable-option&quot; [name]&#x3D;&quot;question.name&quot;
+                         [formControlName]&#x3D;&quot;question.name&quot; /&gt;
+                &lt;/ng-container&gt;
                 &lt;rb-validation-message [validations]&#x3D;&quot;question.validations&quot;
                                        [control]&#x3D;&quot;newFormGroup.get(question.name)&quot;
                                        [submitted]&#x3D;&quot;submitted&quot;&gt;
@@ -739,11 +803,93 @@
 </section>
 
     <section>
+        <h3 id="index">Index</h3>
+        <table class="table table-sm table-bordered index-table">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <span class="modifier">Public</span> <a href="#formArray">formArray</a>
+                            </li>
+                            <li>
+                                <span class="modifier">Public</span> <a href="#newFormGroup">newFormGroup</a>
+                            </li>
+                            <li>
+                                <span class="modifier">Public</span> <a href="#submitted">submitted</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <span class="modifier">Public</span> <a href="#addData">addData</a>
+                            </li>
+                            <li>
+                                <span class="modifier">Public</span> <a href="#getKeysFromObject">getKeysFromObject</a>
+                            </li>
+                            <li>
+                                <span class="modifier">Public</span> <a href="#getQuestionByName">getQuestionByName</a>
+                            </li>
+                            <li>
+                                <span class="modifier">Public</span> <a href="#onChangeOptionSelect">onChangeOptionSelect</a>
+                            </li>
+                            <li>
+                                <span class="modifier">Public</span> <a href="#removeData">removeData</a>
+                            </li>
+                            <li>
+                                <span class="modifier">Public</span> <a href="#resetForms">resetForms</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#formGroup">formGroup</a>
+                            </li>
+                            <li>
+                                <a href="#formGroupSubmitted">formGroupSubmitted</a>
+                            </li>
+                            <li>
+                                <a href="#group">group</a>
+                            </li>
+                            <li>
+                                <a href="#readOnly">readOnly</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+
+    <section>
         <h3 id="inputs">Inputs</h3>
             <table class="table table-sm table-bordered">
                 <tbody>
                     <tr>
                         <td class="col-md-2">
+                            <a name="formGroup"></a>
                             <code>formGroup</code>
                         </td>
                         <td class="col-md-10">
@@ -755,7 +901,7 @@
                     </tr>
                             <tr>
                                 <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="172" class="link-to-prism">src/data-table/data-table.component.ts:172</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="150" class="link-to-prism">src/data-table/data-table.component.ts:150</a></div>
                                 </td>
                             </tr>
                 </tbody>
@@ -764,11 +910,12 @@
                 <tbody>
                     <tr>
                         <td class="col-md-2">
+                            <a name="formGroupSubmitted"></a>
                             <code>formGroupSubmitted</code>
                         </td>
                         <td class="col-md-10">
                               <p>
-                                <em>Type:</em>    <code>boolean</code>
+                                <em>Type:</em>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
 
                               </p>
                             <p>
@@ -778,7 +925,7 @@
                     </tr>
                             <tr>
                                 <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="174" class="link-to-prism">src/data-table/data-table.component.ts:174</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="152" class="link-to-prism">src/data-table/data-table.component.ts:152</a></div>
                                 </td>
                             </tr>
                 </tbody>
@@ -787,6 +934,7 @@
                 <tbody>
                     <tr>
                         <td class="col-md-2">
+                            <a name="group"></a>
                             <code>group</code>
                         </td>
                         <td class="col-md-10">
@@ -798,7 +946,7 @@
                     </tr>
                             <tr>
                                 <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="173" class="link-to-prism">src/data-table/data-table.component.ts:173</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="151" class="link-to-prism">src/data-table/data-table.component.ts:151</a></div>
                                 </td>
                             </tr>
                 </tbody>
@@ -807,11 +955,12 @@
                 <tbody>
                     <tr>
                         <td class="col-md-2">
+                            <a name="readOnly"></a>
                             <code>readOnly</code>
                         </td>
                         <td class="col-md-10">
                               <p>
-                                <em>Type:</em>    <code>boolean</code>
+                                <em>Type:</em>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
 
                               </p>
                             <p>
@@ -821,7 +970,7 @@
                     </tr>
                             <tr>
                                 <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="175" class="link-to-prism">src/data-table/data-table.component.ts:175</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="153" class="link-to-prism">src/data-table/data-table.component.ts:153</a></div>
                                 </td>
                             </tr>
                 </tbody>
@@ -829,7 +978,210 @@
     </section>
 
 
-
+    <section>
+        
+            <h3 id="methods">
+                Methods
+            </h3>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="addData"></a>
+                            <b><span class="modifier">Public</span> addData</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <span class="modifier-icon method fa fa-play "></span>
+                            <code>addData()</code>
+                        </td>
+                    </tr>
+    
+    
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="168" class="link-to-prism">src/data-table/data-table.component.ts:168</a></div>
+                                </td>
+                            </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+    
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="getKeysFromObject"></a>
+                            <b><span class="modifier">Public</span> getKeysFromObject</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <span class="modifier-icon method fa fa-play "></span>
+                            <code>getKeysFromObject(object: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" target="_blank">Object</a>)</code>
+                        </td>
+                    </tr>
+    
+    
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="164" class="link-to-prism">src/data-table/data-table.component.ts:164</a></div>
+                                </td>
+                            </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code>string[]</code>
+    
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="getQuestionByName"></a>
+                            <b><span class="modifier">Public</span> getQuestionByName</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <span class="modifier-icon method fa fa-play "></span>
+                            <code>getQuestionByName(name: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                        </td>
+                    </tr>
+    
+    
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="188" class="link-to-prism">src/data-table/data-table.component.ts:188</a></div>
+                                </td>
+                            </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code><a href="../classes/Question.html" target="_self" >Question&lt;any&gt;</a></code>
+    
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="onChangeOptionSelect"></a>
+                            <b><span class="modifier">Public</span> onChangeOptionSelect</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <span class="modifier-icon method fa fa-play "></span>
+                            <code>onChangeOptionSelect(htmlFormControl: HTMLInputElement, formControl: <a href="https://angular.io/docs/ts/latest/api/forms/index/FormControl-class.html" target="_blank">FormControl</a>, question: <a href="../classes/Select.html">Select</a>)</code>
+                        </td>
+                    </tr>
+    
+    
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="160" class="link-to-prism">src/data-table/data-table.component.ts:160</a></div>
+                                </td>
+                            </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+    
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="removeData"></a>
+                            <b><span class="modifier">Public</span> removeData</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <span class="modifier-icon method fa fa-play "></span>
+                            <code>removeData(index: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                        </td>
+                    </tr>
+    
+    
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="179" class="link-to-prism">src/data-table/data-table.component.ts:179</a></div>
+                                </td>
+                            </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+    
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="resetForms"></a>
+                            <b><span class="modifier">Public</span> resetForms</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <span class="modifier-icon method fa fa-play "></span>
+                            <code>resetForms()</code>
+                        </td>
+                    </tr>
+    
+    
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="183" class="link-to-prism">src/data-table/data-table.component.ts:183</a></div>
+                                </td>
+                            </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+    
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+    </section>
 
     <section>
         
@@ -840,13 +1192,14 @@
                 <tbody>
                     <tr>
                         <td class="col-md-4">
+                            <a name="formArray"></a>
                             <b><span class="modifier">Public</span> formArray</b>
                         </td>
                     </tr>
                     <tr>
                         <td class="col-md-4">
                             <span class="modifier-icon fa fa-"></span><code>formArray:     <code><a href="https://angular.io/docs/ts/latest/api/forms/index/FormArray-class.html" target="_blank" >FormArray</a></code>
-    </bcode>
+    </code>
                         </td>
                     </tr>
                         <tr>
@@ -857,22 +1210,25 @@
                         </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="168" class="link-to-prism">src/data-table/data-table.component.ts:168</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="146" class="link-to-prism">src/data-table/data-table.component.ts:146</a></div>
                                 </td>
                             </tr>
+    
+    
                 </tbody>
             </table>
             <table class="table table-sm table-bordered">
                 <tbody>
                     <tr>
                         <td class="col-md-4">
+                            <a name="newFormGroup"></a>
                             <b><span class="modifier">Public</span> newFormGroup</b>
                         </td>
                     </tr>
                     <tr>
                         <td class="col-md-4">
                             <span class="modifier-icon fa fa-"></span><code>newFormGroup:     <code><a href="../classes/Group.html" target="_self" >FormGroup</a></code>
-    </bcode>
+    </code>
                         </td>
                     </tr>
                         <tr>
@@ -883,27 +1239,30 @@
                         </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="169" class="link-to-prism">src/data-table/data-table.component.ts:169</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="147" class="link-to-prism">src/data-table/data-table.component.ts:147</a></div>
                                 </td>
                             </tr>
+    
+    
                 </tbody>
             </table>
             <table class="table table-sm table-bordered">
                 <tbody>
                     <tr>
                         <td class="col-md-4">
+                            <a name="submitted"></a>
                             <b><span class="modifier">Public</span> submitted</b>
                         </td>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                            <span class="modifier-icon fa fa-"></span><code>submitted:     <code>boolean</code>
-    </bcode>
+                            <span class="modifier-icon fa fa-"></span><code>submitted:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+    </code>
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                <i>Type : </i>    <code>boolean</code>
+                                <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
     
                             </td>
                         </tr>
@@ -914,9 +1273,11 @@
                         </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="170" class="link-to-prism">src/data-table/data-table.component.ts:170</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="148" class="link-to-prism">src/data-table/data-table.component.ts:148</a></div>
                                 </td>
                             </tr>
+    
+    
                 </tbody>
             </table>
     </section>
@@ -924,7 +1285,204 @@
 
 
     <div class="tab-pane fade tab-source-code" id="source">
-        <pre class="line-numbers"><code class="language-typescript"></code></pre>
+        <pre class="line-numbers"><code class="language-typescript">import { Component, Input, OnInit } from &#x27;@angular/core&#x27;;
+import { FormGroup, FormArray, FormControl } from &#x27;@angular/forms&#x27;;
+
+import { Select, SelectService, Question } from &#x27;../question&#x27;;
+import { Group, DataTable } from &#x27;../group&#x27;;
+import { ReactiveFormsFactory } from &#x27;../factory&#x27;;
+
+@Component({
+  selector: &#x27;rb-data-table&#x27;,
+  template: &#x60;
+    &lt;fieldset class&#x3D;&quot;rb-data-table&quot; [formGroup]&#x3D;&quot;formGroup&quot; [ngClass]&#x3D;&quot;{ &#x27;read-only&#x27;: readOnly }&quot;&gt;
+      &lt;legend&gt;
+        &lt;span [ngClass]&#x3D;&quot;{ &#x27;required-control&#x27;: group.isRequired() &amp;&amp; !readOnly }&quot;&gt;
+          {{ group.description }}
+        &lt;/span&gt;
+      &lt;/legend&gt;
+
+      &lt;div class&#x3D;&quot;table-responsive&quot;&gt;
+        &lt;table class&#x3D;&quot;table table-bordered table-striped table-hover&quot;&gt;
+          &lt;thead&gt;
+            &lt;tr&gt;
+              &lt;th class&#x3D;&quot;text-center&quot; *ngFor&#x3D;&quot;let question of group.questions[0]&quot;&gt;
+                &lt;span [ngClass]&#x3D;&quot;{ &#x27;required-control&#x27;: question.isRequired() &amp;&amp; !readOnly }&quot;&gt;
+                  {{ question.description }}
+                &lt;/span&gt;
+              &lt;/th&gt;
+              &lt;th class&#x3D;&quot;text-center&quot; *ngIf&#x3D;&quot;!readOnly&quot;&gt;
+                {{ &#x27;ACTION&#x27; | translate }}
+              &lt;/th&gt;
+            &lt;/tr&gt;
+          &lt;/thead&gt;
+          &lt;tbody&gt;
+            &lt;tr [formGroup]&#x3D;&quot;newFormGroup&quot; *ngIf&#x3D;&quot;!readOnly&quot;&gt;
+              &lt;td *ngFor&#x3D;&quot;let question of group.questions[0]&quot;&gt;
+                &lt;ng-container [ngSwitch]&#x3D;&quot;question.type&quot;&gt;
+
+                  &lt;ng-template ngSwitchCase&#x3D;&quot;checkbox&quot;&gt;
+                    &lt;div class&#x3D;&quot;checkbox&quot;&gt;
+                      &lt;label&gt;
+                        &lt;input type&#x3D;&quot;checkbox&quot; [name]&#x3D;&quot;question.name&quot; [formControlName]&#x3D;&quot;question.name&quot; /&gt;
+                        {{ question.description }}
+                      &lt;/label&gt;
+                      &lt;rb-validation-message [validations]&#x3D;&quot;question.validations&quot;
+                                             [control]&#x3D;&quot;newFormGroup.get(question.name)&quot;
+                                             [submitted]&#x3D;&quot;submitted&quot;&gt;
+                      &lt;/rb-validation-message&gt;
+                    &lt;/div&gt; &lt;!--/.checkbox--&gt;
+                  &lt;/ng-template&gt; &lt;!--/checkbox--&gt;
+
+                  &lt;ng-template ngSwitchCase&#x3D;&quot;radio&quot;&gt;
+                    &lt;div class&#x3D;&quot;radio&quot; *ngFor&#x3D;&quot;let option of question.options&quot;&gt;
+                      &lt;label&gt;
+                        &lt;input type&#x3D;&quot;radio&quot; [name]&#x3D;&quot;question.name&quot; [value]&#x3D;&quot;option&quot; [formControlName]&#x3D;&quot;question.name&quot; /&gt;
+                        {{ option }}
+                      &lt;/label&gt;
+                    &lt;/div&gt; &lt;!--/.radio--&gt;
+                    &lt;rb-validation-message [validations]&#x3D;&quot;question.validations&quot;
+                                           [control]&#x3D;&quot;newFormGroup.get(question.name)&quot;
+                                           [submitted]&#x3D;&quot;submitted&quot;&gt;
+                    &lt;/rb-validation-message&gt;
+                  &lt;/ng-template&gt; &lt;!--/radio--&gt;
+
+                  &lt;ng-template ngSwitchCase&#x3D;&quot;select&quot;&gt;
+                  &lt;select [id]&#x3D;&quot;question.name&quot; class&#x3D;&quot;form-control&quot; [name]&#x3D;&quot;question.name&quot; #selectQuestion
+                          formControlName&#x3D;&quot;{{ question.editableOption !&#x3D;&#x3D; selectQuestion.value ? question.name : &#x27;&#x27; }}&quot;
+                          (change)&#x3D;&quot;onChangeOptionSelect(selectQuestion, newFormGroup.get(question.name), question)&quot;&gt;
+                      &lt;option disabled [value]&#x3D;&quot;null&quot;&gt;
+                        {{ question.placeholder ? question.placeholder : &#x27;&#x27; }}
+                      &lt;/option&gt;
+                      &lt;option *ngFor&#x3D;&quot;let option of question.options&quot; [value]&#x3D;&quot;option&quot;&gt;
+                        {{ option }}
+                      &lt;/option&gt;
+                    &lt;/select&gt;
+                    &lt;ng-container *ngIf&#x3D;&quot;question.editableOption&quot;&gt;
+                    &lt;input [class.hidden]&#x3D;&quot;question.editableOption !&#x3D;&#x3D; selectQuestion.value&quot;
+                             type&#x3D;&quot;text&quot; [id]&#x3D;&quot;question.name&quot; class&#x3D;&quot;form-control editable-option&quot; [name]&#x3D;&quot;question.name&quot;
+                             [formControlName]&#x3D;&quot;question.name&quot; /&gt;
+                    &lt;/ng-container&gt;
+                    &lt;rb-validation-message [validations]&#x3D;&quot;question.validations&quot;
+                                           [control]&#x3D;&quot;newFormGroup.get(question.name)&quot;
+                                           [submitted]&#x3D;&quot;submitted&quot;&gt;
+                    &lt;/rb-validation-message&gt;
+                  &lt;/ng-template&gt; &lt;!--/select--&gt;
+
+                  &lt;ng-template ngSwitchCase&#x3D;&quot;textarea&quot;&gt;
+                    &lt;textarea [id]&#x3D;&quot;question.name&quot; class&#x3D;&quot;form-control&quot; [name]&#x3D;&quot;question.name&quot; rows&#x3D;&quot;5&quot;
+                              placeholder&#x3D;&quot;{{ question.placeholder ? question.placeholder : &#x27;&#x27; }}&quot;
+                              [formControlName]&#x3D;&quot;question.name&quot;&gt;
+                    &lt;/textarea&gt;
+                    &lt;rb-validation-message [validations]&#x3D;&quot;question.validations&quot;
+                                           [control]&#x3D;&quot;newFormGroup.get(question.name)&quot;
+                                           [submitted]&#x3D;&quot;submitted&quot;&gt;
+                    &lt;/rb-validation-message&gt;
+                  &lt;/ng-template&gt; &lt;!--/textarea--&gt;
+
+                  &lt;ng-template ngSwitchCase&#x3D;&quot;text&quot; ngSwitchDefault&gt;
+                    &lt;input type&#x3D;&quot;text&quot; [id]&#x3D;&quot;question.name&quot; class&#x3D;&quot;form-control&quot; [name]&#x3D;&quot;question.name&quot;
+                            placeholder&#x3D;&quot;{{ question.placeholder ? question.placeholder : &#x27;&#x27; }}&quot;
+                            [formControlName]&#x3D;&quot;question.name&quot; [mask]&#x3D;&quot;question.mask&quot; /&gt;
+                    &lt;rb-validation-message [validations]&#x3D;&quot;question.validations&quot;
+                                           [control]&#x3D;&quot;newFormGroup.get(question.name)&quot;
+                                           [submitted]&#x3D;&quot;submitted&quot;&gt;
+                    &lt;/rb-validation-message&gt;
+                  &lt;/ng-template&gt; &lt;!--/text--&gt;
+
+                &lt;/ng-container&gt; &lt;!--/ngSwitch-questionType--&gt;
+              &lt;/td&gt;
+              &lt;td class&#x3D;&quot;text-center&quot;&gt;
+                &lt;button class&#x3D;&quot;btn btn-default btn-add-data&quot; (click)&#x3D;&quot;addData()&quot;&gt;
+                  &lt;i class&#x3D;&quot;rb-ico rb-ico-add&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/i&gt;
+                  {{ &#x27;ADD&#x27; | translate }}
+                &lt;/button&gt;
+              &lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr class&#x3D;&quot;data&quot; *ngFor&#x3D;&quot;let data of formArray?.value; let indexData &#x3D; index&quot;&gt;
+              &lt;td *ngFor&#x3D;&quot;let key of getKeysFromObject(data)&quot; class&#x3D;&quot;{{ &#x27;check&#x27; &#x3D;&#x3D;&#x3D; getQuestionByName(key).type ? &#x27;text-center&#x27; : &#x27;&#x27; }}&quot;&gt;
+                &lt;ng-container [ngSwitch]&#x3D;&quot;getQuestionByName(key).type&quot;&gt;
+                  &lt;ng-template ngSwitchCase&#x3D;&quot;checkbox&quot;&gt;
+                    &lt;i class&#x3D;&quot;rb-ico rb-ico-square rb-ico-{{ data[key] ? &#x27;checked&#x27; : &#x27;unchecked&#x27; }}&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/i&gt;
+                  &lt;/ng-template&gt;
+
+                  &lt;ng-template ngSwitchDefault&gt;
+                    {{ data[key] || &#x27;NOT_INFORMED&#x27; | translate }}
+                  &lt;/ng-template&gt;
+                &lt;/ng-container&gt;
+              &lt;/td&gt;
+              &lt;td class&#x3D;&quot;text-center&quot; *ngIf&#x3D;&quot;!readOnly&quot;&gt;
+                &lt;button class&#x3D;&quot;btn btn-default btn-remove-data&quot; (click)&#x3D;&quot;removeData(indexData)&quot;&gt;
+                  &lt;i class&#x3D;&quot;rb-ico rb-ico-remove&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/i&gt;
+                  {{ &#x27;REMOVE&#x27; | translate }}
+                &lt;/button&gt;
+              &lt;/td&gt;
+            &lt;/tr&gt;
+          &lt;/tbody&gt;
+        &lt;/table&gt;
+      &lt;/div&gt; &lt;!--/.table-responsive--&gt;
+      &lt;rb-validation-message [validations]&#x3D;&quot;group.validations&quot;
+                             [control]&#x3D;&quot;formArray&quot;
+                             [submitted]&#x3D;&quot;formGroupSubmitted&quot;&gt;
+      &lt;/rb-validation-message&gt;
+    &lt;/fieldset&gt;
+  &#x60;,
+})
+export class DataTableComponent implements OnInit {
+
+  public formArray: FormArray;
+  public newFormGroup: FormGroup;
+  public submitted: boolean &#x3D; false;
+
+  @Input() public formGroup: FormGroup;
+  @Input() public group: DataTable;
+  @Input() public formGroupSubmitted: boolean &#x3D; false;
+  @Input() public readOnly: boolean &#x3D; false;
+
+  public ngOnInit(): void {
+    this.formArray &#x3D; &lt;FormArray&gt;this.formGroup.get(this.group.code);
+    this.newFormGroup &#x3D; ReactiveFormsFactory.createFormGroupFromQuestions(this.group.questions[0], false);
+  }
+
+  public onChangeOptionSelect(htmlFormControl: HTMLInputElement, formControl: FormControl, question: Select): void {
+    SelectService.onChangeOption(htmlFormControl, formControl, question);
+  }
+
+  public getKeysFromObject(object: Object): string[] {
+    return Object.keys(object);
+  }
+
+  public addData(): void {
+    this.submitted &#x3D; true;
+
+    if (!this.newFormGroup.valid) {
+      return;
+    }
+
+    this.formArray.push(Object.assign(new FormGroup({}), this.newFormGroup));
+    this.resetForms();
+  }
+
+  public removeData(index: number): void {
+    this.formArray.removeAt(index);
+  }
+
+  public resetForms(): void {
+    this.newFormGroup.reset();
+    this.submitted &#x3D; false;
+  }
+
+  public getQuestionByName(name: string): Question&lt;any&gt; {
+    for (const question of this.group.questions[0]) {
+      if (name &#x3D;&#x3D;&#x3D; question.name) {
+        return question;
+      }
+    }
+
+    return null;
+  }
+}
+</code></pre>
     </div>
 
 
@@ -951,8 +1509,8 @@
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><fieldset class="rb-data-table" [formGroup]="formGroup" [ngClass]="{ \'read-only\': readOnly }">  <legend>{{ group.description }}</legend>  <div class="table-responsive">    <table class="table table-bordered table-striped table-hover">      <thead>        <tr>          <th class="text-center" *ngFor="let question of group.questions[0]">            {{ question.description }}          </th>          <th class="text-center" *ngIf="!readOnly">            {{ \'ACTION\' | translate }}          </th>        </tr>      </thead>      <tbody>        <tr [formGroup]="newFormGroup" *ngIf="!readOnly">          <td *ngFor="let question of group.questions[0]">            <ng-container [ngSwitch]="question.type">              <ng-template ngSwitchCase="checkbox">                <div class="checkbox">                  <label>                    <input type="checkbox" [name]="question.name" [formControlName]="question.name" />                    {{ question.description }}                  </label>                  <rb-validation-message [validations]="question.validations"                                         [control]="newFormGroup.get(question.name)"                                         [submitted]="submitted">                  </rb-validation-message>                </div> <!--/.checkbox-->              </ng-template> <!--/checkbox-->              <ng-template ngSwitchCase="radio">                <div class="radio" *ngFor="let option of question.options">                  <label>                    <input type="radio" [name]="question.name" [value]="option" [formControlName]="question.name" />                    {{ option }}                  </label>                </div> <!--/.radio-->                <rb-validation-message [validations]="question.validations"                                       [control]="newFormGroup.get(question.name)"                                       [submitted]="submitted">                </rb-validation-message>              </ng-template> <!--/radio-->              <ng-template ngSwitchCase="select">                <select [id]="question.name" class="form-control" [name]="question.name"                        [formControlName]="question.name">                  <option disabled [value]="null">                    {{ question.placeholder ? question.placeholder : \'\' }}                  </option>                  <option *ngFor="let option of question.options" [value]="option">                    {{ option }}                  </option>                </select>                <rb-validation-message [validations]="question.validations"                                       [control]="newFormGroup.get(question.name)"                                       [submitted]="submitted">                </rb-validation-message>              </ng-template> <!--/select-->              <ng-template ngSwitchCase="textarea">                <textarea [id]="question.name" class="form-control" [name]="question.name" rows="5"                          placeholder="{{ question.placeholder ? question.placeholder : \'\' }}"                          [formControlName]="question.name">                </textarea>                <rb-validation-message [validations]="question.validations"                                       [control]="newFormGroup.get(question.name)"                                       [submitted]="submitted">                </rb-validation-message>              </ng-template> <!--/textarea-->              <ng-template ngSwitchCase="text" ngSwitchDefault>                <input type="text" [id]="question.name" class="form-control" [name]="question.name"                        placeholder="{{ question.placeholder ? question.placeholder : \'\' }}"                        [formControlName]="question.name" [mask]="question.mask" />                <rb-validation-message [validations]="question.validations"                                       [control]="newFormGroup.get(question.name)"                                       [submitted]="submitted">                </rb-validation-message>              </ng-template> <!--/text-->            </ng-container> <!--/ngSwitch-questionType-->          </td>          <td class="text-center">            <button class="btn btn-default btn-add-data" (click)="addData()">              <i class="rb-ico rb-ico-add" aria-hidden="true"></i>              {{ \'ADD\' | translate }}            </button>          </td>        </tr>        <tr class="data" *ngFor="let data of formArray?.value; let indexData = index">          <td *ngFor="let key of getKeysFromObject(data)" class="{{ \'check\' === getQuestionByName(key).type ? \'text-center\' : \'\' }}">            <ng-container [ngSwitch]="getQuestionByName(key).type">              <ng-template ngSwitchCase="checkbox">                <i class="rb-ico rb-ico-square rb-ico-{{ data[key] ? \'checked\' : \'unchecked\' }}" aria-hidden="true"></i>              </ng-template>              <ng-template ngSwitchDefault>                {{ data[key] || \'NOT_INFORMED\' | translate }}              </ng-template>            </ng-container>          </td>          <td class="text-center" *ngIf="!readOnly">            <button class="btn btn-default btn-remove-data" (click)="removeData(indexData)">              <i class="rb-ico rb-ico-remove" aria-hidden="true"></i>              {{ \'REMOVE\' | translate }}            </button>          </td>        </tr>      </tbody>    </table>  </div> <!--/.table-responsive-->  <rb-validation-message [validations]="group.validations"                         [control]="formArray"                         [submitted]="formGroupSubmitted">  </rb-validation-message></fieldset></div>'
-    var COMPONENTS = [{'name': 'AngularFormsComponent', 'selector': 'rb-angular-forms'},{'name': 'DataTableComponent', 'selector': 'rb-data-table'},{'name': 'ValidationMessageComponent', 'selector': 'rb-validation-message'}];
+        var COMPONENT_TEMPLATE = '<div><fieldset class="rb-data-table" [formGroup]="formGroup" [ngClass]="{ \'read-only\': readOnly }">  <legend>    <span [ngClass]="{ \'required-control\': group.isRequired() && !readOnly }">      {{ group.description }}    </span>  </legend>  <div class="table-responsive">    <table class="table table-bordered table-striped table-hover">      <thead>        <tr>          <th class="text-center" *ngFor="let question of group.questions[0]">            <span [ngClass]="{ \'required-control\': question.isRequired() && !readOnly }">              {{ question.description }}            </span>          </th>          <th class="text-center" *ngIf="!readOnly">            {{ \'ACTION\' | translate }}          </th>        </tr>      </thead>      <tbody>        <tr [formGroup]="newFormGroup" *ngIf="!readOnly">          <td *ngFor="let question of group.questions[0]">            <ng-container [ngSwitch]="question.type">              <ng-template ngSwitchCase="checkbox">                <div class="checkbox">                  <label>                    <input type="checkbox" [name]="question.name" [formControlName]="question.name" />                    {{ question.description }}                  </label>                  <rb-validation-message [validations]="question.validations"                                         [control]="newFormGroup.get(question.name)"                                         [submitted]="submitted">                  </rb-validation-message>                </div> <!--/.checkbox-->              </ng-template> <!--/checkbox-->              <ng-template ngSwitchCase="radio">                <div class="radio" *ngFor="let option of question.options">                  <label>                    <input type="radio" [name]="question.name" [value]="option" [formControlName]="question.name" />                    {{ option }}                  </label>                </div> <!--/.radio-->                <rb-validation-message [validations]="question.validations"                                       [control]="newFormGroup.get(question.name)"                                       [submitted]="submitted">                </rb-validation-message>              </ng-template> <!--/radio-->              <ng-template ngSwitchCase="select">              <select [id]="question.name" class="form-control" [name]="question.name" #selectQuestion                      formControlName="{{ question.editableOption !== selectQuestion.value ? question.name : \'\' }}"                      (change)="onChangeOptionSelect(selectQuestion, newFormGroup.get(question.name), question)">                  <option disabled [value]="null">                    {{ question.placeholder ? question.placeholder : \'\' }}                  </option>                  <option *ngFor="let option of question.options" [value]="option">                    {{ option }}                  </option>                </select>                <ng-container *ngIf="question.editableOption">                <input [class.hidden]="question.editableOption !== selectQuestion.value"                         type="text" [id]="question.name" class="form-control editable-option" [name]="question.name"                         [formControlName]="question.name" />                </ng-container>                <rb-validation-message [validations]="question.validations"                                       [control]="newFormGroup.get(question.name)"                                       [submitted]="submitted">                </rb-validation-message>              </ng-template> <!--/select-->              <ng-template ngSwitchCase="textarea">                <textarea [id]="question.name" class="form-control" [name]="question.name" rows="5"                          placeholder="{{ question.placeholder ? question.placeholder : \'\' }}"                          [formControlName]="question.name">                </textarea>                <rb-validation-message [validations]="question.validations"                                       [control]="newFormGroup.get(question.name)"                                       [submitted]="submitted">                </rb-validation-message>              </ng-template> <!--/textarea-->              <ng-template ngSwitchCase="text" ngSwitchDefault>                <input type="text" [id]="question.name" class="form-control" [name]="question.name"                        placeholder="{{ question.placeholder ? question.placeholder : \'\' }}"                        [formControlName]="question.name" [mask]="question.mask" />                <rb-validation-message [validations]="question.validations"                                       [control]="newFormGroup.get(question.name)"                                       [submitted]="submitted">                </rb-validation-message>              </ng-template> <!--/text-->            </ng-container> <!--/ngSwitch-questionType-->          </td>          <td class="text-center">            <button class="btn btn-default btn-add-data" (click)="addData()">              <i class="rb-ico rb-ico-add" aria-hidden="true"></i>              {{ \'ADD\' | translate }}            </button>          </td>        </tr>        <tr class="data" *ngFor="let data of formArray?.value; let indexData = index">          <td *ngFor="let key of getKeysFromObject(data)" class="{{ \'check\' === getQuestionByName(key).type ? \'text-center\' : \'\' }}">            <ng-container [ngSwitch]="getQuestionByName(key).type">              <ng-template ngSwitchCase="checkbox">                <i class="rb-ico rb-ico-square rb-ico-{{ data[key] ? \'checked\' : \'unchecked\' }}" aria-hidden="true"></i>              </ng-template>              <ng-template ngSwitchDefault>                {{ data[key] || \'NOT_INFORMED\' | translate }}              </ng-template>            </ng-container>          </td>          <td class="text-center" *ngIf="!readOnly">            <button class="btn btn-default btn-remove-data" (click)="removeData(indexData)">              <i class="rb-ico rb-ico-remove" aria-hidden="true"></i>              {{ \'REMOVE\' | translate }}            </button>          </td>        </tr>      </tbody>    </table>  </div> <!--/.table-responsive-->  <rb-validation-message [validations]="group.validations"                         [control]="formArray"                         [submitted]="formGroupSubmitted">  </rb-validation-message></fieldset></div>'
+    var COMPONENTS = [{'name': 'AngularFormsComponent', 'selector': 'rb-angular-forms'},{'name': 'DataTableComponent', 'selector': 'rb-data-table'},{'name': 'DemoComponent', 'selector': 'rb-demo-app'},{'name': 'ValidationMessageComponent', 'selector': 'rb-validation-message'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'DataTableComponent'};
 </script>
