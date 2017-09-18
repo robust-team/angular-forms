@@ -33,8 +33,9 @@ const groups: any[] = [
         'options': [
           {'key': 'key-1',  'value': 'Option 1'},
           {'key': 'key-2',  'value': 'Option 2'},
-          {'key': 'key-1',  'value': 'Option 3'}
+          {'key': 'key-3',  'value': 'Option 3'}
         ],
+        'editableOption': 'key-1',
         'placeholder': 'Select',
         'validations': [
           { 'type': 'required', 'message': 'Required field.' }
