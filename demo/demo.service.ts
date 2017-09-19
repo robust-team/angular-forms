@@ -31,11 +31,11 @@ const groups: any[] = [
         'description': 'Select Question 0102',
         'type': 'select',
         'options': [
-          {'key': 'key-1',  'value': 'Option 1'},
-          {'key': 'key-2',  'value': 'Option 2'},
-          {'key': 'key-3',  'value': 'Option 3'}
+          { 'value': 'op-1',  'description': 'Option 1' },
+          { 'value': 'op-2',  'description': 'Option 2' },
+          { 'value': 'op-3',  'description': 'Option 3' }
         ],
-        'editableOption': 'key-1',
+        'editableOption': 'op-1',
         'placeholder': 'Select',
         'validations': [
           { 'type': 'required', 'message': 'Required field.' }

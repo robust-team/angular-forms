@@ -61,14 +61,14 @@ import { ReactiveFormsFactory } from '../factory';
                   </ng-template> <!--/radio-->
 
                   <ng-template ngSwitchCase="select">
-                  <select [id]="question.name" class="form-control" [name]="question.name" #selectQuestion
+                    <select [id]="question.name" class="form-control" [name]="question.name" #selectQuestion
                           [formControlName]="question.name"
                           (change)="onChangeOptionSelect(selectQuestion, newFormGroup.get(question.name), question)">
                       <option disabled [value]="null">
                         {{ question.placeholder ? question.placeholder : '' }}
                       </option>
-                      <option *ngFor="let option of question.options" [value]="option">
-                        {{ option }}
+                      <option *ngFor="let option of question.options" [value]="option['value'] || option">
+                        {{ option['description'] || option }}
                       </option>
                     </select>
                     <ng-container *ngIf="question.editableOption && question.editableOption.length">
