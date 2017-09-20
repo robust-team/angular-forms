@@ -138,6 +138,12 @@ import { StringUtils } from './util';
                         <label [for]="question.name" [ngClass]="{ 'required-control': question.isRequired() }">
                           {{ question.description }}
                         </label>
+                        <div class="tooltip top" role="tooltip">
+                          <div class="tooltip-arrow"></div>
+                          <div class="tooltip-inner">
+                            Tooltip on the top
+                          </div>
+                        </div>
                         <input type="text" [id]="question.name" class="form-control" [name]="question.name"
                                placeholder="{{ question.placeholder ? question.placeholder : '' }}"
                                [formControlName]="question.name" [mask]="question.mask" />
@@ -145,6 +151,7 @@ import { StringUtils } from './util';
                                                [control]="formGroup.get(group.code).get(question.name)"
                                                [submitted]="submitted">
                         </rb-validation-message>
+
                       </ng-container> <!--!readOnly-->
 
                       <ng-template #readOnlyText>
