@@ -89,6 +89,7 @@ The **customForm** attribute represents the JSON coming from API. For example:
         "options": ["Option 1", "Option 2"],
         "editableOption": "Option 2",
         "placeholder": "Select",
+        "tooltip" : ["Tip for Text Question"],
         "validations": [
           { "type": "required", "message": "Required field." }
         ]
@@ -98,6 +99,7 @@ The **customForm** attribute represents the JSON coming from API. For example:
         "description": "Text Question 0104",
         "type": "text",
         "placeholder": "Text Question 0104",
+        "tooltip" : ["Tip for Text Question"],
         "validations": [
           { "type": "required", "message": "Required field." },
           { "type": "minlength", "message": "Min Length: 3", "value": 3 },
@@ -553,6 +555,22 @@ Obligatory field validation. The **requiredTrue** field is used for checkbox val
   "dependencies": [
     { "code": "Q-0103", "criteria": "equals", "expectedAnswer": "Option 1" },
     { "code": "Q-0104", "criteria": "greaterthan", "expectedAnswer": "10" }
+  ]
+}
+```
+## Tooltip
+
+**Tooltip** are hint with information about the Text Question:
+
+```json
+{
+  "name": "Q-0106",
+  "description": "Text Question 0104",
+  "type": "text",
+  "placeholder": "Question TextArea 0106",
+  "tooltip": "Tip for Text Question",
+  "validations": [
+    { "type": "required", "message": "Required field." }
   ]
 }
 ```

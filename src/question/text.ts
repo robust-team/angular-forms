@@ -13,7 +13,8 @@ export class Text extends Question<string> {
       ValidationFactory.createValidationList(question.validations),
       question.disabled,
       question.mask,
-      question.placeholder
+      question.placeholder,
+      question.tooltip
     );
   }
 
@@ -26,6 +27,7 @@ export class Text extends Question<string> {
     disabled: boolean = false,
     private _mask: string = null,
     private _placeholder: string = null,
+    private _tooltip: string = null,
   ) {
     super(name, description, QuestionType.TEXT, dependencies, answer, validations, disabled);
   }
@@ -36,5 +38,9 @@ export class Text extends Question<string> {
 
   public get placeholder(): string {
     return this._placeholder;
+  }
+
+  public get tooltip(): string {
+    return this._tooltip;
   }
 }
