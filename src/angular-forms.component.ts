@@ -87,8 +87,8 @@ import { StringUtils } from './util';
                           <option disabled [value]="null">
                             {{ question.placeholder ? question.placeholder : '' }}
                           </option>
-                          <option *ngFor="let option of question.options" [value]="option">
-                            {{ option }}
+                          <option *ngFor="let option of question.options" [value]="option['value'] || option">
+                            {{ option['description'] || option }}
                           </option>
                         </select>
                         <ng-container *ngIf="question.editableOption && question.editableOption.length">

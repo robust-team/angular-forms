@@ -3,7 +3,6 @@ import {
   ValidatorFactoryHandler, RequiredValidator, EmailValidator, MaxValidator, MinValidator,
   MaxLengthValidator, MinLengthValidator, PatternValidator
 } from '../../../src/chain-of-responsibility/validator-factory';
-import { ValidationTypeNotFoundError } from '../../../src/chain-of-responsibility/validator-factory/error';
 import { Validation, Email, Max, Min, MaxLength, MinLength, Pattern, Required } from '../../../src/validation';
 
 describe('AngularForms :: ChainOfResponsibility :: ValidatorFactory', () => {
@@ -71,23 +70,5 @@ describe('AngularForms :: ChainOfResponsibility :: ValidatorFactory', () => {
     const validation: Validation = new Required('Message', true);
 
     assert.isTrue('function' === typeof validatorFactoryHandler.handle(validation));
-  });
-
-  it('should throw a ValidationTypeNotFoundError', () => {
-    const validation: any = { type: 'date', message: 'Message' };
-
-    // assert.throw(validatorFactoryHandler.handle(validation));
-
-    try {
-      validatorFactoryHandler.handle(validation);
-    } catch (error) {
-      assert.isTrue(error instanceof ValidationTypeNotFoundError);
-      assert.ok(error['name']);
-      assert.ok(error['message']);
-
-      return;
-    }
-
-    throw new Error();
   });
 });

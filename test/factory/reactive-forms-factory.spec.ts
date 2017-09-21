@@ -69,4 +69,10 @@ describe('AngularForms :: Factory :: ReactiveFormsFactory', () => {
 
     assert.isTrue(ReactiveFormsFactory.createValidators(validations) instanceof Array);
   });
+
+  it('should throw a ValidationTypeNotFoundError', () => {
+    const validations: any[] = [{ type: 'url', message: 'Invalid URL' }];
+
+    assert.isTrue(0 === ReactiveFormsFactory.createValidators(validations).length);
+  });
 });

@@ -1,4 +1,4 @@
-import { Choice, Dependency, QuestionType } from '.';
+import { Choice, Dependency, Option, QuestionType } from '.';
 import { Validation } from '../validation';
 import { ValidationFactory } from '../factory';
 
@@ -26,7 +26,7 @@ export class Select extends Choice {
     answer: string = null,
     validations: Validation[] = [],
     disabled: boolean = false,
-    options: string[] = [],
+    options: Option[] | string[] = [],
     defaultOption: string = null,
     private _editableOption: string = null,
     private _placeholder: string = null

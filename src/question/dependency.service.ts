@@ -1,10 +1,8 @@
-import { Injectable } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 
 import { Dependency, DependencyCriteria, Question } from '.';
 import { StringUtils } from '../util';
 
-@Injectable()
 export class DependencyService {
 
   public static hideQuestion(question: Question<any>, formGroup: FormGroup): boolean {

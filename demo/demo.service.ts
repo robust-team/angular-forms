@@ -7,8 +7,8 @@ const groups: any[] = [
     'type': 'group',
     'questions': [
       {
-        'name': 'Q-0101',
-        'description': 'Check Question 0101',
+        'name': 'Q-0100',
+        'description': 'Check Question 0100',
         'type': 'checkbox',
         'defaultOption': false,
         'validations': [
@@ -16,8 +16,8 @@ const groups: any[] = [
         ]
       },
       {
-        'name': 'Q-0102',
-        'description': 'Radio Question 0102',
+        'name': 'Q-0101',
+        'description': 'Radio Question 0101',
         'type': 'radio',
         'options': ['Option 1', 'Option 2'],
         'defaultOption': 'Option 1',
@@ -25,6 +25,21 @@ const groups: any[] = [
           { 'type': 'required', 'message': 'Required field.' }
         ],
         'disabled': true
+      },
+      {
+        'name': 'Q-0102',
+        'description': 'Select Question 0102',
+        'type': 'select',
+        'options': [
+          { 'value': 'op-1',  'description': 'Option 1' },
+          { 'value': 'op-2',  'description': 'Option 2' },
+          { 'value': 'op-3',  'description': 'Option 3' }
+        ],
+        'editableOption': 'op-1',
+        'placeholder': 'Select',
+        'validations': [
+          { 'type': 'required', 'message': 'Required field.' }
+        ]
       },
       {
         'name': 'Q-0103',
@@ -41,7 +56,7 @@ const groups: any[] = [
         'name': 'Q-0104',
         'description': 'Text Question 0104',
         'type': 'text',
-        'answer': 200,
+        'answer': '200',
         'placeholder': 'Text Question 0104',
         'validations': [
           { 'type': 'required', 'message': 'Required field.' },

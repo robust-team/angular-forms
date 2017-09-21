@@ -383,6 +383,19 @@ The **Group** represents a grouping of questions, which can be of two types: **F
 }
 ```
 
+For the **Radio** and **Select** Questions, the *option* attribute can be a *string array* or an *object array* (**Option** Interface).
+
+```json
+{
+  // ...
+  "options": [
+    { "value": "op1", "description": "Option 1" },
+    { "value": "op2", "description": "Option 2" }
+  ]
+  // ...
+}
+```
+
 ### Text
 
 **Text** represents a *text* input from HTML.

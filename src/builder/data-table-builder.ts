@@ -8,7 +8,7 @@ export class DataTableBuilder extends GroupBuilder<Question<any>[]> {
   public constructor(
     code: string,
     description: string,
-    private validations: Validation[] = null
+    private validations: Validation[] = []
   ) {
     super(code, description);
     this.questions = [];
