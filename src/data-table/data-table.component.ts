@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup, FormArray, FormControl } from '@angular/forms';
 
-import { Select, SelectService, Question } from '../question';
+import { Select, SelectService, Question, QuestionType } from '../question';
 import { Group, DataTable } from '../group';
 import { ReactiveFormsFactory } from '../factory';
 
@@ -113,7 +113,7 @@ import { ReactiveFormsFactory } from '../factory';
               </td>
             </tr>
             <tr class="data" *ngFor="let data of formArray?.value; let indexData = index">
-              <td *ngFor="let key of getKeysFromObject(data)" class="{{ 'check' === getQuestionByName(key).type ? 'text-center' : '' }}">
+              <td *ngFor="let key of getKeysFromObject(data)" [class.text-center]="isCheckbox(getQuestionByName(key))">
                 <ng-container [ngSwitch]="getQuestionByName(key).type">
                   <ng-template ngSwitchCase="checkbox">
                     <i class="rb-ico rb-ico-square rb-ico-{{ data[key] ? 'checked' : 'unchecked' }}" aria-hidden="true"></i>
@@ -193,5 +193,9 @@ export class DataTableComponent implements OnInit {
     }
 
     return null;
+  }
+
+  public isCheckbox(question: Question<any>): boolean {
+    return QuestionType.CHECKBOX === question.type;
   }
 }
