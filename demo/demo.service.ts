@@ -56,7 +56,7 @@ const groups: any[] = [
         'name': 'Q-0104',
         'description': 'Text Question 0104',
         'type': 'text',
-        'answer': 200,
+        'answer': '200',
         'placeholder': 'Text Question 0104',
         'validations': [
           { 'type': 'required', 'message': 'Required field.' },
