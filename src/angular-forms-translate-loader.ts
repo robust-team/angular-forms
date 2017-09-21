@@ -5,13 +5,15 @@ const i18n: { [lang: string]: Object } = {
   'en-US': {
     'ACTION': 'Action',
     'ADD': 'Add',
+    'NO_REGISTERS': 'No registers',
     'NOT_INFORMED': 'Not informed',
     'REMOVE': 'Remove'
   },
   'pt-BR': {
     'ACTION': 'Ação',
     'ADD': 'Adicionar',
-    'NOT_INFORMED': 'Não informado',
+    'NO_REGISTERS': 'Nenhum registro encontrado',
+    'NOT_INFORMED': 'Não informado(a)',
     'REMOVE': 'Remover'
   }
 };

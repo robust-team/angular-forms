@@ -131,6 +131,9 @@ import { ReactiveFormsFactory } from '../factory';
                 </button>
               </td>
             </tr>
+            <tr *ngIf="readOnly && !formArray?.value.length">
+              <td [attr.colspan]="group.questions[0].length" class="text-center">{{ 'NO_REGISTERS' | translate }}</td>
+            </tr>
           </tbody>
         </table>
       </div> <!--/.table-responsive-->
