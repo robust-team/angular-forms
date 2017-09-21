@@ -83,9 +83,7 @@ export class ReactiveFormsFactory {
         const validatorFn: ValidatorFn = validatorFactoryHandler.handle(validation);
         validators.push(validatorFn);
       } catch (error) {
-        if (error instanceof ValidationTypeNotFoundError) {
-          console.error(`[AngularForms] ${error.name}: ${error.message}`);
-        }
+        console.error(`[AngularForms] ${error.name}: ${error.message}`);
       }
     }
 
