@@ -209,6 +209,14 @@ export class AngularFormsComponent implements OnInit, AfterViewChecked {
     return { valid: this.isValid(), value: this.getAnswersGroups() };
   }
 
+  public isPristine(): boolean {
+    return this.formGroup.pristine;
+  }
+
+  public isDirty(): boolean {
+    return this.formGroup.dirty;
+  }
+
   public isValid(): boolean {
     return this.formGroup.valid;
   }
