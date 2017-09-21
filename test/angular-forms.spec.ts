@@ -92,8 +92,7 @@ describe('AngularForms :: AngularForms', () => {
             placeholder: null
           }
         ]
-      ],
-      validations: []
+      ]
     }];
 
     assert.deepEqual(AngularForms.fromJson(jsonGroups), [
@@ -106,7 +105,7 @@ describe('AngularForms :: AngularForms', () => {
           new Text('question-01', 'A simple question 1', [], 'My answer 1', [], false, null, null),
           new Text('question-02', 'A simple question 2', [], 'My answer 2', [], false, null, null)
         ]
-      ], [])
+      ])
     ]);
   });
 
