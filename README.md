@@ -89,7 +89,6 @@ The **customForm** attribute represents the JSON coming from API. For example:
         "options": ["Option 1", "Option 2"],
         "editableOption": "Option 2",
         "placeholder": "Select",
-        "tooltip" : ["Tip for Text Question"],
         "validations": [
           { "type": "required", "message": "Required field." }
         ]
@@ -99,7 +98,7 @@ The **customForm** attribute represents the JSON coming from API. For example:
         "description": "Text Question 0104",
         "type": "text",
         "placeholder": "Text Question 0104",
-        "tooltip" : ["Tip for Text Question"],
+        "tooltip" : ["Hint for Text Question"],
         "validations": [
           { "type": "required", "message": "Required field." },
           { "type": "minlength", "message": "Min Length: 3", "value": 3 },
@@ -111,6 +110,7 @@ The **customForm** attribute represents the JSON coming from API. For example:
         "description": "Text Question 0105",
         "type": "text",
         "placeholder": "Text Question 0105",
+        "tooltip" : ["Hint for Text Question"],
         "validations": [
           { "type": "required", "message": "Required field." },
           { "type": "pattern", "message": "Format: 00000-000", "value": "^\\d{5}-\\d{3}$" }
