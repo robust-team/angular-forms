@@ -140,8 +140,8 @@ import { StringUtils } from './util';
                         </label>
 
                         <rb-tooltip *ngIf="question.tooltip"
-                        [tooltip]="question.tooltip"
-                        [control]="formGroup.get(group.code).get(question.name)">
+                            [tooltip]="question.tooltip"
+                            [control]="formGroup.get(group.code).get(question.name)">
                         </rb-tooltip>
 
                         <input type="text" [id]="question.name" class="form-control" [name]="question.name"
