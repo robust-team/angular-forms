@@ -725,7 +725,7 @@
                         <tbody>
                             <tr>
                                 <td class="col-md-4">
-                                    <code>constructor(_name: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, _description: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, _type: <a href="../classes/Question.html">QuestionType</a>, _dependencies: [], _answer: Answer, _validations: [], _disabled: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                                    <code>constructor(_name: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, _description: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, _type: <a href="../classes/Question.html">QuestionType</a>, _dependencies: <a href="../classes/Dependency.html">Dependency[]</a>, _answer: Answer, _validations: <a href="../classes/Validation.html">Validation[]</a>, _disabled: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
                                 </td>
                             </tr>
                                     <tr>
@@ -734,6 +734,88 @@
                                         </td>
                                     </tr>
             
+                            <tr>
+                                <td class="col-md-4">
+                                        <div>
+                                                <b>Parameters :</b>
+                                                <table class="params">
+                                                    <thead>
+                                                        <tr>
+                                                            <td>Name</td>
+                                                            <td>Type</td>
+                                                            <td>Optional</td>
+                                                            <td>Description</td>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                            <tr>
+                                                              <td>_name</td>
+                                                              <td>
+                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                              </td>
+                                                              <td>
+                                                              </td>
+                                                              <td></td>
+                                                            </tr>
+                                                            <tr>
+                                                              <td>_description</td>
+                                                              <td>
+                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                              </td>
+                                                              <td>
+                                                              </td>
+                                                              <td></td>
+                                                            </tr>
+                                                            <tr>
+                                                              <td>_type</td>
+                                                              <td>
+                                                                        <code><a href="../classes/Question.html" target="_self" >QuestionType</a></code>
+                                                              </td>
+                                                              <td>
+                                                              </td>
+                                                              <td></td>
+                                                            </tr>
+                                                            <tr>
+                                                              <td>_dependencies</td>
+                                                              <td>
+                                                                        <code><a href="../classes/Dependency.html" target="_self" >Dependency[]</a></code>
+                                                              </td>
+                                                              <td>
+                                                              </td>
+                                                              <td></td>
+                                                            </tr>
+                                                            <tr>
+                                                              <td>_answer</td>
+                                                              <td>
+                                                                        <code>Answer</code>
+                                                              </td>
+                                                              <td>
+                                                              </td>
+                                                              <td></td>
+                                                            </tr>
+                                                            <tr>
+                                                              <td>_validations</td>
+                                                              <td>
+                                                                        <code><a href="../classes/Validation.html" target="_self" >Validation[]</a></code>
+                                                              </td>
+                                                              <td>
+                                                              </td>
+                                                              <td></td>
+                                                            </tr>
+                                                            <tr>
+                                                              <td>_disabled</td>
+                                                              <td>
+                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                                              </td>
+                                                              <td>
+                                                              </td>
+                                                              <td></td>
+                                                            </tr>
+                                                    </tbody>
+                                                </table>
+                                        </div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
             </section>
@@ -748,12 +830,12 @@
                             <tr>
                                 <td class="col-md-4">
                                     <a name="isRequired"></a>
-                                    <b><span class="modifier">Public</span> isRequired</b>
+                                    <span class="name"><b><span class="modifier">Public</span> isRequired</b><a href="#isRequired"><span class="fa fa-link"></span></a></span>
                                 </td>
                             </tr>
                             <tr>
                                 <td class="col-md-4">
-                                        <span class="modifier-icon method fa fa-play "></span>
+                                        <span class="modifier-icon fa fa-reset"></span>
                                     <code>isRequired()</code>
                                 </td>
                             </tr>
@@ -789,12 +871,12 @@
                             <tr>
                                 <td class="col-md-4">
                                     <a name="answer"></a>
-                                    <b><span class="modifier">Public</span> answer</b>
+                                    <span class="name"><b><span class="modifier">Public</span> answer</b><a href="#answer"><span class="fa fa-link"></span></a></span>
                                 </td>
                             </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <span class="modifier-icon fa fa-"></span><code>answer:     <code>Answer</code>
+                                    <span class="modifier-icon fa fa-reset"></span><code>answer:     <code>Answer</code>
             </code>
                                 </td>
                             </tr>
@@ -818,18 +900,18 @@
                             <tr>
                                 <td class="col-md-4">
                                     <a name="dependencies"></a>
-                                    <b><span class="modifier">Public</span> dependencies</b>
+                                    <span class="name"><b><span class="modifier">Public</span> dependencies</b><a href="#dependencies"><span class="fa fa-link"></span></a></span>
                                 </td>
                             </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <span class="modifier-icon fa fa-"></span><code>dependencies:     <code>[]</code>
+                                    <span class="modifier-icon fa fa-reset"></span><code>dependencies:     <code><a href="../classes/Dependency.html" target="_self" >Dependency[]</a></code>
             </code>
                                 </td>
                             </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <i>Type : </i>    <code>[]</code>
+                                        <i>Type : </i>    <code><a href="../classes/Dependency.html" target="_self" >Dependency[]</a></code>
             
                                     </td>
                                 </tr>
@@ -847,12 +929,12 @@
                             <tr>
                                 <td class="col-md-4">
                                     <a name="description"></a>
-                                    <b><span class="modifier">Public</span> description</b>
+                                    <span class="name"><b><span class="modifier">Public</span> description</b><a href="#description"><span class="fa fa-link"></span></a></span>
                                 </td>
                             </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <span class="modifier-icon fa fa-"></span><code>description:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    <span class="modifier-icon fa fa-reset"></span><code>description:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
             </code>
                                 </td>
                             </tr>
@@ -876,12 +958,12 @@
                             <tr>
                                 <td class="col-md-4">
                                     <a name="disabled"></a>
-                                    <b><span class="modifier">Public</span> disabled</b>
+                                    <span class="name"><b><span class="modifier">Public</span> disabled</b><a href="#disabled"><span class="fa fa-link"></span></a></span>
                                 </td>
                             </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <span class="modifier-icon fa fa-"></span><code>disabled:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                    <span class="modifier-icon fa fa-reset"></span><code>disabled:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
             </code>
                                 </td>
                             </tr>
@@ -905,12 +987,12 @@
                             <tr>
                                 <td class="col-md-4">
                                     <a name="name"></a>
-                                    <b><span class="modifier">Public</span> name</b>
+                                    <span class="name"><b><span class="modifier">Public</span> name</b><a href="#name"><span class="fa fa-link"></span></a></span>
                                 </td>
                             </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <span class="modifier-icon fa fa-"></span><code>name:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    <span class="modifier-icon fa fa-reset"></span><code>name:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
             </code>
                                 </td>
                             </tr>
@@ -934,12 +1016,12 @@
                             <tr>
                                 <td class="col-md-4">
                                     <a name="type"></a>
-                                    <b><span class="modifier">Public</span> type</b>
+                                    <span class="name"><b><span class="modifier">Public</span> type</b><a href="#type"><span class="fa fa-link"></span></a></span>
                                 </td>
                             </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <span class="modifier-icon fa fa-"></span><code>type:     <code><a href="../classes/Question.html" target="_self" >QuestionType</a></code>
+                                    <span class="modifier-icon fa fa-reset"></span><code>type:     <code><a href="../classes/Question.html" target="_self" >QuestionType</a></code>
             </code>
                                 </td>
                             </tr>
@@ -963,18 +1045,18 @@
                             <tr>
                                 <td class="col-md-4">
                                     <a name="validations"></a>
-                                    <b><span class="modifier">Public</span> validations</b>
+                                    <span class="name"><b><span class="modifier">Public</span> validations</b><a href="#validations"><span class="fa fa-link"></span></a></span>
                                 </td>
                             </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <span class="modifier-icon fa fa-"></span><code>validations:     <code>[]</code>
+                                    <span class="modifier-icon fa fa-reset"></span><code>validations:     <code><a href="../classes/Validation.html" target="_self" >Validation[]</a></code>
             </code>
                                 </td>
                             </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <i>Type : </i>    <code>[]</code>
+                                        <i>Type : </i>    <code><a href="../classes/Validation.html" target="_self" >Validation[]</a></code>
             
                                     </td>
                                 </tr>
