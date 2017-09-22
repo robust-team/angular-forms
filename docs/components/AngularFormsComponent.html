@@ -902,6 +902,12 @@
                                 <span class="modifier">Public</span> <a href="#hideQuestion">hideQuestion</a>
                             </li>
                             <li>
+                                <span class="modifier">Public</span> <a href="#isDirty">isDirty</a>
+                            </li>
+                            <li>
+                                <span class="modifier">Public</span> <a href="#isPristine">isPristine</a>
+                            </li>
+                            <li>
                                 <span class="modifier">Public</span> <a href="#isValid">isValid</a>
                             </li>
                             <li>
@@ -952,6 +958,43 @@
                                 </td>
                             </tr>
     
+                    <tr>
+                        <td class="col-md-4">
+                                <div>
+                                        <b>Parameters :</b>
+                                        <table class="params">
+                                            <thead>
+                                                <tr>
+                                                    <td>Name</td>
+                                                    <td>Type</td>
+                                                    <td>Optional</td>
+                                                    <td>Description</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                    <tr>
+                                                      <td>changeDetectorRef</td>
+                                                      <td>
+                                                                <code><a href="https://angular.io/docs/ts/latest/api/core/index/ChangeDetectorRef-class.html" target="_blank" >ChangeDetectorRef</a></code>
+                                                      </td>
+                                                      <td>
+                                                      </td>
+                                                      <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                      <td>translateService</td>
+                                                      <td>
+                                                                <code>TranslateService</code>
+                                                      </td>
+                                                      <td>
+                                                      </td>
+                                                      <td></td>
+                                                    </tr>
+                                            </tbody>
+                                        </table>
+                                </div>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
     </section>
@@ -967,7 +1010,7 @@
                         </td>
                         <td class="col-md-10">
                               <p>
-                                <em>Type:</em>    <code>[]</code>
+                                <em>Type:</em>    <code><a href="../classes/Group.html" target="_self" >Group[]</a></code>
 
                               </p>
                         </td>
@@ -1030,6 +1073,8 @@
     </section>
 
 
+
+
     <section>
         
             <h3 id="methods">
@@ -1040,12 +1085,12 @@
                     <tr>
                         <td class="col-md-4">
                             <a name="getAnswers"></a>
-                            <b><span class="modifier">Public</span> getAnswers</b>
+                            <span class="name"><b><span class="modifier">Public</span> getAnswers</b><a href="#getAnswers"><span class="fa fa-link"></span></a></span>
                         </td>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <span class="modifier-icon method fa fa-play "></span>
+                                <span class="modifier-icon fa fa-reset"></span>
                             <code>getAnswers()</code>
                         </td>
                     </tr>
@@ -1053,7 +1098,7 @@
     
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="232" class="link-to-prism">src/angular-forms.component.ts:232</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="240" class="link-to-prism">src/angular-forms.component.ts:240</a></div>
                                 </td>
                             </tr>
     
@@ -1073,12 +1118,12 @@
                     <tr>
                         <td class="col-md-4">
                             <a name="getAnswersGroups"></a>
-                            <b><span class="modifier">Public</span> getAnswersGroups</b>
+                            <span class="name"><b><span class="modifier">Public</span> getAnswersGroups</b><a href="#getAnswersGroups"><span class="fa fa-link"></span></a></span>
                         </td>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <span class="modifier-icon method fa fa-play "></span>
+                                <span class="modifier-icon fa fa-reset"></span>
                             <code>getAnswersGroups()</code>
                         </td>
                     </tr>
@@ -1086,7 +1131,7 @@
     
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="216" class="link-to-prism">src/angular-forms.component.ts:216</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="224" class="link-to-prism">src/angular-forms.component.ts:224</a></div>
                                 </td>
                             </tr>
     
@@ -1106,12 +1151,12 @@
                     <tr>
                         <td class="col-md-4">
                             <a name="getForm"></a>
-                            <b><span class="modifier">Public</span> getForm</b>
+                            <span class="name"><b><span class="modifier">Public</span> getForm</b><a href="#getForm"><span class="fa fa-link"></span></a></span>
                         </td>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <span class="modifier-icon method fa fa-play "></span>
+                                <span class="modifier-icon fa fa-reset"></span>
                             <code>getForm()</code>
                         </td>
                     </tr>
@@ -1139,12 +1184,12 @@
                     <tr>
                         <td class="col-md-4">
                             <a name="hideQuestion"></a>
-                            <b><span class="modifier">Public</span> hideQuestion</b>
+                            <span class="name"><b><span class="modifier">Public</span> hideQuestion</b><a href="#hideQuestion"><span class="fa fa-link"></span></a></span>
                         </td>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <span class="modifier-icon method fa fa-play "></span>
+                                <span class="modifier-icon fa fa-reset"></span>
                             <code>hideQuestion(question: <a href="../classes/Question.html">Question<any></a>, formGroup: <a href="../classes/Group.html">FormGroup</a>)</code>
                         </td>
                     </tr>
@@ -1153,6 +1198,77 @@
                             <tr>
                                 <td class="col-md-4">
                                     <div class="io-line">Defined in <a href="" data-line="196" class="link-to-prism">src/angular-forms.component.ts:196</a></div>
+                                </td>
+                            </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <table class="params">
+                                            <thead>
+                                                <tr>
+                                                    <td>Name</td>
+                                                    <td>Type</td>
+                                                    <td>Optional</td>
+                                                    <td>Description</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                    <tr>
+                                                      <td>question</td>
+                                                      <td>
+                                                              <code><a href="../classes/Question.html" target="_self" >Question&lt;any&gt;</a></code>
+                                                      </td>
+                                                      <td>
+                                                      </td>
+                                                      <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                      <td>formGroup</td>
+                                                      <td>
+                                                              <code><a href="../classes/Group.html" target="_self" >FormGroup</a></code>
+                                                      </td>
+                                                      <td>
+                                                      </td>
+                                                      <td></td>
+                                                    </tr>
+                                            </tbody>
+                                        </table>
+                                </div>
+                                <div>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+    
+                                </div>
+                                    <div class="io-description">
+                                        
+                                    </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="isDirty"></a>
+                            <span class="name"><b><span class="modifier">Public</span> isDirty</b><a href="#isDirty"><span class="fa fa-link"></span></a></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <span class="modifier-icon fa fa-reset"></span>
+                            <code>isDirty()</code>
+                        </td>
+                    </tr>
+    
+    
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="216" class="link-to-prism">src/angular-forms.component.ts:216</a></div>
                                 </td>
                             </tr>
     
@@ -1171,14 +1287,14 @@
                 <tbody>
                     <tr>
                         <td class="col-md-4">
-                            <a name="isValid"></a>
-                            <b><span class="modifier">Public</span> isValid</b>
+                            <a name="isPristine"></a>
+                            <span class="name"><b><span class="modifier">Public</span> isPristine</b><a href="#isPristine"><span class="fa fa-link"></span></a></span>
                         </td>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <span class="modifier-icon method fa fa-play "></span>
-                            <code>isValid()</code>
+                                <span class="modifier-icon fa fa-reset"></span>
+                            <code>isPristine()</code>
                         </td>
                     </tr>
     
@@ -1204,13 +1320,46 @@
                 <tbody>
                     <tr>
                         <td class="col-md-4">
-                            <a name="onChangeOptionSelect"></a>
-                            <b><span class="modifier">Public</span> onChangeOptionSelect</b>
+                            <a name="isValid"></a>
+                            <span class="name"><b><span class="modifier">Public</span> isValid</b><a href="#isValid"><span class="fa fa-link"></span></a></span>
                         </td>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <span class="modifier-icon method fa fa-play "></span>
+                                <span class="modifier-icon fa fa-reset"></span>
+                            <code>isValid()</code>
+                        </td>
+                    </tr>
+    
+    
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="220" class="link-to-prism">src/angular-forms.component.ts:220</a></div>
+                                </td>
+                            </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+    
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="onChangeOptionSelect"></a>
+                            <span class="name"><b><span class="modifier">Public</span> onChangeOptionSelect</b><a href="#onChangeOptionSelect"><span class="fa fa-link"></span></a></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <span class="modifier-icon fa fa-reset"></span>
                             <code>onChangeOptionSelect(htmlFormControl: HTMLInputElement, formControl: <a href="https://angular.io/docs/ts/latest/api/forms/index/FormControl-class.html" target="_blank">FormControl</a>, question: <a href="../classes/Select.html">Select</a>)</code>
                         </td>
                     </tr>
@@ -1226,9 +1375,56 @@
                         <td class="col-md-4">
     
                                 <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <table class="params">
+                                            <thead>
+                                                <tr>
+                                                    <td>Name</td>
+                                                    <td>Type</td>
+                                                    <td>Optional</td>
+                                                    <td>Description</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                    <tr>
+                                                      <td>htmlFormControl</td>
+                                                      <td>
+                                                              <code>HTMLInputElement</code>
+                                                      </td>
+                                                      <td>
+                                                      </td>
+                                                      <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                      <td>formControl</td>
+                                                      <td>
+                                                              <code><a href="https://angular.io/docs/ts/latest/api/forms/index/FormControl-class.html" target="_blank" >FormControl</a></code>
+                                                      </td>
+                                                      <td>
+                                                      </td>
+                                                      <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                      <td>question</td>
+                                                      <td>
+                                                              <code><a href="../classes/Select.html" target="_self" >Select</a></code>
+                                                      </td>
+                                                      <td>
+                                                      </td>
+                                                      <td></td>
+                                                    </tr>
+                                            </tbody>
+                                        </table>
+                                </div>
+                                <div>
+                                </div>
+                                <div class="io-description">
                                     <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
     
                                 </div>
+                                    <div class="io-description">
+                                        
+                                    </div>
                         </td>
                     </tr>
                 </tbody>
@@ -1238,12 +1434,12 @@
                     <tr>
                         <td class="col-md-4">
                             <a name="submit"></a>
-                            <b><span class="modifier">Public</span> submit</b>
+                            <span class="name"><b><span class="modifier">Public</span> submit</b><a href="#submit"><span class="fa fa-link"></span></a></span>
                         </td>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <span class="modifier-icon method fa fa-play "></span>
+                                <span class="modifier-icon fa fa-reset"></span>
                             <code>submit()</code>
                         </td>
                     </tr>
@@ -1278,12 +1474,12 @@
                     <tr>
                         <td class="col-md-4">
                             <a name="formGroup"></a>
-                            <b><span class="modifier">Public</span> formGroup</b>
+                            <span class="name"><b><span class="modifier">Public</span> formGroup</b><a href="#formGroup"><span class="fa fa-link"></span></a></span>
                         </td>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                            <span class="modifier-icon fa fa-"></span><code>formGroup:     <code><a href="../classes/Group.html" target="_self" >FormGroup</a></code>
+                            <span class="modifier-icon fa fa-reset"></span><code>formGroup:     <code><a href="../classes/Group.html" target="_self" >FormGroup</a></code>
     </code>
                         </td>
                     </tr>
@@ -1307,12 +1503,12 @@
                     <tr>
                         <td class="col-md-4">
                             <a name="submitted"></a>
-                            <b><span class="modifier">Public</span> submitted</b>
+                            <span class="name"><b><span class="modifier">Public</span> submitted</b><a href="#submitted"><span class="fa fa-link"></span></a></span>
                         </td>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                            <span class="modifier-icon fa fa-"></span><code>submitted:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                            <span class="modifier-icon fa fa-reset"></span><code>submitted:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
     </code>
                         </td>
                     </tr>
@@ -1550,6 +1746,14 @@ export class AngularFormsComponent implements OnInit, AfterViewChecked {
 
   public getForm(): { valid: boolean, value: Object } {
     return { valid: this.isValid(), value: this.getAnswersGroups() };
+  }
+
+  public isPristine(): boolean {
+    return this.formGroup.pristine;
+  }
+
+  public isDirty(): boolean {
+    return this.formGroup.dirty;
   }
 
   public isValid(): boolean {
