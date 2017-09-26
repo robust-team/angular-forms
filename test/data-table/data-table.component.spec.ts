@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule, FormGroup, FormControl, FormArray } from '@angular/forms';
+import { ReactiveFormsModule, FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
 
 import { assert } from 'chai';
 import { TranslateModule, TranslateService, TranslateLoader } from '@ngx-translate/core';
@@ -11,7 +11,7 @@ import { DataTableComponent } from '../../src/data-table';
 import { ValidationMessageModule } from '../../src/validation-message';
 import { AngularFormsTranslateLoader } from '../../src/angular-forms-translate-loader';
 import { DataTable } from '../../src/group';
-import { Question, Select, Text } from '../../src/question';
+import { Checkbox, Question, Select, Text } from '../../src/question';
 
 describe('DataTableComponent', () => {
   let component: DataTableComponent;
@@ -65,12 +65,23 @@ describe('DataTableComponent', () => {
     component.addData();
   });
 
+
   it('should call removeData method', () => {
     component.removeData(0);
+  });
+
+  it('should call addData method with invalid register', () => {
+    component.newFormGroup = new FormGroup({ 'Q-01': new FormControl(null, Validators.required) });
+    component.addData();
   });
 
   it('should call getQuestionByName method', () => {
     assert.deepEqual(component.getQuestionByName('Q-01'), new Text('Q-01', 'Question 01', []));
     assert.notDeepEqual(component.getQuestionByName('Q-02'), new Text('Q-01', 'Question 01', []));
+  });
+
+  it('should call getQuestionByName method', () => {
+    assert.isTrue(component.isCheckbox(new Checkbox('Q-02', 'Question 02')));
+    assert.isFalse(component.isCheckbox(new Text('Q-01', 'Question 01')));
   });
 });

@@ -57,6 +57,18 @@ describe('AngularFormsComponent', () => {
     component.onChangeOptionSelect(htmlFormControl, formControl, question);
   });
 
+  it('should call isValid method', () => {
+    component.isValid();
+  });
+
+  it('should call isPristine method', () => {
+    component.isPristine();
+  });
+
+  it('should call isDirty method', () => {
+    component.isDirty();
+  });
+
   it('should call submit method', () => {
     component.submit();
   });

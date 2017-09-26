@@ -151,6 +151,9 @@
                                     <a href="../classes/Dependency.html" >Dependency</a>
                                 </li>
                                 <li class="link">
+                                    <a href="../classes/DependencyService.html" >DependencyService</a>
+                                </li>
+                                <li class="link">
                                     <a href="../classes/Email.html" >Email</a>
                                 </li>
                                 <li class="link">
@@ -220,6 +223,9 @@
                                     <a href="../classes/Select.html" >Select</a>
                                 </li>
                                 <li class="link">
+                                    <a href="../classes/SelectService.html" >SelectService</a>
+                                </li>
+                                <li class="link">
                                     <a href="../classes/StringUtils.html" >StringUtils</a>
                                 </li>
                                 <li class="link">
@@ -260,15 +266,25 @@
                                 <li class="link">
                                     <a href="../injectables/DemoService.html" >DemoService</a>
                                 </li>
-                                <li class="link">
-                                    <a href="../injectables/DependencyService.html" >DependencyService</a>
-                                </li>
-                                <li class="link">
-                                    <a href="../injectables/SelectService.html" >SelectService</a>
-                                </li>
                         </ul>
                     </li>
             
+                    <li class="chapter">
+                        <div class="simple menu-toggler" data-toggle="collapse"
+                                data-target="#xs-interfaces-links"
+                            >
+                            <span class="fa fa-info"></span>
+                            <span>Interfaces</span>
+                            <span class="fa fa-angle-down"></span>
+                        </div>
+                        <ul class="links collapse "
+                                id="xs-interfaces-links"
+                            >
+                                <li class="link">
+                                    <a href="../interfaces/Option.html" >Option</a>
+                                </li>
+                        </ul>
+                    </li>
             
             
                     <li class="chapter">
@@ -441,6 +457,9 @@
                                            <a href="../classes/Dependency.html" >Dependency</a>
                                        </li>
                                        <li class="link">
+                                           <a href="../classes/DependencyService.html" >DependencyService</a>
+                                       </li>
+                                       <li class="link">
                                            <a href="../classes/Email.html" >Email</a>
                                        </li>
                                        <li class="link">
@@ -510,6 +529,9 @@
                                            <a href="../classes/Select.html" >Select</a>
                                        </li>
                                        <li class="link">
+                                           <a href="../classes/SelectService.html" >SelectService</a>
+                                       </li>
+                                       <li class="link">
                                            <a href="../classes/StringUtils.html" >StringUtils</a>
                                        </li>
                                        <li class="link">
@@ -550,15 +572,25 @@
                                        <li class="link">
                                            <a href="../injectables/DemoService.html" >DemoService</a>
                                        </li>
-                                       <li class="link">
-                                           <a href="../injectables/DependencyService.html" >DependencyService</a>
-                                       </li>
-                                       <li class="link">
-                                           <a href="../injectables/SelectService.html" >SelectService</a>
-                                       </li>
                                </ul>
                            </li>
                    
+                           <li class="chapter">
+                               <div class="simple menu-toggler" data-toggle="collapse"
+                                       data-target="#interfaces-links"
+                   >
+                                   <span class="fa fa-info"></span>
+                                   <span>Interfaces</span>
+                                   <span class="fa fa-angle-down"></span>
+                               </div>
+                               <ul class="links collapse "
+                                       id="interfaces-links"
+                   >
+                                       <li class="link">
+                                           <a href="../interfaces/Option.html" >Option</a>
+                                       </li>
+                               </ul>
+                           </li>
                    
                    
                            <li class="chapter">
@@ -715,14 +747,14 @@
               &lt;/ng-template&gt; &lt;!--/radio--&gt;
 
               &lt;ng-template ngSwitchCase&#x3D;&quot;select&quot;&gt;
-              &lt;select [id]&#x3D;&quot;question.name&quot; class&#x3D;&quot;form-control&quot; [name]&#x3D;&quot;question.name&quot; #selectQuestion
+                &lt;select [id]&#x3D;&quot;question.name&quot; class&#x3D;&quot;form-control&quot; [name]&#x3D;&quot;question.name&quot; #selectQuestion
                       [formControlName]&#x3D;&quot;question.name&quot;
                       (change)&#x3D;&quot;onChangeOptionSelect(selectQuestion, newFormGroup.get(question.name), question)&quot;&gt;
                   &lt;option disabled [value]&#x3D;&quot;null&quot;&gt;
                     {{ question.placeholder ? question.placeholder : &#x27;&#x27; }}
                   &lt;/option&gt;
-                  &lt;option *ngFor&#x3D;&quot;let option of question.options&quot; [value]&#x3D;&quot;option&quot;&gt;
-                    {{ option }}
+                  &lt;option *ngFor&#x3D;&quot;let option of question.options&quot; [value]&#x3D;&quot;option[&#x27;value&#x27;] || option&quot;&gt;
+                    {{ option[&#x27;description&#x27;] || option }}
                   &lt;/option&gt;
                 &lt;/select&gt;
                 &lt;ng-container *ngIf&#x3D;&quot;question.editableOption &amp;&amp; question.editableOption.length&quot;&gt;
@@ -767,7 +799,7 @@
           &lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr class&#x3D;&quot;data&quot; *ngFor&#x3D;&quot;let data of formArray?.value; let indexData &#x3D; index&quot;&gt;
-          &lt;td *ngFor&#x3D;&quot;let key of getKeysFromObject(data)&quot; class&#x3D;&quot;{{ &#x27;check&#x27; &#x3D;&#x3D;&#x3D; getQuestionByName(key).type ? &#x27;text-center&#x27; : &#x27;&#x27; }}&quot;&gt;
+          &lt;td *ngFor&#x3D;&quot;let key of getKeysFromObject(data)&quot; [class.text-center]&#x3D;&quot;isCheckbox(getQuestionByName(key))&quot;&gt;
             &lt;ng-container [ngSwitch]&#x3D;&quot;getQuestionByName(key).type&quot;&gt;
               &lt;ng-template ngSwitchCase&#x3D;&quot;checkbox&quot;&gt;
                 &lt;i class&#x3D;&quot;rb-ico rb-ico-square rb-ico-{{ data[key] ? &#x27;checked&#x27; : &#x27;unchecked&#x27; }}&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/i&gt;
@@ -784,6 +816,9 @@
               {{ &#x27;REMOVE&#x27; | translate }}
             &lt;/button&gt;
           &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr *ngIf&#x3D;&quot;readOnly &amp;&amp; !formArray?.value.length&quot;&gt;
+          &lt;td [attr.colspan]&#x3D;&quot;group.questions[0].length&quot; class&#x3D;&quot;text-center&quot;&gt;{{ &#x27;NO_REGISTERS&#x27; | translate }}&lt;/td&gt;
         &lt;/tr&gt;
       &lt;/tbody&gt;
     &lt;/table&gt;
@@ -844,6 +879,9 @@
                                 <span class="modifier">Public</span> <a href="#getQuestionByName">getQuestionByName</a>
                             </li>
                             <li>
+                                <span class="modifier">Public</span> <a href="#isCheckbox">isCheckbox</a>
+                            </li>
+                            <li>
                                 <span class="modifier">Public</span> <a href="#onChangeOptionSelect">onChangeOptionSelect</a>
                             </li>
                             <li>
@@ -901,7 +939,7 @@
                     </tr>
                             <tr>
                                 <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="150" class="link-to-prism">src/data-table/data-table.component.ts:150</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="153" class="link-to-prism">src/data-table/data-table.component.ts:153</a></div>
                                 </td>
                             </tr>
                 </tbody>
@@ -925,7 +963,7 @@
                     </tr>
                             <tr>
                                 <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="152" class="link-to-prism">src/data-table/data-table.component.ts:152</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="155" class="link-to-prism">src/data-table/data-table.component.ts:155</a></div>
                                 </td>
                             </tr>
                 </tbody>
@@ -946,7 +984,7 @@
                     </tr>
                             <tr>
                                 <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="151" class="link-to-prism">src/data-table/data-table.component.ts:151</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="154" class="link-to-prism">src/data-table/data-table.component.ts:154</a></div>
                                 </td>
                             </tr>
                 </tbody>
@@ -970,12 +1008,14 @@
                     </tr>
                             <tr>
                                 <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="153" class="link-to-prism">src/data-table/data-table.component.ts:153</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="156" class="link-to-prism">src/data-table/data-table.component.ts:156</a></div>
                                 </td>
                             </tr>
                 </tbody>
             </table>
     </section>
+
+
 
 
     <section>
@@ -988,12 +1028,12 @@
                     <tr>
                         <td class="col-md-4">
                             <a name="addData"></a>
-                            <b><span class="modifier">Public</span> addData</b>
+                            <span class="name"><b><span class="modifier">Public</span> addData</b><a href="#addData"><span class="fa fa-link"></span></a></span>
                         </td>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <span class="modifier-icon method fa fa-play "></span>
+                                <span class="modifier-icon fa fa-reset"></span>
                             <code>addData()</code>
                         </td>
                     </tr>
@@ -1001,7 +1041,7 @@
     
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="168" class="link-to-prism">src/data-table/data-table.component.ts:168</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="171" class="link-to-prism">src/data-table/data-table.component.ts:171</a></div>
                                 </td>
                             </tr>
     
@@ -1021,12 +1061,12 @@
                     <tr>
                         <td class="col-md-4">
                             <a name="getKeysFromObject"></a>
-                            <b><span class="modifier">Public</span> getKeysFromObject</b>
+                            <span class="name"><b><span class="modifier">Public</span> getKeysFromObject</b><a href="#getKeysFromObject"><span class="fa fa-link"></span></a></span>
                         </td>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <span class="modifier-icon method fa fa-play "></span>
+                                <span class="modifier-icon fa fa-reset"></span>
                             <code>getKeysFromObject(object: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" target="_blank">Object</a>)</code>
                         </td>
                     </tr>
@@ -1034,7 +1074,7 @@
     
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="164" class="link-to-prism">src/data-table/data-table.component.ts:164</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="167" class="link-to-prism">src/data-table/data-table.component.ts:167</a></div>
                                 </td>
                             </tr>
     
@@ -1042,9 +1082,38 @@
                         <td class="col-md-4">
     
                                 <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <table class="params">
+                                            <thead>
+                                                <tr>
+                                                    <td>Name</td>
+                                                    <td>Type</td>
+                                                    <td>Optional</td>
+                                                    <td>Description</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                    <tr>
+                                                      <td>object</td>
+                                                      <td>
+                                                              <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" target="_blank" >Object</a></code>
+                                                      </td>
+                                                      <td>
+                                                      </td>
+                                                      <td></td>
+                                                    </tr>
+                                            </tbody>
+                                        </table>
+                                </div>
+                                <div>
+                                </div>
+                                <div class="io-description">
                                     <b>Returns : </b>    <code>string[]</code>
     
                                 </div>
+                                    <div class="io-description">
+                                        
+                                    </div>
                         </td>
                     </tr>
                 </tbody>
@@ -1054,12 +1123,12 @@
                     <tr>
                         <td class="col-md-4">
                             <a name="getQuestionByName"></a>
-                            <b><span class="modifier">Public</span> getQuestionByName</b>
+                            <span class="name"><b><span class="modifier">Public</span> getQuestionByName</b><a href="#getQuestionByName"><span class="fa fa-link"></span></a></span>
                         </td>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <span class="modifier-icon method fa fa-play "></span>
+                                <span class="modifier-icon fa fa-reset"></span>
                             <code>getQuestionByName(name: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                         </td>
                     </tr>
@@ -1067,7 +1136,7 @@
     
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="188" class="link-to-prism">src/data-table/data-table.component.ts:188</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="191" class="link-to-prism">src/data-table/data-table.component.ts:191</a></div>
                                 </td>
                             </tr>
     
@@ -1075,9 +1144,100 @@
                         <td class="col-md-4">
     
                                 <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <table class="params">
+                                            <thead>
+                                                <tr>
+                                                    <td>Name</td>
+                                                    <td>Type</td>
+                                                    <td>Optional</td>
+                                                    <td>Description</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                    <tr>
+                                                      <td>name</td>
+                                                      <td>
+                                                              <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                      </td>
+                                                      <td>
+                                                      </td>
+                                                      <td></td>
+                                                    </tr>
+                                            </tbody>
+                                        </table>
+                                </div>
+                                <div>
+                                </div>
+                                <div class="io-description">
                                     <b>Returns : </b>    <code><a href="../classes/Question.html" target="_self" >Question&lt;any&gt;</a></code>
     
                                 </div>
+                                    <div class="io-description">
+                                        
+                                    </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="isCheckbox"></a>
+                            <span class="name"><b><span class="modifier">Public</span> isCheckbox</b><a href="#isCheckbox"><span class="fa fa-link"></span></a></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <span class="modifier-icon fa fa-reset"></span>
+                            <code>isCheckbox(question: <a href="../classes/Question.html">Question<any></a>)</code>
+                        </td>
+                    </tr>
+    
+    
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="201" class="link-to-prism">src/data-table/data-table.component.ts:201</a></div>
+                                </td>
+                            </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <table class="params">
+                                            <thead>
+                                                <tr>
+                                                    <td>Name</td>
+                                                    <td>Type</td>
+                                                    <td>Optional</td>
+                                                    <td>Description</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                    <tr>
+                                                      <td>question</td>
+                                                      <td>
+                                                              <code><a href="../classes/Question.html" target="_self" >Question&lt;any&gt;</a></code>
+                                                      </td>
+                                                      <td>
+                                                      </td>
+                                                      <td></td>
+                                                    </tr>
+                                            </tbody>
+                                        </table>
+                                </div>
+                                <div>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+    
+                                </div>
+                                    <div class="io-description">
+                                        
+                                    </div>
                         </td>
                     </tr>
                 </tbody>
@@ -1087,12 +1247,12 @@
                     <tr>
                         <td class="col-md-4">
                             <a name="onChangeOptionSelect"></a>
-                            <b><span class="modifier">Public</span> onChangeOptionSelect</b>
+                            <span class="name"><b><span class="modifier">Public</span> onChangeOptionSelect</b><a href="#onChangeOptionSelect"><span class="fa fa-link"></span></a></span>
                         </td>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <span class="modifier-icon method fa fa-play "></span>
+                                <span class="modifier-icon fa fa-reset"></span>
                             <code>onChangeOptionSelect(htmlFormControl: HTMLInputElement, formControl: <a href="https://angular.io/docs/ts/latest/api/forms/index/FormControl-class.html" target="_blank">FormControl</a>, question: <a href="../classes/Select.html">Select</a>)</code>
                         </td>
                     </tr>
@@ -1100,7 +1260,7 @@
     
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="160" class="link-to-prism">src/data-table/data-table.component.ts:160</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="163" class="link-to-prism">src/data-table/data-table.component.ts:163</a></div>
                                 </td>
                             </tr>
     
@@ -1108,9 +1268,56 @@
                         <td class="col-md-4">
     
                                 <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <table class="params">
+                                            <thead>
+                                                <tr>
+                                                    <td>Name</td>
+                                                    <td>Type</td>
+                                                    <td>Optional</td>
+                                                    <td>Description</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                    <tr>
+                                                      <td>htmlFormControl</td>
+                                                      <td>
+                                                              <code>HTMLInputElement</code>
+                                                      </td>
+                                                      <td>
+                                                      </td>
+                                                      <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                      <td>formControl</td>
+                                                      <td>
+                                                              <code><a href="https://angular.io/docs/ts/latest/api/forms/index/FormControl-class.html" target="_blank" >FormControl</a></code>
+                                                      </td>
+                                                      <td>
+                                                      </td>
+                                                      <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                      <td>question</td>
+                                                      <td>
+                                                              <code><a href="../classes/Select.html" target="_self" >Select</a></code>
+                                                      </td>
+                                                      <td>
+                                                      </td>
+                                                      <td></td>
+                                                    </tr>
+                                            </tbody>
+                                        </table>
+                                </div>
+                                <div>
+                                </div>
+                                <div class="io-description">
                                     <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
     
                                 </div>
+                                    <div class="io-description">
+                                        
+                                    </div>
                         </td>
                     </tr>
                 </tbody>
@@ -1120,12 +1327,12 @@
                     <tr>
                         <td class="col-md-4">
                             <a name="removeData"></a>
-                            <b><span class="modifier">Public</span> removeData</b>
+                            <span class="name"><b><span class="modifier">Public</span> removeData</b><a href="#removeData"><span class="fa fa-link"></span></a></span>
                         </td>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <span class="modifier-icon method fa fa-play "></span>
+                                <span class="modifier-icon fa fa-reset"></span>
                             <code>removeData(index: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
                         </td>
                     </tr>
@@ -1133,7 +1340,7 @@
     
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="179" class="link-to-prism">src/data-table/data-table.component.ts:179</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="182" class="link-to-prism">src/data-table/data-table.component.ts:182</a></div>
                                 </td>
                             </tr>
     
@@ -1141,9 +1348,38 @@
                         <td class="col-md-4">
     
                                 <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <table class="params">
+                                            <thead>
+                                                <tr>
+                                                    <td>Name</td>
+                                                    <td>Type</td>
+                                                    <td>Optional</td>
+                                                    <td>Description</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                    <tr>
+                                                      <td>index</td>
+                                                      <td>
+                                                              <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                                      </td>
+                                                      <td>
+                                                      </td>
+                                                      <td></td>
+                                                    </tr>
+                                            </tbody>
+                                        </table>
+                                </div>
+                                <div>
+                                </div>
+                                <div class="io-description">
                                     <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
     
                                 </div>
+                                    <div class="io-description">
+                                        
+                                    </div>
                         </td>
                     </tr>
                 </tbody>
@@ -1153,12 +1389,12 @@
                     <tr>
                         <td class="col-md-4">
                             <a name="resetForms"></a>
-                            <b><span class="modifier">Public</span> resetForms</b>
+                            <span class="name"><b><span class="modifier">Public</span> resetForms</b><a href="#resetForms"><span class="fa fa-link"></span></a></span>
                         </td>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <span class="modifier-icon method fa fa-play "></span>
+                                <span class="modifier-icon fa fa-reset"></span>
                             <code>resetForms()</code>
                         </td>
                     </tr>
@@ -1166,7 +1402,7 @@
     
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="183" class="link-to-prism">src/data-table/data-table.component.ts:183</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="186" class="link-to-prism">src/data-table/data-table.component.ts:186</a></div>
                                 </td>
                             </tr>
     
@@ -1193,12 +1429,12 @@
                     <tr>
                         <td class="col-md-4">
                             <a name="formArray"></a>
-                            <b><span class="modifier">Public</span> formArray</b>
+                            <span class="name"><b><span class="modifier">Public</span> formArray</b><a href="#formArray"><span class="fa fa-link"></span></a></span>
                         </td>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                            <span class="modifier-icon fa fa-"></span><code>formArray:     <code><a href="https://angular.io/docs/ts/latest/api/forms/index/FormArray-class.html" target="_blank" >FormArray</a></code>
+                            <span class="modifier-icon fa fa-reset"></span><code>formArray:     <code><a href="https://angular.io/docs/ts/latest/api/forms/index/FormArray-class.html" target="_blank" >FormArray</a></code>
     </code>
                         </td>
                     </tr>
@@ -1210,7 +1446,7 @@
                         </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="146" class="link-to-prism">src/data-table/data-table.component.ts:146</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="149" class="link-to-prism">src/data-table/data-table.component.ts:149</a></div>
                                 </td>
                             </tr>
     
@@ -1222,12 +1458,12 @@
                     <tr>
                         <td class="col-md-4">
                             <a name="newFormGroup"></a>
-                            <b><span class="modifier">Public</span> newFormGroup</b>
+                            <span class="name"><b><span class="modifier">Public</span> newFormGroup</b><a href="#newFormGroup"><span class="fa fa-link"></span></a></span>
                         </td>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                            <span class="modifier-icon fa fa-"></span><code>newFormGroup:     <code><a href="../classes/Group.html" target="_self" >FormGroup</a></code>
+                            <span class="modifier-icon fa fa-reset"></span><code>newFormGroup:     <code><a href="../classes/Group.html" target="_self" >FormGroup</a></code>
     </code>
                         </td>
                     </tr>
@@ -1239,7 +1475,7 @@
                         </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="147" class="link-to-prism">src/data-table/data-table.component.ts:147</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="150" class="link-to-prism">src/data-table/data-table.component.ts:150</a></div>
                                 </td>
                             </tr>
     
@@ -1251,12 +1487,12 @@
                     <tr>
                         <td class="col-md-4">
                             <a name="submitted"></a>
-                            <b><span class="modifier">Public</span> submitted</b>
+                            <span class="name"><b><span class="modifier">Public</span> submitted</b><a href="#submitted"><span class="fa fa-link"></span></a></span>
                         </td>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                            <span class="modifier-icon fa fa-"></span><code>submitted:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                            <span class="modifier-icon fa fa-reset"></span><code>submitted:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
     </code>
                         </td>
                     </tr>
@@ -1273,7 +1509,7 @@
                         </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="148" class="link-to-prism">src/data-table/data-table.component.ts:148</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="151" class="link-to-prism">src/data-table/data-table.component.ts:151</a></div>
                                 </td>
                             </tr>
     
@@ -1288,7 +1524,7 @@
         <pre class="line-numbers"><code class="language-typescript">import { Component, Input, OnInit } from &#x27;@angular/core&#x27;;
 import { FormGroup, FormArray, FormControl } from &#x27;@angular/forms&#x27;;
 
-import { Select, SelectService, Question } from &#x27;../question&#x27;;
+import { Select, SelectService, Question, QuestionType } from &#x27;../question&#x27;;
 import { Group, DataTable } from &#x27;../group&#x27;;
 import { ReactiveFormsFactory } from &#x27;../factory&#x27;;
 
@@ -1348,14 +1584,14 @@ import { ReactiveFormsFactory } from &#x27;../factory&#x27;;
                   &lt;/ng-template&gt; &lt;!--/radio--&gt;
 
                   &lt;ng-template ngSwitchCase&#x3D;&quot;select&quot;&gt;
-                  &lt;select [id]&#x3D;&quot;question.name&quot; class&#x3D;&quot;form-control&quot; [name]&#x3D;&quot;question.name&quot; #selectQuestion
+                    &lt;select [id]&#x3D;&quot;question.name&quot; class&#x3D;&quot;form-control&quot; [name]&#x3D;&quot;question.name&quot; #selectQuestion
                           [formControlName]&#x3D;&quot;question.name&quot;
                           (change)&#x3D;&quot;onChangeOptionSelect(selectQuestion, newFormGroup.get(question.name), question)&quot;&gt;
                       &lt;option disabled [value]&#x3D;&quot;null&quot;&gt;
                         {{ question.placeholder ? question.placeholder : &#x27;&#x27; }}
                       &lt;/option&gt;
-                      &lt;option *ngFor&#x3D;&quot;let option of question.options&quot; [value]&#x3D;&quot;option&quot;&gt;
-                        {{ option }}
+                      &lt;option *ngFor&#x3D;&quot;let option of question.options&quot; [value]&#x3D;&quot;option[&#x27;value&#x27;] || option&quot;&gt;
+                        {{ option[&#x27;description&#x27;] || option }}
                       &lt;/option&gt;
                     &lt;/select&gt;
                     &lt;ng-container *ngIf&#x3D;&quot;question.editableOption &amp;&amp; question.editableOption.length&quot;&gt;
@@ -1400,7 +1636,7 @@ import { ReactiveFormsFactory } from &#x27;../factory&#x27;;
               &lt;/td&gt;
             &lt;/tr&gt;
             &lt;tr class&#x3D;&quot;data&quot; *ngFor&#x3D;&quot;let data of formArray?.value; let indexData &#x3D; index&quot;&gt;
-              &lt;td *ngFor&#x3D;&quot;let key of getKeysFromObject(data)&quot; class&#x3D;&quot;{{ &#x27;check&#x27; &#x3D;&#x3D;&#x3D; getQuestionByName(key).type ? &#x27;text-center&#x27; : &#x27;&#x27; }}&quot;&gt;
+              &lt;td *ngFor&#x3D;&quot;let key of getKeysFromObject(data)&quot; [class.text-center]&#x3D;&quot;isCheckbox(getQuestionByName(key))&quot;&gt;
                 &lt;ng-container [ngSwitch]&#x3D;&quot;getQuestionByName(key).type&quot;&gt;
                   &lt;ng-template ngSwitchCase&#x3D;&quot;checkbox&quot;&gt;
                     &lt;i class&#x3D;&quot;rb-ico rb-ico-square rb-ico-{{ data[key] ? &#x27;checked&#x27; : &#x27;unchecked&#x27; }}&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/i&gt;
@@ -1417,6 +1653,9 @@ import { ReactiveFormsFactory } from &#x27;../factory&#x27;;
                   {{ &#x27;REMOVE&#x27; | translate }}
                 &lt;/button&gt;
               &lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr *ngIf&#x3D;&quot;readOnly &amp;&amp; !formArray?.value.length&quot;&gt;
+              &lt;td [attr.colspan]&#x3D;&quot;group.questions[0].length&quot; class&#x3D;&quot;text-center&quot;&gt;{{ &#x27;NO_REGISTERS&#x27; | translate }}&lt;/td&gt;
             &lt;/tr&gt;
           &lt;/tbody&gt;
         &lt;/table&gt;
@@ -1481,6 +1720,10 @@ export class DataTableComponent implements OnInit {
 
     return null;
   }
+
+  public isCheckbox(question: Question&lt;any&gt;): boolean {
+    return QuestionType.CHECKBOX &#x3D;&#x3D;&#x3D; question.type;
+  }
 }
 </code></pre>
     </div>
@@ -1509,7 +1752,7 @@ export class DataTableComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><fieldset class="rb-data-table" [formGroup]="formGroup" [ngClass]="{ \'read-only\': readOnly }">  <legend>    <span [ngClass]="{ \'required-control\': group.isRequired() && !readOnly }">      {{ group.description }}    </span>  </legend>  <div class="table-responsive">    <table class="table table-bordered table-striped table-hover">      <thead>        <tr>          <th class="text-center" *ngFor="let question of group.questions[0]">            <span [ngClass]="{ \'required-control\': question.isRequired() && !readOnly }">              {{ question.description }}            </span>          </th>          <th class="text-center" *ngIf="!readOnly">            {{ \'ACTION\' | translate }}          </th>        </tr>      </thead>      <tbody>        <tr [formGroup]="newFormGroup" *ngIf="!readOnly">          <td *ngFor="let question of group.questions[0]">            <ng-container [ngSwitch]="question.type">              <ng-template ngSwitchCase="checkbox">                <div class="checkbox">                  <label>                    <input type="checkbox" [name]="question.name" [formControlName]="question.name" />                    {{ question.description }}                  </label>                  <rb-validation-message [validations]="question.validations"                                         [control]="newFormGroup.get(question.name)"                                         [submitted]="submitted">                  </rb-validation-message>                </div> <!--/.checkbox-->              </ng-template> <!--/checkbox-->              <ng-template ngSwitchCase="radio">                <div class="radio" *ngFor="let option of question.options">                  <label>                    <input type="radio" [name]="question.name" [value]="option" [formControlName]="question.name" />                    {{ option }}                  </label>                </div> <!--/.radio-->                <rb-validation-message [validations]="question.validations"                                       [control]="newFormGroup.get(question.name)"                                       [submitted]="submitted">                </rb-validation-message>              </ng-template> <!--/radio-->              <ng-template ngSwitchCase="select">              <select [id]="question.name" class="form-control" [name]="question.name" #selectQuestion                      [formControlName]="question.name"                      (change)="onChangeOptionSelect(selectQuestion, newFormGroup.get(question.name), question)">                  <option disabled [value]="null">                    {{ question.placeholder ? question.placeholder : \'\' }}                  </option>                  <option *ngFor="let option of question.options" [value]="option">                    {{ option }}                  </option>                </select>                <ng-container *ngIf="question.editableOption && question.editableOption.length">                  <input [hidden]="question.editableOption !== selectQuestion.value"                         type="text" [id]="question.name" class="form-control editable-option" [name]="question.name"                         [formControlName]="question.name" />                </ng-container>                <rb-validation-message [validations]="question.validations"                                       [control]="newFormGroup.get(question.name)"                                       [submitted]="submitted">                </rb-validation-message>              </ng-template> <!--/select-->              <ng-template ngSwitchCase="textarea">                <textarea [id]="question.name" class="form-control" [name]="question.name" rows="5"                          placeholder="{{ question.placeholder ? question.placeholder : \'\' }}"                          [formControlName]="question.name">                </textarea>                <rb-validation-message [validations]="question.validations"                                       [control]="newFormGroup.get(question.name)"                                       [submitted]="submitted">                </rb-validation-message>              </ng-template> <!--/textarea-->              <ng-template ngSwitchCase="text" ngSwitchDefault>                <input type="text" [id]="question.name" class="form-control" [name]="question.name"                        placeholder="{{ question.placeholder ? question.placeholder : \'\' }}"                        [formControlName]="question.name" [mask]="question.mask" />                <rb-validation-message [validations]="question.validations"                                       [control]="newFormGroup.get(question.name)"                                       [submitted]="submitted">                </rb-validation-message>              </ng-template> <!--/text-->            </ng-container> <!--/ngSwitch-questionType-->          </td>          <td class="text-center">            <button class="btn btn-default btn-add-data" (click)="addData()">              <i class="rb-ico rb-ico-add" aria-hidden="true"></i>              {{ \'ADD\' | translate }}            </button>          </td>        </tr>        <tr class="data" *ngFor="let data of formArray?.value; let indexData = index">          <td *ngFor="let key of getKeysFromObject(data)" class="{{ \'check\' === getQuestionByName(key).type ? \'text-center\' : \'\' }}">            <ng-container [ngSwitch]="getQuestionByName(key).type">              <ng-template ngSwitchCase="checkbox">                <i class="rb-ico rb-ico-square rb-ico-{{ data[key] ? \'checked\' : \'unchecked\' }}" aria-hidden="true"></i>              </ng-template>              <ng-template ngSwitchDefault>                {{ data[key] || \'NOT_INFORMED\' | translate }}              </ng-template>            </ng-container>          </td>          <td class="text-center" *ngIf="!readOnly">            <button class="btn btn-default btn-remove-data" (click)="removeData(indexData)">              <i class="rb-ico rb-ico-remove" aria-hidden="true"></i>              {{ \'REMOVE\' | translate }}            </button>          </td>        </tr>      </tbody>    </table>  </div> <!--/.table-responsive-->  <rb-validation-message [validations]="group.validations"                         [control]="formArray"                         [submitted]="formGroupSubmitted">  </rb-validation-message></fieldset></div>'
+        var COMPONENT_TEMPLATE = '<div><fieldset class="rb-data-table" [formGroup]="formGroup" [ngClass]="{ \'read-only\': readOnly }">  <legend>    <span [ngClass]="{ \'required-control\': group.isRequired() && !readOnly }">      {{ group.description }}    </span>  </legend>  <div class="table-responsive">    <table class="table table-bordered table-striped table-hover">      <thead>        <tr>          <th class="text-center" *ngFor="let question of group.questions[0]">            <span [ngClass]="{ \'required-control\': question.isRequired() && !readOnly }">              {{ question.description }}            </span>          </th>          <th class="text-center" *ngIf="!readOnly">            {{ \'ACTION\' | translate }}          </th>        </tr>      </thead>      <tbody>        <tr [formGroup]="newFormGroup" *ngIf="!readOnly">          <td *ngFor="let question of group.questions[0]">            <ng-container [ngSwitch]="question.type">              <ng-template ngSwitchCase="checkbox">                <div class="checkbox">                  <label>                    <input type="checkbox" [name]="question.name" [formControlName]="question.name" />                    {{ question.description }}                  </label>                  <rb-validation-message [validations]="question.validations"                                         [control]="newFormGroup.get(question.name)"                                         [submitted]="submitted">                  </rb-validation-message>                </div> <!--/.checkbox-->              </ng-template> <!--/checkbox-->              <ng-template ngSwitchCase="radio">                <div class="radio" *ngFor="let option of question.options">                  <label>                    <input type="radio" [name]="question.name" [value]="option" [formControlName]="question.name" />                    {{ option }}                  </label>                </div> <!--/.radio-->                <rb-validation-message [validations]="question.validations"                                       [control]="newFormGroup.get(question.name)"                                       [submitted]="submitted">                </rb-validation-message>              </ng-template> <!--/radio-->              <ng-template ngSwitchCase="select">                <select [id]="question.name" class="form-control" [name]="question.name" #selectQuestion                      [formControlName]="question.name"                      (change)="onChangeOptionSelect(selectQuestion, newFormGroup.get(question.name), question)">                  <option disabled [value]="null">                    {{ question.placeholder ? question.placeholder : \'\' }}                  </option>                  <option *ngFor="let option of question.options" [value]="option[\'value\'] || option">                    {{ option[\'description\'] || option }}                  </option>                </select>                <ng-container *ngIf="question.editableOption && question.editableOption.length">                  <input [hidden]="question.editableOption !== selectQuestion.value"                         type="text" [id]="question.name" class="form-control editable-option" [name]="question.name"                         [formControlName]="question.name" />                </ng-container>                <rb-validation-message [validations]="question.validations"                                       [control]="newFormGroup.get(question.name)"                                       [submitted]="submitted">                </rb-validation-message>              </ng-template> <!--/select-->              <ng-template ngSwitchCase="textarea">                <textarea [id]="question.name" class="form-control" [name]="question.name" rows="5"                          placeholder="{{ question.placeholder ? question.placeholder : \'\' }}"                          [formControlName]="question.name">                </textarea>                <rb-validation-message [validations]="question.validations"                                       [control]="newFormGroup.get(question.name)"                                       [submitted]="submitted">                </rb-validation-message>              </ng-template> <!--/textarea-->              <ng-template ngSwitchCase="text" ngSwitchDefault>                <input type="text" [id]="question.name" class="form-control" [name]="question.name"                        placeholder="{{ question.placeholder ? question.placeholder : \'\' }}"                        [formControlName]="question.name" [mask]="question.mask" />                <rb-validation-message [validations]="question.validations"                                       [control]="newFormGroup.get(question.name)"                                       [submitted]="submitted">                </rb-validation-message>              </ng-template> <!--/text-->            </ng-container> <!--/ngSwitch-questionType-->          </td>          <td class="text-center">            <button class="btn btn-default btn-add-data" (click)="addData()">              <i class="rb-ico rb-ico-add" aria-hidden="true"></i>              {{ \'ADD\' | translate }}            </button>          </td>        </tr>        <tr class="data" *ngFor="let data of formArray?.value; let indexData = index">          <td *ngFor="let key of getKeysFromObject(data)" [class.text-center]="isCheckbox(getQuestionByName(key))">            <ng-container [ngSwitch]="getQuestionByName(key).type">              <ng-template ngSwitchCase="checkbox">                <i class="rb-ico rb-ico-square rb-ico-{{ data[key] ? \'checked\' : \'unchecked\' }}" aria-hidden="true"></i>              </ng-template>              <ng-template ngSwitchDefault>                {{ data[key] || \'NOT_INFORMED\' | translate }}              </ng-template>            </ng-container>          </td>          <td class="text-center" *ngIf="!readOnly">            <button class="btn btn-default btn-remove-data" (click)="removeData(indexData)">              <i class="rb-ico rb-ico-remove" aria-hidden="true"></i>              {{ \'REMOVE\' | translate }}            </button>          </td>        </tr>        <tr *ngIf="readOnly && !formArray?.value.length">          <td [attr.colspan]="group.questions[0].length" class="text-center">{{ \'NO_REGISTERS\' | translate }}</td>        </tr>      </tbody>    </table>  </div> <!--/.table-responsive-->  <rb-validation-message [validations]="group.validations"                         [control]="formArray"                         [submitted]="formGroupSubmitted">  </rb-validation-message></fieldset></div>'
     var COMPONENTS = [{'name': 'AngularFormsComponent', 'selector': 'rb-angular-forms'},{'name': 'DataTableComponent', 'selector': 'rb-data-table'},{'name': 'DemoComponent', 'selector': 'rb-demo-app'},{'name': 'ValidationMessageComponent', 'selector': 'rb-validation-message'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'DataTableComponent'};

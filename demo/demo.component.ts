@@ -9,10 +9,14 @@ import { AngularFormsComponent } from '../src';
     <div class='container'>
       <h1>AngularForms</h1>
       <rb-angular-forms #angularForms [groups]="customForm" [readOnly]="false" lang="pt-BR"></rb-angular-forms>
-      <button class="btn btn-primary" (click)="angularForms.submit(); getForm()">getForm()</button>
-      <button class="btn btn-primary" (click)="angularForms.submit(); isValid()">isValid()</button>
-      <button class="btn btn-primary" (click)="angularForms.submit(); getAnswersGroups()">getAnswersGroups()</button>
-      <button class="btn btn-primary" (click)="angularForms.submit(); getAnswers()">getAnswers()</button>
+      <button class="btn btn-primary" (click)="angularForms.submit()">submit()</button>
+      <button class="btn btn-primary" (click)="isPristine()">isPristine()</button>
+      <button class="btn btn-primary" (click)="isDirty()">isDirty()</button>
+      <button class="btn btn-primary" (click)="isValid()">isValid()</button>
+      <button class="btn btn-primary" (click)="getForm()">getForm()</button>
+      <button class="btn btn-primary" (click)="isValid()">isValid()</button>
+      <button class="btn btn-primary" (click)="getAnswersGroups()">getAnswersGroups()</button>
+      <button class="btn btn-primary" (click)="getAnswers()">getAnswers()</button>
     </div>
   `,
   providers: [DemoService]
@@ -31,6 +35,14 @@ export class DemoComponent implements OnInit {
 
   public getForm(): void {
     console.log(this.angularForms.getForm());
+  }
+
+  public isPristine(): void {
+    console.log(this.angularForms.isPristine());
+  }
+
+  public isDirty(): void {
+    console.log(this.angularForms.isDirty());
   }
 
   public isValid(): void {

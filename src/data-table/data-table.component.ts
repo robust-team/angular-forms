@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup, FormArray, FormControl } from '@angular/forms';
 
-import { Select, SelectService, Question } from '../question';
+import { Select, SelectService, Question, QuestionType } from '../question';
 import { Group, DataTable } from '../group';
 import { ReactiveFormsFactory } from '../factory';
 
@@ -61,14 +61,14 @@ import { ReactiveFormsFactory } from '../factory';
                   </ng-template> <!--/radio-->
 
                   <ng-template ngSwitchCase="select">
-                  <select [id]="question.name" class="form-control" [name]="question.name" #selectQuestion
+                    <select [id]="question.name" class="form-control" [name]="question.name" #selectQuestion
                           [formControlName]="question.name"
                           (change)="onChangeOptionSelect(selectQuestion, newFormGroup.get(question.name), question)">
                       <option disabled [value]="null">
                         {{ question.placeholder ? question.placeholder : '' }}
                       </option>
-                      <option *ngFor="let option of question.options" [value]="option">
-                        {{ option }}
+                      <option *ngFor="let option of question.options" [value]="option['value'] || option">
+                        {{ option['description'] || option }}
                       </option>
                     </select>
                     <ng-container *ngIf="question.editableOption && question.editableOption.length">
@@ -113,7 +113,7 @@ import { ReactiveFormsFactory } from '../factory';
               </td>
             </tr>
             <tr class="data" *ngFor="let data of formArray?.value; let indexData = index">
-              <td *ngFor="let key of getKeysFromObject(data)" class="{{ 'check' === getQuestionByName(key).type ? 'text-center' : '' }}">
+              <td *ngFor="let key of getKeysFromObject(data)" [class.text-center]="isCheckbox(getQuestionByName(key))">
                 <ng-container [ngSwitch]="getQuestionByName(key).type">
                   <ng-template ngSwitchCase="checkbox">
                     <i class="rb-ico rb-ico-square rb-ico-{{ data[key] ? 'checked' : 'unchecked' }}" aria-hidden="true"></i>
@@ -130,6 +130,9 @@ import { ReactiveFormsFactory } from '../factory';
                   {{ 'REMOVE' | translate }}
                 </button>
               </td>
+            </tr>
+            <tr *ngIf="readOnly && !formArray?.value.length">
+              <td [attr.colspan]="group.questions[0].length" class="text-center">{{ 'NO_REGISTERS' | translate }}</td>
             </tr>
           </tbody>
         </table>
@@ -193,5 +196,9 @@ export class DataTableComponent implements OnInit {
     }
 
     return null;
+  }
+
+  public isCheckbox(question: Question<any>): boolean {
+    return QuestionType.CHECKBOX === question.type;
   }
 }

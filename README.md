@@ -240,6 +240,8 @@ Example output:
 | Method | Function |
 |-|-|
 | **isValid()** | Returns the status of form. |
+| **isPristine()** | Returns if the user has not yet changed some value in the form. |
+| **isDirty()** | Returns if the user has changed some value in the form. |
 | **getAnswersGroups()** | Returns only the answers grouped in yours respective Groups.  |
 | **getAnswers()** | Returns only the answers of simple Questions and of DataTables (that is considered a Question).  |
 | **getForm()** | Returns an object with two attributes: **valid** (return of **isValid** method) and **value** (return of **getAnswersGroups** method. |
@@ -382,6 +384,19 @@ The **Group** represents a grouping of questions, which can be of two types: **F
   "defaultOption": null,
   "editableOption": "Option 2",
   "placeholder": "Select an option"
+}
+```
+
+For the **Radio** and **Select** Questions, the *option* attribute can be a *string array* or an *object array* (**Option** Interface).
+
+```json
+{
+  // ...
+  "options": [
+    { "value": "op1", "description": "Option 1" },
+    { "value": "op2", "description": "Option 2" }
+  ]
+  // ...
 }
 ```
 

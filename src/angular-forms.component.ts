@@ -87,8 +87,8 @@ import { StringUtils } from './util';
                           <option disabled [value]="null">
                             {{ question.placeholder ? question.placeholder : '' }}
                           </option>
-                          <option *ngFor="let option of question.options" [value]="option">
-                            {{ option }}
+                          <option *ngFor="let option of question.options" [value]="option['value'] || option">
+                            {{ option['description'] || option }}
                           </option>
                         </select>
                         <ng-container *ngIf="question.editableOption && question.editableOption.length">
@@ -215,6 +215,14 @@ export class AngularFormsComponent implements OnInit, AfterViewChecked {
 
   public getForm(): { valid: boolean, value: Object } {
     return { valid: this.isValid(), value: this.getAnswersGroups() };
+  }
+
+  public isPristine(): boolean {
+    return this.formGroup.pristine;
+  }
+
+  public isDirty(): boolean {
+    return this.formGroup.dirty;
   }
 
   public isValid(): boolean {

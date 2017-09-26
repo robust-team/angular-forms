@@ -223,7 +223,7 @@
                                     <a href="../classes/Select.html" >Select</a>
                                 </li>
                                 <li class="link">
-                                    <a href="../classes/SelectService.html" >SelectService</a>
+                                    <a href="../classes/SelectService.html"  data-type="entity-link" class="active" >SelectService</a>
                                 </li>
                                 <li class="link">
                                     <a href="../classes/StringUtils.html" >StringUtils</a>
@@ -244,7 +244,7 @@
                                     <a href="../classes/ValidationTypeNotFoundError.html" >ValidationTypeNotFoundError</a>
                                 </li>
                                 <li class="link">
-                                    <a href="../classes/ValidatorFactory.html"  data-type="entity-link" class="active" >ValidatorFactory</a>
+                                    <a href="../classes/ValidatorFactory.html" >ValidatorFactory</a>
                                 </li>
                                 <li class="link">
                                     <a href="../classes/ValidatorFactoryHandler.html" >ValidatorFactoryHandler</a>
@@ -529,7 +529,7 @@
                                            <a href="../classes/Select.html" >Select</a>
                                        </li>
                                        <li class="link">
-                                           <a href="../classes/SelectService.html" >SelectService</a>
+                                           <a href="../classes/SelectService.html"  data-type="entity-link" class="active" >SelectService</a>
                                        </li>
                                        <li class="link">
                                            <a href="../classes/StringUtils.html" >StringUtils</a>
@@ -550,7 +550,7 @@
                                            <a href="../classes/ValidationTypeNotFoundError.html" >ValidationTypeNotFoundError</a>
                                        </li>
                                        <li class="link">
-                                           <a href="../classes/ValidatorFactory.html"  data-type="entity-link" class="active" >ValidatorFactory</a>
+                                           <a href="../classes/ValidatorFactory.html" >ValidatorFactory</a>
                                        </li>
                                        <li class="link">
                                            <a href="../classes/ValidatorFactoryHandler.html" >ValidatorFactoryHandler</a>
@@ -638,7 +638,7 @@
 
 <ol class="breadcrumb">
   <li>Classes</li>
-  <li>ValidatorFactory</li>
+  <li>SelectService</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -658,7 +658,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/factory/validator-factory.ts</code>
+            <code>src/question/select.service.ts</code>
         </p>
 
 
@@ -678,25 +678,7 @@
                             <td class="col-md-4">
                                 <ul class="index-list">
                                     <li>
-                                        <span class="modifier">Public</span> <a href="#createEmailValidator">createEmailValidator</a>
-                                    </li>
-                                    <li>
-                                        <span class="modifier">Public</span> <a href="#createMaxLengthValidator">createMaxLengthValidator</a>
-                                    </li>
-                                    <li>
-                                        <span class="modifier">Public</span> <a href="#createMaxValidator">createMaxValidator</a>
-                                    </li>
-                                    <li>
-                                        <span class="modifier">Public</span> <a href="#createMinLengthValidator">createMinLengthValidator</a>
-                                    </li>
-                                    <li>
-                                        <span class="modifier">Public</span> <a href="#createMinValidator">createMinValidator</a>
-                                    </li>
-                                    <li>
-                                        <span class="modifier">Public</span> <a href="#createPatternValidator">createPatternValidator</a>
-                                    </li>
-                                    <li>
-                                        <span class="modifier">Public</span> <a href="#createRequiredValidator">createRequiredValidator</a>
+                                        <span class="modifier">Public</span> <a href="#onChangeOption">onChangeOption</a>
                                     </li>
                                 </ul>
                             </td>
@@ -705,24 +687,38 @@
                 </table>
             </section>
 
+
             <section>
-                <h3 id="constructor">Constructor</h3>
+                
+                    <h3 id="methods">
+                        Methods
+                    </h3>
                     <table class="table table-sm table-bordered">
                         <tbody>
                             <tr>
                                 <td class="col-md-4">
-                                    <code>constructor(validation: <a href="../classes/Validation.html">Validation</a>)</code>
+                                    <a name="onChangeOption"></a>
+                                    <span class="name"><b><span class="modifier">Public</span> onChangeOption</b><a href="#onChangeOption"><span class="fa fa-link"></span></a></span>
                                 </td>
                             </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                        <span class="modifier-icon fa fa-reset"></span>
+                                    <code>onChangeOption(htmlFormControl: HTMLInputElement, formControl: <a href="https://angular.io/docs/ts/latest/api/forms/index/FormControl-class.html" target="_blank">FormControl</a>, question: <a href="../classes/Select.html">Select</a>)</code>
+                                </td>
+                            </tr>
+            
+            
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="5" class="link-to-prism">src/factory/validator-factory.ts:5</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">src/question/select.service.ts:7</a></div>
                                         </td>
                                     </tr>
             
                             <tr>
                                 <td class="col-md-4">
-                                        <div>
+            
+                                        <div class="io-description">
                                                 <b>Parameters :</b>
                                                 <table class="params">
                                                     <thead>
@@ -735,9 +731,27 @@
                                                     </thead>
                                                     <tbody>
                                                             <tr>
-                                                              <td>validation</td>
+                                                              <td>htmlFormControl</td>
                                                               <td>
-                                                                        <code><a href="../classes/Validation.html" target="_self" >Validation</a></code>
+                                                                      <code>HTMLInputElement</code>
+                                                              </td>
+                                                              <td>
+                                                              </td>
+                                                              <td></td>
+                                                            </tr>
+                                                            <tr>
+                                                              <td>formControl</td>
+                                                              <td>
+                                                                      <code><a href="https://angular.io/docs/ts/latest/api/forms/index/FormControl-class.html" target="_blank" >FormControl</a></code>
+                                                              </td>
+                                                              <td>
+                                                              </td>
+                                                              <td></td>
+                                                            </tr>
+                                                            <tr>
+                                                              <td>question</td>
+                                                              <td>
+                                                                      <code><a href="../classes/Select.html" target="_self" >Select</a></code>
                                                               </td>
                                                               <td>
                                                               </td>
@@ -746,244 +760,15 @@
                                                     </tbody>
                                                 </table>
                                         </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-            </section>
-
-            <section>
-                
-                    <h3 id="methods">
-                        Methods
-                    </h3>
-                    <table class="table table-sm table-bordered">
-                        <tbody>
-                            <tr>
-                                <td class="col-md-4">
-                                    <a name="createEmailValidator"></a>
-                                    <span class="name"><b><span class="modifier">Public</span> createEmailValidator</b><a href="#createEmailValidator"><span class="fa fa-link"></span></a></span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="col-md-4">
-                                        <span class="modifier-icon fa fa-reset"></span>
-                                    <code>createEmailValidator()</code>
-                                </td>
-                            </tr>
-            
-            
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/factory/validator-factory.ts:9</a></div>
-                                        </td>
-                                    </tr>
-            
-                            <tr>
-                                <td class="col-md-4">
-            
+                                        <div>
+                                        </div>
                                         <div class="io-description">
-                                            <b>Returns : </b>    <code><a href="https://angular.io/docs/ts/latest/api/forms/index/ValidatorFn-interface.html" target="_blank" >ValidatorFn</a></code>
+                                            <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
             
                                         </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <table class="table table-sm table-bordered">
-                        <tbody>
-                            <tr>
-                                <td class="col-md-4">
-                                    <a name="createMaxLengthValidator"></a>
-                                    <span class="name"><b><span class="modifier">Public</span> createMaxLengthValidator</b><a href="#createMaxLengthValidator"><span class="fa fa-link"></span></a></span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="col-md-4">
-                                        <span class="modifier-icon fa fa-reset"></span>
-                                    <code>createMaxLengthValidator()</code>
-                                </td>
-                            </tr>
-            
-            
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/factory/validator-factory.ts:21</a></div>
-                                        </td>
-                                    </tr>
-            
-                            <tr>
-                                <td class="col-md-4">
-            
-                                        <div class="io-description">
-                                            <b>Returns : </b>    <code><a href="https://angular.io/docs/ts/latest/api/forms/index/ValidatorFn-interface.html" target="_blank" >ValidatorFn</a></code>
-            
-                                        </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <table class="table table-sm table-bordered">
-                        <tbody>
-                            <tr>
-                                <td class="col-md-4">
-                                    <a name="createMaxValidator"></a>
-                                    <span class="name"><b><span class="modifier">Public</span> createMaxValidator</b><a href="#createMaxValidator"><span class="fa fa-link"></span></a></span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="col-md-4">
-                                        <span class="modifier-icon fa fa-reset"></span>
-                                    <code>createMaxValidator()</code>
-                                </td>
-                            </tr>
-            
-            
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/factory/validator-factory.ts:13</a></div>
-                                        </td>
-                                    </tr>
-            
-                            <tr>
-                                <td class="col-md-4">
-            
-                                        <div class="io-description">
-                                            <b>Returns : </b>    <code><a href="https://angular.io/docs/ts/latest/api/forms/index/ValidatorFn-interface.html" target="_blank" >ValidatorFn</a></code>
-            
-                                        </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <table class="table table-sm table-bordered">
-                        <tbody>
-                            <tr>
-                                <td class="col-md-4">
-                                    <a name="createMinLengthValidator"></a>
-                                    <span class="name"><b><span class="modifier">Public</span> createMinLengthValidator</b><a href="#createMinLengthValidator"><span class="fa fa-link"></span></a></span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="col-md-4">
-                                        <span class="modifier-icon fa fa-reset"></span>
-                                    <code>createMinLengthValidator()</code>
-                                </td>
-                            </tr>
-            
-            
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/factory/validator-factory.ts:25</a></div>
-                                        </td>
-                                    </tr>
-            
-                            <tr>
-                                <td class="col-md-4">
-            
-                                        <div class="io-description">
-                                            <b>Returns : </b>    <code><a href="https://angular.io/docs/ts/latest/api/forms/index/ValidatorFn-interface.html" target="_blank" >ValidatorFn</a></code>
-            
-                                        </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <table class="table table-sm table-bordered">
-                        <tbody>
-                            <tr>
-                                <td class="col-md-4">
-                                    <a name="createMinValidator"></a>
-                                    <span class="name"><b><span class="modifier">Public</span> createMinValidator</b><a href="#createMinValidator"><span class="fa fa-link"></span></a></span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="col-md-4">
-                                        <span class="modifier-icon fa fa-reset"></span>
-                                    <code>createMinValidator()</code>
-                                </td>
-                            </tr>
-            
-            
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/factory/validator-factory.ts:17</a></div>
-                                        </td>
-                                    </tr>
-            
-                            <tr>
-                                <td class="col-md-4">
-            
-                                        <div class="io-description">
-                                            <b>Returns : </b>    <code><a href="https://angular.io/docs/ts/latest/api/forms/index/ValidatorFn-interface.html" target="_blank" >ValidatorFn</a></code>
-            
-                                        </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <table class="table table-sm table-bordered">
-                        <tbody>
-                            <tr>
-                                <td class="col-md-4">
-                                    <a name="createPatternValidator"></a>
-                                    <span class="name"><b><span class="modifier">Public</span> createPatternValidator</b><a href="#createPatternValidator"><span class="fa fa-link"></span></a></span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="col-md-4">
-                                        <span class="modifier-icon fa fa-reset"></span>
-                                    <code>createPatternValidator()</code>
-                                </td>
-                            </tr>
-            
-            
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/factory/validator-factory.ts:29</a></div>
-                                        </td>
-                                    </tr>
-            
-                            <tr>
-                                <td class="col-md-4">
-            
-                                        <div class="io-description">
-                                            <b>Returns : </b>    <code><a href="https://angular.io/docs/ts/latest/api/forms/index/ValidatorFn-interface.html" target="_blank" >ValidatorFn</a></code>
-            
-                                        </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <table class="table table-sm table-bordered">
-                        <tbody>
-                            <tr>
-                                <td class="col-md-4">
-                                    <a name="createRequiredValidator"></a>
-                                    <span class="name"><b><span class="modifier">Public</span> createRequiredValidator</b><a href="#createRequiredValidator"><span class="fa fa-link"></span></a></span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="col-md-4">
-                                        <span class="modifier-icon fa fa-reset"></span>
-                                    <code>createRequiredValidator()</code>
-                                </td>
-                            </tr>
-            
-            
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/factory/validator-factory.ts:43</a></div>
-                                        </td>
-                                    </tr>
-            
-                            <tr>
-                                <td class="col-md-4">
-            
-                                        <div class="io-description">
-                                            <b>Returns : </b>    <code><a href="https://angular.io/docs/ts/latest/api/forms/index/ValidatorFn-interface.html" target="_blank" >ValidatorFn</a></code>
-            
-                                        </div>
+                                            <div class="io-description">
+                                                
+                                            </div>
                                 </td>
                             </tr>
                         </tbody>
@@ -995,50 +780,17 @@
 
 
     <div class="tab-pane fade tab-source-code" id="source">
-        <pre class="line-numbers"><code class="language-typescript">import { ValidatorFn, Validators } from &#x27;@angular/forms&#x27;;
+        <pre class="line-numbers"><code class="language-typescript">import { FormControl } from &#x27;@angular/forms&#x27;;
 
-import { Validation, Email, Max, Min, MaxLength, MinLength, Pattern, Required } from &#x27;../validation&#x27;;
+import { Select } from &#x27;.&#x27;;
 
-export class ValidatorFactory {
+export class SelectService {
 
-  public constructor(private validation: Validation) { }
-
-  public createEmailValidator(): ValidatorFn {
-    return Validators.email;
-  }
-
-  public createMaxValidator(): ValidatorFn {
-    return Validators.max((&lt;Max&gt;this.validation).value);
-  }
-
-  public createMinValidator(): ValidatorFn {
-    return Validators.min((&lt;Min&gt;this.validation).value);
-  }
-
-  public createMaxLengthValidator(): ValidatorFn {
-    return Validators.maxLength((&lt;MaxLength&gt;this.validation).value);
-  }
-
-  public createMinLengthValidator(): ValidatorFn {
-    return Validators.minLength((&lt;MinLength&gt;this.validation).value);
-  }
-
-  public createPatternValidator(): ValidatorFn {
-    const value: string &#x3D; (&lt;Pattern&gt;this.validation).value;
-
-    if (value.startsWith(&#x27;/&#x27;)) {
-      const valuePattern: RegExp &#x3D; /\/(.*)\/([gim]+)?/;
-      const pattern: string &#x3D; value.replace(valuePattern, &#x27;$1&#x27;);
-      const flags: string &#x3D; value.replace(valuePattern, &#x27;$2&#x27;);
-
-      return Validators.pattern(new RegExp(pattern, flags));
+  public static onChangeOption(htmlFormControl: HTMLInputElement, formControl: FormControl, question: Select): void {
+    if (htmlFormControl.value &#x3D;&#x3D;&#x3D; question.editableOption) {
+      formControl.setValue(null);
+      htmlFormControl.value &#x3D; question.editableOption;
     }
-
-    return Validators.pattern(value);
-  }
-
-  public createRequiredValidator(): ValidatorFn {
-    return !(&lt;Required&gt;this.validation).requiredTrue ? Validators.required : Validators.requiredTrue;
   }
 }
 </code></pre>
