@@ -58,6 +58,7 @@ const groups: any[] = [
         'type': 'text',
         'answer': '200',
         'placeholder': 'Text Question 0104',
+        'tooltip' : 'Hint for Text Question',
         'validations': [
           { 'type': 'required', 'message': 'Required field.' },
           { 'type': 'minlength', 'message': 'Min Length: 3', 'value': 3 },
@@ -69,6 +70,7 @@ const groups: any[] = [
         'description': 'Text Question 0105',
         'type': 'text',
         'placeholder': 'Text Question 0105',
+        'tooltip' : 'Hint for Text Question',
         'validations': [
           { 'type': 'required', 'message': 'Required field.' },
           { 'type': 'pattern', 'message': 'Format: 00000-000', 'value': '^\\d{5}-\\d{3}$' }

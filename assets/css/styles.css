@@ -55,3 +55,11 @@
 
 /* Choice Question */
 .editable-option { margin-top: 10px; }
+
+
+/* Tooltip */
+.form-group:hover .tooltip{opacity: 100}
+
+.tooltip.top{
+  margin-top: -2em;
+}

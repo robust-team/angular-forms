@@ -81,7 +81,7 @@ import { StringUtils } from './util';
                         <label [for]="question.name" [ngClass]="{ 'required-control': question.isRequired() }">
                           {{ question.description }}
                         </label>
-                        <select [id]="question.name" class="form-control" [name]="question.name" #selectQuestion
+                        <select [id]="question.name" class="form-control" [name]="question.name" #selectQuestion #question.name
                                 [formControlName]="question.name"
                                 (change)="onChangeOptionSelect(selectQuestion, formGroup.get(group.code).get(question.name), question)">
                           <option disabled [value]="null">
@@ -138,13 +138,21 @@ import { StringUtils } from './util';
                         <label [for]="question.name" [ngClass]="{ 'required-control': question.isRequired() }">
                           {{ question.description }}
                         </label>
+
+                        <rb-tooltip *ngIf="question.tooltip"
+                            [tooltip]="question.tooltip"
+                            [control]="formGroup.get(group.code).get(question.name)">
+                        </rb-tooltip>
+
                         <input type="text" [id]="question.name" class="form-control" [name]="question.name"
                                placeholder="{{ question.placeholder ? question.placeholder : '' }}"
-                               [formControlName]="question.name" [mask]="question.mask" />
+                               [formControlName]="question.name" [mask]="question.mask" #question.name />
+
                         <rb-validation-message [validations]="question.validations"
                                                [control]="formGroup.get(group.code).get(question.name)"
                                                [submitted]="submitted">
                         </rb-validation-message>
+
                       </ng-container> <!--!readOnly-->
 
                       <ng-template #readOnlyText>

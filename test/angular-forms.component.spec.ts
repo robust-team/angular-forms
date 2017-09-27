@@ -12,6 +12,7 @@ import { DataTableModule } from '../src/data-table';
 import { ValidationMessageModule } from '../src/validation-message/validation-message.module';
 import { Select, Text, Dependency, DependencyCriteria } from '../src/question';
 import { DemoService } from '../demo/demo.service';
+import { TooltipModule } from '../src/tooltip/tooltip.module';
 
 describe('AngularFormsComponent', () => {
   let component: AngularFormsComponent;
@@ -24,6 +25,7 @@ describe('AngularFormsComponent', () => {
         DataTableModule,
         ValidationMessageModule,
         NgMaskModule,
+        TooltipModule,
         TranslateModule.forRoot({
           loader: {
             provide: TranslateLoader,

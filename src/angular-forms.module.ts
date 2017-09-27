@@ -8,6 +8,7 @@ import { AngularFormsComponent } from '.';
 import { DataTableModule } from './data-table';
 import { ValidationMessageModule } from './validation-message';
 import { AngularFormsTranslateLoader } from './angular-forms-translate-loader';
+import { TooltipModule } from './tooltip';
 
 @NgModule({
   imports: [
@@ -15,6 +16,7 @@ import { AngularFormsTranslateLoader } from './angular-forms-translate-loader';
     ReactiveFormsModule,
     DataTableModule,
     ValidationMessageModule,
+    TooltipModule,
     NgMaskModule,
     TranslateModule.forRoot({
       loader: {
