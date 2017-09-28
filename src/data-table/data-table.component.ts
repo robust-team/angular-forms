@@ -1,6 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup, FormArray, FormControl } from '@angular/forms';
 
+import { Status } from '..';
 import { Select, SelectService, Question, QuestionType } from '../question';
 import { Group, DataTable } from '../group';
 import { ReactiveFormsFactory } from '../factory';
@@ -8,7 +9,8 @@ import { ReactiveFormsFactory } from '../factory';
 @Component({
   selector: 'rb-data-table',
   template: `
-    <fieldset class="rb-data-table" [formGroup]="formGroup" [ngClass]="{ 'read-only': readOnly }">
+    <fieldset *ngIf="Status['READY'] === status" class="rb-data-table rb-data-table-{{ group.code }}" [formGroup]="formGroup"
+      [ngClass]="{ 'read-only': readOnly }">
       <legend>
         <span [ngClass]="{ 'required-control': group.isRequired() && !readOnly }">
           {{ group.description }}
@@ -146,6 +148,8 @@ import { ReactiveFormsFactory } from '../factory';
 })
 export class DataTableComponent implements OnInit {
 
+  public readonly Status: Object = Status;
+
   public formArray: FormArray;
   public newFormGroup: FormGroup;
   public submitted: boolean = false;
@@ -155,9 +159,26 @@ export class DataTableComponent implements OnInit {
   @Input() public formGroupSubmitted: boolean = false;
   @Input() public readOnly: boolean = false;
 
+  @Output() public error: EventEmitter<Error> = new EventEmitter();
+  @Output() public ready: EventEmitter<boolean> = new EventEmitter();
+
+  private _status: Status;
+
   public ngOnInit(): void {
     this.formArray = <FormArray>this.formGroup.get(this.group.code);
-    this.newFormGroup = ReactiveFormsFactory.createFormGroupFromQuestions(this.group.questions[0], false);
+
+    if (this.formArray) {
+      this._status = Status.LOADING;
+      this.load()
+        .then(() => {
+          this._status = Status.READY;
+          this.ready.emit();
+        })
+        .catch((error: Error) => {
+          this._status = Status.ERROR;
+          this.error.emit(error);
+        });
+    }
   }
 
   public onChangeOptionSelect(htmlFormControl: HTMLInputElement, formControl: FormControl, question: Select): void {
@@ -200,5 +221,21 @@ export class DataTableComponent implements OnInit {
 
   public isCheckbox(question: Question<any>): boolean {
     return QuestionType.CHECKBOX === question.type;
+  }
+
+  public get status(): Status {
+    return this._status;
+  }
+
+  private async load(): Promise<void> {
+    return new Promise<void>(async (resolve: () => void, reject: (error: Error) => void) => {
+      try {
+        this.newFormGroup = await ReactiveFormsFactory.createFormGroupFromQuestions(this.group.questions[0], false);
+
+        resolve();
+      } catch (error) {
+        reject(error);
+      }
+    });
   }
 }

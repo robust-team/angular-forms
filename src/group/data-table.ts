@@ -2,15 +2,23 @@ import { Group, GroupType } from '.';
 import { Question } from '../question';
 import { Pattern, Validation, ValidationType } from '../validation';
 
-export class DataTable extends Group {
+export class DataTable extends Group<Question<any>[][]> {
 
   public constructor(
     code: string,
     description: string,
-    private _questions: Question<any>[][],
+    questions: Question<any>[][],
     private _validations: Validation[] = []
   ) {
-    super(code, description, GroupType.DATATABLE);
+    super(code, description, GroupType.DATATABLE, questions);
+  }
+
+  public getQuestionByName(name: string): Question<any> {
+    for (const question of this._questions[0]) {
+      if (question.name === name) {
+        return question;
+      }
+    }
   }
 
   public isRequired(): boolean {
@@ -21,10 +29,6 @@ export class DataTable extends Group {
     }
 
     return false;
-  }
-
-  public get questions(): Question<any>[][] {
-    return this._questions;
   }
 
   public get validations(): Validation[] {

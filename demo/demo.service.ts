@@ -109,7 +109,7 @@ const groups: any[] = [
         'placeholder': 'Text Question 0108',
         'validations': [
           { 'type': 'min', 'message': 'Min value: 1.', 'value': '1' },
-          { 'type': 'max', 'message': 'Min value: 10.', 'value': '10' }
+          { 'type': 'max', 'message': 'Max value: 10.', 'value': '10' }
         ]
       },
       {
