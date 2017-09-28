@@ -36,13 +36,14 @@ describe('AngularFormsComponent', () => {
     .compileComponents();
   }));
 
-  beforeEach(() => {
+  beforeEach(async(() => {
     fixture = TestBed.createComponent(AngularFormsComponent);
     component = fixture.componentInstance;
     component.groups = (new DemoService()).getForm();
+    component.ngOnChanges(<any>{ groups: { currentValue: (new DemoService()).getForm() } });
 
     fixture.detectChanges();
-  });
+  }));
 
   it('should create', () => {
     assert(component);

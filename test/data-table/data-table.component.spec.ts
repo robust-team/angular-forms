@@ -36,7 +36,7 @@ describe('DataTableComponent', () => {
     .compileComponents();
   }));
 
-  beforeEach(() => {
+  beforeEach(async(() => {
     fixture = TestBed.createComponent(DataTableComponent);
 
     component = fixture.componentInstance;
@@ -44,7 +44,7 @@ describe('DataTableComponent', () => {
     component.group = new DataTable('G-01', 'Group 01', [[new Text('Q-01', 'Question 01', [])]]);
 
     fixture.detectChanges();
-  });
+  }));
 
   it('should create', () => {
     assert(component);
