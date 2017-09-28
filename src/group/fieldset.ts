@@ -1,17 +1,21 @@
 import { Group, GroupType } from '.';
 import { Question } from '../question';
 
-export class Fieldset extends Group {
+export class Fieldset extends Group<Question<any>[]> {
 
   public constructor(
     code: string,
     description: string,
-    private _questions: Question<any>[]
+    questions: Question<any>[]
   ) {
-    super(code, description, GroupType.FIELDSET);
+    super(code, description, GroupType.FIELDSET, questions);
   }
 
-  public get questions(): Question<any>[] {
-    return this._questions;
+  public getQuestionByName(name: string): Question<any> {
+    for (const question of this._questions) {
+      if (question.name === name) {
+        return question;
+      }
+    }
   }
 }

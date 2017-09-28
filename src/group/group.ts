@@ -1,12 +1,13 @@
 import { GroupType } from '.';
 import { Question } from '../question';
 
-export abstract class Group {
+export abstract class Group<QuestionListType> {
 
   public constructor(
-    private _code: string,
-    private _description: string,
-    private _type: GroupType
+    protected _code: string,
+    protected _description: string,
+    protected _type: GroupType,
+    protected _questions: QuestionListType
   ) { }
 
   public get code(): string {
@@ -17,7 +18,17 @@ export abstract class Group {
     return this._description;
   }
 
+  public set description(value: string) {
+    this._description = value;
+  }
+
   public get type(): GroupType {
     return this._type;
   }
+
+  public get questions(): QuestionListType {
+    return this._questions;
+  }
+
+  public abstract getQuestionByName(name: string): Question<any>;
 }
