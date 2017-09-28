@@ -12,5 +12,5 @@ export abstract class GroupBuilder<QuestionListType> {
 
   public abstract addQuestion(question: QuestionListType): void;
 
-  public abstract build(): Group;
+  public abstract build(): Group<any>;
 }
