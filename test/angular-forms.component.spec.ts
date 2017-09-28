@@ -12,6 +12,7 @@ import { DataTableModule } from '../src/data-table';
 import { ValidationMessageModule } from '../src/validation-message/validation-message.module';
 import { Select, Text, Dependency, DependencyCriteria } from '../src/question';
 import { DemoService } from '../demo/demo.service';
+import { Fieldset } from '../src/group/fieldset';
 
 describe('AngularFormsComponent', () => {
   let component: AngularFormsComponent;
@@ -70,6 +71,10 @@ describe('AngularFormsComponent', () => {
 
   it('should call submit method', () => {
     component.submit();
+  });
+
+  it('should call getGroupByCode method', () => {
+    assert.isTrue(component.getGroupByCode('G-01') instanceof Fieldset);
   });
 
   it('should not hide a question without dependencies', () => {
