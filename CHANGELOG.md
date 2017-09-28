@@ -2,6 +2,48 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.0.0"></a>
+## [2.0.0](https://github.com/robust-team/angular-forms/compare/v1.2.0...v2.0.0) (2017-09-28)
+
+### Features
+
+* Added in the **Group** model:
+  * **setDescription** method;
+  * **getQuestionByName** abstract method;
+* Added in the **Question** model:
+  * **setDescription** method;
+* **Status** enum.
+* Added in **AngularFormsComponent**:
+  * **CSS class** with question name into template's fieldset;
+  * **Output** events error and ready;
+  * **getGroupByCode** public method;
+  * **getStatus** public method;
+  * **Errors' catch** for Promises.
+* Changed in **DataTableComponent**:
+  * **CSS class** with **question name** into template's fieldset;
+  * **Output** events error and ready;
+  * **getStatus** public method
+  * **Errors' catch** for Promises.
+
+### Changes
+
+* Use of **Promises** into AngularForms and ReactiveFormsFactory.
+* Changed in the **Group** model:
+  * **Protected visibility** in properties;
+  * Generic Type **<QuestionListType>**;
+  * **question** property;
+* Changed in the **Question** model:
+  * **Protected visibility** in properties;
+* Changed in **AngularFormsComponent**:
+  * **Async** load;
+  * **ngOnChanges** event for build form;
+* Changed in **DataTableComponent**:
+  * **Async** load.
+
+### Bug Fixes
+
+* Fixed initialization of answer property in Choice model.
+
 <a name="1.2.0"></a>
 ## [1.2.0](https://github.com/robust-team/angular-forms/compare/v1.1.0...v1.2.0) (2017-09-22)
 
