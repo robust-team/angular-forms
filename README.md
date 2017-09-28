@@ -10,6 +10,30 @@
 
 A Simple Form Generator for Angular.
 
+## Table of Contents
+
+- [Requirements](#requirements)
+- [Usage](#usage)
+- [Groups](#groups)
+  - [Fieldset](#fieldset)
+  - [DataTable](#datatable)
+- [Questions](#questions)
+  - [Checkbox](#checkbox)
+  - [Radio](#radio)
+  - [Select](#select)
+  - [Text](#text)
+    - [Masks](#masks)
+  - [TextArea](#textarea)
+- [Validations](#validations)
+  - [Email](#email)
+  - [Max](#max)
+  - [Min](#min)
+  - [MaxLength](#maxlength)
+  - [MinLength](#minlength)
+  - [Pattern](#pattern)
+  - [Required](#required)
+- [Dependencies](#dependencies)
+
 ## Requirements
 
 - **@angular/common**: 4.0.0 or higher,
@@ -65,7 +89,7 @@ The **customForm** attribute represents the JSON coming from API. For example:
     "questions": [
       {
         "name": "Q-0101",
-        "description": "Check Question 0101",
+        "description": "Checkbox Question 0101",
         "type": "checkbox",
         "defaultOption": "false",
         "validations": [
@@ -233,7 +257,7 @@ Example output:
 }
 ```
 
-**AngularFormsComponent**'s methods:
+**AngularFormsComponent**'s public methods and properties:
 
 | Method | Function |
 |-|-|
@@ -244,8 +268,22 @@ Example output:
 | **getAnswers()** | Returns only the answers of simple Questions and of DataTables (that is considered a Question).  |
 | **getForm()** | Returns an object with two attributes: **valid** (return of **isValid** method) and **value** (return of **getAnswersGroups** method. |
 | **submit()** | Send the form, enabling the validation of all questions. |
+| **formGroup** | **FormGroup**'s instance of the **ReactiveForms**. |
+| **status** | Returns the form's status: **LOADING*, **READY**, **ERROR** or **null**. |
+| **getGroupByCode(code)** | Returns a **Group** according with **code**. |
 
-6. If you want only to show the answers from JSON, use the **readOnly** input with **true** value (your default value is **false**).
+6. The **AngularFormsComponent** contains two output events:
+
+| Output | Function |
+|-|-|
+| **ready** | When the form's build is finished. |
+| **error** | When occurs any error in form's build (throws the *error object*). |
+
+```html
+<rb-angular-forms #angularForms [groups]="customForm" (ready)="onReady()" (error)="onError($event)"></rb-angular-forms>
+```
+
+7. If you want only to show the answers from JSON, use the **readOnly** input with **true** value (your default value is **false**).
 
 ```html
 <rb-angular-forms #angularForms [groups]="customForm" [readOnly]="true"></rb-angular-forms>
@@ -253,7 +291,7 @@ Example output:
 
 ![screen](docs/screens/angular-forms-02.png)
 
-7. For you config the language to be used by AngularForms, use the **lang** input. There are two langs available: **en-US** (default) and **pt-BR**.
+8. For you config the language to be used by AngularForms, use the **lang** input. There are two langs available: **en-US** (default) and **pt-BR**.
 
 ```html
 <rb-angular-forms #angularForms [groups]="customForm" lang="pt-BR"></rb-angular-forms>
@@ -262,6 +300,8 @@ Example output:
 ## Groups
 
 The **Group** represents a grouping of questions, which can be of two types: **Fieldset** and **DataTable**.
+
+> The **Group** contains the public method **getQuestionByName**, that returns a question according with **name**.
 
 ### Fieldset
 
@@ -275,7 +315,7 @@ The **Group** represents a grouping of questions, which can be of two types: **F
   "questions": [
     {
       "name": "Q-0101",
-      "description": "Check Question 0101",
+      "description": "Checkbox Question 0101",
       "type": "checkbox",
       "validations": []
     },
@@ -303,7 +343,7 @@ The **Group** represents a grouping of questions, which can be of two types: **F
     [
       {
         "name": "Q-0101",
-        "description": "Check Question 0101",
+        "description": "Checkbox Question 0101",
         "type": "checkbox",
         "validations": []
       },
@@ -330,14 +370,16 @@ The **Group** represents a grouping of questions, which can be of two types: **F
 - **text**;
 - **textarea**.
 
-### Check
+> The **Question** contains the public setter method **description**, that permits alter label of questions.
 
-**Check** represents a *checkbox* input from HTML.
+### Checkbox
+
+**Checkbox** represents a *checkbox* input from HTML.
 
 ```json
 {
   "name": "Q-01",
-  "description": "Check Question",
+  "description": "Checkbox Question",
   "dependencies": [],
   "type": "checkbox",
   "answer": null,
