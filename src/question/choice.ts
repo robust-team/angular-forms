@@ -11,10 +11,10 @@ export abstract class Choice extends Question<string> {
     answer: string = null,
     validations: Validation[] = [],
     disabled: boolean = false,
-    private _options: Option[] | string[] = [],
-    private _defaultOption: string = null
+    protected _options: Option[] | string[] = [],
+    protected _defaultOption: string = null
   ) {
-    super(name, description, type, dependencies, answer, validations, disabled);
+    super(name, description, type, dependencies, (answer && !answer.length ? answer : null), validations, disabled);
   }
 
   public get options(): Option[] | string[] {
