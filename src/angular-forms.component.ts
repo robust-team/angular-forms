@@ -1,8 +1,10 @@
-import { Component, OnInit, Output, Input, AfterViewChecked, ChangeDetectorRef } from '@angular/core';
+import { AfterViewChecked, ChangeDetectorRef, Component, EventEmitter,
+  Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 
 import { TranslateService } from '@ngx-translate/core';
-import { AngularForms } from '.';
+
+import { AngularForms, Status } from '.';
 import { Group } from './group';
 import { DependencyService, Select, SelectService, Question } from './question';
 import { ReactiveFormsFactory } from './factory';
@@ -11,13 +13,13 @@ import { StringUtils } from './util';
 @Component({
   selector: 'rb-angular-forms',
   template: `
-    <form class="rb-angular-forms" [formGroup]="formGroup" [ngClass]="{ 'read-only': readOnly }">
+    <form *ngIf="Status['READY'] === status" class="rb-angular-forms" [formGroup]="formGroup" [ngClass]="{ 'read-only': readOnly }">
       <ng-container *ngFor="let group of groups">
 
         <ng-container [ngSwitch]="group.type">
 
           <ng-container *ngSwitchCase="'group'">
-            <fieldset class="rb-fieldset" [formGroup]="formGroup.get(group.code)">
+            <fieldset class="rb-fieldset rb-fieldset-{{ group.code }}" [formGroup]="formGroup.get(group.code)">
               <legend *ngIf="'Ungrouped' !== group.description">{{ group.description }}</legend>
 
               <ng-container *ngFor="let question of group.questions">
@@ -160,7 +162,9 @@ import { StringUtils } from './util';
           </ng-container> <!--/ngSwitchCase-fieldset-->
 
           <ng-container *ngSwitchDefault>
-            <rb-data-table [group]="group" [formGroup]="formGroup" [formGroupSubmitted]="submitted" [readOnly]="readOnly"></rb-data-table>
+            <rb-data-table [group]="group" [formGroup]="formGroup" [formGroupSubmitted]="submitted" [readOnly]="readOnly"
+              (error)="onError($event)">
+            </rb-data-table>
           </ng-container>
 
         </ng-container> <!--/ngSwitch-groupType-->
@@ -169,14 +173,21 @@ import { StringUtils } from './util';
     </form>
   `
 })
-export class AngularFormsComponent implements OnInit, AfterViewChecked {
+export class AngularFormsComponent implements OnInit, OnChanges, AfterViewChecked {
+
+  public readonly Status: Object = Status;
 
   public formGroup: FormGroup;
   public submitted: boolean = false;
 
-  @Input() public groups: Group[] = [];
+  @Input() public groups: Group<any>[] = [];
   @Input() public lang: string = 'en-US';
   @Input() public readOnly: boolean = false;
+
+  @Output() public error: EventEmitter<Error> = new EventEmitter();
+  @Output() public ready: EventEmitter<boolean> = new EventEmitter();
+
+  private _status: Status;
 
   public constructor(
     private changeDetectorRef: ChangeDetectorRef,
@@ -185,12 +196,40 @@ export class AngularFormsComponent implements OnInit, AfterViewChecked {
 
   public ngOnInit(): void {
     this.configTranslate();
-    this.groups = AngularForms.fromJson(this.groups);
-    this.formGroup = ReactiveFormsFactory.createFormGroupFromGroups(this.groups);
+  }
+
+  public ngOnChanges(changes: SimpleChanges): void {
+    if (changes['groups']) {
+      const groups: Group<any>[] = changes['groups'].currentValue;
+
+      if (groups && groups.length) {
+        this._status = Status.LOADING;
+        this.load()
+          .then(() => {
+            this._status = Status.READY;
+            this.ready.emit();
+          })
+          .catch((error: Error) => {
+            this._status = Status.ERROR;
+            this.printErrorLog(error);
+            this.error.emit(error);
+          });
+      } else {
+        this.clear();
+      }
+    }
   }
 
   public ngAfterViewChecked(): void {
     this.changeDetectorRef.detectChanges();
+  }
+
+  public getGroupByCode(code: string): Group<any> {
+    for (const group of this.groups) {
+      if (group.code === code) {
+        return group;
+      }
+    }
   }
 
   public hideQuestion(question: Question<any>, formGroup: FormGroup): boolean {
@@ -248,12 +287,21 @@ export class AngularFormsComponent implements OnInit, AfterViewChecked {
         return;
       }
 
-      Object.keys(answersGroups[groupIndex]).forEach(
-        (questionIndex: string) => answers[questionIndex] = answersGroups[groupIndex][questionIndex]
-      );
+      Object.keys(answersGroups[groupIndex])
+        .forEach((questionIndex: string) => answers[questionIndex] = answersGroups[groupIndex][questionIndex]);
     });
 
     return answers;
+  }
+
+  public onError(error: Error): void {
+    this.clear();
+    this.printErrorLog(error);
+    this.error.emit(error);
+  }
+
+  public get status(): Status {
+    return this._status;
   }
 
   private configTranslate(): void {
@@ -262,11 +310,31 @@ export class AngularFormsComponent implements OnInit, AfterViewChecked {
     this.translateService.use(this.lang || 'en-US');
   }
 
-  private convertAnswersOfGroupToString(answersGroup: Object): Object {
-    Object.keys(answersGroup).forEach((questionIndex: string) => {
-      answersGroup[questionIndex] = StringUtils.convertToString(answersGroup[questionIndex]);
+  private async load(): Promise<void> {
+    return new Promise<void>(async (resolve: () => void, reject: (error: Error) => void) => {
+      try {
+        this.groups = await AngularForms.fromJson(this.groups);
+        this.formGroup = await ReactiveFormsFactory.createFormGroupFromGroups(this.groups);
+        resolve();
+      } catch (error) {
+        reject(error);
+      }
     });
+  }
+
+  private convertAnswersOfGroupToString(answersGroup: Object): Object {
+    Object.keys(answersGroup)
+      .forEach((questionIndex: string) => answersGroup[questionIndex] = StringUtils.convertToString(answersGroup[questionIndex]));
 
     return answersGroup;
+  }
+
+  private clear(): void {
+    this._status = null;
+    this.formGroup = null;
+  }
+
+  private printErrorLog(error: Error): void {
+    console.error(`[AngularForms] ${error.name} :: ${error.message}`);
   }
 }
