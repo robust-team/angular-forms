@@ -638,6 +638,38 @@
 <a href="http://issuestats.com/github/robust-team/angular-forms"><img src="http://issuestats.com/github/robust-team/angular-forms/badge/pr?style=flat" alt="Issue Stats" class="img-responsive"></a>
 <a href="http://issuestats.com/github/robust-team/angular-forms"><img src="http://issuestats.com/github/robust-team/angular-forms/badge/issue?style=flat" alt="Issue Stats" class="img-responsive"></a></p>
 <p>A Simple Form Generator for Angular.</p>
+<h2 id="table-of-contents">Table of Contents</h2>
+<ul>
+<li><a href="#requirements">Requirements</a></li>
+<li><a href="#usage">Usage</a></li>
+<li><a href="#groups">Groups</a><ul>
+<li><a href="#fieldset">Fieldset</a></li>
+<li><a href="#datatable">DataTable</a></li>
+</ul>
+</li>
+<li><a href="#questions">Questions</a><ul>
+<li><a href="#checkbox">Checkbox</a></li>
+<li><a href="#radio">Radio</a></li>
+<li><a href="#select">Select</a></li>
+<li><a href="#text">Text</a><ul>
+<li><a href="#masks">Masks</a></li>
+</ul>
+</li>
+<li><a href="#textarea">TextArea</a></li>
+</ul>
+</li>
+<li><a href="#validations">Validations</a><ul>
+<li><a href="#email">Email</a></li>
+<li><a href="#max">Max</a></li>
+<li><a href="#min">Min</a></li>
+<li><a href="#maxlength">MaxLength</a></li>
+<li><a href="#minlength">MinLength</a></li>
+<li><a href="#pattern">Pattern</a></li>
+<li><a href="#required">Required</a></li>
+</ul>
+</li>
+<li><a href="#dependencies">Dependencies</a></li>
+</ul>
 <h2 id="requirements">Requirements</h2>
 <ul>
 <li><strong>@angular/common</strong>: 4.0.0 or higher,</li>
@@ -678,7 +710,7 @@ export class MyModule { }</code></pre><ol>
     &quot;questions&quot;: [
       {
         &quot;name&quot;: &quot;Q-0101&quot;,
-        &quot;description&quot;: &quot;Check Question 0101&quot;,
+        &quot;description&quot;: &quot;Checkbox Question 0101&quot;,
         &quot;type&quot;: &quot;checkbox&quot;,
         &quot;defaultOption&quot;: &quot;false&quot;,
         &quot;validations&quot;: [
@@ -830,7 +862,7 @@ export class MyModule { }</code></pre><ol>
       &quot;Q-204&quot;: null
     }
   }
-}</code></pre><p><strong>AngularFormsComponent</strong>&#39;s methods:</p>
+}</code></pre><p><strong>AngularFormsComponent</strong>&#39;s public methods and properties:</p>
 <table class="table table-bordered compodoc-table">
 <thead>
 <tr>
@@ -867,9 +899,46 @@ export class MyModule { }</code></pre><ol>
 <td><strong>submit()</strong></td>
 <td>Send the form, enabling the validation of all questions.</td>
 </tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>formGroup</strong></td>
+<td><strong>FormGroup</strong>&#39;s instance of the <strong>ReactiveForms</strong>.</td>
+</tr>
+<tr>
+<td><strong>getGroupByCode</strong></td>
+<td>Returns a <strong>Group</strong> according with <strong>code</strong>.</td>
+</tr>
+<tr>
+<td><strong>status</strong></td>
+<td>Returns the form&#39;s status: <strong>LOADING*, </strong>READY<strong>, </strong>ERROR<strong> or </strong>null**.</td>
+</tr>
 </tbody>
 </table>
 <ol>
+<li>The <strong>AngularFormsComponent</strong> contains two output events:</li>
+</ol>
+<table class="table table-bordered compodoc-table">
+<thead>
+<tr>
+<th>Output</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ready</strong></td>
+<td>When the form&#39;s build is finished.</td>
+</tr>
+<tr>
+<td><strong>error</strong></td>
+<td>When occurs any error in form&#39;s build (throws the <em>error object</em>).</td>
+</tr>
+</tbody>
+</table>
+<pre class="line-numbers"><code class="language-html">&lt;rb-angular-forms #angularForms [groups]=&quot;customForm&quot; (ready)=&quot;onReady()&quot; (error)=&quot;onError($event)&quot;&gt;&lt;/rb-angular-forms&gt;</code></pre><ol>
 <li>If you want only to show the answers from JSON, use the <strong>readOnly</strong> input with <strong>true</strong> value (your default value is <strong>false</strong>).</li>
 </ol>
 <pre class="line-numbers"><code class="language-html">&lt;rb-angular-forms #angularForms [groups]=&quot;customForm&quot; [readOnly]=&quot;true&quot;&gt;&lt;/rb-angular-forms&gt;</code></pre><p><img src="docs/screens/angular-forms-02.png" alt="screen" class="img-responsive"></p>
@@ -878,6 +947,9 @@ export class MyModule { }</code></pre><ol>
 </ol>
 <pre class="line-numbers"><code class="language-html">&lt;rb-angular-forms #angularForms [groups]=&quot;customForm&quot; lang=&quot;pt-BR&quot;&gt;&lt;/rb-angular-forms&gt;</code></pre><h2 id="groups">Groups</h2>
 <p>The <strong>Group</strong> represents a grouping of questions, which can be of two types: <strong>Fieldset</strong> and <strong>DataTable</strong>.</p>
+<blockquote>
+<p>The <strong>Group</strong> contains the public method <strong>getQuestionByName</strong>, that returns a question according with <strong>name</strong>.</p>
+</blockquote>
 <h3 id="fieldset">Fieldset</h3>
 <p><strong>Fieldset</strong> is a grouping of questions that represents a simple fieldset of HTML. The value of your type is &quot;<strong>group</strong>&quot;.</p>
 <pre class="line-numbers"><code class="language-json">{
@@ -887,7 +959,7 @@ export class MyModule { }</code></pre><ol>
   &quot;questions&quot;: [
     {
       &quot;name&quot;: &quot;Q-0101&quot;,
-      &quot;description&quot;: &quot;Check Question 0101&quot;,
+      &quot;description&quot;: &quot;Checkbox Question 0101&quot;,
       &quot;type&quot;: &quot;checkbox&quot;,
       &quot;validations&quot;: []
     },
@@ -909,7 +981,7 @@ export class MyModule { }</code></pre><ol>
     [
       {
         &quot;name&quot;: &quot;Q-0101&quot;,
-        &quot;description&quot;: &quot;Check Question 0101&quot;,
+        &quot;description&quot;: &quot;Checkbox Question 0101&quot;,
         &quot;type&quot;: &quot;checkbox&quot;,
         &quot;validations&quot;: []
       },
@@ -932,11 +1004,14 @@ export class MyModule { }</code></pre><ol>
 <li><strong>text</strong>;</li>
 <li><strong>textarea</strong>.</li>
 </ul>
-<h3 id="check">Check</h3>
-<p><strong>Check</strong> represents a <em>checkbox</em> input from HTML.</p>
+<blockquote>
+<p>The <strong>Question</strong> contains the public setter method <strong>description</strong>, that permits alter label of questions.</p>
+</blockquote>
+<h3 id="checkbox">Checkbox</h3>
+<p><strong>Checkbox</strong> represents a <em>checkbox</em> input from HTML.</p>
 <pre class="line-numbers"><code class="language-json">{
   &quot;name&quot;: &quot;Q-01&quot;,
-  &quot;description&quot;: &quot;Check Question&quot;,
+  &quot;description&quot;: &quot;Checkbox Question&quot;,
   &quot;dependencies&quot;: [],
   &quot;type&quot;: &quot;checkbox&quot;,
   &quot;answer&quot;: null,

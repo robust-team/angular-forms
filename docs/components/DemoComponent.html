@@ -666,6 +666,7 @@
     </p>
     <p class="comment">
                 <code><a href="https://angular.io/docs/ts/latest/api/core/index/OnInit-interface.html" target="_blank" >OnInit</a></code>
+                <code><a href="https://angular.io/docs/ts/latest/api/core/index/AfterViewInit-interface.html" target="_blank" >AfterViewInit</a></code>
     </p>
 
 
@@ -704,7 +705,13 @@
                 <td class="col-md-3">template</td>
                 <td class="col-md-9"><pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&#x27;container&#x27;&gt;
   &lt;h1&gt;AngularForms&lt;/h1&gt;
-  &lt;rb-angular-forms #angularForms [groups]&#x3D;&quot;customForm&quot; [readOnly]&#x3D;&quot;false&quot; lang&#x3D;&quot;pt-BR&quot;&gt;&lt;/rb-angular-forms&gt;
+
+  &lt;div class&#x3D;&quot;alert alert-danger&quot; *ngIf&#x3D;&quot;errorMessage&quot;&gt;
+    &lt;p&gt;{{ errorMessage }}&lt;/p&gt;
+  &lt;/div&gt;
+
+  &lt;rb-angular-forms #angularForms [groups]&#x3D;&quot;customForm&quot; [readOnly]&#x3D;&quot;false&quot; lang&#x3D;&quot;pt-BR&quot; (error)&#x3D;&quot;onError($event)&quot;&gt;&lt;/rb-angular-forms&gt;
+
   &lt;button class&#x3D;&quot;btn btn-primary&quot; (click)&#x3D;&quot;angularForms.submit()&quot;&gt;submit()&lt;/button&gt;
   &lt;button class&#x3D;&quot;btn btn-primary&quot; (click)&#x3D;&quot;isPristine()&quot;&gt;isPristine()&lt;/button&gt;
   &lt;button class&#x3D;&quot;btn btn-primary&quot; (click)&#x3D;&quot;isDirty()&quot;&gt;isDirty()&lt;/button&gt;
@@ -741,6 +748,9 @@
                             <li>
                                 <span class="modifier">Public</span> <a href="#customForm">customForm</a>
                             </li>
+                            <li>
+                                <span class="modifier">Public</span> <a href="#errorMessage">errorMessage</a>
+                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -770,6 +780,9 @@
                             <li>
                                 <span class="modifier">Public</span> <a href="#isValid">isValid</a>
                             </li>
+                            <li>
+                                <span class="modifier">Public</span> <a href="#onError">onError</a>
+                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -783,12 +796,12 @@
                 <tbody>
                     <tr>
                         <td class="col-md-4">
-                            <code>constructor(demoService: <a href="../injectables/DemoService.html">DemoService</a>)</code>
+                            <code>constructor(demoService: <a href="../injectables/DemoService.html">DemoService</a>, changeDetectorRef: <a href="https://angular.io/docs/ts/latest/api/core/index/ChangeDetectorRef-class.html" target="_blank">ChangeDetectorRef</a>)</code>
                         </td>
                     </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">demo/demo.component.ts:28</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">demo/demo.component.ts:37</a></div>
                                 </td>
                             </tr>
     
@@ -810,6 +823,15 @@
                                                       <td>demoService</td>
                                                       <td>
                                                                 <code><a href="../injectables/DemoService.html" target="_self" >DemoService</a></code>
+                                                      </td>
+                                                      <td>
+                                                      </td>
+                                                      <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                      <td>changeDetectorRef</td>
+                                                      <td>
+                                                                <code><a href="https://angular.io/docs/ts/latest/api/core/index/ChangeDetectorRef-class.html" target="_blank" >ChangeDetectorRef</a></code>
                                                       </td>
                                                       <td>
                                                       </td>
@@ -851,7 +873,7 @@
     
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">demo/demo.component.ts:56</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="76" class="link-to-prism">demo/demo.component.ts:76</a></div>
                                 </td>
                             </tr>
     
@@ -884,7 +906,7 @@
     
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">demo/demo.component.ts:52</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="72" class="link-to-prism">demo/demo.component.ts:72</a></div>
                                 </td>
                             </tr>
     
@@ -917,7 +939,7 @@
     
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">demo/demo.component.ts:36</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">demo/demo.component.ts:56</a></div>
                                 </td>
                             </tr>
     
@@ -950,7 +972,7 @@
     
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">demo/demo.component.ts:44</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="64" class="link-to-prism">demo/demo.component.ts:64</a></div>
                                 </td>
                             </tr>
     
@@ -983,7 +1005,7 @@
     
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">demo/demo.component.ts:40</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">demo/demo.component.ts:60</a></div>
                                 </td>
                             </tr>
     
@@ -1016,7 +1038,7 @@
     
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">demo/demo.component.ts:48</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="68" class="link-to-prism">demo/demo.component.ts:68</a></div>
                                 </td>
                             </tr>
     
@@ -1027,6 +1049,68 @@
                                     <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
     
                                 </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="onError"></a>
+                            <span class="name"><b><span class="modifier">Public</span> onError</b><a href="#onError"><span class="fa fa-link"></span></a></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <span class="modifier-icon fa fa-reset"></span>
+                            <code>onError(error: Error)</code>
+                        </td>
+                    </tr>
+    
+    
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">demo/demo.component.ts:52</a></div>
+                                </td>
+                            </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <table class="params">
+                                            <thead>
+                                                <tr>
+                                                    <td>Name</td>
+                                                    <td>Type</td>
+                                                    <td>Optional</td>
+                                                    <td>Description</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                    <tr>
+                                                      <td>error</td>
+                                                      <td>
+                                                              <code>Error</code>
+                                                      </td>
+                                                      <td>
+                                                      </td>
+                                                      <td></td>
+                                                    </tr>
+                                            </tbody>
+                                        </table>
+                                </div>
+                                <div>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+    
+                                </div>
+                                    <div class="io-description">
+                                        
+                                    </div>
                         </td>
                     </tr>
                 </tbody>
@@ -1065,7 +1149,7 @@
                         </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">demo/demo.component.ts:28</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">demo/demo.component.ts:35</a></div>
                                 </td>
                             </tr>
     
@@ -1094,7 +1178,36 @@
                         </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">demo/demo.component.ts:26</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">demo/demo.component.ts:33</a></div>
+                                </td>
+                            </tr>
+    
+    
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="errorMessage"></a>
+                            <span class="name"><b><span class="modifier">Public</span> errorMessage</b><a href="#errorMessage"><span class="fa fa-link"></span></a></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <span class="modifier-icon fa fa-reset"></span><code>errorMessage:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+    </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+    
+                            </td>
+                        </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="80" class="link-to-prism">demo/demo.component.ts:80</a></div>
                                 </td>
                             </tr>
     
@@ -1106,17 +1219,24 @@
 
 
     <div class="tab-pane fade tab-source-code" id="source">
-        <pre class="line-numbers"><code class="language-typescript">import { Component, ViewChild, OnInit } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers"><code class="language-typescript">import { AfterViewInit, ChangeDetectorRef, Component, OnInit, ViewChild } from &#x27;@angular/core&#x27;;
 
 import { DemoService } from &#x27;./demo.service&#x27;;
 import { AngularFormsComponent } from &#x27;../src&#x27;;
+import { Fieldset } from &#x27;../src/group/fieldset&#x27;;
 
 @Component({
   selector: &#x27;rb-demo-app&#x27;,
   template: &#x60;
     &lt;div class&#x3D;&#x27;container&#x27;&gt;
       &lt;h1&gt;AngularForms&lt;/h1&gt;
-      &lt;rb-angular-forms #angularForms [groups]&#x3D;&quot;customForm&quot; [readOnly]&#x3D;&quot;false&quot; lang&#x3D;&quot;pt-BR&quot;&gt;&lt;/rb-angular-forms&gt;
+
+      &lt;div class&#x3D;&quot;alert alert-danger&quot; *ngIf&#x3D;&quot;errorMessage&quot;&gt;
+        &lt;p&gt;{{ errorMessage }}&lt;/p&gt;
+      &lt;/div&gt;
+
+      &lt;rb-angular-forms #angularForms [groups]&#x3D;&quot;customForm&quot; [readOnly]&#x3D;&quot;false&quot; lang&#x3D;&quot;pt-BR&quot; (error)&#x3D;&quot;onError($event)&quot;&gt;&lt;/rb-angular-forms&gt;
+
       &lt;button class&#x3D;&quot;btn btn-primary&quot; (click)&#x3D;&quot;angularForms.submit()&quot;&gt;submit()&lt;/button&gt;
       &lt;button class&#x3D;&quot;btn btn-primary&quot; (click)&#x3D;&quot;isPristine()&quot;&gt;isPristine()&lt;/button&gt;
       &lt;button class&#x3D;&quot;btn btn-primary&quot; (click)&#x3D;&quot;isDirty()&quot;&gt;isDirty()&lt;/button&gt;
@@ -1129,16 +1249,29 @@ import { AngularFormsComponent } from &#x27;../src&#x27;;
   &#x60;,
   providers: [DemoService]
 })
-export class DemoComponent implements OnInit {
+export class DemoComponent implements OnInit, AfterViewInit {
 
   public customForm: any[];
 
   @ViewChild(&#x27;angularForms&#x27;) public angularForms: AngularFormsComponent;
 
-  public constructor(private demoService: DemoService) { }
+  private _errorMessage: string;
+
+  public constructor(
+    private demoService: DemoService,
+    private changeDetectorRef: ChangeDetectorRef
+  ) { }
 
   public ngOnInit(): void {
     this.customForm &#x3D; this.demoService.getForm();
+  }
+
+  public ngAfterViewInit(): void {
+    this.changeDetectorRef.detectChanges();
+  }
+
+  public onError(error: Error): void {
+    this._errorMessage &#x3D; &#x27;Error&#x27;;
   }
 
   public getForm(): void {
@@ -1163,6 +1296,10 @@ export class DemoComponent implements OnInit {
 
   public getAnswers(): void {
     console.log(this.angularForms.getAnswers());
+  }
+
+  public get errorMessage(): string {
+    return this._errorMessage;
   }
 }
 </code></pre>
@@ -1192,7 +1329,7 @@ export class DemoComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class=\'container\'>  <h1>AngularForms</h1>  <rb-angular-forms #angularForms [groups]="customForm" [readOnly]="false" lang="pt-BR"></rb-angular-forms>  <button class="btn btn-primary" (click)="angularForms.submit()">submit()</button>  <button class="btn btn-primary" (click)="isPristine()">isPristine()</button>  <button class="btn btn-primary" (click)="isDirty()">isDirty()</button>  <button class="btn btn-primary" (click)="isValid()">isValid()</button>  <button class="btn btn-primary" (click)="getForm()">getForm()</button>  <button class="btn btn-primary" (click)="isValid()">isValid()</button>  <button class="btn btn-primary" (click)="getAnswersGroups()">getAnswersGroups()</button>  <button class="btn btn-primary" (click)="getAnswers()">getAnswers()</button></div></div>'
+        var COMPONENT_TEMPLATE = '<div><div class=\'container\'>  <h1>AngularForms</h1>  <div class="alert alert-danger" *ngIf="errorMessage">    <p>{{ errorMessage }}</p>  </div>  <rb-angular-forms #angularForms [groups]="customForm" [readOnly]="false" lang="pt-BR" (error)="onError($event)"></rb-angular-forms>  <button class="btn btn-primary" (click)="angularForms.submit()">submit()</button>  <button class="btn btn-primary" (click)="isPristine()">isPristine()</button>  <button class="btn btn-primary" (click)="isDirty()">isDirty()</button>  <button class="btn btn-primary" (click)="isValid()">isValid()</button>  <button class="btn btn-primary" (click)="getForm()">getForm()</button>  <button class="btn btn-primary" (click)="isValid()">isValid()</button>  <button class="btn btn-primary" (click)="getAnswersGroups()">getAnswersGroups()</button>  <button class="btn btn-primary" (click)="getAnswers()">getAnswers()</button></div></div>'
     var COMPONENTS = [{'name': 'AngularFormsComponent', 'selector': 'rb-angular-forms'},{'name': 'DataTableComponent', 'selector': 'rb-data-table'},{'name': 'DemoComponent', 'selector': 'rb-demo-app'},{'name': 'ValidationMessageComponent', 'selector': 'rb-validation-message'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'DemoComponent'};

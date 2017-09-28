@@ -631,6 +631,63 @@
 
 <h1 id="change-log">Change Log</h1>
 <p>All notable changes to this project will be documented in this file. See <a href="https://github.com/conventional-changelog/standard-version">standard-version</a> for commit guidelines.</p>
+<p><a name="2.0.0"></a></p>
+<h2 id="-2-0-0-https-github-com-robust-team-angular-forms-compare-v1-2-0-v2-0-0-2017-09-28-"><a href="https://github.com/robust-team/angular-forms/compare/v1.2.0...v2.0.0">2.0.0</a> (2017-09-28)</h2>
+<h3 id="features">Features</h3>
+<ul>
+<li>Added in the <strong>Group</strong> model:<ul>
+<li><strong>setDescription</strong> method;</li>
+<li><strong>getQuestionByName</strong> abstract method;</li>
+</ul>
+</li>
+<li>Added in the <strong>Question</strong> model:<ul>
+<li><strong>setDescription</strong> method;</li>
+</ul>
+</li>
+<li><strong>Status</strong> enum.</li>
+<li>Added in <strong>AngularFormsComponent</strong>:<ul>
+<li><strong>CSS class</strong> with question name into template&#39;s fieldset;</li>
+<li><strong>Output</strong> events error and ready;</li>
+<li><strong>getGroupByCode</strong> public method;</li>
+<li><strong>getStatus</strong> public method;</li>
+<li><strong>Errors&#39; catch</strong> for Promises.</li>
+</ul>
+</li>
+<li>Changed in <strong>DataTableComponent</strong>:<ul>
+<li><strong>CSS class</strong> with <strong>question name</strong> into template&#39;s fieldset;</li>
+<li><strong>Output</strong> events error and ready;</li>
+<li><strong>getStatus</strong> public method</li>
+<li><strong>Errors&#39; catch</strong> for Promises.</li>
+</ul>
+</li>
+</ul>
+<h3 id="changes">Changes</h3>
+<ul>
+<li>Use of <strong>Promises</strong> into AngularForms and ReactiveFormsFactory.</li>
+<li>Changed in the <strong>Group</strong> model:<ul>
+<li><strong>Protected visibility</strong> in properties;</li>
+<li>Generic Type <strong><QuestionListType></strong>;</li>
+<li><strong>question</strong> property;</li>
+</ul>
+</li>
+<li>Changed in the <strong>Question</strong> model:<ul>
+<li><strong>Protected visibility</strong> in properties;</li>
+</ul>
+</li>
+<li>Changed in <strong>AngularFormsComponent</strong>:<ul>
+<li><strong>Async</strong> load;</li>
+<li><strong>ngOnChanges</strong> event for build form;</li>
+</ul>
+</li>
+<li>Changed in <strong>DataTableComponent</strong>:<ul>
+<li><strong>Async</strong> load.</li>
+</ul>
+</li>
+</ul>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li>Fixed initialization of answer property in Choice model.</li>
+</ul>
 <p><a name="1.2.0"></a></p>
 <h2 id="-1-2-0-https-github-com-robust-team-angular-forms-compare-v1-1-0-v1-2-0-2017-09-22-"><a href="https://github.com/robust-team/angular-forms/compare/v1.1.0...v1.2.0">1.2.0</a> (2017-09-22)</h2>
 <h3 id="features">Features</h3>

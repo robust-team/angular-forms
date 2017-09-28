@@ -694,7 +694,8 @@
 
             <tr>
                 <td class="col-md-3">template</td>
-                <td class="col-md-9"><pre class="line-numbers"><code class="language-html">&lt;fieldset class&#x3D;&quot;rb-data-table&quot; [formGroup]&#x3D;&quot;formGroup&quot; [ngClass]&#x3D;&quot;{ &#x27;read-only&#x27;: readOnly }&quot;&gt;
+                <td class="col-md-9"><pre class="line-numbers"><code class="language-html">&lt;fieldset *ngIf&#x3D;&quot;Status[&#x27;READY&#x27;] &#x3D;&#x3D;&#x3D; status&quot; class&#x3D;&quot;rb-data-table rb-data-table-{{ group.code }}&quot; [formGroup]&#x3D;&quot;formGroup&quot;
+  [ngClass]&#x3D;&quot;{ &#x27;read-only&#x27;: readOnly }&quot;&gt;
   &lt;legend&gt;
     &lt;span [ngClass]&#x3D;&quot;{ &#x27;required-control&#x27;: group.isRequired() &amp;&amp; !readOnly }&quot;&gt;
       {{ group.description }}
@@ -856,6 +857,12 @@
                                 <span class="modifier">Public</span> <a href="#newFormGroup">newFormGroup</a>
                             </li>
                             <li>
+                                <span class="modifier">Public</span> <a href="#status">status</a>
+                            </li>
+                            <li>
+                                <span class="modifier">Public</span> <a href="#Status">Status</a>
+                            </li>
+                            <li>
                                 <span class="modifier">Public</span> <a href="#submitted">submitted</a>
                             </li>
                         </ul>
@@ -916,6 +923,23 @@
                         </ul>
                     </td>
                 </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Outputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#error">error</a>
+                            </li>
+                            <li>
+                                <a href="#ready">ready</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
             </tbody>
         </table>
     </section>
@@ -939,7 +963,7 @@
                     </tr>
                             <tr>
                                 <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="153" class="link-to-prism">src/data-table/data-table.component.ts:153</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="157" class="link-to-prism">src/data-table/data-table.component.ts:157</a></div>
                                 </td>
                             </tr>
                 </tbody>
@@ -963,7 +987,7 @@
                     </tr>
                             <tr>
                                 <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="155" class="link-to-prism">src/data-table/data-table.component.ts:155</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="159" class="link-to-prism">src/data-table/data-table.component.ts:159</a></div>
                                 </td>
                             </tr>
                 </tbody>
@@ -984,7 +1008,7 @@
                     </tr>
                             <tr>
                                 <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="154" class="link-to-prism">src/data-table/data-table.component.ts:154</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="158" class="link-to-prism">src/data-table/data-table.component.ts:158</a></div>
                                 </td>
                             </tr>
                 </tbody>
@@ -1008,13 +1032,54 @@
                     </tr>
                             <tr>
                                 <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="156" class="link-to-prism">src/data-table/data-table.component.ts:156</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="160" class="link-to-prism">src/data-table/data-table.component.ts:160</a></div>
                                 </td>
                             </tr>
                 </tbody>
             </table>
     </section>
 
+    <section>
+        <h3 id="outputs">Outputs</h3>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-2">
+                            <a name="error"></a>
+                            <code>error</code>
+                        </td>
+                        <td class="col-md-10">
+                            <em><code>$event</code> type:</em>    <code>EventEmitter&lt;Error&gt;</code>
+
+                        </td>
+                    </tr>
+                            <tr>
+                                <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="162" class="link-to-prism">src/data-table/data-table.component.ts:162</a></div>
+                                </td>
+                            </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-2">
+                            <a name="ready"></a>
+                            <code>ready</code>
+                        </td>
+                        <td class="col-md-10">
+                            <em><code>$event</code> type:</em>    <code>EventEmitter&lt;boolean&gt;</code>
+
+                        </td>
+                    </tr>
+                            <tr>
+                                <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="163" class="link-to-prism">src/data-table/data-table.component.ts:163</a></div>
+                                </td>
+                            </tr>
+                </tbody>
+            </table>
+    </section>
 
 
 
@@ -1041,7 +1106,7 @@
     
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="171" class="link-to-prism">src/data-table/data-table.component.ts:171</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="192" class="link-to-prism">src/data-table/data-table.component.ts:192</a></div>
                                 </td>
                             </tr>
     
@@ -1074,7 +1139,7 @@
     
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="167" class="link-to-prism">src/data-table/data-table.component.ts:167</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="188" class="link-to-prism">src/data-table/data-table.component.ts:188</a></div>
                                 </td>
                             </tr>
     
@@ -1136,7 +1201,7 @@
     
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="191" class="link-to-prism">src/data-table/data-table.component.ts:191</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="212" class="link-to-prism">src/data-table/data-table.component.ts:212</a></div>
                                 </td>
                             </tr>
     
@@ -1198,7 +1263,7 @@
     
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="201" class="link-to-prism">src/data-table/data-table.component.ts:201</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="222" class="link-to-prism">src/data-table/data-table.component.ts:222</a></div>
                                 </td>
                             </tr>
     
@@ -1260,7 +1325,7 @@
     
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="163" class="link-to-prism">src/data-table/data-table.component.ts:163</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="184" class="link-to-prism">src/data-table/data-table.component.ts:184</a></div>
                                 </td>
                             </tr>
     
@@ -1340,7 +1405,7 @@
     
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="182" class="link-to-prism">src/data-table/data-table.component.ts:182</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="203" class="link-to-prism">src/data-table/data-table.component.ts:203</a></div>
                                 </td>
                             </tr>
     
@@ -1402,7 +1467,7 @@
     
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="186" class="link-to-prism">src/data-table/data-table.component.ts:186</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="207" class="link-to-prism">src/data-table/data-table.component.ts:207</a></div>
                                 </td>
                             </tr>
     
@@ -1446,7 +1511,7 @@
                         </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="149" class="link-to-prism">src/data-table/data-table.component.ts:149</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="153" class="link-to-prism">src/data-table/data-table.component.ts:153</a></div>
                                 </td>
                             </tr>
     
@@ -1475,7 +1540,70 @@
                         </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="150" class="link-to-prism">src/data-table/data-table.component.ts:150</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="154" class="link-to-prism">src/data-table/data-table.component.ts:154</a></div>
+                                </td>
+                            </tr>
+    
+    
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="status"></a>
+                            <span class="name"><b><span class="modifier">Public</span> status</b><a href="#status"><span class="fa fa-link"></span></a></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <span class="modifier-icon fa fa-reset"></span><code>status:     <code><a href="../miscellaneous/enumerations.html#Status" target="_self" >Status</a></code>
+    </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Type : </i>    <code><a href="../miscellaneous/enumerations.html#Status" target="_self" >Status</a></code>
+    
+                            </td>
+                        </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="226" class="link-to-prism">src/data-table/data-table.component.ts:226</a></div>
+                                </td>
+                            </tr>
+    
+    
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <a name="Status"></a>
+                            <span class="name"><b><span class="modifier">Public</span> Status</b><a href="#Status"><span class="fa fa-link"></span></a></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <span class="modifier-icon fa fa-reset"></span><code>Status:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" target="_blank" >Object</a></code>
+    </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" target="_blank" >Object</a></code>
+    
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Default value : </i><code>Status</code>
+                            </td>
+                        </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="151" class="link-to-prism">src/data-table/data-table.component.ts:151</a></div>
                                 </td>
                             </tr>
     
@@ -1509,7 +1637,7 @@
                         </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="151" class="link-to-prism">src/data-table/data-table.component.ts:151</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="155" class="link-to-prism">src/data-table/data-table.component.ts:155</a></div>
                                 </td>
                             </tr>
     
@@ -1521,9 +1649,10 @@
 
 
     <div class="tab-pane fade tab-source-code" id="source">
-        <pre class="line-numbers"><code class="language-typescript">import { Component, Input, OnInit } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers"><code class="language-typescript">import { Component, EventEmitter, Input, OnInit, Output } from &#x27;@angular/core&#x27;;
 import { FormGroup, FormArray, FormControl } from &#x27;@angular/forms&#x27;;
 
+import { Status } from &#x27;..&#x27;;
 import { Select, SelectService, Question, QuestionType } from &#x27;../question&#x27;;
 import { Group, DataTable } from &#x27;../group&#x27;;
 import { ReactiveFormsFactory } from &#x27;../factory&#x27;;
@@ -1531,7 +1660,8 @@ import { ReactiveFormsFactory } from &#x27;../factory&#x27;;
 @Component({
   selector: &#x27;rb-data-table&#x27;,
   template: &#x60;
-    &lt;fieldset class&#x3D;&quot;rb-data-table&quot; [formGroup]&#x3D;&quot;formGroup&quot; [ngClass]&#x3D;&quot;{ &#x27;read-only&#x27;: readOnly }&quot;&gt;
+    &lt;fieldset *ngIf&#x3D;&quot;Status[&#x27;READY&#x27;] &#x3D;&#x3D;&#x3D; status&quot; class&#x3D;&quot;rb-data-table rb-data-table-{{ group.code }}&quot; [formGroup]&#x3D;&quot;formGroup&quot;
+      [ngClass]&#x3D;&quot;{ &#x27;read-only&#x27;: readOnly }&quot;&gt;
       &lt;legend&gt;
         &lt;span [ngClass]&#x3D;&quot;{ &#x27;required-control&#x27;: group.isRequired() &amp;&amp; !readOnly }&quot;&gt;
           {{ group.description }}
@@ -1669,6 +1799,8 @@ import { ReactiveFormsFactory } from &#x27;../factory&#x27;;
 })
 export class DataTableComponent implements OnInit {
 
+  public readonly Status: Object &#x3D; Status;
+
   public formArray: FormArray;
   public newFormGroup: FormGroup;
   public submitted: boolean &#x3D; false;
@@ -1678,9 +1810,26 @@ export class DataTableComponent implements OnInit {
   @Input() public formGroupSubmitted: boolean &#x3D; false;
   @Input() public readOnly: boolean &#x3D; false;
 
+  @Output() public error: EventEmitter&lt;Error&gt; &#x3D; new EventEmitter();
+  @Output() public ready: EventEmitter&lt;boolean&gt; &#x3D; new EventEmitter();
+
+  private _status: Status;
+
   public ngOnInit(): void {
     this.formArray &#x3D; &lt;FormArray&gt;this.formGroup.get(this.group.code);
-    this.newFormGroup &#x3D; ReactiveFormsFactory.createFormGroupFromQuestions(this.group.questions[0], false);
+
+    if (this.formArray) {
+      this._status &#x3D; Status.LOADING;
+      this.load()
+        .then(() &#x3D;&gt; {
+          this._status &#x3D; Status.READY;
+          this.ready.emit();
+        })
+        .catch((error: Error) &#x3D;&gt; {
+          this._status &#x3D; Status.ERROR;
+          this.error.emit(error);
+        });
+    }
   }
 
   public onChangeOptionSelect(htmlFormControl: HTMLInputElement, formControl: FormControl, question: Select): void {
@@ -1724,6 +1873,22 @@ export class DataTableComponent implements OnInit {
   public isCheckbox(question: Question&lt;any&gt;): boolean {
     return QuestionType.CHECKBOX &#x3D;&#x3D;&#x3D; question.type;
   }
+
+  public get status(): Status {
+    return this._status;
+  }
+
+  private async load(): Promise&lt;void&gt; {
+    return new Promise&lt;void&gt;(async (resolve: () &#x3D;&gt; void, reject: (error: Error) &#x3D;&gt; void) &#x3D;&gt; {
+      try {
+        this.newFormGroup &#x3D; await ReactiveFormsFactory.createFormGroupFromQuestions(this.group.questions[0], false);
+
+        resolve();
+      } catch (error) {
+        reject(error);
+      }
+    });
+  }
 }
 </code></pre>
     </div>
@@ -1752,7 +1917,7 @@ export class DataTableComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><fieldset class="rb-data-table" [formGroup]="formGroup" [ngClass]="{ \'read-only\': readOnly }">  <legend>    <span [ngClass]="{ \'required-control\': group.isRequired() && !readOnly }">      {{ group.description }}    </span>  </legend>  <div class="table-responsive">    <table class="table table-bordered table-striped table-hover">      <thead>        <tr>          <th class="text-center" *ngFor="let question of group.questions[0]">            <span [ngClass]="{ \'required-control\': question.isRequired() && !readOnly }">              {{ question.description }}            </span>          </th>          <th class="text-center" *ngIf="!readOnly">            {{ \'ACTION\' | translate }}          </th>        </tr>      </thead>      <tbody>        <tr [formGroup]="newFormGroup" *ngIf="!readOnly">          <td *ngFor="let question of group.questions[0]">            <ng-container [ngSwitch]="question.type">              <ng-template ngSwitchCase="checkbox">                <div class="checkbox">                  <label>                    <input type="checkbox" [name]="question.name" [formControlName]="question.name" />                    {{ question.description }}                  </label>                  <rb-validation-message [validations]="question.validations"                                         [control]="newFormGroup.get(question.name)"                                         [submitted]="submitted">                  </rb-validation-message>                </div> <!--/.checkbox-->              </ng-template> <!--/checkbox-->              <ng-template ngSwitchCase="radio">                <div class="radio" *ngFor="let option of question.options">                  <label>                    <input type="radio" [name]="question.name" [value]="option" [formControlName]="question.name" />                    {{ option }}                  </label>                </div> <!--/.radio-->                <rb-validation-message [validations]="question.validations"                                       [control]="newFormGroup.get(question.name)"                                       [submitted]="submitted">                </rb-validation-message>              </ng-template> <!--/radio-->              <ng-template ngSwitchCase="select">                <select [id]="question.name" class="form-control" [name]="question.name" #selectQuestion                      [formControlName]="question.name"                      (change)="onChangeOptionSelect(selectQuestion, newFormGroup.get(question.name), question)">                  <option disabled [value]="null">                    {{ question.placeholder ? question.placeholder : \'\' }}                  </option>                  <option *ngFor="let option of question.options" [value]="option[\'value\'] || option">                    {{ option[\'description\'] || option }}                  </option>                </select>                <ng-container *ngIf="question.editableOption && question.editableOption.length">                  <input [hidden]="question.editableOption !== selectQuestion.value"                         type="text" [id]="question.name" class="form-control editable-option" [name]="question.name"                         [formControlName]="question.name" />                </ng-container>                <rb-validation-message [validations]="question.validations"                                       [control]="newFormGroup.get(question.name)"                                       [submitted]="submitted">                </rb-validation-message>              </ng-template> <!--/select-->              <ng-template ngSwitchCase="textarea">                <textarea [id]="question.name" class="form-control" [name]="question.name" rows="5"                          placeholder="{{ question.placeholder ? question.placeholder : \'\' }}"                          [formControlName]="question.name">                </textarea>                <rb-validation-message [validations]="question.validations"                                       [control]="newFormGroup.get(question.name)"                                       [submitted]="submitted">                </rb-validation-message>              </ng-template> <!--/textarea-->              <ng-template ngSwitchCase="text" ngSwitchDefault>                <input type="text" [id]="question.name" class="form-control" [name]="question.name"                        placeholder="{{ question.placeholder ? question.placeholder : \'\' }}"                        [formControlName]="question.name" [mask]="question.mask" />                <rb-validation-message [validations]="question.validations"                                       [control]="newFormGroup.get(question.name)"                                       [submitted]="submitted">                </rb-validation-message>              </ng-template> <!--/text-->            </ng-container> <!--/ngSwitch-questionType-->          </td>          <td class="text-center">            <button class="btn btn-default btn-add-data" (click)="addData()">              <i class="rb-ico rb-ico-add" aria-hidden="true"></i>              {{ \'ADD\' | translate }}            </button>          </td>        </tr>        <tr class="data" *ngFor="let data of formArray?.value; let indexData = index">          <td *ngFor="let key of getKeysFromObject(data)" [class.text-center]="isCheckbox(getQuestionByName(key))">            <ng-container [ngSwitch]="getQuestionByName(key).type">              <ng-template ngSwitchCase="checkbox">                <i class="rb-ico rb-ico-square rb-ico-{{ data[key] ? \'checked\' : \'unchecked\' }}" aria-hidden="true"></i>              </ng-template>              <ng-template ngSwitchDefault>                {{ data[key] || \'NOT_INFORMED\' | translate }}              </ng-template>            </ng-container>          </td>          <td class="text-center" *ngIf="!readOnly">            <button class="btn btn-default btn-remove-data" (click)="removeData(indexData)">              <i class="rb-ico rb-ico-remove" aria-hidden="true"></i>              {{ \'REMOVE\' | translate }}            </button>          </td>        </tr>        <tr *ngIf="readOnly && !formArray?.value.length">          <td [attr.colspan]="group.questions[0].length" class="text-center">{{ \'NO_REGISTERS\' | translate }}</td>        </tr>      </tbody>    </table>  </div> <!--/.table-responsive-->  <rb-validation-message [validations]="group.validations"                         [control]="formArray"                         [submitted]="formGroupSubmitted">  </rb-validation-message></fieldset></div>'
+        var COMPONENT_TEMPLATE = '<div><fieldset *ngIf="Status[\'READY\'] === status" class="rb-data-table rb-data-table-{{ group.code }}" [formGroup]="formGroup"  [ngClass]="{ \'read-only\': readOnly }">  <legend>    <span [ngClass]="{ \'required-control\': group.isRequired() && !readOnly }">      {{ group.description }}    </span>  </legend>  <div class="table-responsive">    <table class="table table-bordered table-striped table-hover">      <thead>        <tr>          <th class="text-center" *ngFor="let question of group.questions[0]">            <span [ngClass]="{ \'required-control\': question.isRequired() && !readOnly }">              {{ question.description }}            </span>          </th>          <th class="text-center" *ngIf="!readOnly">            {{ \'ACTION\' | translate }}          </th>        </tr>      </thead>      <tbody>        <tr [formGroup]="newFormGroup" *ngIf="!readOnly">          <td *ngFor="let question of group.questions[0]">            <ng-container [ngSwitch]="question.type">              <ng-template ngSwitchCase="checkbox">                <div class="checkbox">                  <label>                    <input type="checkbox" [name]="question.name" [formControlName]="question.name" />                    {{ question.description }}                  </label>                  <rb-validation-message [validations]="question.validations"                                         [control]="newFormGroup.get(question.name)"                                         [submitted]="submitted">                  </rb-validation-message>                </div> <!--/.checkbox-->              </ng-template> <!--/checkbox-->              <ng-template ngSwitchCase="radio">                <div class="radio" *ngFor="let option of question.options">                  <label>                    <input type="radio" [name]="question.name" [value]="option" [formControlName]="question.name" />                    {{ option }}                  </label>                </div> <!--/.radio-->                <rb-validation-message [validations]="question.validations"                                       [control]="newFormGroup.get(question.name)"                                       [submitted]="submitted">                </rb-validation-message>              </ng-template> <!--/radio-->              <ng-template ngSwitchCase="select">                <select [id]="question.name" class="form-control" [name]="question.name" #selectQuestion                      [formControlName]="question.name"                      (change)="onChangeOptionSelect(selectQuestion, newFormGroup.get(question.name), question)">                  <option disabled [value]="null">                    {{ question.placeholder ? question.placeholder : \'\' }}                  </option>                  <option *ngFor="let option of question.options" [value]="option[\'value\'] || option">                    {{ option[\'description\'] || option }}                  </option>                </select>                <ng-container *ngIf="question.editableOption && question.editableOption.length">                  <input [hidden]="question.editableOption !== selectQuestion.value"                         type="text" [id]="question.name" class="form-control editable-option" [name]="question.name"                         [formControlName]="question.name" />                </ng-container>                <rb-validation-message [validations]="question.validations"                                       [control]="newFormGroup.get(question.name)"                                       [submitted]="submitted">                </rb-validation-message>              </ng-template> <!--/select-->              <ng-template ngSwitchCase="textarea">                <textarea [id]="question.name" class="form-control" [name]="question.name" rows="5"                          placeholder="{{ question.placeholder ? question.placeholder : \'\' }}"                          [formControlName]="question.name">                </textarea>                <rb-validation-message [validations]="question.validations"                                       [control]="newFormGroup.get(question.name)"                                       [submitted]="submitted">                </rb-validation-message>              </ng-template> <!--/textarea-->              <ng-template ngSwitchCase="text" ngSwitchDefault>                <input type="text" [id]="question.name" class="form-control" [name]="question.name"                        placeholder="{{ question.placeholder ? question.placeholder : \'\' }}"                        [formControlName]="question.name" [mask]="question.mask" />                <rb-validation-message [validations]="question.validations"                                       [control]="newFormGroup.get(question.name)"                                       [submitted]="submitted">                </rb-validation-message>              </ng-template> <!--/text-->            </ng-container> <!--/ngSwitch-questionType-->          </td>          <td class="text-center">            <button class="btn btn-default btn-add-data" (click)="addData()">              <i class="rb-ico rb-ico-add" aria-hidden="true"></i>              {{ \'ADD\' | translate }}            </button>          </td>        </tr>        <tr class="data" *ngFor="let data of formArray?.value; let indexData = index">          <td *ngFor="let key of getKeysFromObject(data)" [class.text-center]="isCheckbox(getQuestionByName(key))">            <ng-container [ngSwitch]="getQuestionByName(key).type">              <ng-template ngSwitchCase="checkbox">                <i class="rb-ico rb-ico-square rb-ico-{{ data[key] ? \'checked\' : \'unchecked\' }}" aria-hidden="true"></i>              </ng-template>              <ng-template ngSwitchDefault>                {{ data[key] || \'NOT_INFORMED\' | translate }}              </ng-template>            </ng-container>          </td>          <td class="text-center" *ngIf="!readOnly">            <button class="btn btn-default btn-remove-data" (click)="removeData(indexData)">              <i class="rb-ico rb-ico-remove" aria-hidden="true"></i>              {{ \'REMOVE\' | translate }}            </button>          </td>        </tr>        <tr *ngIf="readOnly && !formArray?.value.length">          <td [attr.colspan]="group.questions[0].length" class="text-center">{{ \'NO_REGISTERS\' | translate }}</td>        </tr>      </tbody>    </table>  </div> <!--/.table-responsive-->  <rb-validation-message [validations]="group.validations"                         [control]="formArray"                         [submitted]="formGroupSubmitted">  </rb-validation-message></fieldset></div>'
     var COMPONENTS = [{'name': 'AngularFormsComponent', 'selector': 'rb-angular-forms'},{'name': 'DataTableComponent', 'selector': 'rb-data-table'},{'name': 'DemoComponent', 'selector': 'rb-demo-app'},{'name': 'ValidationMessageComponent', 'selector': 'rb-validation-message'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'DataTableComponent'};

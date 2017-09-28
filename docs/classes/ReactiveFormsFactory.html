@@ -720,7 +720,7 @@
             
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">src/factory/reactive-forms-factory.ts:54</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="67" class="link-to-prism">src/factory/reactive-forms-factory.ts:67</a></div>
                                         </td>
                                     </tr>
             
@@ -754,7 +754,7 @@
                                         <div>
                                         </div>
                                         <div class="io-description">
-                                            <b>Returns : </b>    <code><a href="https://angular.io/docs/ts/latest/api/forms/index/FormArray-class.html" target="_blank" >FormArray</a></code>
+                                            <b>Returns : </b>    <code>Promise&lt;&gt;</code>
             
                                         </div>
                                             <div class="io-description">
@@ -816,7 +816,7 @@
                                         <div>
                                         </div>
                                         <div class="io-description">
-                                            <b>Returns : </b>    <code><a href="../classes/Group.html" target="_self" >FormGroup</a></code>
+                                            <b>Returns : </b>    <code>Promise&lt;&gt;</code>
             
                                         </div>
                                             <div class="io-description">
@@ -844,7 +844,7 @@
             
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/factory/reactive-forms-factory.ts:36</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/factory/reactive-forms-factory.ts:42</a></div>
                                         </td>
                                     </tr>
             
@@ -887,7 +887,7 @@
                                         <div>
                                         </div>
                                         <div class="io-description">
-                                            <b>Returns : </b>    <code><a href="../classes/Group.html" target="_self" >FormGroup</a></code>
+                                            <b>Returns : </b>    <code>Promise&lt;&gt;</code>
             
                                         </div>
                                             <div class="io-description">
@@ -915,7 +915,7 @@
             
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="70" class="link-to-prism">src/factory/reactive-forms-factory.ts:70</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="89" class="link-to-prism">src/factory/reactive-forms-factory.ts:89</a></div>
                                         </td>
                                     </tr>
             
@@ -949,7 +949,7 @@
                                         <div>
                                         </div>
                                         <div class="io-description">
-                                            <b>Returns : </b>    <code>[]</code>
+                                            <b>Returns : </b>    <code>Promise&lt;[]&gt;</code>
             
                                         </div>
                                             <div class="io-description">
@@ -979,85 +979,104 @@ import { ValidationTypeNotFoundError } from &#x27;../chain-of-responsibility/val
 
 export class ReactiveFormsFactory {
 
-  public static createFormGroupFromGroups(groups: Group[]): FormGroup {
-    const formGroup: FormGroup &#x3D; new FormGroup({});
-
-    for (const group of groups) {
-      let control: FormGroup | FormArray;
-
-      if (GroupType.FIELDSET &#x3D;&#x3D;&#x3D; group.type) {
-        control &#x3D; ReactiveFormsFactory.createFormGroupFromQuestions((&lt;Fieldset&gt;group).questions);
-      } else {
-        control &#x3D; ReactiveFormsFactory.createFormArrayFromQuestions((&lt;DataTable&gt;group).questions.slice(1));
-
-        if ((&lt;DataTable&gt;group).validations &amp;&amp; 0 &lt; (&lt;DataTable&gt;group).validations.length) {
-          control.setValidators(ReactiveFormsFactory.createValidators((&lt;DataTable&gt;group).validations));
-        }
-      }
-
-      formGroup.addControl(group.code, control);
-    }
-
-    return formGroup;
-  }
-
-  public static createFormGroupFromQuestions(questions: Question&lt;any&gt;[], checkDisabledQuestions: boolean &#x3D; true): FormGroup {
-    const formGroup: FormGroup &#x3D; new FormGroup({});
-
-    for (const question of questions) {
-      const validators: ValidatorFn[] &#x3D; ReactiveFormsFactory.createValidators(question.validations);
-      const answer: any &#x3D; !question.answer &amp;&amp; (&lt;Choice&gt;question).defaultOption ? (&lt;Choice&gt;question).defaultOption : question.answer;
-      const control: FormControl &#x3D; new FormControl({ value: answer, disabled: checkDisabledQuestions &amp;&amp; question.disabled }, validators);
-
-      if (question.validations &amp;&amp; 0 &lt; question.validations.length) {
-        control.setValidators(ReactiveFormsFactory.createValidators(question.validations));
-      }
-
-      formGroup.addControl(question.name, control);
-    }
-
-    return formGroup;
-  }
-
-  public static createFormArrayFromQuestions(questions: Question&lt;any&gt;[][]): FormArray {
-    const formArray: FormArray &#x3D; new FormArray([]);
-
-    for (const question of questions) {
-      const group: FormGroup &#x3D; new FormGroup({});
-
-      for (const column of question) {
-        group.addControl(column.name, new FormControl(column.answer));
-      }
-
-      formArray.push(group);
-    }
-
-    return formArray;
-  }
-
-  public static createValidators(validations: Validation[]): ValidatorFn[] {
-    const validators: ValidatorFn[] &#x3D; [];
-
-    for (const validation of validations) {
-      const validatorFactoryHandler: ValidatorFactoryHandler &#x3D; (new RequiredValidator())
-        .append(new EmailValidator())
-        .append(new MaxValidator())
-        .append(new MinValidator())
-        .append(new MaxLengthValidator())
-        .append(new MinLengthValidator())
-        .append(new PatternValidator());
-
+  public static async createFormGroupFromGroups(groups: Group&lt;any&gt;[]): Promise&lt;FormGroup&gt; {
+    return new Promise&lt;FormGroup&gt;(async (resolve: (formGroup: FormGroup) &#x3D;&gt; void, reject: (error: string) &#x3D;&gt; void) &#x3D;&gt; {
       try {
-        const validatorFn: ValidatorFn &#x3D; validatorFactoryHandler.handle(validation);
-        validators.push(validatorFn);
-      } catch (error) {
-        if (error instanceof ValidationTypeNotFoundError) {
-          console.error(&#x60;[AngularForms] ${error.name}: ${error.message}&#x60;);
-        }
-      }
-    }
+        const formGroup: FormGroup &#x3D; new FormGroup({});
 
-    return validators;
+        for await (const group of groups) {
+          let control: FormGroup | FormArray;
+
+          if (GroupType.FIELDSET &#x3D;&#x3D;&#x3D; group.type) {
+            control &#x3D; await ReactiveFormsFactory.createFormGroupFromQuestions((&lt;Fieldset&gt;group).questions);
+          } else {
+            control &#x3D; await ReactiveFormsFactory.createFormArrayFromQuestions((&lt;DataTable&gt;group).questions.slice(1));
+
+            if ((&lt;DataTable&gt;group).validations &amp;&amp; 0 &lt; (&lt;DataTable&gt;group).validations.length) {
+              control.setValidators(await ReactiveFormsFactory.createValidators((&lt;DataTable&gt;group).validations));
+            }
+          }
+
+          formGroup.addControl(group.code, control);
+        }
+
+        resolve(formGroup);
+      } catch (error) {
+        reject(error);
+      }
+    });
+  }
+
+  public static async createFormGroupFromQuestions(questions: Question&lt;any&gt;[], checkDisabledQuestions: boolean &#x3D; true): Promise&lt;FormGroup&gt; {
+    return new Promise&lt;FormGroup&gt;(async (resolve: (formGroup: FormGroup) &#x3D;&gt; void, reject: (error: Error) &#x3D;&gt; void) &#x3D;&gt; {
+      try {
+        const formGroup: FormGroup &#x3D; new FormGroup({});
+
+        for await (const question of questions) {
+          const validators: ValidatorFn[] &#x3D; await ReactiveFormsFactory.createValidators(question.validations);
+          const answer: any &#x3D; !question.answer &amp;&amp; (&lt;Choice&gt;question).defaultOption ? (&lt;Choice&gt;question).defaultOption : question.answer;
+          const formState: any &#x3D; { value: answer, disabled: checkDisabledQuestions &amp;&amp; question.disabled };
+          const control: FormControl &#x3D; new FormControl(formState, validators);
+
+          if (question.validations &amp;&amp; 0 &lt; question.validations.length) {
+            control.setValidators(await ReactiveFormsFactory.createValidators(question.validations));
+          }
+
+          formGroup.addControl(question.name, control);
+        }
+
+        resolve(formGroup);
+      } catch (error) {
+        reject(error);
+      }
+    });
+  }
+
+  public static async createFormArrayFromQuestions(questions: Question&lt;any&gt;[][]): Promise&lt;FormArray&gt; {
+    return new Promise&lt;FormArray&gt;(async (resolve: (formArray: FormArray) &#x3D;&gt; void, reject: (error: Error) &#x3D;&gt; void) &#x3D;&gt; {
+      try {
+        const formArray: FormArray &#x3D; new FormArray([]);
+
+        for await (const question of questions) {
+          const group: FormGroup &#x3D; new FormGroup({});
+
+          for (const column of question) {
+            group.addControl(column.name, new FormControl(column.answer));
+          }
+
+          formArray.push(group);
+        }
+
+        resolve(formArray);
+      } catch (error) {
+        reject(error);
+      }
+    });
+  }
+
+  public static async createValidators(validations: Validation[]): Promise&lt;ValidatorFn[]&gt; {
+    return new Promise&lt;ValidatorFn[]&gt;(async (resolve: (validators: ValidatorFn[]) &#x3D;&gt; void, reject: (error: Error) &#x3D;&gt; void) &#x3D;&gt; {
+      try {
+        const validators: ValidatorFn[] &#x3D; [];
+
+        for await (const validation of validations) {
+          const validatorFactoryHandler: ValidatorFactoryHandler &#x3D; (new RequiredValidator())
+            .append(new EmailValidator())
+            .append(new MaxValidator())
+            .append(new MinValidator())
+            .append(new MaxLengthValidator())
+            .append(new MinLengthValidator())
+            .append(new PatternValidator());
+
+          const validatorFn: ValidatorFn &#x3D; validatorFactoryHandler.handle(validation);
+          validators.push(validatorFn);
+        }
+
+        resolve(validators);
+      } catch (error) {
+        reject(error);
+      }
+    });
   }
 }
 </code></pre>

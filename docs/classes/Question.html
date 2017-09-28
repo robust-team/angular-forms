@@ -888,7 +888,7 @@
                                 </tr>
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/question/question.ts:42</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/question/question.ts:46</a></div>
                                         </td>
                                     </tr>
             
@@ -917,7 +917,7 @@
                                 </tr>
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/question/question.ts:38</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/question/question.ts:42</a></div>
                                         </td>
                                     </tr>
             
@@ -975,7 +975,7 @@
                                 </tr>
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/question/question.ts:50</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">src/question/question.ts:54</a></div>
                                         </td>
                                     </tr>
             
@@ -1033,7 +1033,7 @@
                                 </tr>
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/question/question.ts:34</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/question/question.ts:38</a></div>
                                         </td>
                                     </tr>
             
@@ -1062,7 +1062,7 @@
                                 </tr>
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/question/question.ts:46</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/question/question.ts:50</a></div>
                                         </td>
                                     </tr>
             
@@ -1080,13 +1080,13 @@ import { Pattern, Validation, ValidationType } from &#x27;../validation&#x27;;
 export abstract class Question&lt;Answer&gt; {
 
   public constructor(
-    private _name: string,
-    private _description: string,
-    private _type: QuestionType,
-    private _dependencies: Dependency[] &#x3D; [],
-    private _answer: Answer &#x3D; null,
-    private _validations: Validation[] &#x3D; [],
-    private _disabled: boolean &#x3D; false
+    protected _name: string,
+    protected _description: string,
+    protected _type: QuestionType,
+    protected _dependencies: Dependency[] &#x3D; [],
+    protected _answer: Answer &#x3D; null,
+    protected _validations: Validation[] &#x3D; [],
+    protected _disabled: boolean &#x3D; false
   ) { }
 
   public isRequired(): boolean {
@@ -1105,6 +1105,10 @@ export abstract class Question&lt;Answer&gt; {
 
   public get description(): string {
     return this._description;
+  }
+
+  public set description(value: string) {
+    this._description &#x3D; value;
   }
 
   public get type(): QuestionType {

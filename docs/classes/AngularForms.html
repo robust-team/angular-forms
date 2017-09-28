@@ -745,7 +745,7 @@
                                         <div>
                                         </div>
                                         <div class="io-description">
-                                            <b>Returns : </b>    <code>[]</code>
+                                            <b>Returns : </b>    <code>Promise&lt;[]&gt;</code>
             
                                         </div>
                                             <div class="io-description">
@@ -769,21 +769,31 @@ import { QuestionFactory } from &#x27;./factory&#x27;;
 
 export class AngularForms {
 
-  public static fromJson(jsonGroups: Group[]): Group[] {
-    return jsonGroups.map((group: Fieldset | DataTable) &#x3D;&gt; {
-      const groupBuilder: GroupBuilder&lt;any&gt; &#x3D; GroupType.FIELDSET &#x3D;&#x3D;&#x3D; group.type
-        ? new FieldsetBuilder(group.code, group.description)
-        : new DataTableBuilder(group.code, group.description, (&lt;DataTable&gt;group).validations);
+  public static async fromJson(jsonGroups: Group&lt;any&gt;[]): Promise&lt;Group&lt;any&gt;[]&gt; {
+    return new Promise&lt;Group&lt;any&gt;[]&gt;(async (resolve: (groups: Group&lt;any&gt;[]) &#x3D;&gt; void, reject: (error: string) &#x3D;&gt; void) &#x3D;&gt; {
+      try {
+        const groups: Group&lt;any&gt;[] &#x3D; [];
 
-      for (const question of group.questions) {
-        groupBuilder.addQuestion(
-          GroupType.FIELDSET &#x3D;&#x3D;&#x3D; group.type
-            ? QuestionFactory.createQuestion(&lt;Question&lt;any&gt;&gt;question)
-            : QuestionFactory.createQuestionList(&lt;Question&lt;any&gt;[]&gt;question)
-        );
+        for await (const group of jsonGroups) {
+          const groupBuilder: GroupBuilder&lt;any&gt; &#x3D; GroupType.FIELDSET &#x3D;&#x3D;&#x3D; group.type
+            ? new FieldsetBuilder(group.code, group.description)
+            : new DataTableBuilder(group.code, group.description, (&lt;DataTable&gt;group).validations);
+
+          for await (const question of group.questions) {
+            groupBuilder.addQuestion(
+              GroupType.FIELDSET &#x3D;&#x3D;&#x3D; group.type
+                ? QuestionFactory.createQuestion(&lt;Question&lt;any&gt;&gt;question)
+                : QuestionFactory.createQuestionList(&lt;Question&lt;any&gt;[]&gt;question)
+            );
+          }
+
+          groups.push(groupBuilder.build());
+        }
+
+        resolve(groups);
+      } catch (error) {
+        reject(error);
       }
-
-      return groupBuilder.build();
     });
   }
 }

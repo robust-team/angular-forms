@@ -684,9 +684,6 @@
                             <td class="col-md-4">
                                 <ul class="index-list">
                                     <li>
-                                        <span class="modifier">Public</span> <a href="#questions">questions</a>
-                                    </li>
-                                    <li>
                                         <span class="modifier">Public</span> <a href="#validations">validations</a>
                                     </li>
                                 </ul>
@@ -700,6 +697,9 @@
                         <tr>
                             <td class="col-md-4">
                                 <ul class="index-list">
+                                    <li>
+                                        <span class="modifier">Public</span> <a href="#getQuestionByName">getQuestionByName</a>
+                                    </li>
                                     <li>
                                         <span class="modifier">Public</span> <a href="#isRequired">isRequired</a>
                                     </li>
@@ -716,7 +716,7 @@
                         <tbody>
                             <tr>
                                 <td class="col-md-4">
-                                    <code>constructor(code: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, description: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, _questions: [][], _validations: <a href="../classes/Validation.html">Validation[]</a>)</code>
+                                    <code>constructor(code: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, description: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, questions: [][], _validations: <a href="../classes/Validation.html">Validation[]</a>)</code>
                                 </td>
                             </tr>
                                     <tr>
@@ -758,7 +758,7 @@
                                                               <td></td>
                                                             </tr>
                                                             <tr>
-                                                              <td>_questions</td>
+                                                              <td>questions</td>
                                                               <td>
                                                                         <code>[][]</code>
                                                               </td>
@@ -793,6 +793,68 @@
                         <tbody>
                             <tr>
                                 <td class="col-md-4">
+                                    <a name="getQuestionByName"></a>
+                                    <span class="name"><b><span class="modifier">Public</span> getQuestionByName</b><a href="#getQuestionByName"><span class="fa fa-link"></span></a></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                        <span class="modifier-icon fa fa-reset"></span>
+                                    <code>getQuestionByName(name: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                                </td>
+                            </tr>
+            
+            
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/group/data-table.ts:16</a></div>
+                                        </td>
+                                    </tr>
+            
+                            <tr>
+                                <td class="col-md-4">
+            
+                                        <div class="io-description">
+                                                <b>Parameters :</b>
+                                                <table class="params">
+                                                    <thead>
+                                                        <tr>
+                                                            <td>Name</td>
+                                                            <td>Type</td>
+                                                            <td>Optional</td>
+                                                            <td>Description</td>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                            <tr>
+                                                              <td>name</td>
+                                                              <td>
+                                                                      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                              </td>
+                                                              <td>
+                                                              </td>
+                                                              <td></td>
+                                                            </tr>
+                                                    </tbody>
+                                                </table>
+                                        </div>
+                                        <div>
+                                        </div>
+                                        <div class="io-description">
+                                            <b>Returns : </b>    <code><a href="../classes/Question.html" target="_self" >Question&lt;any&gt;</a></code>
+            
+                                        </div>
+                                            <div class="io-description">
+                                                
+                                            </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
                                     <a name="isRequired"></a>
                                     <span class="name"><b><span class="modifier">Public</span> isRequired</b><a href="#isRequired"><span class="fa fa-link"></span></a></span>
                                 </td>
@@ -807,7 +869,7 @@
             
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/group/data-table.ts:16</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/group/data-table.ts:24</a></div>
                                         </td>
                                     </tr>
             
@@ -834,35 +896,6 @@
                         <tbody>
                             <tr>
                                 <td class="col-md-4">
-                                    <a name="questions"></a>
-                                    <span class="name"><b><span class="modifier">Public</span> questions</b><a href="#questions"><span class="fa fa-link"></span></a></span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="col-md-4">
-                                    <span class="modifier-icon fa fa-reset"></span><code>questions:     <code>[][]</code>
-            </code>
-                                </td>
-                            </tr>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <i>Type : </i>    <code>[][]</code>
-            
-                                    </td>
-                                </tr>
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/group/data-table.ts:26</a></div>
-                                        </td>
-                                    </tr>
-            
-            
-                        </tbody>
-                    </table>
-                    <table class="table table-sm table-bordered">
-                        <tbody>
-                            <tr>
-                                <td class="col-md-4">
                                     <a name="validations"></a>
                                     <span class="name"><b><span class="modifier">Public</span> validations</b><a href="#validations"><span class="fa fa-link"></span></a></span>
                                 </td>
@@ -881,7 +914,7 @@
                                 </tr>
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/group/data-table.ts:30</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/group/data-table.ts:34</a></div>
                                         </td>
                                     </tr>
             
@@ -897,15 +930,23 @@
 import { Question } from &#x27;../question&#x27;;
 import { Pattern, Validation, ValidationType } from &#x27;../validation&#x27;;
 
-export class DataTable extends Group {
+export class DataTable extends Group&lt;Question&lt;any&gt;[][]&gt; {
 
   public constructor(
     code: string,
     description: string,
-    private _questions: Question&lt;any&gt;[][],
+    questions: Question&lt;any&gt;[][],
     private _validations: Validation[] &#x3D; []
   ) {
-    super(code, description, GroupType.DATATABLE);
+    super(code, description, GroupType.DATATABLE, questions);
+  }
+
+  public getQuestionByName(name: string): Question&lt;any&gt; {
+    for (const question of this._questions[0]) {
+      if (question.name &#x3D;&#x3D;&#x3D; name) {
+        return question;
+      }
+    }
   }
 
   public isRequired(): boolean {
@@ -916,10 +957,6 @@ export class DataTable extends Group {
     }
 
     return false;
-  }
-
-  public get questions(): Question&lt;any&gt;[][] {
-    return this._questions;
   }
 
   public get validations(): Validation[] {
