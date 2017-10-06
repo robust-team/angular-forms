@@ -1,3 +1,4 @@
+export * from './answer';
 export * from './question-type.enum';
 export * from './question';
 export * from './checkbox';
