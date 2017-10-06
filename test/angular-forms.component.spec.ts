@@ -12,7 +12,7 @@ import { DataTableModule } from '../src/data-table';
 import { ValidationMessageModule } from '../src/validation-message/validation-message.module';
 import { Select, Text, Dependency, DependencyCriteria } from '../src/question';
 import { DemoService } from '../demo/demo.service';
-import { Fieldset } from '../src/group/fieldset';
+import { Fieldset } from '../src/group';
 
 describe('AngularFormsComponent', () => {
   let component: AngularFormsComponent;

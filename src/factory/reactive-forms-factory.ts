@@ -73,7 +73,7 @@ export class ReactiveFormsFactory {
           const group: FormGroup = new FormGroup({});
 
           for (const column of question) {
-            group.addControl(column.name, new FormControl(column.answer.value));
+            group.addControl(column.name, new FormControl(column.answer ? column.answer.value : null));
           }
 
           formArray.push(group);
