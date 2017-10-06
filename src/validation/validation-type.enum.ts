@@ -1,4 +1,5 @@
 export enum ValidationType {
+
   EMAIL = <any>'email',
   MAX = <any>'max',
   MAX_LENGTH = <any>'maxlength',
