@@ -36,7 +36,7 @@ describe('AngularForms :: AngularForms', () => {
 
     assert.deepEqual(groups, [
       new Fieldset('group-01', 'A simple group with a question', [
-        new Text('question-01', 'A simple question', [], 'My answer', [])
+        new Text('question-01', 'A simple question', [], { value: 'My answer', id: null }, [])
       ])
     ]);
   });
@@ -77,7 +77,7 @@ describe('AngularForms :: AngularForms', () => {
             description: 'A simple question 1',
             dependencies: [],
             type: 'text',
-            answer: 'My answer 1',
+            answer: { value: 'My answer 1', id: 1 },
             validations: [],
             disabled: false,
             mask: null,
@@ -88,7 +88,7 @@ describe('AngularForms :: AngularForms', () => {
             description: 'A simple question 2',
             dependencies: [],
             type: 'text',
-            answer: 'My answer 2',
+            answer: { value: 'My answer 2', id: 2 },
             validations: [],
             disabled: false,
             mask: null,
@@ -102,12 +102,12 @@ describe('AngularForms :: AngularForms', () => {
     assert.deepEqual(groups, [
       new DataTable('group-01', 'A simple datatable with questions', [
         [
-          new Text('question-01', 'A simple question 1', [], null, [], false, null, null),
-          new Text('question-02', 'A simple question 2', [], null, [], false, null, null)
+          new Text('question-01', 'A simple question 1', [], { value: null, id: null }, [], false, null, null),
+          new Text('question-02', 'A simple question 2', [], { value: null, id: null }, [], false, null, null)
         ],
         [
-          new Text('question-01', 'A simple question 1', [], 'My answer 1', [], false, null, null),
-          new Text('question-02', 'A simple question 2', [], 'My answer 2', [], false, null, null)
+          new Text('question-01', 'A simple question 1', [], { value: 'My answer 1', id: 1 } , [], false, null, null),
+          new Text('question-02', 'A simple question 2', [], { value: 'My answer 2', id: 2 } , [], false, null, null)
         ]
       ])
     ]);

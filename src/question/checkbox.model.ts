@@ -1,15 +1,20 @@
-import { Dependency, Question, QuestionType } from '.';
+import { Answer, Dependency, Question, QuestionType } from '.';
 import { Validation } from '../validation';
-import { ValidationFactory } from '../factory';
+import { AnswerFactory, QuestionFactory, ValidationFactory } from '../factory';
 
 export class Checkbox extends Question<boolean> {
 
   public static fromJson(question: Checkbox): Checkbox {
+    const booleanAnswer: boolean = 'true' === String(question.answer);
+    'object' === typeof question.answer
+      ? question.answer.value = booleanAnswer
+      : question.answer = booleanAnswer;
+
     return new Checkbox(
       question.name,
       question.description,
       question.dependencies,
-      'true' === String(question.answer),
+      AnswerFactory.create<boolean>(question.answer),
       ValidationFactory.createValidationList(question.validations),
       'true' === String(question.defaultOption)
     );
@@ -19,15 +24,11 @@ export class Checkbox extends Question<boolean> {
     name: string,
     description: string,
     dependencies: Dependency[] = [],
-    answer: boolean = false,
+    answer: Answer<boolean> | boolean = false,
     validations: Validation[] = [],
     disabled: boolean = false,
-    private _defaultOption: boolean = null
+    public defaultOption: boolean = null
   ) {
     super(name, description, QuestionType.CHECKBOX, dependencies, answer || false, validations, disabled);
-  }
-
-  public get defaultOption(): boolean {
-    return this._defaultOption;
   }
 }

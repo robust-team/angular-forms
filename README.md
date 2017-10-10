@@ -8,7 +8,7 @@
 [![Issue Stats](http://issuestats.com/github/robust-team/angular-forms/badge/pr?style=flat)](http://issuestats.com/github/robust-team/angular-forms)
 [![Issue Stats](http://issuestats.com/github/robust-team/angular-forms/badge/issue?style=flat)](http://issuestats.com/github/robust-team/angular-forms)
 
-A Simple Form Generator for Angular.
+A Robust Forms Generator for Angular.
 
 ## Table of Contents
 
@@ -243,15 +243,15 @@ Example output:
   value: {
     "G-01": [
       {
-        "Q-101": "Option 1",
-        "Q-102": "123"
+        "Q-101": { "value": "Option 1", "id": null },
+        "Q-102": { "value": "123", "id": null }
       }
     ],
     "G-02": {
-      "Q-201": "Option 1",
-      "Q-202": "Option 2",
-      "Q-203": null,
-      "Q-204": null
+      "Q-201": { "value": "Option 1", "id": null },
+      "Q-202": { "value": "Option 2", "id": null },
+      "Q-203": { "value": null, "id": null },
+      "Q-204": { "value": null, "id": null }
     }
   }
 }
@@ -493,6 +493,19 @@ Read more in [https://fagnerlima.github.io/ng-mask/](https://fagnerlima.github.i
   "placeholder": null
 }
 ```
+
+### Answer
+
+**Answer** represents the question's answer.
+
+```json
+{
+  "value": "My answer",
+  "id": 1
+}
+```
+
+The **value** property represents the user's answer itself, while the **id** property is the answer's *identifier* into *database*, for example.
 
 ## Validations
 

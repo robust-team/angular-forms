@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.0.0-beta1"></a>
+## [3.0.0-beta1](https://github.com/robust-team/angular-forms/compare/v2.1.0...v3.0.0-beta1) (2017-10-10)
+
+### Changes
+
+* **Answers**' type into **Questions** changed of *string* to **Answer** object.
+
+### Bug Fixes
+
+* Fixed **isPristine** and **isDirty** methods into **AngularFormsComponent**.
+
 <a name="2.1.0"></a>
 ## [2.1.0](https://github.com/robust-team/angular-forms/compare/v1.2.0...v2.1.0) (2017-09-28)
 

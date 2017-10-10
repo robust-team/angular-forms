@@ -1,4 +1,4 @@
 export * from './group-type.enum';
-export * from './group';
-export * from './fieldset';
-export * from './data-table';
+export * from './group.model';
+export * from './fieldset.model';
+export * from './data-table.model';

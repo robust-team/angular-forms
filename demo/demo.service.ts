@@ -39,7 +39,8 @@ const groups: any[] = [
         'placeholder': 'Select',
         'validations': [
           { 'type': 'required', 'message': 'Required field.' }
-        ]
+        ],
+        'answer': { 'value': 'op-2', 'id': 1 }
       },
       {
         'name': 'Q-0103',
@@ -165,7 +166,7 @@ const groups: any[] = [
           ],
           'options': ['Option 1', 'Option 2', 'Option 3'],
           'placeholder': 'Select',
-          'answer': 'Option 2'
+          'answer': { 'value': 'Option 2', 'id': 1 }
         },
         {
           'name': 'Q-0202',
@@ -175,7 +176,7 @@ const groups: any[] = [
             { 'type': 'required', 'message': 'Required field.' }
           ],
           'placeholder': 'Text Question 0202',
-          'answer': 'Answer 0202'
+          'answer': { 'value': 'Answer 0202', 'id': 1 }
         }
       ],
       [
@@ -188,7 +189,7 @@ const groups: any[] = [
           ],
           'options': ['Option 1', 'Option 2', 'Option 3'],
           'placeholder': 'Select',
-          'answer': 'Option 3'
+          'answer': { 'value': 'Option 3', 'id': 2 }
         },
         {
           'name': 'Q-0202',
@@ -198,7 +199,7 @@ const groups: any[] = [
             { 'type': 'required', 'message': 'Required field.' }
           ],
           'placeholder': 'Text Question 0202',
-          'answer': 'Answer 0202 2'
+          'answer': { 'value': 'Answer 0202 2', 'id': 2 }
         }
       ]
     ]

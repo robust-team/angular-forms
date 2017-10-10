@@ -12,7 +12,7 @@ import { DataTableModule } from '../src/data-table';
 import { ValidationMessageModule } from '../src/validation-message/validation-message.module';
 import { Select, Text, Dependency, DependencyCriteria } from '../src/question';
 import { DemoService } from '../demo/demo.service';
-import { Fieldset } from '../src/group/fieldset';
+import { Fieldset } from '../src/group';
 
 describe('AngularFormsComponent', () => {
   let component: AngularFormsComponent;
@@ -37,14 +37,17 @@ describe('AngularFormsComponent', () => {
     .compileComponents();
   }));
 
-  beforeEach(async(() => {
+  beforeEach(function(this: Mocha.IBeforeAndAfterContext, done: MochaDone): any {
+    this.timeout(0);
+    setTimeout(done, 2000);
+
     fixture = TestBed.createComponent(AngularFormsComponent);
     component = fixture.componentInstance;
     component.groups = (new DemoService()).getForm();
     component.ngOnChanges(<any>{ groups: { currentValue: (new DemoService()).getForm() } });
 
     fixture.detectChanges();
-  }));
+  });
 
   it('should create', () => {
     assert(component);

@@ -5,10 +5,10 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 
 import { AngularForms, Status } from '.';
-import { Group } from './group';
-import { DependencyService, Select, SelectService, Question } from './question';
+import { DataTable, Fieldset, Group, GroupType } from './group';
+import { Answer, DependencyService, Question, Select, SelectService } from './question';
 import { ReactiveFormsFactory } from './factory';
-import { StringUtils } from './util';
+import { ObjectUtils, StringUtils } from './util';
 
 @Component({
   selector: 'rb-angular-forms',
@@ -187,6 +187,7 @@ export class AngularFormsComponent implements OnInit, OnChanges, AfterViewChecke
   @Output() public error: EventEmitter<Error> = new EventEmitter();
   @Output() public ready: EventEmitter<boolean> = new EventEmitter();
 
+  private _originalValueFormGroup: Object;
   private _status: Status;
 
   public constructor(
@@ -249,11 +250,11 @@ export class AngularFormsComponent implements OnInit, OnChanges, AfterViewChecke
   }
 
   public isPristine(): boolean {
-    return this.formGroup.pristine;
+    return ObjectUtils.isEquals(this._originalValueFormGroup, this.formGroup.value);
   }
 
   public isDirty(): boolean {
-    return this.formGroup.dirty;
+    return !ObjectUtils.isEquals(this._originalValueFormGroup, this.formGroup.value);
   }
 
   public isValid(): boolean {
@@ -261,16 +262,16 @@ export class AngularFormsComponent implements OnInit, OnChanges, AfterViewChecke
   }
 
   public getAnswersGroups(): Object {
-    const answersGroups: Object = this.formGroup.value;
+    const answersGroups: Object = ObjectUtils.clone(this.formGroup.value);
 
     Object.keys(answersGroups).forEach((groupIndex: string) => {
       if (answersGroups[groupIndex] instanceof Array) {
-        (<Array<Object>>answersGroups[groupIndex]).map((answersGroup: Object) => this.convertAnswersOfGroupToString(answersGroup));
-
+        (<Array<Object>>answersGroups[groupIndex]).map((answersGroup: Object, index: number) =>
+          this.convertAnswersDataTable(answersGroup, <DataTable>this.getGroupByCode(groupIndex), index + 1));
         return;
       }
 
-      answersGroups[groupIndex] = this.convertAnswersOfGroupToString(answersGroups[groupIndex]);
+      answersGroups[groupIndex] = this.convertAnswersFieldset(answersGroups[groupIndex], <Fieldset>this.getGroupByCode(groupIndex));
     });
 
     return answersGroups;
@@ -283,7 +284,6 @@ export class AngularFormsComponent implements OnInit, OnChanges, AfterViewChecke
     Object.keys(answersGroups).forEach((groupIndex: string) => {
       if (answersGroups[groupIndex] instanceof Array) {
         answers[groupIndex] = answersGroups[groupIndex];
-
         return;
       }
 
@@ -298,6 +298,10 @@ export class AngularFormsComponent implements OnInit, OnChanges, AfterViewChecke
     this.clear();
     this.printErrorLog(error);
     this.error.emit(error);
+  }
+
+  public get originalValueFormGroup(): Object {
+    return this._originalValueFormGroup;
   }
 
   public get status(): Status {
@@ -315,6 +319,7 @@ export class AngularFormsComponent implements OnInit, OnChanges, AfterViewChecke
       try {
         this.groups = await AngularForms.fromJson(this.groups);
         this.formGroup = await ReactiveFormsFactory.createFormGroupFromGroups(this.groups);
+        setTimeout(() => this.initOriginalValueFormGroup(), 2000);
         resolve();
       } catch (error) {
         reject(error);
@@ -322,9 +327,30 @@ export class AngularFormsComponent implements OnInit, OnChanges, AfterViewChecke
     });
   }
 
-  private convertAnswersOfGroupToString(answersGroup: Object): Object {
-    Object.keys(answersGroup)
-      .forEach((questionIndex: string) => answersGroup[questionIndex] = StringUtils.convertToString(answersGroup[questionIndex]));
+  private initOriginalValueFormGroup(): void {
+    this._originalValueFormGroup = ObjectUtils.clone(this.formGroup.value);
+  }
+
+  private convertAnswersFieldset(answersGroup: Object, group: Fieldset): Object {
+    Object.keys(answersGroup).forEach((questionName: string) => {
+      const question: Question<any> = group.getQuestionByName(questionName);
+      const id: number | string = (<Answer<any>>question.answer).id || null;
+      const value: string = StringUtils.convertToString(answersGroup[questionName]);
+
+      answersGroup[questionName] = new Answer(value, id);
+    });
+
+    return answersGroup;
+  }
+
+  private convertAnswersDataTable(answersGroup: Object, group: DataTable, index: number): Object {
+    Object.keys(answersGroup).forEach((questionName: string) => {
+      const question: Question<any> = group.getQuestionByNameAndIndex(questionName, index);
+      const id: number | string = question ? (<Answer<any>>question.answer).id : null;
+      const value: string = StringUtils.convertToString(answersGroup[questionName]);
+
+      answersGroup[questionName] = new Answer(value, id);
+    });
 
     return answersGroup;
   }

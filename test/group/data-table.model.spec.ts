@@ -1,6 +1,6 @@
 import { assert } from 'chai';
 import { DataTable } from '../../src/group';
-import { Text } from '../../src/question/text';
+import { Text } from '../../src/question';
 import { Required } from '../../src/validation';
 
 describe('AngularForms :: Group :: DataTable', () => {

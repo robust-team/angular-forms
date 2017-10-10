@@ -46,7 +46,7 @@ export class ReactiveFormsFactory {
 
         for await (const question of questions) {
           const validators: ValidatorFn[] = await ReactiveFormsFactory.createValidators(question.validations);
-          const answer: any = !question.answer && (<Choice>question).defaultOption ? (<Choice>question).defaultOption : question.answer;
+          const answer: any = ReactiveFormsFactory.getFormStateValue(question);
           const formState: any = { value: answer, disabled: checkDisabledQuestions && question.disabled };
           const control: FormControl = new FormControl(formState, validators);
 
@@ -73,7 +73,7 @@ export class ReactiveFormsFactory {
           const group: FormGroup = new FormGroup({});
 
           for (const column of question) {
-            group.addControl(column.name, new FormControl(column.answer));
+            group.addControl(column.name, new FormControl(column.answer ? column.answer.value : null));
           }
 
           formArray.push(group);
@@ -109,5 +109,17 @@ export class ReactiveFormsFactory {
         reject(error);
       }
     });
+  }
+
+  private static getFormStateValue(question: Question<any>): any {
+    if ((<Choice>question).defaultOption && (!question.answer || !question.answer.value)) {
+      return (<Choice>question).defaultOption;
+    }
+
+    if (question.answer && question.answer.value) {
+      return question.answer.value;
+    }
+
+    return null;
   }
 }

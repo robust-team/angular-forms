@@ -12,7 +12,7 @@ export class Fieldset extends Group<Question<any>[]> {
   }
 
   public getQuestionByName(name: string): Question<any> {
-    for (const question of this._questions) {
+    for (const question of this.questions) {
       if (question.name === name) {
         return question;
       }
