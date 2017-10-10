@@ -136,6 +136,12 @@
                                     <a href="../classes/AngularFormsTranslateLoader.html" >AngularFormsTranslateLoader</a>
                                 </li>
                                 <li class="link">
+                                    <a href="../classes/Answer.html" >Answer</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../classes/AnswerFactory.html" >AnswerFactory</a>
+                                </li>
+                                <li class="link">
                                     <a href="../classes/Checkbox.html" >Checkbox</a>
                                 </li>
                                 <li class="link">
@@ -194,6 +200,9 @@
                                 </li>
                                 <li class="link">
                                     <a href="../classes/MinValidator.html" >MinValidator</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../classes/ObjectUtils.html" >ObjectUtils</a>
                                 </li>
                                 <li class="link">
                                     <a href="../classes/Pattern.html" >Pattern</a>
@@ -442,6 +451,12 @@
                                            <a href="../classes/AngularFormsTranslateLoader.html" >AngularFormsTranslateLoader</a>
                                        </li>
                                        <li class="link">
+                                           <a href="../classes/Answer.html" >Answer</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../classes/AnswerFactory.html" >AnswerFactory</a>
+                                       </li>
+                                       <li class="link">
                                            <a href="../classes/Checkbox.html" >Checkbox</a>
                                        </li>
                                        <li class="link">
@@ -500,6 +515,9 @@
                                        </li>
                                        <li class="link">
                                            <a href="../classes/MinValidator.html" >MinValidator</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../classes/ObjectUtils.html" >ObjectUtils</a>
                                        </li>
                                        <li class="link">
                                            <a href="../classes/Pattern.html" >Pattern</a>
@@ -658,7 +676,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/question/radio.ts</code>
+            <code>src/question/radio.model.ts</code>
         </p>
 
 
@@ -699,12 +717,12 @@
                         <tbody>
                             <tr>
                                 <td class="col-md-4">
-                                    <code>constructor(name: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, description: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, dependencies: <a href="../classes/Dependency.html">Dependency[]</a>, answer: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, validations: <a href="../classes/Validation.html">Validation[]</a>, disabled: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, options: [] | [], defaultOption: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                                    <code>constructor(name: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, description: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, dependencies: <a href="../classes/Dependency.html">Dependency[]</a>, answer: <a href="../classes/Answer.html">Answer | string</a>, validations: <a href="../classes/Validation.html">Validation[]</a>, disabled: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, options: [] | [], defaultOption: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                                 </td>
                             </tr>
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/question/radio.ts:19</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/question/radio.model.ts:18</a></div>
                                         </td>
                                     </tr>
             
@@ -752,7 +770,7 @@
                                                             <tr>
                                                               <td>answer</td>
                                                               <td>
-                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                                        <code><a href="../classes/Answer.html" target="_self" >Answer | string</a></code>
                                                               </td>
                                                               <td>
                                                               </td>
@@ -826,7 +844,7 @@
             
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">src/question/radio.ts:7</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">src/question/radio.model.ts:7</a></div>
                                         </td>
                                     </tr>
             
@@ -877,19 +895,18 @@
 
 
     <div class="tab-pane fade tab-source-code" id="source">
-        <pre class="line-numbers"><code class="language-typescript">import { Choice, Dependency, Option, QuestionType } from &#x27;.&#x27;;
+        <pre class="line-numbers"><code class="language-typescript">import { Answer, Choice, Dependency, Option, QuestionType } from &#x27;.&#x27;;
 import { Validation } from &#x27;../validation&#x27;;
-import { ValidationFactory } from &#x27;../factory&#x27;;
+import { AnswerFactory, ValidationFactory } from &#x27;../factory&#x27;;
 
 export class Radio extends Choice {
 
   public static fromJson(question: Radio): Radio {
-
     return new Radio(
       question.name,
       question.description,
       question.dependencies,
-      question.answer,
+      AnswerFactory.create&lt;string&gt;(question.answer),
       ValidationFactory.createValidationList(question.validations),
       question.disabled,
       question.options,
@@ -901,7 +918,7 @@ export class Radio extends Choice {
     name: string,
     description: string,
     dependencies: Dependency[] &#x3D; [],
-    answer: string &#x3D; null,
+    answer: Answer&lt;string&gt; | string &#x3D; null,
     validations: Validation[] &#x3D; [],
     disabled: boolean &#x3D; false,
     options: Option[] | string[] &#x3D; [],

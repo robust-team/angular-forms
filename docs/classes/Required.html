@@ -136,6 +136,12 @@
                                     <a href="../classes/AngularFormsTranslateLoader.html" >AngularFormsTranslateLoader</a>
                                 </li>
                                 <li class="link">
+                                    <a href="../classes/Answer.html" >Answer</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../classes/AnswerFactory.html" >AnswerFactory</a>
+                                </li>
+                                <li class="link">
                                     <a href="../classes/Checkbox.html" >Checkbox</a>
                                 </li>
                                 <li class="link">
@@ -194,6 +200,9 @@
                                 </li>
                                 <li class="link">
                                     <a href="../classes/MinValidator.html" >MinValidator</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../classes/ObjectUtils.html" >ObjectUtils</a>
                                 </li>
                                 <li class="link">
                                     <a href="../classes/Pattern.html" >Pattern</a>
@@ -442,6 +451,12 @@
                                            <a href="../classes/AngularFormsTranslateLoader.html" >AngularFormsTranslateLoader</a>
                                        </li>
                                        <li class="link">
+                                           <a href="../classes/Answer.html" >Answer</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../classes/AnswerFactory.html" >AnswerFactory</a>
+                                       </li>
+                                       <li class="link">
                                            <a href="../classes/Checkbox.html" >Checkbox</a>
                                        </li>
                                        <li class="link">
@@ -500,6 +515,9 @@
                                        </li>
                                        <li class="link">
                                            <a href="../classes/MinValidator.html" >MinValidator</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../classes/ObjectUtils.html" >ObjectUtils</a>
                                        </li>
                                        <li class="link">
                                            <a href="../classes/Pattern.html" >Pattern</a>
@@ -658,7 +676,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/validation/required.ts</code>
+            <code>src/validation/required.model.ts</code>
         </p>
 
 
@@ -699,12 +717,12 @@
                         <tbody>
                             <tr>
                                 <td class="col-md-4">
-                                    <code>constructor(message: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, _requiredTrue: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                                    <code>constructor(message: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, requiredTrue: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
                                 </td>
                             </tr>
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="3" class="link-to-prism">src/validation/required.ts:3</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="3" class="link-to-prism">src/validation/required.model.ts:3</a></div>
                                         </td>
                                     </tr>
             
@@ -732,7 +750,7 @@
                                                               <td></td>
                                                             </tr>
                                                             <tr>
-                                                              <td>_requiredTrue</td>
+                                                              <td>requiredTrue</td>
                                                               <td>
                                                                         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
                                                               </td>
@@ -776,9 +794,14 @@
             
                                     </td>
                                 </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <i>Default value : </i><code>false</code>
+                                    </td>
+                                </tr>
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/validation/required.ts:12</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">src/validation/required.model.ts:7</a></div>
                                         </td>
                                     </tr>
             
@@ -796,13 +819,9 @@ export class Required extends Validation {
 
   public constructor(
     message: string,
-    private _requiredTrue: boolean &#x3D; false
+    public requiredTrue: boolean &#x3D; false
   ) {
     super(ValidationType.REQUIRED, message);
-  }
-
-  public get requiredTrue(): boolean {
-    return this._requiredTrue;
   }
 }
 </code></pre>

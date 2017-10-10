@@ -136,6 +136,12 @@
                                     <a href="../classes/AngularFormsTranslateLoader.html" >AngularFormsTranslateLoader</a>
                                 </li>
                                 <li class="link">
+                                    <a href="../classes/Answer.html" >Answer</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../classes/AnswerFactory.html" >AnswerFactory</a>
+                                </li>
+                                <li class="link">
                                     <a href="../classes/Checkbox.html" >Checkbox</a>
                                 </li>
                                 <li class="link">
@@ -194,6 +200,9 @@
                                 </li>
                                 <li class="link">
                                     <a href="../classes/MinValidator.html" >MinValidator</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../classes/ObjectUtils.html" >ObjectUtils</a>
                                 </li>
                                 <li class="link">
                                     <a href="../classes/Pattern.html" >Pattern</a>
@@ -442,6 +451,12 @@
                                            <a href="../classes/AngularFormsTranslateLoader.html" >AngularFormsTranslateLoader</a>
                                        </li>
                                        <li class="link">
+                                           <a href="../classes/Answer.html" >Answer</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../classes/AnswerFactory.html" >AnswerFactory</a>
+                                       </li>
+                                       <li class="link">
                                            <a href="../classes/Checkbox.html" >Checkbox</a>
                                        </li>
                                        <li class="link">
@@ -500,6 +515,9 @@
                                        </li>
                                        <li class="link">
                                            <a href="../classes/MinValidator.html" >MinValidator</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../classes/ObjectUtils.html" >ObjectUtils</a>
                                        </li>
                                        <li class="link">
                                            <a href="../classes/Pattern.html" >Pattern</a>
@@ -658,7 +676,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/group/data-table.ts</code>
+            <code>src/group/data-table.model.ts</code>
         </p>
 
 
@@ -701,6 +719,9 @@
                                         <span class="modifier">Public</span> <a href="#getQuestionByName">getQuestionByName</a>
                                     </li>
                                     <li>
+                                        <span class="modifier">Public</span> <a href="#getQuestionByNameAndIndex">getQuestionByNameAndIndex</a>
+                                    </li>
+                                    <li>
                                         <span class="modifier">Public</span> <a href="#isRequired">isRequired</a>
                                     </li>
                                 </ul>
@@ -716,12 +737,12 @@
                         <tbody>
                             <tr>
                                 <td class="col-md-4">
-                                    <code>constructor(code: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, description: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, questions: [][], _validations: <a href="../classes/Validation.html">Validation[]</a>)</code>
+                                    <code>constructor(code: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, description: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, questions: [][], validations: <a href="../classes/Validation.html">Validation[]</a>)</code>
                                 </td>
                             </tr>
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="5" class="link-to-prism">src/group/data-table.ts:5</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="5" class="link-to-prism">src/group/data-table.model.ts:5</a></div>
                                         </td>
                                     </tr>
             
@@ -767,7 +788,7 @@
                                                               <td></td>
                                                             </tr>
                                                             <tr>
-                                                              <td>_validations</td>
+                                                              <td>validations</td>
                                                               <td>
                                                                         <code><a href="../classes/Validation.html" target="_self" >Validation[]</a></code>
                                                               </td>
@@ -807,7 +828,7 @@
             
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/group/data-table.ts:16</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/group/data-table.model.ts:16</a></div>
                                         </td>
                                     </tr>
             
@@ -855,6 +876,77 @@
                         <tbody>
                             <tr>
                                 <td class="col-md-4">
+                                    <a name="getQuestionByNameAndIndex"></a>
+                                    <span class="name"><b><span class="modifier">Public</span> getQuestionByNameAndIndex</b><a href="#getQuestionByNameAndIndex"><span class="fa fa-link"></span></a></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                        <span class="modifier-icon fa fa-reset"></span>
+                                    <code>getQuestionByNameAndIndex(name: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, index: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                                </td>
+                            </tr>
+            
+            
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/group/data-table.model.ts:24</a></div>
+                                        </td>
+                                    </tr>
+            
+                            <tr>
+                                <td class="col-md-4">
+            
+                                        <div class="io-description">
+                                                <b>Parameters :</b>
+                                                <table class="params">
+                                                    <thead>
+                                                        <tr>
+                                                            <td>Name</td>
+                                                            <td>Type</td>
+                                                            <td>Optional</td>
+                                                            <td>Description</td>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                            <tr>
+                                                              <td>name</td>
+                                                              <td>
+                                                                      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                              </td>
+                                                              <td>
+                                                              </td>
+                                                              <td></td>
+                                                            </tr>
+                                                            <tr>
+                                                              <td>index</td>
+                                                              <td>
+                                                                      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                                              </td>
+                                                              <td>
+                                                              </td>
+                                                              <td></td>
+                                                            </tr>
+                                                    </tbody>
+                                                </table>
+                                        </div>
+                                        <div>
+                                        </div>
+                                        <div class="io-description">
+                                            <b>Returns : </b>    <code><a href="../classes/Question.html" target="_self" >Question&lt;any&gt;</a></code>
+            
+                                        </div>
+                                            <div class="io-description">
+                                                
+                                            </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
                                     <a name="isRequired"></a>
                                     <span class="name"><b><span class="modifier">Public</span> isRequired</b><a href="#isRequired"><span class="fa fa-link"></span></a></span>
                                 </td>
@@ -869,7 +961,7 @@
             
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/group/data-table.ts:24</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/group/data-table.model.ts:38</a></div>
                                         </td>
                                     </tr>
             
@@ -914,7 +1006,7 @@
                                 </tr>
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/group/data-table.ts:34</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/group/data-table.model.ts:11</a></div>
                                         </td>
                                     </tr>
             
@@ -936,13 +1028,27 @@ export class DataTable extends Group&lt;Question&lt;any&gt;[][]&gt; {
     code: string,
     description: string,
     questions: Question&lt;any&gt;[][],
-    private _validations: Validation[] &#x3D; []
+    public validations: Validation[] &#x3D; []
   ) {
     super(code, description, GroupType.DATATABLE, questions);
   }
 
   public getQuestionByName(name: string): Question&lt;any&gt; {
-    for (const question of this._questions[0]) {
+    for (const question of this.questions[0]) {
+      if (question.name &#x3D;&#x3D;&#x3D; name) {
+        return question;
+      }
+    }
+  }
+
+  public getQuestionByNameAndIndex(name: string, index: number): Question&lt;any&gt; {
+    const questions: Question&lt;any&gt;[] &#x3D; this.questions[index];
+
+    if (!questions) {
+      return;
+    }
+
+    for (const question of questions) {
       if (question.name &#x3D;&#x3D;&#x3D; name) {
         return question;
       }
@@ -950,17 +1056,13 @@ export class DataTable extends Group&lt;Question&lt;any&gt;[][]&gt; {
   }
 
   public isRequired(): boolean {
-    for (const validation of this._validations) {
+    for (const validation of this.validations) {
       if (ValidationType.REQUIRED &#x3D;&#x3D;&#x3D; validation.type) {
         return true;
       }
     }
 
     return false;
-  }
-
-  public get validations(): Validation[] {
-    return this._validations;
   }
 }
 </code></pre>
