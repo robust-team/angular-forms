@@ -176,7 +176,7 @@ const groups: any[] = [
             { 'type': 'required', 'message': 'Required field.' }
           ],
           'placeholder': 'Text Question 0202',
-          'answer': { 'value': 'Answer 0202', 'id': 1                                            }
+          'answer': { 'value': 'Answer 0202', 'id': 1 }
         }
       ],
       [
