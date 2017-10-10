@@ -36,7 +36,7 @@ describe('AngularForms :: AngularForms', () => {
 
     assert.deepEqual(groups, [
       new Fieldset('group-01', 'A simple group with a question', [
-        new Text('question-01', 'A simple question', [], { value: 'My answer', id: undefined }, [])
+        new Text('question-01', 'A simple question', [], { value: 'My answer', id: null }, [])
       ])
     ]);
   });
@@ -102,8 +102,8 @@ describe('AngularForms :: AngularForms', () => {
     assert.deepEqual(groups, [
       new DataTable('group-01', 'A simple datatable with questions', [
         [
-          new Text('question-01', 'A simple question 1', [], { value: null, id: undefined }, [], false, null, null),
-          new Text('question-02', 'A simple question 2', [], { value: null, id: undefined }, [], false, null, null)
+          new Text('question-01', 'A simple question 1', [], { value: null, id: null }, [], false, null, null),
+          new Text('question-02', 'A simple question 2', [], { value: null, id: null }, [], false, null, null)
         ],
         [
           new Text('question-01', 'A simple question 1', [], { value: 'My answer 1', id: 1 } , [], false, null, null),
