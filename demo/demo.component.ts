@@ -2,7 +2,7 @@ import { AfterViewInit, ChangeDetectorRef, Component, OnInit, ViewChild } from '
 
 import { DemoService } from './demo.service';
 import { AngularFormsComponent } from '../src';
-import { Fieldset } from '../src/group/fieldset';
+import { Fieldset } from '../src/group';
 
 @Component({
   selector: 'rb-demo-app',
