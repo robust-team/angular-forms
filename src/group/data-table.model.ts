@@ -21,6 +21,20 @@ export class DataTable extends Group<Question<any>[][]> {
     }
   }
 
+  public getQuestionByNameAndIndex(name: string, index: number): Question<any> {
+    const questions: Question<any>[] = this.questions[index];
+
+    if (!questions) {
+      return;
+    }
+
+    for (const question of questions) {
+      if (question.name === name) {
+        return question;
+      }
+    }
+  }
+
   public isRequired(): boolean {
     for (const validation of this.validations) {
       if (ValidationType.REQUIRED === validation.type) {

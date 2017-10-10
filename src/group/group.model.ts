@@ -9,6 +9,4 @@ export abstract class Group<QuestionListType> {
     public type: GroupType,
     public questions: QuestionListType
   ) { }
-
-  public abstract getQuestionByName(name: string): Question<any>;
 }
