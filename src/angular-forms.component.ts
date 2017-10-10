@@ -334,7 +334,7 @@ export class AngularFormsComponent implements OnInit, OnChanges, AfterViewChecke
   private convertAnswersFieldset(answersGroup: Object, group: Fieldset): Object {
     Object.keys(answersGroup).forEach((questionName: string) => {
       const question: Question<any> = group.getQuestionByName(questionName);
-      const id: number | string = (<Answer<any>>question.answer).id;
+      const id: number | string = (<Answer<any>>question.answer).id || null;
       const value: string = StringUtils.convertToString(answersGroup[questionName]);
 
       answersGroup[questionName] = new Answer(value, id);
