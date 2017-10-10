@@ -136,6 +136,12 @@
                                     <a href="../classes/AngularFormsTranslateLoader.html" >AngularFormsTranslateLoader</a>
                                 </li>
                                 <li class="link">
+                                    <a href="../classes/Answer.html" >Answer</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../classes/AnswerFactory.html" >AnswerFactory</a>
+                                </li>
+                                <li class="link">
                                     <a href="../classes/Checkbox.html" >Checkbox</a>
                                 </li>
                                 <li class="link">
@@ -194,6 +200,9 @@
                                 </li>
                                 <li class="link">
                                     <a href="../classes/MinValidator.html" >MinValidator</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../classes/ObjectUtils.html" >ObjectUtils</a>
                                 </li>
                                 <li class="link">
                                     <a href="../classes/Pattern.html"  data-type="entity-link" class="active" >Pattern</a>
@@ -442,6 +451,12 @@
                                            <a href="../classes/AngularFormsTranslateLoader.html" >AngularFormsTranslateLoader</a>
                                        </li>
                                        <li class="link">
+                                           <a href="../classes/Answer.html" >Answer</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../classes/AnswerFactory.html" >AnswerFactory</a>
+                                       </li>
+                                       <li class="link">
                                            <a href="../classes/Checkbox.html" >Checkbox</a>
                                        </li>
                                        <li class="link">
@@ -500,6 +515,9 @@
                                        </li>
                                        <li class="link">
                                            <a href="../classes/MinValidator.html" >MinValidator</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../classes/ObjectUtils.html" >ObjectUtils</a>
                                        </li>
                                        <li class="link">
                                            <a href="../classes/Pattern.html"  data-type="entity-link" class="active" >Pattern</a>
@@ -658,7 +676,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/validation/pattern.ts</code>
+            <code>src/validation/pattern.model.ts</code>
         </p>
 
 
@@ -713,12 +731,12 @@
                         <tbody>
                             <tr>
                                 <td class="col-md-4">
-                                    <code>constructor(message: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, _value: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                                    <code>constructor(message: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, value: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                                 </td>
                             </tr>
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="3" class="link-to-prism">src/validation/pattern.ts:3</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="3" class="link-to-prism">src/validation/pattern.model.ts:3</a></div>
                                         </td>
                                     </tr>
             
@@ -746,7 +764,7 @@
                                                               <td></td>
                                                             </tr>
                                                             <tr>
-                                                              <td>_value</td>
+                                                              <td>value</td>
                                                               <td>
                                                                         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
                                                               </td>
@@ -786,7 +804,7 @@
             
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/validation/pattern.ts:13</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/validation/pattern.model.ts:13</a></div>
                                         </td>
                                     </tr>
             
@@ -831,7 +849,7 @@
                                 </tr>
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/validation/pattern.ts:17</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">src/validation/pattern.model.ts:7</a></div>
                                         </td>
                                     </tr>
             
@@ -849,18 +867,14 @@ export class Pattern extends Validation {
 
   public constructor(
     message: string,
-    private _value: string
+    public value: string
   ) {
     super(ValidationType.PATTERN, message);
   }
 
   /** @override */
   public isRequired(): boolean {
-    return ValidationType.PATTERN &#x3D;&#x3D;&#x3D; this.type &amp;&amp; &#x27;true&#x27; &#x3D;&#x3D;&#x3D; this._value.toString();
-  }
-
-  public get value(): string {
-    return this._value;
+    return ValidationType.PATTERN &#x3D;&#x3D;&#x3D; this.type &amp;&amp; &#x27;true&#x27; &#x3D;&#x3D;&#x3D; this.value.toString();
   }
 }
 </code></pre>

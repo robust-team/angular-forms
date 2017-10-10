@@ -136,6 +136,12 @@
                                     <a href="../classes/AngularFormsTranslateLoader.html" >AngularFormsTranslateLoader</a>
                                 </li>
                                 <li class="link">
+                                    <a href="../classes/Answer.html" >Answer</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../classes/AnswerFactory.html" >AnswerFactory</a>
+                                </li>
+                                <li class="link">
                                     <a href="../classes/Checkbox.html" >Checkbox</a>
                                 </li>
                                 <li class="link">
@@ -194,6 +200,9 @@
                                 </li>
                                 <li class="link">
                                     <a href="../classes/MinValidator.html" >MinValidator</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../classes/ObjectUtils.html" >ObjectUtils</a>
                                 </li>
                                 <li class="link">
                                     <a href="../classes/Pattern.html" >Pattern</a>
@@ -442,6 +451,12 @@
                                            <a href="../classes/AngularFormsTranslateLoader.html" >AngularFormsTranslateLoader</a>
                                        </li>
                                        <li class="link">
+                                           <a href="../classes/Answer.html" >Answer</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../classes/AnswerFactory.html" >AnswerFactory</a>
+                                       </li>
+                                       <li class="link">
                                            <a href="../classes/Checkbox.html" >Checkbox</a>
                                        </li>
                                        <li class="link">
@@ -500,6 +515,9 @@
                                        </li>
                                        <li class="link">
                                            <a href="../classes/MinValidator.html" >MinValidator</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../classes/ObjectUtils.html" >ObjectUtils</a>
                                        </li>
                                        <li class="link">
                                            <a href="../classes/Pattern.html" >Pattern</a>
@@ -1014,7 +1032,7 @@ export class ReactiveFormsFactory {
 
         for await (const question of questions) {
           const validators: ValidatorFn[] &#x3D; await ReactiveFormsFactory.createValidators(question.validations);
-          const answer: any &#x3D; !question.answer &amp;&amp; (&lt;Choice&gt;question).defaultOption ? (&lt;Choice&gt;question).defaultOption : question.answer;
+          const answer: any &#x3D; ReactiveFormsFactory.getFormStateValue(question);
           const formState: any &#x3D; { value: answer, disabled: checkDisabledQuestions &amp;&amp; question.disabled };
           const control: FormControl &#x3D; new FormControl(formState, validators);
 
@@ -1041,7 +1059,7 @@ export class ReactiveFormsFactory {
           const group: FormGroup &#x3D; new FormGroup({});
 
           for (const column of question) {
-            group.addControl(column.name, new FormControl(column.answer));
+            group.addControl(column.name, new FormControl(column.answer ? column.answer.value : null));
           }
 
           formArray.push(group);
@@ -1077,6 +1095,18 @@ export class ReactiveFormsFactory {
         reject(error);
       }
     });
+  }
+
+  private static getFormStateValue(question: Question&lt;any&gt;): any {
+    if ((&lt;Choice&gt;question).defaultOption &amp;&amp; (!question.answer || !question.answer.value)) {
+      return (&lt;Choice&gt;question).defaultOption;
+    }
+
+    if (question.answer &amp;&amp; question.answer.value) {
+      return question.answer.value;
+    }
+
+    return null;
   }
 }
 </code></pre>

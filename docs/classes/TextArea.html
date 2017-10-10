@@ -136,6 +136,12 @@
                                     <a href="../classes/AngularFormsTranslateLoader.html" >AngularFormsTranslateLoader</a>
                                 </li>
                                 <li class="link">
+                                    <a href="../classes/Answer.html" >Answer</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../classes/AnswerFactory.html" >AnswerFactory</a>
+                                </li>
+                                <li class="link">
                                     <a href="../classes/Checkbox.html" >Checkbox</a>
                                 </li>
                                 <li class="link">
@@ -194,6 +200,9 @@
                                 </li>
                                 <li class="link">
                                     <a href="../classes/MinValidator.html" >MinValidator</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../classes/ObjectUtils.html" >ObjectUtils</a>
                                 </li>
                                 <li class="link">
                                     <a href="../classes/Pattern.html" >Pattern</a>
@@ -442,6 +451,12 @@
                                            <a href="../classes/AngularFormsTranslateLoader.html" >AngularFormsTranslateLoader</a>
                                        </li>
                                        <li class="link">
+                                           <a href="../classes/Answer.html" >Answer</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../classes/AnswerFactory.html" >AnswerFactory</a>
+                                       </li>
+                                       <li class="link">
                                            <a href="../classes/Checkbox.html" >Checkbox</a>
                                        </li>
                                        <li class="link">
@@ -500,6 +515,9 @@
                                        </li>
                                        <li class="link">
                                            <a href="../classes/MinValidator.html" >MinValidator</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../classes/ObjectUtils.html" >ObjectUtils</a>
                                        </li>
                                        <li class="link">
                                            <a href="../classes/Pattern.html" >Pattern</a>
@@ -658,7 +676,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/question/textarea.ts</code>
+            <code>src/question/textarea.model.ts</code>
         </p>
 
 
@@ -713,12 +731,12 @@
                         <tbody>
                             <tr>
                                 <td class="col-md-4">
-                                    <code>constructor(name: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, description: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, dependencies: <a href="../classes/Dependency.html">Dependency[]</a>, answer: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, validations: <a href="../classes/Validation.html">Validation[]</a>, disabled: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, _placeholder: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                                    <code>constructor(name: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, description: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, dependencies: <a href="../classes/Dependency.html">Dependency[]</a>, answer: <a href="../classes/Answer.html">Answer | string</a>, validations: <a href="../classes/Validation.html">Validation[]</a>, disabled: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, placeholder: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                                 </td>
                             </tr>
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/question/textarea.ts:17</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/question/textarea.model.ts:17</a></div>
                                         </td>
                                     </tr>
             
@@ -766,7 +784,7 @@
                                                             <tr>
                                                               <td>answer</td>
                                                               <td>
-                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                                        <code><a href="../classes/Answer.html" target="_self" >Answer | string</a></code>
                                                               </td>
                                                               <td>
                                                               </td>
@@ -791,7 +809,7 @@
                                                               <td></td>
                                                             </tr>
                                                             <tr>
-                                                              <td>_placeholder</td>
+                                                              <td>placeholder</td>
                                                               <td>
                                                                         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
                                                               </td>
@@ -831,7 +849,7 @@
             
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">src/question/textarea.ts:7</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">src/question/textarea.model.ts:7</a></div>
                                         </td>
                                     </tr>
             
@@ -905,7 +923,7 @@
                                 </tr>
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/question/textarea.ts:31</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/question/textarea.model.ts:26</a></div>
                                         </td>
                                     </tr>
             
@@ -917,9 +935,9 @@
 
 
     <div class="tab-pane fade tab-source-code" id="source">
-        <pre class="line-numbers"><code class="language-typescript">import { Dependency, Question, QuestionType } from &#x27;.&#x27;;
+        <pre class="line-numbers"><code class="language-typescript">import { Answer, Dependency, Question, QuestionType } from &#x27;.&#x27;;
 import { Validation } from &#x27;../validation&#x27;;
-import { ValidationFactory } from &#x27;../factory&#x27;;
+import { AnswerFactory, ValidationFactory } from &#x27;../factory&#x27;;
 
 export class TextArea extends Question&lt;string&gt; {
 
@@ -928,7 +946,7 @@ export class TextArea extends Question&lt;string&gt; {
       question.name,
       question.description,
       question.dependencies,
-      question.answer,
+      AnswerFactory.create&lt;string&gt;(question.answer),
       ValidationFactory.createValidationList(question.validations),
       question.disabled,
       question.placeholder
@@ -939,16 +957,12 @@ export class TextArea extends Question&lt;string&gt; {
     name: string,
     description: string,
     dependencies: Dependency[] &#x3D; [],
-    answer: string &#x3D; null,
+    answer: Answer&lt;string&gt; | string &#x3D; null,
     validations: Validation[] &#x3D; [],
     disabled: boolean &#x3D; false,
-    private _placeholder: string &#x3D; null,
+    public placeholder: string &#x3D; null,
   ) {
     super(name, description, QuestionType.TEXTAREA, dependencies, answer, validations, disabled);
-  }
-
-  public get placeholder(): string {
-    return this._placeholder;
   }
 }
 </code></pre>

@@ -139,7 +139,7 @@
                                     <a href="../classes/Answer.html" >Answer</a>
                                 </li>
                                 <li class="link">
-                                    <a href="../classes/AnswerFactory.html" >AnswerFactory</a>
+                                    <a href="../classes/AnswerFactory.html"  data-type="entity-link" class="active" >AnswerFactory</a>
                                 </li>
                                 <li class="link">
                                     <a href="../classes/Checkbox.html" >Checkbox</a>
@@ -178,7 +178,7 @@
                                     <a href="../classes/GroupBuilder.html" >GroupBuilder</a>
                                 </li>
                                 <li class="link">
-                                    <a href="../classes/Max.html"  data-type="entity-link" class="active" >Max</a>
+                                    <a href="../classes/Max.html" >Max</a>
                                 </li>
                                 <li class="link">
                                     <a href="../classes/MaxLength.html" >MaxLength</a>
@@ -454,7 +454,7 @@
                                            <a href="../classes/Answer.html" >Answer</a>
                                        </li>
                                        <li class="link">
-                                           <a href="../classes/AnswerFactory.html" >AnswerFactory</a>
+                                           <a href="../classes/AnswerFactory.html"  data-type="entity-link" class="active" >AnswerFactory</a>
                                        </li>
                                        <li class="link">
                                            <a href="../classes/Checkbox.html" >Checkbox</a>
@@ -493,7 +493,7 @@
                                            <a href="../classes/GroupBuilder.html" >GroupBuilder</a>
                                        </li>
                                        <li class="link">
-                                           <a href="../classes/Max.html"  data-type="entity-link" class="active" >Max</a>
+                                           <a href="../classes/Max.html" >Max</a>
                                        </li>
                                        <li class="link">
                                            <a href="../classes/MaxLength.html" >MaxLength</a>
@@ -656,7 +656,7 @@
 
 <ol class="breadcrumb">
   <li>Classes</li>
-  <li>Max</li>
+  <li>AnswerFactory</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -676,16 +676,10 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/validation/max.model.ts</code>
+            <code>src/factory/answer-factory.ts</code>
         </p>
 
 
-            <p class="comment">
-                <h3>Extends</h3>
-            </p>
-            <p class="comment">
-                    <code><a href="../classes/Validation.html" target="_self" >Validation</a></code>
-            </p>
 
 
 
@@ -695,14 +689,14 @@
                     <tbody>
                         <tr>
                             <td class="col-md-4">
-                                <h6><b>Properties</b></h6>
+                                <h6><b>Methods</b></h6>
                             </td>
                         </tr>
                         <tr>
                             <td class="col-md-4">
                                 <ul class="index-list">
                                     <li>
-                                        <span class="modifier">Public</span> <a href="#value">value</a>
+                                        <span class="modifier">Public</span> <a href="#create">create</a>
                                     </li>
                                 </ul>
                             </td>
@@ -711,24 +705,38 @@
                 </table>
             </section>
 
+
             <section>
-                <h3 id="constructor">Constructor</h3>
+                
+                    <h3 id="methods">
+                        Methods
+                    </h3>
                     <table class="table table-sm table-bordered">
                         <tbody>
                             <tr>
                                 <td class="col-md-4">
-                                    <code>constructor(message: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, value: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                                    <a name="create"></a>
+                                    <span class="name"><b><span class="modifier">Public</span> create</b><a href="#create"><span class="fa fa-link"></span></a></span>
                                 </td>
                             </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                        <span class="modifier-icon fa fa-reset"></span>
+                                    <code>create(answer: <a href="../classes/Answer.html">Answer | AnswerType</a>)</code>
+                                </td>
+                            </tr>
+            
+            
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="3" class="link-to-prism">src/validation/max.model.ts:3</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">src/factory/answer-factory.ts:7</a></div>
                                         </td>
                                     </tr>
             
                             <tr>
                                 <td class="col-md-4">
-                                        <div>
+            
+                                        <div class="io-description">
                                                 <b>Parameters :</b>
                                                 <table class="params">
                                                     <thead>
@@ -741,18 +749,9 @@
                                                     </thead>
                                                     <tbody>
                                                             <tr>
-                                                              <td>message</td>
+                                                              <td>answer</td>
                                                               <td>
-                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                                              </td>
-                                                              <td>
-                                                              </td>
-                                                              <td></td>
-                                                            </tr>
-                                                            <tr>
-                                                              <td>value</td>
-                                                              <td>
-                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                                                      <code><a href="../classes/Answer.html" target="_self" >Answer | AnswerType</a></code>
                                                               </td>
                                                               <td>
                                                               </td>
@@ -761,6 +760,15 @@
                                                     </tbody>
                                                 </table>
                                         </div>
+                                        <div>
+                                        </div>
+                                        <div class="io-description">
+                                            <b>Returns : </b>    <code><a href="../classes/Answer.html" target="_self" >Answer&lt;&gt;</a></code>
+            
+                                        </div>
+                                            <div class="io-description">
+                                                
+                                            </div>
                                 </td>
                             </tr>
                         </tbody>
@@ -768,55 +776,20 @@
             </section>
 
 
-
-            <section>
-                
-                    <h3 id="inputs">
-                        Properties
-                    </h3>
-                    <table class="table table-sm table-bordered">
-                        <tbody>
-                            <tr>
-                                <td class="col-md-4">
-                                    <a name="value"></a>
-                                    <span class="name"><b><span class="modifier">Public</span> value</b><a href="#value"><span class="fa fa-link"></span></a></span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="col-md-4">
-                                    <span class="modifier-icon fa fa-reset"></span><code>value:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
-            </code>
-                                </td>
-                            </tr>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
-            
-                                    </td>
-                                </tr>
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">src/validation/max.model.ts:7</a></div>
-                                        </td>
-                                    </tr>
-            
-            
-                        </tbody>
-                    </table>
-            </section>
     </div>
 
 
     <div class="tab-pane fade tab-source-code" id="source">
-        <pre class="line-numbers"><code class="language-typescript">import { Validation, ValidationType } from &#x27;.&#x27;;
+        <pre class="line-numbers"><code class="language-typescript">import { isNullOrUndefined } from &#x27;util&#x27;;
 
-export class Max extends Validation {
+import { Answer } from &#x27;../question&#x27;;
 
-  public constructor(
-    message: string,
-    public value: number
-  ) {
-    super(ValidationType.MAX, message);
+export class AnswerFactory {
+
+  public static create&lt;AnswerType&gt;(answer: Answer&lt;AnswerType&gt; | AnswerType): Answer&lt;AnswerType&gt; {
+    return !isNullOrUndefined(answer) &amp;&amp; &#x27;object&#x27; &#x3D;&#x3D;&#x3D; typeof answer
+      ? new Answer&lt;AnswerType&gt;(answer[&#x27;value&#x27;], answer[&#x27;id&#x27;])
+      : new Answer&lt;AnswerType&gt;(answer);
   }
 }
 </code></pre>

@@ -136,6 +136,12 @@
                                     <a href="../classes/AngularFormsTranslateLoader.html" >AngularFormsTranslateLoader</a>
                                 </li>
                                 <li class="link">
+                                    <a href="../classes/Answer.html" >Answer</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../classes/AnswerFactory.html" >AnswerFactory</a>
+                                </li>
+                                <li class="link">
                                     <a href="../classes/Checkbox.html" >Checkbox</a>
                                 </li>
                                 <li class="link">
@@ -194,6 +200,9 @@
                                 </li>
                                 <li class="link">
                                     <a href="../classes/MinValidator.html" >MinValidator</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../classes/ObjectUtils.html" >ObjectUtils</a>
                                 </li>
                                 <li class="link">
                                     <a href="../classes/Pattern.html" >Pattern</a>
@@ -442,6 +451,12 @@
                                            <a href="../classes/AngularFormsTranslateLoader.html" >AngularFormsTranslateLoader</a>
                                        </li>
                                        <li class="link">
+                                           <a href="../classes/Answer.html" >Answer</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../classes/AnswerFactory.html" >AnswerFactory</a>
+                                       </li>
+                                       <li class="link">
                                            <a href="../classes/Checkbox.html" >Checkbox</a>
                                        </li>
                                        <li class="link">
@@ -500,6 +515,9 @@
                                        </li>
                                        <li class="link">
                                            <a href="../classes/MinValidator.html" >MinValidator</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../classes/ObjectUtils.html" >ObjectUtils</a>
                                        </li>
                                        <li class="link">
                                            <a href="../classes/Pattern.html" >Pattern</a>
@@ -658,7 +676,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/question/dependency.ts</code>
+            <code>src/question/dependency.model.ts</code>
         </p>
 
 
@@ -699,12 +717,12 @@
                         <tbody>
                             <tr>
                                 <td class="col-md-4">
-                                    <code>constructor(_code: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, _criteria: <a href="../classes/Dependency.html">DependencyCriteria</a>, _expectedAnswer: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                                    <code>constructor(code: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, criteria: <a href="../classes/Dependency.html">DependencyCriteria</a>, expectedAnswer: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                                 </td>
                             </tr>
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="3" class="link-to-prism">src/question/dependency.ts:3</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="3" class="link-to-prism">src/question/dependency.model.ts:3</a></div>
                                         </td>
                                     </tr>
             
@@ -723,7 +741,7 @@
                                                     </thead>
                                                     <tbody>
                                                             <tr>
-                                                              <td>_code</td>
+                                                              <td>code</td>
                                                               <td>
                                                                         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
                                                               </td>
@@ -732,7 +750,7 @@
                                                               <td></td>
                                                             </tr>
                                                             <tr>
-                                                              <td>_criteria</td>
+                                                              <td>criteria</td>
                                                               <td>
                                                                         <code><a href="../classes/Dependency.html" target="_self" >DependencyCriteria</a></code>
                                                               </td>
@@ -741,7 +759,7 @@
                                                               <td></td>
                                                             </tr>
                                                             <tr>
-                                                              <td>_expectedAnswer</td>
+                                                              <td>expectedAnswer</td>
                                                               <td>
                                                                         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
                                                               </td>
@@ -787,7 +805,7 @@
                                 </tr>
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/question/dependency.ts:11</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="6" class="link-to-prism">src/question/dependency.model.ts:6</a></div>
                                         </td>
                                     </tr>
             
@@ -816,7 +834,7 @@
                                 </tr>
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/question/dependency.ts:15</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">src/question/dependency.model.ts:7</a></div>
                                         </td>
                                     </tr>
             
@@ -845,7 +863,7 @@
                                 </tr>
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/question/dependency.ts:19</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/question/dependency.model.ts:8</a></div>
                                         </td>
                                     </tr>
             
@@ -862,22 +880,10 @@
 export class Dependency {
 
   public constructor(
-    private _code: string,
-    private _criteria: DependencyCriteria,
-    private _expectedAnswer: string
+    public code: string,
+    public criteria: DependencyCriteria,
+    public expectedAnswer: string
   ) { }
-
-  public get code(): string {
-    return this._code;
-  }
-
-  public get criteria(): DependencyCriteria {
-    return this._criteria;
-  }
-
-  public get expectedAnswer(): string {
-    return this._expectedAnswer;
-  }
 }
 </code></pre>
     </div>

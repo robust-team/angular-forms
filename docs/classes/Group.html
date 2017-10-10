@@ -136,6 +136,12 @@
                                     <a href="../classes/AngularFormsTranslateLoader.html" >AngularFormsTranslateLoader</a>
                                 </li>
                                 <li class="link">
+                                    <a href="../classes/Answer.html" >Answer</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../classes/AnswerFactory.html" >AnswerFactory</a>
+                                </li>
+                                <li class="link">
                                     <a href="../classes/Checkbox.html" >Checkbox</a>
                                 </li>
                                 <li class="link">
@@ -194,6 +200,9 @@
                                 </li>
                                 <li class="link">
                                     <a href="../classes/MinValidator.html" >MinValidator</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../classes/ObjectUtils.html" >ObjectUtils</a>
                                 </li>
                                 <li class="link">
                                     <a href="../classes/Pattern.html" >Pattern</a>
@@ -442,6 +451,12 @@
                                            <a href="../classes/AngularFormsTranslateLoader.html" >AngularFormsTranslateLoader</a>
                                        </li>
                                        <li class="link">
+                                           <a href="../classes/Answer.html" >Answer</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../classes/AnswerFactory.html" >AnswerFactory</a>
+                                       </li>
+                                       <li class="link">
                                            <a href="../classes/Checkbox.html" >Checkbox</a>
                                        </li>
                                        <li class="link">
@@ -500,6 +515,9 @@
                                        </li>
                                        <li class="link">
                                            <a href="../classes/MinValidator.html" >MinValidator</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../classes/ObjectUtils.html" >ObjectUtils</a>
                                        </li>
                                        <li class="link">
                                            <a href="../classes/Pattern.html" >Pattern</a>
@@ -658,7 +676,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/group/group.ts</code>
+            <code>src/group/group.model.ts</code>
         </p>
 
 
@@ -692,20 +710,6 @@
                                 </ul>
                             </td>
                         </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <h6><b>Methods</b></h6>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <ul class="index-list">
-                                    <li>
-                                        <span class="modifier">Public</span> <a href="#getQuestionByName">getQuestionByName</a>
-                                    </li>
-                                </ul>
-                            </td>
-                        </tr>
                     </tbody>
                 </table>
             </section>
@@ -716,12 +720,12 @@
                         <tbody>
                             <tr>
                                 <td class="col-md-4">
-                                    <code>constructor(_code: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, _description: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, _type: <a href="../classes/Group.html">GroupType</a>, _questions: <a href="../classes/Question.html">QuestionListType</a>)</code>
+                                    <code>constructor(code: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, description: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, type: <a href="../classes/Group.html">GroupType</a>, questions: <a href="../classes/Question.html">QuestionListType</a>)</code>
                                 </td>
                             </tr>
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="4" class="link-to-prism">src/group/group.ts:4</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="4" class="link-to-prism">src/group/group.model.ts:4</a></div>
                                         </td>
                                     </tr>
             
@@ -740,7 +744,7 @@
                                                     </thead>
                                                     <tbody>
                                                             <tr>
-                                                              <td>_code</td>
+                                                              <td>code</td>
                                                               <td>
                                                                         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
                                                               </td>
@@ -749,7 +753,7 @@
                                                               <td></td>
                                                             </tr>
                                                             <tr>
-                                                              <td>_description</td>
+                                                              <td>description</td>
                                                               <td>
                                                                         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
                                                               </td>
@@ -758,7 +762,7 @@
                                                               <td></td>
                                                             </tr>
                                                             <tr>
-                                                              <td>_type</td>
+                                                              <td>type</td>
                                                               <td>
                                                                         <code><a href="../classes/Group.html" target="_self" >GroupType</a></code>
                                                               </td>
@@ -767,7 +771,7 @@
                                                               <td></td>
                                                             </tr>
                                                             <tr>
-                                                              <td>_questions</td>
+                                                              <td>questions</td>
                                                               <td>
                                                                         <code><a href="../classes/Question.html" target="_self" >QuestionListType</a></code>
                                                               </td>
@@ -784,74 +788,6 @@
                     </table>
             </section>
 
-            <section>
-                
-                    <h3 id="methods">
-                        Methods
-                    </h3>
-                    <table class="table table-sm table-bordered">
-                        <tbody>
-                            <tr>
-                                <td class="col-md-4">
-                                    <a name="getQuestionByName"></a>
-                                    <span class="name"><b><span class="modifier">Public</span> getQuestionByName</b><a href="#getQuestionByName"><span class="fa fa-link"></span></a></span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="col-md-4">
-                                        <span class="modifier-icon fa fa-reset"></span>
-                                    <code>getQuestionByName(name: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
-                                </td>
-                            </tr>
-            
-            
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/group/group.ts:33</a></div>
-                                        </td>
-                                    </tr>
-            
-                            <tr>
-                                <td class="col-md-4">
-            
-                                        <div class="io-description">
-                                                <b>Parameters :</b>
-                                                <table class="params">
-                                                    <thead>
-                                                        <tr>
-                                                            <td>Name</td>
-                                                            <td>Type</td>
-                                                            <td>Optional</td>
-                                                            <td>Description</td>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                            <tr>
-                                                              <td>name</td>
-                                                              <td>
-                                                                      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                                              </td>
-                                                              <td>
-                                                              </td>
-                                                              <td></td>
-                                                            </tr>
-                                                    </tbody>
-                                                </table>
-                                        </div>
-                                        <div>
-                                        </div>
-                                        <div class="io-description">
-                                            <b>Returns : </b>    <code><a href="../classes/Question.html" target="_self" >Question&lt;any&gt;</a></code>
-            
-                                        </div>
-                                            <div class="io-description">
-                                                
-                                            </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-            </section>
 
 
             <section>
@@ -881,7 +817,7 @@
                                 </tr>
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/group/group.ts:13</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">src/group/group.model.ts:7</a></div>
                                         </td>
                                     </tr>
             
@@ -910,7 +846,7 @@
                                 </tr>
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/group/group.ts:17</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/group/group.model.ts:8</a></div>
                                         </td>
                                     </tr>
             
@@ -939,7 +875,7 @@
                                 </tr>
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/group/group.ts:29</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/group/group.model.ts:10</a></div>
                                         </td>
                                     </tr>
             
@@ -968,7 +904,7 @@
                                 </tr>
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/group/group.ts:25</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/group/group.model.ts:9</a></div>
                                         </td>
                                     </tr>
             
@@ -986,33 +922,11 @@ import { Question } from &#x27;../question&#x27;;
 export abstract class Group&lt;QuestionListType&gt; {
 
   public constructor(
-    protected _code: string,
-    protected _description: string,
-    protected _type: GroupType,
-    protected _questions: QuestionListType
+    public code: string,
+    public description: string,
+    public type: GroupType,
+    public questions: QuestionListType
   ) { }
-
-  public get code(): string {
-    return this._code;
-  }
-
-  public get description(): string {
-    return this._description;
-  }
-
-  public set description(value: string) {
-    this._description &#x3D; value;
-  }
-
-  public get type(): GroupType {
-    return this._type;
-  }
-
-  public get questions(): QuestionListType {
-    return this._questions;
-  }
-
-  public abstract getQuestionByName(name: string): Question&lt;any&gt;;
 }
 </code></pre>
     </div>

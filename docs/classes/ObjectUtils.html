@@ -178,7 +178,7 @@
                                     <a href="../classes/GroupBuilder.html" >GroupBuilder</a>
                                 </li>
                                 <li class="link">
-                                    <a href="../classes/Max.html"  data-type="entity-link" class="active" >Max</a>
+                                    <a href="../classes/Max.html" >Max</a>
                                 </li>
                                 <li class="link">
                                     <a href="../classes/MaxLength.html" >MaxLength</a>
@@ -202,7 +202,7 @@
                                     <a href="../classes/MinValidator.html" >MinValidator</a>
                                 </li>
                                 <li class="link">
-                                    <a href="../classes/ObjectUtils.html" >ObjectUtils</a>
+                                    <a href="../classes/ObjectUtils.html"  data-type="entity-link" class="active" >ObjectUtils</a>
                                 </li>
                                 <li class="link">
                                     <a href="../classes/Pattern.html" >Pattern</a>
@@ -493,7 +493,7 @@
                                            <a href="../classes/GroupBuilder.html" >GroupBuilder</a>
                                        </li>
                                        <li class="link">
-                                           <a href="../classes/Max.html"  data-type="entity-link" class="active" >Max</a>
+                                           <a href="../classes/Max.html" >Max</a>
                                        </li>
                                        <li class="link">
                                            <a href="../classes/MaxLength.html" >MaxLength</a>
@@ -517,7 +517,7 @@
                                            <a href="../classes/MinValidator.html" >MinValidator</a>
                                        </li>
                                        <li class="link">
-                                           <a href="../classes/ObjectUtils.html" >ObjectUtils</a>
+                                           <a href="../classes/ObjectUtils.html"  data-type="entity-link" class="active" >ObjectUtils</a>
                                        </li>
                                        <li class="link">
                                            <a href="../classes/Pattern.html" >Pattern</a>
@@ -656,7 +656,7 @@
 
 <ol class="breadcrumb">
   <li>Classes</li>
-  <li>Max</li>
+  <li>ObjectUtils</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -676,16 +676,10 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/validation/max.model.ts</code>
+            <code>src/util/object-utils.ts</code>
         </p>
 
 
-            <p class="comment">
-                <h3>Extends</h3>
-            </p>
-            <p class="comment">
-                    <code><a href="../classes/Validation.html" target="_self" >Validation</a></code>
-            </p>
 
 
 
@@ -695,14 +689,17 @@
                     <tbody>
                         <tr>
                             <td class="col-md-4">
-                                <h6><b>Properties</b></h6>
+                                <h6><b>Methods</b></h6>
                             </td>
                         </tr>
                         <tr>
                             <td class="col-md-4">
                                 <ul class="index-list">
                                     <li>
-                                        <span class="modifier">Public</span> <a href="#value">value</a>
+                                        <span class="modifier">Public</span> <a href="#clone">clone</a>
+                                    </li>
+                                    <li>
+                                        <span class="modifier">Public</span> <a href="#isEquals">isEquals</a>
                                     </li>
                                 </ul>
                             </td>
@@ -711,24 +708,38 @@
                 </table>
             </section>
 
+
             <section>
-                <h3 id="constructor">Constructor</h3>
+                
+                    <h3 id="methods">
+                        Methods
+                    </h3>
                     <table class="table table-sm table-bordered">
                         <tbody>
                             <tr>
                                 <td class="col-md-4">
-                                    <code>constructor(message: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, value: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                                    <a name="clone"></a>
+                                    <span class="name"><b><span class="modifier">Public</span> clone</b><a href="#clone"><span class="fa fa-link"></span></a></span>
                                 </td>
                             </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                        <span class="modifier-icon fa fa-reset"></span>
+                                    <code>clone(object: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" target="_blank">Object</a>)</code>
+                                </td>
+                            </tr>
+            
+            
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="3" class="link-to-prism">src/validation/max.model.ts:3</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="3" class="link-to-prism">src/util/object-utils.ts:3</a></div>
                                         </td>
                                     </tr>
             
                             <tr>
                                 <td class="col-md-4">
-                                        <div>
+            
+                                        <div class="io-description">
                                                 <b>Parameters :</b>
                                                 <table class="params">
                                                     <thead>
@@ -741,18 +752,9 @@
                                                     </thead>
                                                     <tbody>
                                                             <tr>
-                                                              <td>message</td>
+                                                              <td>object</td>
                                                               <td>
-                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                                              </td>
-                                                              <td>
-                                                              </td>
-                                                              <td></td>
-                                                            </tr>
-                                                            <tr>
-                                                              <td>value</td>
-                                                              <td>
-                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                                                      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" target="_blank" >Object</a></code>
                                                               </td>
                                                               <td>
                                                               </td>
@@ -761,62 +763,105 @@
                                                     </tbody>
                                                 </table>
                                         </div>
+                                        <div>
+                                        </div>
+                                        <div class="io-description">
+                                            <b>Returns : </b>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" target="_blank" >Object</a></code>
+            
+                                        </div>
+                                            <div class="io-description">
+                                                
+                                            </div>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
-            </section>
-
-
-
-            <section>
-                
-                    <h3 id="inputs">
-                        Properties
-                    </h3>
                     <table class="table table-sm table-bordered">
                         <tbody>
                             <tr>
                                 <td class="col-md-4">
-                                    <a name="value"></a>
-                                    <span class="name"><b><span class="modifier">Public</span> value</b><a href="#value"><span class="fa fa-link"></span></a></span>
+                                    <a name="isEquals"></a>
+                                    <span class="name"><b><span class="modifier">Public</span> isEquals</b><a href="#isEquals"><span class="fa fa-link"></span></a></span>
                                 </td>
                             </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <span class="modifier-icon fa fa-reset"></span><code>value:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
-            </code>
+                                        <span class="modifier-icon fa fa-reset"></span>
+                                    <code>isEquals(object1: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" target="_blank">Object</a>, object2: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" target="_blank">Object</a>)</code>
                                 </td>
                             </tr>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
             
-                                    </td>
-                                </tr>
+            
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">src/validation/max.model.ts:7</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">src/util/object-utils.ts:7</a></div>
                                         </td>
                                     </tr>
             
+                            <tr>
+                                <td class="col-md-4">
             
+                                        <div class="io-description">
+                                                <b>Parameters :</b>
+                                                <table class="params">
+                                                    <thead>
+                                                        <tr>
+                                                            <td>Name</td>
+                                                            <td>Type</td>
+                                                            <td>Optional</td>
+                                                            <td>Description</td>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                            <tr>
+                                                              <td>object1</td>
+                                                              <td>
+                                                                      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" target="_blank" >Object</a></code>
+                                                              </td>
+                                                              <td>
+                                                              </td>
+                                                              <td></td>
+                                                            </tr>
+                                                            <tr>
+                                                              <td>object2</td>
+                                                              <td>
+                                                                      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" target="_blank" >Object</a></code>
+                                                              </td>
+                                                              <td>
+                                                              </td>
+                                                              <td></td>
+                                                            </tr>
+                                                    </tbody>
+                                                </table>
+                                        </div>
+                                        <div>
+                                        </div>
+                                        <div class="io-description">
+                                            <b>Returns : </b>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+            
+                                        </div>
+                                            <div class="io-description">
+                                                
+                                            </div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
             </section>
+
+
     </div>
 
 
     <div class="tab-pane fade tab-source-code" id="source">
-        <pre class="line-numbers"><code class="language-typescript">import { Validation, ValidationType } from &#x27;.&#x27;;
+        <pre class="line-numbers"><code class="language-typescript">export class ObjectUtils {
 
-export class Max extends Validation {
+  public static clone(object: Object): Object {
+    return JSON.parse(JSON.stringify(object));
+  }
 
-  public constructor(
-    message: string,
-    public value: number
-  ) {
-    super(ValidationType.MAX, message);
+  public static isEquals(object1: Object, object2: Object): boolean {
+    return JSON.stringify(object1) &#x3D;&#x3D;&#x3D; JSON.stringify(object2);
   }
 }
 </code></pre>

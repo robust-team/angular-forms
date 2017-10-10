@@ -136,6 +136,12 @@
                                     <a href="../classes/AngularFormsTranslateLoader.html" >AngularFormsTranslateLoader</a>
                                 </li>
                                 <li class="link">
+                                    <a href="../classes/Answer.html" >Answer</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../classes/AnswerFactory.html" >AnswerFactory</a>
+                                </li>
+                                <li class="link">
                                     <a href="../classes/Checkbox.html" >Checkbox</a>
                                 </li>
                                 <li class="link">
@@ -194,6 +200,9 @@
                                 </li>
                                 <li class="link">
                                     <a href="../classes/MinValidator.html" >MinValidator</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../classes/ObjectUtils.html" >ObjectUtils</a>
                                 </li>
                                 <li class="link">
                                     <a href="../classes/Pattern.html" >Pattern</a>
@@ -442,6 +451,12 @@
                                            <a href="../classes/AngularFormsTranslateLoader.html" >AngularFormsTranslateLoader</a>
                                        </li>
                                        <li class="link">
+                                           <a href="../classes/Answer.html" >Answer</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../classes/AnswerFactory.html" >AnswerFactory</a>
+                                       </li>
+                                       <li class="link">
                                            <a href="../classes/Checkbox.html" >Checkbox</a>
                                        </li>
                                        <li class="link">
@@ -500,6 +515,9 @@
                                        </li>
                                        <li class="link">
                                            <a href="../classes/MinValidator.html" >MinValidator</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../classes/ObjectUtils.html" >ObjectUtils</a>
                                        </li>
                                        <li class="link">
                                            <a href="../classes/Pattern.html" >Pattern</a>
@@ -658,7 +676,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/question/question.ts</code>
+            <code>src/question/question.model.ts</code>
         </p>
 
 
@@ -725,12 +743,12 @@
                         <tbody>
                             <tr>
                                 <td class="col-md-4">
-                                    <code>constructor(_name: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, _description: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, _type: <a href="../classes/Question.html">QuestionType</a>, _dependencies: <a href="../classes/Dependency.html">Dependency[]</a>, _answer: Answer, _validations: <a href="../classes/Validation.html">Validation[]</a>, _disabled: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                                    <code>constructor(name: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, description: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, type: <a href="../classes/Question.html">QuestionType</a>, dependencies: <a href="../classes/Dependency.html">Dependency[]</a>, answer: <a href="../classes/Answer.html">Answer | AnswerType</a>, validations: <a href="../classes/Validation.html">Validation[]</a>, disabled: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
                                 </td>
                             </tr>
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="4" class="link-to-prism">src/question/question.ts:4</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="4" class="link-to-prism">src/question/question.model.ts:4</a></div>
                                         </td>
                                     </tr>
             
@@ -749,7 +767,7 @@
                                                     </thead>
                                                     <tbody>
                                                             <tr>
-                                                              <td>_name</td>
+                                                              <td>name</td>
                                                               <td>
                                                                         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
                                                               </td>
@@ -758,7 +776,7 @@
                                                               <td></td>
                                                             </tr>
                                                             <tr>
-                                                              <td>_description</td>
+                                                              <td>description</td>
                                                               <td>
                                                                         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
                                                               </td>
@@ -767,7 +785,7 @@
                                                               <td></td>
                                                             </tr>
                                                             <tr>
-                                                              <td>_type</td>
+                                                              <td>type</td>
                                                               <td>
                                                                         <code><a href="../classes/Question.html" target="_self" >QuestionType</a></code>
                                                               </td>
@@ -776,7 +794,7 @@
                                                               <td></td>
                                                             </tr>
                                                             <tr>
-                                                              <td>_dependencies</td>
+                                                              <td>dependencies</td>
                                                               <td>
                                                                         <code><a href="../classes/Dependency.html" target="_self" >Dependency[]</a></code>
                                                               </td>
@@ -785,16 +803,16 @@
                                                               <td></td>
                                                             </tr>
                                                             <tr>
-                                                              <td>_answer</td>
+                                                              <td>answer</td>
                                                               <td>
-                                                                        <code>Answer</code>
+                                                                        <code><a href="../classes/Answer.html" target="_self" >Answer | AnswerType</a></code>
                                                               </td>
                                                               <td>
                                                               </td>
                                                               <td></td>
                                                             </tr>
                                                             <tr>
-                                                              <td>_validations</td>
+                                                              <td>validations</td>
                                                               <td>
                                                                         <code><a href="../classes/Validation.html" target="_self" >Validation[]</a></code>
                                                               </td>
@@ -803,7 +821,7 @@
                                                               <td></td>
                                                             </tr>
                                                             <tr>
-                                                              <td>_disabled</td>
+                                                              <td>disabled</td>
                                                               <td>
                                                                         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
                                                               </td>
@@ -843,7 +861,7 @@
             
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/question/question.ts:16</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/question/question.model.ts:16</a></div>
                                         </td>
                                     </tr>
             
@@ -876,19 +894,19 @@
                             </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <span class="modifier-icon fa fa-reset"></span><code>answer:     <code>Answer</code>
+                                    <span class="modifier-icon fa fa-reset"></span><code>answer:     <code><a href="../classes/Answer.html" target="_self" >Answer | AnswerType</a></code>
             </code>
                                 </td>
                             </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <i>Type : </i>    <code>Answer</code>
+                                        <i>Type : </i>    <code><a href="../classes/Answer.html" target="_self" >Answer | AnswerType</a></code>
             
                                     </td>
                                 </tr>
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/question/question.ts:46</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/question/question.model.ts:11</a></div>
                                         </td>
                                     </tr>
             
@@ -917,7 +935,7 @@
                                 </tr>
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/question/question.ts:42</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/question/question.model.ts:10</a></div>
                                         </td>
                                     </tr>
             
@@ -946,7 +964,7 @@
                                 </tr>
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/question/question.ts:30</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/question/question.model.ts:8</a></div>
                                         </td>
                                     </tr>
             
@@ -973,9 +991,14 @@
             
                                     </td>
                                 </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <i>Default value : </i><code>false</code>
+                                    </td>
+                                </tr>
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">src/question/question.ts:54</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/question/question.model.ts:13</a></div>
                                         </td>
                                     </tr>
             
@@ -1004,7 +1027,7 @@
                                 </tr>
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/question/question.ts:26</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">src/question/question.model.ts:7</a></div>
                                         </td>
                                     </tr>
             
@@ -1033,7 +1056,7 @@
                                 </tr>
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/question/question.ts:38</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/question/question.model.ts:9</a></div>
                                         </td>
                                     </tr>
             
@@ -1062,7 +1085,7 @@
                                 </tr>
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/question/question.ts:50</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/question/question.model.ts:12</a></div>
                                         </td>
                                     </tr>
             
@@ -1074,61 +1097,29 @@
 
 
     <div class="tab-pane fade tab-source-code" id="source">
-        <pre class="line-numbers"><code class="language-typescript">import { Dependency, QuestionType } from &#x27;.&#x27;;
+        <pre class="line-numbers"><code class="language-typescript">import { Answer, Dependency, QuestionType } from &#x27;.&#x27;;
 import { Pattern, Validation, ValidationType } from &#x27;../validation&#x27;;
 
-export abstract class Question&lt;Answer&gt; {
+export abstract class Question&lt;AnswerType&gt; {
 
   public constructor(
-    protected _name: string,
-    protected _description: string,
-    protected _type: QuestionType,
-    protected _dependencies: Dependency[] &#x3D; [],
-    protected _answer: Answer &#x3D; null,
-    protected _validations: Validation[] &#x3D; [],
-    protected _disabled: boolean &#x3D; false
+    public name: string,
+    public description: string,
+    public type: QuestionType,
+    public dependencies: Dependency[] &#x3D; [],
+    public answer: Answer&lt;AnswerType&gt; | AnswerType &#x3D; null,
+    public validations: Validation[] &#x3D; [],
+    public disabled: boolean &#x3D; false
   ) { }
 
   public isRequired(): boolean {
-    for (const validation of this._validations) {
+    for (const validation of this.validations) {
       if (validation.isRequired()) {
         return true;
       }
     }
 
     return false;
-  }
-
-  public get name(): string {
-    return this._name;
-  }
-
-  public get description(): string {
-    return this._description;
-  }
-
-  public set description(value: string) {
-    this._description &#x3D; value;
-  }
-
-  public get type(): QuestionType {
-    return this._type;
-  }
-
-  public get dependencies(): Dependency[] {
-    return this._dependencies;
-  }
-
-  public get answer(): Answer {
-    return this._answer;
-  }
-
-  public get validations(): Validation[] {
-    return this._validations;
-  }
-
-  public get disabled(): boolean {
-    return this._disabled;
   }
 }
 </code></pre>
