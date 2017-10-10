@@ -37,14 +37,17 @@ describe('AngularFormsComponent', () => {
     .compileComponents();
   }));
 
-  beforeEach(async(() => {
+  beforeEach(function(this: Mocha.IBeforeAndAfterContext, done: MochaDone): any {
+    this.timeout(0);
+    setTimeout(done, 2000);
+
     fixture = TestBed.createComponent(AngularFormsComponent);
     component = fixture.componentInstance;
     component.groups = (new DemoService()).getForm();
     component.ngOnChanges(<any>{ groups: { currentValue: (new DemoService()).getForm() } });
 
     fixture.detectChanges();
-  }));
+  });
 
   it('should create', () => {
     assert(component);
