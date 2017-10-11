@@ -1,5 +1,5 @@
 import { Dependency, QuestionType } from '.';
-import { Pattern, Validation, ValidationType } from '../validation';
+import { Validation } from '../validation';
 
 export abstract class Question<Answer> {
 

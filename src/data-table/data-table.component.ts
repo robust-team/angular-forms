@@ -3,7 +3,7 @@ import { FormGroup, FormArray, FormControl } from '@angular/forms';
 
 import { Status } from '..';
 import { Select, SelectService, Question, QuestionType } from '../question';
-import { Group, DataTable } from '../group';
+import { DataTable } from '../group';
 import { ReactiveFormsFactory } from '../factory';
 
 @Component({

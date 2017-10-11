@@ -1,13 +1,12 @@
-import { FormGroup, FormArray, FormControl, ValidatorFn, Validators } from '@angular/forms';
+import { FormGroup, FormArray, FormControl, ValidatorFn } from '@angular/forms';
 
 import { Group, GroupType, Fieldset, DataTable } from '../group';
 import { Choice, Question } from '../question';
-import { Validation, MinLength, MaxLength, Pattern, Required, Min, Max } from '../validation';
+import { Validation } from '../validation';
 import {
   ValidatorFactoryHandler, RequiredValidator, EmailValidator, MaxValidator, MinValidator,
   MaxLengthValidator, MinLengthValidator, PatternValidator
 } from '../chain-of-responsibility/validator-factory';
-import { ValidationTypeNotFoundError } from '../chain-of-responsibility/validator-factory/error';
 
 export class ReactiveFormsFactory {
 
