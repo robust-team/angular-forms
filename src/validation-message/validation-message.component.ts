@@ -5,13 +5,7 @@ import { Validation } from '../validation';
 
 @Component({
   selector: 'rb-validation-message',
-  template: `
-    <ul class="rb-validation-message" *ngIf="submitted || control.touched">
-      <li *ngFor="let validation of validations" [hidden]="!control.hasError(validation.type)">
-        {{ validation.message }}
-      </li>
-    </ul>
-  `,
+  templateUrl: './validation-message.component.html',
 })
 export class ValidationMessageComponent {
 
