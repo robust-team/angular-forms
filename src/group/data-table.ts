@@ -1,6 +1,6 @@
 import { Group, GroupType } from '.';
 import { Question } from '../question';
-import { Pattern, Validation, ValidationType } from '../validation';
+import { Validation, ValidationType } from '../validation';
 
 export class DataTable extends Group<Question<any>[][]> {
 

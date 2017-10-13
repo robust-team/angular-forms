@@ -1,6 +1,6 @@
 import { ValidatorFn, Validators } from '@angular/forms';
 
-import { Validation, Email, Max, Min, MaxLength, MinLength, Pattern, Required } from '../validation';
+import { Validation, Max, Min, MaxLength, MinLength, Pattern, Required } from '../validation';
 
 export class ValidatorFactory {
 

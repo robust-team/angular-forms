@@ -1,7 +1,6 @@
 import { GroupBuilder } from '.';
 import { Fieldset } from '../group';
 import { Question } from '../question';
-import { Validation } from '../validation';
 
 export class FieldsetBuilder extends GroupBuilder<Question<any>> {
 

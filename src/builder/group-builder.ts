@@ -1,5 +1,4 @@
 import { Group } from '../group';
-import { Question } from '../question';
 
 export abstract class GroupBuilder<QuestionListType> {
 

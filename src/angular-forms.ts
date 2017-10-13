@@ -1,5 +1,5 @@
 import { GroupBuilder, FieldsetBuilder, DataTableBuilder } from './builder';
-import { Group, GroupType, Fieldset, DataTable } from './group';
+import { Group, GroupType, DataTable } from './group';
 import { Question } from './question';
 import { QuestionFactory } from './factory';
 
